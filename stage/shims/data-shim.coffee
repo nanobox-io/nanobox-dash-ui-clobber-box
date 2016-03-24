@@ -20,4 +20,18 @@ module.exports = class ClobberBoxDataShim
       componentKind: "ruby"
       totalMembers: clusterCount
     }
-    # @boxCount += clusterCount
+
+  getAppComponentData : () ->
+    {
+      name: "web"
+      kindId:"ruby"
+      kindName:"ruby"
+    }
+
+  getPlatformComponentData : () ->
+    {
+      isPlatformComponent: true
+      name: "lb1"
+      kindId:"load-balancer"
+      kindName:"Load Balancer"
+    }

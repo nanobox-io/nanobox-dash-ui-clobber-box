@@ -1,29 +1,42 @@
-.box                   { width:600px; margin-bottom:20px;
-  .white-box           { padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
-  .stats               { margin:0 10px 0 auto; }
-  .name                { color:$slate-blue; }
-  .service-icon        { width:31px; margin:2px 3px 0 0;
-    &.ruby .bg         { fill:none; stroke: #F06368; stroke-width:1.7px; }
-    &.mongo-db .bg     { fill:none; stroke: #65BC81; stroke-width:1.7px; }
+.box               { width:600px; margin-bottom:20px;
+  .white-box       { padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
+  .stats           { margin:0 10px 0 auto; }
+  .name            { color:$slate-blue; }
+  .id              {
+    *              { color:$slate-blue; }
+    .service-name  { text-transform: uppercase; }
+  }
+  .service-icon    { width:31px; margin:2px 3px 0 0;
+    &.ruby .bg     { fill:none; stroke: #F06368; stroke-width:1.7px; }
+    &.mongo-db .bg { fill:none; stroke: #65BC81; stroke-width:1.7px; }
   }
 
   // HOST BOX
-  &.host-box           {
-    .name              { font-size:30px; margin-right:10px;}
-    .service-icons     { display:flex;
+  &.host-box       {
+    .name          { font-size:30px; margin-right:10px;}
+    .service-icons { display:flex;
 
     }
   }
 
   // CLUSTER BOX
-  &.cluster-box        {
-    .id                {
-      *                {  color:$slate-blue; }
-      .service-name    { text-transform: uppercase; }
+  &.cluster-box    {
+    .component     { position: relative; margin-left:20px;
+      .icon        { width:31px; }
+      .total       { position: absolute; right:-8px; bottom:0; background:$link-blue; width:20px; height:20px; color:white; border-radius: 50%; text-align: center; font-size:12px; line-height: 20px; }
     }
-    .component         { position: relative; margin-left:20px;
-      .icon            { width:31px; }
-      .total           { position: absolute; right:-8px; bottom:0; background:$link-blue; width:20px; height:20px; color:white; border-radius: 50%; text-align: center; font-size:12px; line-height: 20px; }
+  }
+
+  // Component Box
+  &.component-box {
+    .white-box    { background: none; position:relative; }
+    .id           { margin-left:30px; }
+    .corner-box   { position:absolute;z-index:-1; left:-12px;}
+    .service-bug  { position:relative;
+      > *         { position:absolute; }
+      .bg-hex     { background:url('/assets/cobber-box-sprite.png'); width:65px; height:75px; top:-48px; left:-42px; }
+      svg         { top:-41px; left:-32px; }
+
     }
   }
 
