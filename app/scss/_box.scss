@@ -7,8 +7,8 @@
     .service-name  { text-transform: uppercase; }
   }
   .service-icon    { width:31px; margin:2px 3px 0 0;
-    &.ruby .bg     { fill:none; stroke: #F06368; stroke-width:1.7px; }
-    &.mongo-db .bg { fill:none; stroke: #65BC81; stroke-width:1.7px; }
+    &.ruby .bg     { fill:none; }
+    &.mongo-db .bg { fill:none; }
   }
 
   // HOST BOX
@@ -35,7 +35,7 @@
     .service-bug  { position:relative;
       > *         { position:absolute; }
       .bg-hex     { background:url('/assets/cobber-box-sprite.png'); width:65px; height:75px; top:-48px; left:-42px; }
-      svg         { top:-41px; left:-32px; }
+      svg         { top:-41px; left:-33px; }
 
     }
   }
