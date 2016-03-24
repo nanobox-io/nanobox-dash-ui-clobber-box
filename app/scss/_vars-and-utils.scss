@@ -1,0 +1,19 @@
+@mixin transition ($property:all, $duration:0.05s, $timing:linear, $delay:0s) {
+  @if $property != none {
+    -webkit-transition: $property $duration $timing $delay;
+    -moz-transition: $property $duration $timing $delay;
+    -o-transition: $property $duration $timing $delay;
+    transition: $property $duration $timing $delay;
+  } @else {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+@mixin drop-shadow ($xoffset:0px, $yoffset:1px, $blur:13px, $color:#050505, $radius:0px) {
+  -webkit-box-shadow: $xoffset $yoffset $blur $radius $color;
+  -moz-box-shadow: $xoffset $yoffset $blur $radius $color;
+  box-shadow: $xoffset $yoffset $blur $radius $color;
+}

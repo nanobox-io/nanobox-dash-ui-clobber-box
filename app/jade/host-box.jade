@@ -1,0 +1,8 @@
+.box.host-box
+  .white-box
+    .name=name
+    .service-icons
+      each service in services
+        .service-icon(class="#{service.kind}")
+          img.shadow-icon(data-src="#{service.kind}" scalable="true", xtra="2")
+    .stats

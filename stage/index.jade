@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  
+  head
+    title ClobberBox
+
+    // build:remove 
+    link(href="stage/css/stage.css", rel="stylesheet")
+    link(href="bower-libs/hourly-stats/rel/style.css", rel="stylesheet")
+    // endbuild
+    
+    // build:css style.css
+    link(href="css/icons-svg.css", rel="stylesheet")
+    link(href="css/main.css", rel="stylesheet")
+    // endbuild
+
+  body
+    // build:remove 
+    script(src="bower-libs/jquery/dist/jquery.js")
+    script(src="bower-libs/jade/runtime.js")
+    script(src="bower-libs/shadow-icons/rel/app.js")
+    script(src="bower-libs/d3/d3.min.js")
+    script(src="bower-libs/hourly-stats/rel/app.js")
+    script(src="bower-libs/hourly-stats/rel/data-shim.js")
+    script(src="https://use.typekit.net/cqd5kth.js")
+    // endbuild
+
+    script(type="text/javascript") try{Typekit.load({ async: true });}catch(e){}
+
+    // build:js app.js
+    script(src="js/main.js")
+    script(src="js/icons-svg.js")
+    // endbuild
+    
+    // build:remove 
+    script(src="stage/js/stage.js")
+    // endbuild
+    
+    script(type="text/javascript") init()
+    
+    
+    // build:remove 
+    script(src="http://localhost:35729/livereload.js")
+    // endbuild
