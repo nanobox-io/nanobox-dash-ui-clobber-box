@@ -1,5 +1,5 @@
 ClobberBoxDataShim = require './shims/data-shim'
-clobberBoxDataShim = new ClobberBoxDataShim()
+window.clobberBoxDataShim = new ClobberBoxDataShim()
 
 window.init = ()->
   hostBox = new nanobox.ClobberBox()
