@@ -1,11 +1,11 @@
 .box.cluster-box
   .white-box
     .id
-      .name=name
-      .service-name=serviceName
+      .name=clusterName
+      .service-name=serviceType
     .component
-      .service-icon(class="#{componentKind}")
-        img.shadow-icon(data-src="#{componentKind}" scalable="true", xtra="2")
+      .service-icon(class="#{serviceType}")
+        img.shadow-icon(data-src="#{serviceType}" scalable="true", xtra="2")
       .total=totalMembers
     .stats
       

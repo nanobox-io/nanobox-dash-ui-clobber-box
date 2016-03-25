@@ -2,7 +2,7 @@
   .white-box
     .name=name
     .service-icons
-      each service in services
-        .service-icon(class="#{service.kind}")
-          img.shadow-icon(data-src="#{service.kind}" scalable="true", xtra="2")
+      each service in appComponents
+        .service-icon(class="#{service.serviceType}")
+          img.shadow-icon(data-src="#{service.serviceType}" scalable="true", xtra="2")
     .stats

@@ -1,37 +1,47 @@
 module.exports = class ClobberBoxDataShim
 
   constructor : () ->
-    @boxCount = 0
+    @hostCount         = 0
+    @appComponentCount = 0
+    @dbCount           = 0
+    @clusterCount      = 0
 
-  getBoxData : () ->
-    @boxCount++
+  getHost : () ->
     {
-      name: "EC2.#{@boxCount}"
-      components: [
-        {kind:'mongo-db'}
-        {kind:'ruby'}
+      id   : "ec2.#{++@hostCount}"
+      name : "ec2.#{@hostCount}"
+      appComponents : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
+      platformComponents : [
+        @getPlatformComponent "lb", "Load Balancer", "load-balancer"
+        @getPlatformComponent "lg", "Logger", "logger"
+        @getPlatformComponent "hm", "Health Monitor", "health-monitor"
+        @getPlatformComponent "mr", "Message Router", "message-router"
+        @getPlatformComponent "gs", "Blob Storage", "glob-storage"
       ]
     }
 
-  getClusterData : (clusterCount=6) ->
+  getCluster : (totalMembers=4) ->
+    data = {
+      id:"cluster.#{++@clusterCount}"
+      name:"web #{++@appComponentCount}"
+      serviceType:"ruby"
+      instances:[]
+    }
+    for i in [1..totalMembers]
+      data.instances.push {id:"web.#{@appComponentCount}.#{i}", hostId:"ec2.#{++@hostCount}", hostName:"ec2.#{@hostCount}"}
+    data
+
+  getAppComponent : (kind='web', type="ruby") ->
     {
-      name: "EC2.#{++@boxCount} - EC2.#{@boxCount+=clusterCount}"
-      serviceName: "web"
-      componentKind: "ruby"
-      totalMembers: clusterCount
+      id          : "#{kind}.#{@appComponentCount}"
+      name        : "#{kind} #{@appComponentCount}"
+      serviceType : type
     }
 
-  getAppComponentData : () ->
+  getPlatformComponent : (id, name, serviceType) ->
     {
-      name: "web"
-      kindId:"ruby"
-      kindName:"ruby"
-    }
-
-  getPlatformComponentData : () ->
-    {
-      isPlatformComponent: true
-      name: "lb1"
-      kindId:"load-balancer"
-      kindName:"Load Balancer"
+      isPlatformComponent : true
+      id                  : id,
+      name                : name,
+      serviceType         : serviceType
     }

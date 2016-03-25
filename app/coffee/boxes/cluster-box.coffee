@@ -5,7 +5,9 @@ clusterBox  = require 'jade/cluster-box'
 module.exports = class ClusterBox extends Box
 
   constructor: ($el, data) ->
-    $node = $ clusterBox( {name:data.name, serviceName:data.serviceName, componentKind:data.componentKind, totalMembers:data.totalMembers} )
+    data.clusterName  = @makeClusterName data.instances
+    data.totalMembers = data.instances.length
+    $node = $ clusterBox( data )
     $el.append $node
 
     @buildNav $node
@@ -20,3 +22,5 @@ module.exports = class ClusterBox extends Box
       {txt:"Stats", icon:'stats'}
     ]
     @nav = new BoxNav $node, navItems
+
+  makeClusterName : (instances) -> "#{instances[0].hostName} - #{instances[instances.length-1].hostName}"
