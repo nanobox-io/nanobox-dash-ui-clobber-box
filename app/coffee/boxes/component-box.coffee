@@ -5,7 +5,6 @@ componentBox = require 'jade/component-box'
 module.exports = class ComponentBox extends Box
 
   constructor: ($el, data) ->
-    console.log data
     $node = $ componentBox( data )
     $el.append $node
 

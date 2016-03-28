@@ -15,9 +15,11 @@ class ClobberBox
       when ClobberBox.PLATFORM_COMPONENT then @box = new ComponentBox $el, @data
       when ClobberBox.APP_COMPONENT      then @box = new ComponentBox $el, @data
 
+    @stats = @box.stats
 
-  updateLiveStats : (data)->
-    @box.updateLiveStats data
+  updateLiveStats     : (data)-> @box.updateLiveStats data
+  updateHistoricStat  : (data)-> @box.updateHistoricStat data
+  initStats           : (data)-> @box.initStats data
 
   # ------------------------------------ Constants
 
