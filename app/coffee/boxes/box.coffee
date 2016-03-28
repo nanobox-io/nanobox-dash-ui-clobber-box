@@ -1,6 +1,6 @@
 module.exports = class Box
 
-  constructor: ($el, data) ->
+  constructor: ($el, @data) ->
     shadowIconsInstance.svgReplaceWithString pxSvgIconString, $el
 
   buildStats : ($el) ->

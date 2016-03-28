@@ -18,7 +18,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "host" in the format rails sends us such data
   getHost : () ->
     {
-      id   : "ec2.#{++@hostCount}"
+      id   : "host.#{++@hostCount}"
       name : "ec2.#{@hostCount}"
       appComponents : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
       platformComponents : [

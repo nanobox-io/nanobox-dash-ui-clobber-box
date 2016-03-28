@@ -1,11 +1,12 @@
 {
   "name": "clobberbox",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "dependencies": {
     "jquery": "*",
     "velocity": "~1.1.0",
     "shadow-icons": "tolmark12/shadow-icons-js",
-    "hourly-stats": "nanobox-io/nanobox-dash-ui-hourly-stats"
+    "hourly-stats": "nanobox-io/nanobox-dash-ui-hourly-stats",
+    "PubSubJS": "pubsub-js#^1.5.3"
   },
   "ignore": [
     "app",
