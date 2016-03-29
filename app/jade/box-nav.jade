@@ -2,5 +2,5 @@
   each item in nav
     .nav-item(data-event="#{item.event}")
       .icon
-        img.shadow-icon(data-src="#{item.icon}" xtra="2")
+        img.shadow-icon(data-src="nav-#{item.icon}" xtra="2")
       .text=item.txt

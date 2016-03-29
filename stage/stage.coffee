@@ -1,7 +1,9 @@
 ClobberBoxDataShim = require './shims/data-shim'
 window.clobberBoxDataShim = new ClobberBoxDataShim()
 
-window.init = ()->
+hostBox = clusterBox = appComponent = platformComponent = ""
+
+window.init = ()=>
   hostBox = new nanobox.ClobberBox()
   hostBox.build $("body"), nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost()
   clobberBoxDataShim.sendDummyStats hostBox
@@ -17,3 +19,12 @@ window.init = ()->
   platformComponent = new nanobox.ClobberBox()
   platformComponent.build $("body"), nanobox.ClobberBox.PLATFORM_COMPONENT, clobberBoxDataShim.getPlatformComponent("lb", "Load Balancer", "load-balancer")
   clobberBoxDataShim.sendDummyStats platformComponent
+
+  addButtonEvents()
+
+addButtonEvents = ()=>
+  $("#show-platform-components").on "click", ()=> hostBox.box.showPlatformComponents()
+  $("#show-app-components").on      "click", ()=> hostBox.box.showAppComponents()
+
+  # Useful for triggering some click right away
+  $("#show-app-components").trigger "click"

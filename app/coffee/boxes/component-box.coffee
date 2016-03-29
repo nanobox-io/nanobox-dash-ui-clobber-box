@@ -23,7 +23,7 @@ module.exports = class ComponentBox extends Box
       {txt:"Admin",   icon:'admin',   event:'SHOW.ADMIN'  }
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
     ]
-    @nav = new BoxNav $node, navItems, @data.id
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
 
   buildPlatformComponentNav  : ($node) ->

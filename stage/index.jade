@@ -7,6 +7,7 @@ html(lang="en")
     // build:remove 
     link(href="stage/css/stage.css", rel="stylesheet")
     link(href="bower-libs/hourly-stats/rel/style.css", rel="stylesheet")
+    link(href="bower-libs/platform-component/rel/style.css", rel="stylesheet")
     // endbuild
     
     // build:css style.css
@@ -15,12 +16,19 @@ html(lang="en")
     // endbuild
 
   body
+    .btns
+      button#show-platform-components Show Platform Components
+      button#show-app-components Show App Components
+      
     // build:remove 
     script(src="bower-libs/jquery/dist/jquery.js")
     script(src="bower-libs/PubSubJS/src/pubsub.js")
     script(src="bower-libs/jade/runtime.js")
+    script(src="bower-libs/velocity/velocity.js")
     script(src="bower-libs/shadow-icons/rel/app.js")
     script(src="bower-libs/d3/d3.min.js")
+    script(src="bower-libs/eventify/dist/eventify.min.js")
+    script(src="bower-libs/platform-component/rel/app.js")
     script(src="bower-libs/hourly-stats/rel/app.js")
     script(src="bower-libs/hourly-stats/rel/data-shim.js")
     script(src="https://use.typekit.net/cqd5kth.js")
