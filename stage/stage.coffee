@@ -4,21 +4,23 @@ window.clobberBoxDataShim = new ClobberBoxDataShim()
 hostBox = clusterBox = appComponent = platformComponent = ""
 
 window.init = ()=>
+  statsDataSimultor.createFakeStatDataProvider()
+
   hostBox = new nanobox.ClobberBox()
   hostBox.build $("body"), nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost()
-  clobberBoxDataShim.sendDummyStats hostBox
+  # clobberBoxDataShim.sendDummyStats hostBox
 
   clusterBox = new nanobox.ClobberBox()
   clusterBox.build $("body"), nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster()
-  clobberBoxDataShim.sendDummyStats clusterBox
+  # clobberBoxDataShim.sendDummyStats clusterBox
 
   appComponent = new nanobox.ClobberBox()
   appComponent.build $("body"), nanobox.ClobberBox.APP_COMPONENT, clobberBoxDataShim.getAppComponent()
-  clobberBoxDataShim.sendDummyStats appComponent
+  # clobberBoxDataShim.sendDummyStats appComponent
 
   platformComponent = new nanobox.ClobberBox()
   platformComponent.build $("body"), nanobox.ClobberBox.PLATFORM_COMPONENT, clobberBoxDataShim.getPlatformComponent("lb", "Load Balancer", "load-balancer")
-  clobberBoxDataShim.sendDummyStats platformComponent
+  # clobberBoxDataShim.sendDummyStats platformComponent
 
   addButtonEvents()
 

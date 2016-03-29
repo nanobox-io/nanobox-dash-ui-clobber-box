@@ -17,9 +17,9 @@ class ClobberBox
 
     @stats = @box.stats
 
-  updateLiveStats     : (data)-> @box.updateLiveStats data
-  updateHistoricStat  : (data)-> @box.updateHistoricStat data
-  initStats           : (data)-> @box.initStats data
+  # updateLiveStats     : (data)-> @box.updateLiveStats data
+  # updateHistoricStat  : (data)-> @box.updateHistoricStat data
+  # initStats           : (data)-> @box.initStats data
 
   # ------------------------------------ Constants
 

@@ -8,12 +8,12 @@ module.exports = class ClobberBoxDataShim
 
   # For Brevity when testing, this method sends a given clobberbox instance a
   # dummy set of live stats, and a dummy historical stat of each metric type
-  sendDummyStats : (clobberBox) ->
-    clobberBox.stats.updateLiveStats statsDataSimultor.generateFakeLiveStats()
-    clobberBox.stats.updateHistoricStat "disk", statsDataSimultor.generateFakeHistoricalStats()
-    clobberBox.stats.updateHistoricStat "ram", statsDataSimultor.generateFakeHistoricalStats()
-    clobberBox.stats.updateHistoricStat "cpu", statsDataSimultor.generateFakeHistoricalStats()
-    clobberBox.stats.updateHistoricStat "swap", statsDataSimultor.generateFakeHistoricalStats()
+  # sendDummyStats : (clobberBox) ->
+  #   clobberBox.stats.updateLiveStats statsDataSimultor.generateFakeLiveStats()
+  #   clobberBox.stats.updateHistoricStat "disk", statsDataSimultor.generateFakeHistoricalStats()
+  #   clobberBox.stats.updateHistoricStat "ram", statsDataSimultor.generateFakeHistoricalStats()
+  #   clobberBox.stats.updateHistoricStat "cpu", statsDataSimultor.generateFakeHistoricalStats()
+  #   clobberBox.stats.updateHistoricStat "swap", statsDataSimultor.generateFakeHistoricalStats()
 
   # Generate data describing a "host" in the format rails sends us such data
   getHost : () ->
