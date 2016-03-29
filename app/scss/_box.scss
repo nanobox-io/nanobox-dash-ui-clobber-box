@@ -34,7 +34,7 @@
     .corner-box   { position:absolute;z-index:-1; left:-12px;}
     .service-bug  { position:relative;
       > *         { position:absolute; }
-      .bg-hex     { background:url('../assets/cobber-box-sprite.png'); width:65px; height:75px; top:-48px; left:-42px; }
+      .bg-hex     { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-42px; }
       svg         { top:-41px; left:-33px; }
 
     }
