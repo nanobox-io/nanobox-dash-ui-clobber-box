@@ -29,4 +29,4 @@ addButtonEvents = ()=>
   $("#show-app-components").on      "click", ()=> hostBox.box.showAppComponents()
 
   # Useful for triggering some click right away
-  $("#show-app-components").trigger "click"
+  $("#show-platform-components").trigger "click"

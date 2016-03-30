@@ -16,13 +16,13 @@ module.exports = class HostBox extends Box
 
   showPlatformComponents : () ->
     @hideCurrentSubContent ()=>
-      @subView = new PlatformComponents $(".sub-content", @$node)
+      @subView = new PlatformComponents $(".sub-content", @$node), @hideCurrentSubContent
       @resizeSubContent "platform-components"
 
   showAppComponents : () ->
     @hideCurrentSubContent ()=>
       @subView = new AppComponents $(".sub-content", @$node), @data.appComponents
-      @resizeSubContent "platform-components"
+      @resizeSubContent "app-components"
 
   buildNav : ($node) ->
     navItems = [
