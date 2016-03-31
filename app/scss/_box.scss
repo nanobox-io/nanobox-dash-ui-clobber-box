@@ -28,18 +28,18 @@
   }
 
   // COMPONENT BOX
-  &.component-box {
-    .white-box    { background: none; position:relative; }
-    .id           { margin-left:30px;
+  &.component-box   { 
+    .white-box      { background: none; position:relative; }
+    .id             { margin-left:30px;
       .name         { font-size:20px; }
       .service-name { font-size:17px; font-weight:$medium; }
     }
-    .id, .stats   { z-index:2; }
-    .corner-box   { position:absolute; left:-15px;}
-    .service-bug  { position:relative;
-      > *         { position:absolute; }
-      .bg-hex     { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
-      svg         { top:-41px; left:-35px; }
+    .id, .stats     { z-index:2; }
+    .corner-box     { position:absolute; left:-15px;}
+    .service-bug    { position:relative;
+      > *           { position:absolute; }
+      .bg-hex       { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
+      svg           { top:-41px; left:-35px; }
     }
   }
 
