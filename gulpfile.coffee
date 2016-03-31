@@ -28,13 +28,15 @@ watch        = require 'gulp-watch'
 wrap         = require 'gulp-wrap'
 
 
+jadeDestination   = './server/js/jade'
+
 # Paths to source files
 
 jadeStagePath     = 'stage/index.jade'
 jadePath          = 'app/jade/**/*.jade'
 cssPath           = 'app/scss/**/*.scss'
 cssStagePath      = 'stage/stage.scss'
-appJsPath         = ['app/coffee/**/*.coffee', './server/js/jade/**/*.js']
+appJsPath         = ['app/coffee/**/*.coffee', "#{jadeDestination}/**/*.js"]
 stageJsPath       = 'stage/**/*.coffee'
 assetPath         = ['app/assets/*.!(svg)', 'libs/core-styles/**/*.png']
 svgPath           = 'app/assets/compiled/*.svg'
@@ -55,7 +57,7 @@ html = (cb)->
     .pipe jade(client: true)
     .pipe plumber()
     .pipe wrap( "module.exports = <%= file.contents %>" )
-    .pipe gulp.dest('./server/js/jade')
+    .pipe gulp.dest(jadeDestination)
     .on('end', cb)
 
 css = (cb)->

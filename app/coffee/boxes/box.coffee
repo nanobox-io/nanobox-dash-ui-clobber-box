@@ -33,7 +33,7 @@ module.exports = class Box
     , @fadeOutDuration
 
   # Change the `.sub` div's height to match the height of `.sub-content`
-  resizeSubContent : (cssClass, cb)->
+  resizeSubContent : (cssClass, cb)=>
     if cssClass?
       @$subContent.addClass cssClass
     @$sub.css height: @$subContent[0].offsetHeight

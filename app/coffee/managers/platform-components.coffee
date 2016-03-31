@@ -2,7 +2,7 @@ Manager = require 'managers/manager'
 
 module.exports = class PlatformComponents extends Manager
 
-  constructor: ($el, @fadeParentMethod) ->
+  constructor: ($el, @fadeParentMethod, @resiseParentMethod) ->
     super()
 
     @createComponents $el
@@ -32,14 +32,16 @@ module.exports = class PlatformComponents extends Manager
           component.setState "full"
         else
           component.setState "hidden"
-    ,false, true
+      @resiseParentMethod()
+    ,false, false
 
   resetView : () =>
     return if !@components?
     @fadeParentMethod ()=>
       for component in @components
         component.setState "mini"
-    ,false, true
+        @resiseParentMethod()
+    ,false, false
 
   destroy : () ->
     for component in @components
