@@ -15,11 +15,17 @@ module.exports = class HostBox extends Box
     @buildStats $(".stats", @$node)
 
   showPlatformComponents : () ->
+    if @state == 'platform-components' then @closeSubContent(); return
+    @state = "platform-components"
+
     @hideCurrentSubContent ()=>
       @subView = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
       @resizeSubContent "platform-components"
 
   showAppComponents : () ->
+    return if @state == 'app-components`'
+    @state = "app-components"
+
     @hideCurrentSubContent ()=>
       @subView = new AppComponents $(".sub-content", @$node), @data.appComponents
       @resizeSubContent "app-components"

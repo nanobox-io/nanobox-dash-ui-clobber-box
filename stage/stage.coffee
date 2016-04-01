@@ -26,4 +26,4 @@ addButtonEvents = ()=>
 
   # Useful for triggering some click right away
   # $("#show-platform-components").trigger "click"
-  $("#show-app-components").trigger "click"
+  # $("#show-app-components").trigger "click"

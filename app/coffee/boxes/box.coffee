@@ -9,6 +9,9 @@ module.exports = class Box
 
   # ------------------------------------ Sub content
 
+  setCurrentState : (@state) ->
+
+
   # Fades out the `.sub-content` div and calls the callback you pass
   hideCurrentSubContent : (cb, doDestroyCurrentContent=true, doCallResizeBeforeCb=false)=>
 
@@ -37,6 +40,7 @@ module.exports = class Box
     if cssClass?
       @$subContent.addClass cssClass
     @$sub.css height: @$subContent[0].offsetHeight
+    @$sub.addClass "has-content"
     setTimeout ()=>
       @$subContent.css opacity:1
       if cb?
@@ -45,7 +49,14 @@ module.exports = class Box
 
   # Close `.sub` regardless of what is in it
   closeSubContent : ->
-    $(".sub", @$node).css height: 0
+    @$sub.css height: 0
+    @$subContent.css opacity:0
+    @$sub.removeClass "has-content"
+    setTimeout ()=>
+      @state = ""
+      @destroySubItem()
+    , @animateDuration
+
 
   # Destroy the sub item
   destroySubItem : () ->
