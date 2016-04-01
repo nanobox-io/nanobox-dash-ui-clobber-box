@@ -16,7 +16,7 @@ module.exports = class HostBox extends Box
 
   showPlatformComponents : () ->
     @hideCurrentSubContent ()=>
-      @subView = new PlatformComponents $(".sub-content", @$node), @hideCurrentSubContent, @resizeSubContent
+      @subView = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
       @resizeSubContent "platform-components"
 
   showAppComponents : () ->

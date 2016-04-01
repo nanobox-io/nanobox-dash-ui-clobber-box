@@ -22,11 +22,11 @@ module.exports = class ClobberBoxDataShim
       name : "ec2.#{@hostCount}"
       appComponents : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
       platformComponents : [
-        @getPlatformComponent "lb", "Load Balancer", "load-balancer"
-        @getPlatformComponent "lg", "Logger", "logger"
-        @getPlatformComponent "hm", "Health Monitor", "health-monitor"
-        @getPlatformComponent "mr", "Message Router", "message-router"
-        @getPlatformComponent "gs", "Blob Storage", "glob-storage"
+        {id: "lb", kind:"load-balancer"}
+        {id: "lg", kind:"logger"}
+        {id: "hm", kind:"health-monitor"}
+        {id: "mr", kind:"router"}
+        {id: "gs", kind:"glob-storage"}
       ]
     }
 

@@ -2,22 +2,15 @@ Manager = require 'managers/manager'
 
 module.exports = class PlatformComponents extends Manager
 
-  constructor: ($el, @fadeParentMethod, @resiseParentMethod) ->
+  constructor: ($el, platformComponents, @fadeParentMethod, @resiseParentMethod) ->
     super()
 
-    @createComponents $el
+    @createComponents $el, platformComponents
 
-  createComponents : ($el) ->
-    ar = [
-      nanobox.PlatformComponent.loadBalancer
-      nanobox.PlatformComponent.logger
-      nanobox.PlatformComponent.healthMonitor
-      nanobox.PlatformComponent.router
-      nanobox.PlatformComponent.storage
-    ]
+  createComponents : ($el, platformComponents) ->
     @components = []
-    for id in ar
-      component = new nanobox.PlatformComponent( $el, id )
+    for componentData in platformComponents
+      component = new nanobox.PlatformComponent $el, componentData.kind, componentData.id
       component.setState "mini"
       # Events
       component.on "show-admin", @showComponentAdmin
@@ -28,7 +21,7 @@ module.exports = class PlatformComponents extends Manager
     return if !@components?
     @fadeParentMethod ()=>
       for component in @components
-        if id == component.id
+        if id == component.componentId
           component.setState "full"
         else
           component.setState "hidden"
