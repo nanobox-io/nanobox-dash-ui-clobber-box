@@ -1,13 +1,14 @@
 {
   "name": "clobberbox",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "dependencies": {
     "jquery": "*",
     "velocity": "~1.1.0",
     "shadow-icons": "tolmark12/shadow-icons-js",
     "hourly-stats": "nanobox-io/nanobox-dash-ui-hourly-stats",
     "PubSubJS": "pubsub-js#^1.5.3",
-    "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component"
+    "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component",
+    "scale-machine": "nanobox-io/nanobox-dash-scale-machine"
   },
   "ignore": [
     "app",

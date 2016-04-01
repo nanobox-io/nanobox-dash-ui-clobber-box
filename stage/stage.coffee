@@ -23,6 +23,7 @@ window.init = ()=>
 addButtonEvents = ()=>
   $("#show-platform-components").on "click", ()=> hostBox.box.showPlatformComponents()
   $("#show-app-components").on      "click", ()=> hostBox.box.showAppComponents()
+  $("#show-scale").on               "click", ()=> hostBox.box.showScaleMachine()
 
   # Useful for triggering some click right away
   # $("#show-platform-components").trigger "click"

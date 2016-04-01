@@ -3,6 +3,7 @@ BoxNav             = require 'box-nav'
 hostBox            = require 'jade/host-box'
 PlatformComponents = require 'managers/platform-components'
 AppComponents      = require 'managers/app-components'
+ScaleManager       = require 'managers/scale-manager'
 
 module.exports = class HostBox extends Box
 
@@ -15,12 +16,22 @@ module.exports = class HostBox extends Box
     @buildStats $(".stats", @$node)
 
   showPlatformComponents : () ->
+    # TODO : there may be a better way to handle state.. Also, I'm using this to
+    #  close content, we'll proabably want a dedicated close button
     if @state == 'platform-components' then @closeSubContent(); return
     @state = "platform-components"
 
     @hideCurrentSubContent ()=>
       @subView = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
       @resizeSubContent "platform-components"
+
+  showScaleMachine : () ->
+    return if @state == 'scale-machine'
+    @state = "scale-machine"
+
+    @hideCurrentSubContent ()=>
+      @subView = new ScaleManager $(".sub-content", @$node)
+      @resizeSubContent "scale-machine"
 
   showAppComponents : () ->
     return if @state == 'app-components`'
