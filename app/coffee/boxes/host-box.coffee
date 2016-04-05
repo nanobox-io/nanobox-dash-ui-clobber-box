@@ -4,6 +4,7 @@ hostBox            = require 'jade/host-box'
 PlatformComponents = require 'managers/platform-components'
 AppComponents      = require 'managers/app-components'
 ScaleManager       = require 'managers/scale-manager'
+StatsManager       = require 'managers/stats-manager'
 
 module.exports = class HostBox extends Box
 
@@ -40,6 +41,14 @@ module.exports = class HostBox extends Box
     @hideCurrentSubContent ()=>
       @subView = new AppComponents $(".sub-content", @$node), @data.appComponents
       @resizeSubContent "app-components"
+
+  showStats : () ->
+    return if @state == 'stats'
+    @state = "stats"
+
+    @hideCurrentSubContent ()=>
+      @subView = new StatsManager $(".sub-content", @$node)
+      @resizeSubContent "stats"
 
   buildNav : ($node) ->
     navItems = [
