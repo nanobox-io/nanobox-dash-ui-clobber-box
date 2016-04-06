@@ -1,0 +1,7 @@
+.stats-wrapper         { width:600px;
+  .hourly              { display:flex; width:600px; justify-content: space-between; margin-bottom:5px;
+    .hourly-avgs-wrap  { background:white; width:250px;  }
+    .hourly-stats-wrap { background:#FEfefe; width:345px; }
+  }
+  .breakdown-wrap      { }
+}

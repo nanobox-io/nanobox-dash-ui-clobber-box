@@ -1,11 +1,25 @@
+StatsManager       = require 'managers/stats-manager'
+
+
 module.exports = class Box
 
   constructor: ($el, @data) ->
+    @kind = "host"
     shadowIconsInstance.svgReplaceWithString pxSvgIconString, $el
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
     @fadeOutDuration = 300
     @animateDuration = 250
+
+  # Shared
+
+  showStats : () ->
+    return if @state == 'stats'
+    @state = "stats"
+
+    @hideCurrentSubContent ()=>
+      @subView = new StatsManager $(".sub-content", @$node), @kind
+      @resizeSubContent "stats"
 
   # ------------------------------------ Sub content
 

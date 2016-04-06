@@ -42,14 +42,6 @@ module.exports = class HostBox extends Box
       @subView = new AppComponents $(".sub-content", @$node), @data.appComponents
       @resizeSubContent "app-components"
 
-  showStats : () ->
-    return if @state == 'stats'
-    @state = "stats"
-
-    @hideCurrentSubContent ()=>
-      @subView = new StatsManager $(".sub-content", @$node)
-      @resizeSubContent "stats"
-
   buildNav : ($node) ->
     navItems = [
       {txt:"App Components", icon:'app-component', event: 'SHOW.APP_COMPONENTS'}
