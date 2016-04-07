@@ -45,6 +45,7 @@
 
   // Sub Content
   .sub                         { height:0; @include transition(all, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+    &.no-transition            { transition: none; }
     &.has-content              { padding:20px 0 30px; }
     .sub-content               { opacity:0; @include transition(opacity, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
       &.platform-components    { display:flex; justify-content: space-between; width:600px; flex-wrap: wrap; padding-bottom:10px;}

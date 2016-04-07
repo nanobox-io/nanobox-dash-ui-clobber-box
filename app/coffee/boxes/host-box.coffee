@@ -14,6 +14,7 @@ module.exports = class HostBox extends Box
 
     @buildNav @$node
     super @$node, @data
+    PubSub.publish 'REGISTER.HOST', @
     @buildStats $(".stats", @$node)
 
   showPlatformComponents : () ->
@@ -23,7 +24,7 @@ module.exports = class HostBox extends Box
     @state = "platform-components"
 
     @hideCurrentSubContent ()=>
-      @subView = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
+      @subManager = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
       @resizeSubContent "platform-components"
 
   showScaleMachine : () ->
@@ -31,7 +32,7 @@ module.exports = class HostBox extends Box
     @state = "scale-machine"
 
     @hideCurrentSubContent ()=>
-      @subView = new ScaleManager $(".sub-content", @$node)
+      @subManager = new ScaleManager $(".sub-content", @$node)
       @resizeSubContent "scale-machine"
 
   showAppComponents : () ->
@@ -39,7 +40,7 @@ module.exports = class HostBox extends Box
     @state = "app-components"
 
     @hideCurrentSubContent ()=>
-      @subView = new AppComponents $(".sub-content", @$node), @data.appComponents
+      @subManager = new AppComponents $(".sub-content", @$node), @data.appComponents, @resizeSubContent
       @resizeSubContent "app-components"
 
   buildNav : ($node) ->
@@ -50,3 +51,7 @@ module.exports = class HostBox extends Box
       {txt:"Stats", icon:'stats', event: 'SHOW.STATS'}
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
+
+  destroy : () ->
+    PubSub.publish 'UNREGISTER.HOST', @
+    super()

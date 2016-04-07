@@ -11,8 +11,10 @@ module.exports = class ComponentBox extends Box
 
     if @data.isPlatformComponent
       @buildPlatformComponentNav $node
+      PubSub.publish 'REGISTER.PLATFORM_COMPONENT', @
     else
       @buildAppComponentNav $node
+      PubSub.publish 'REGISTER.APP_COMPONENT', @
 
     super $node, @data
     @buildStats $(".stats", $node)
@@ -32,4 +34,11 @@ module.exports = class ComponentBox extends Box
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'}
     ]
-    @nav = new BoxNav $node, navItems, @data.id
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
+  destroy : () ->
+    if @data.isPlatformComponent
+      PubSub.publish 'UNREGISTER.PLATFORM_COMPONENT', @
+    else
+      PubSub.publish 'UNREGISTER.APP_COMPONENT', @
+
+    super()

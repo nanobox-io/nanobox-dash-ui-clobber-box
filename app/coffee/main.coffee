@@ -8,14 +8,18 @@ class ClobberBox
     shadowIcons = new pxicons.ShadowIcons()
 
   build : ($el, kind, @data)->
-    @id = @data.id
     switch kind
       when ClobberBox.HOST               then @box = new HostBox $el, @data
       when ClobberBox.CLUSTER            then @box = new ClusterBox $el, @data
       when ClobberBox.PLATFORM_COMPONENT then @box = new ComponentBox $el, @data
       when ClobberBox.APP_COMPONENT      then @box = new ComponentBox $el, @data
-
     @stats = @box.stats
+
+  dontAnimateTransition : ()->
+    @box.removeSubContentAnimations()
+
+  destroy : () ->
+    @box.destroy()
 
   # updateLiveStats     : (data)-> @box.updateLiveStats data
   # updateHistoricStat  : (data)-> @box.updateHistoricStat data

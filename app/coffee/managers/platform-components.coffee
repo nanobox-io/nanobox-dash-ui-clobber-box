@@ -2,7 +2,7 @@ Manager = require 'managers/manager'
 
 module.exports = class PlatformComponents extends Manager
 
-  constructor: ($el, platformComponents, @fadeParentMethod, @resiseParentMethod) ->
+  constructor: ($el, platformComponents, @fadeParentMethod, @resizeCb) ->
     super()
 
     @createComponents $el, platformComponents
@@ -16,6 +16,8 @@ module.exports = class PlatformComponents extends Manager
       component.on "show-admin", @showComponentAdmin
       component.on "close-detail-view", @resetView
       @components.push component
+      # component.box.on "resize", (m,e)=>
+        # @resizeCb()
 
   showComponentAdmin : (e, id) =>
     return if !@components?
@@ -23,9 +25,16 @@ module.exports = class PlatformComponents extends Manager
       for component in @components
         if id == component.componentId
           component.setState "full"
+          component.box.dontAnimateTransition()
+          component.box.box.on "resize", (m,e)=>
+            setTimeout ()=>
+              console.log "resizing..., but not"
+              @resizeCb()
+            ,
+              3000
         else
           component.setState "hidden"
-      @resiseParentMethod()
+      @resizeCb()
     ,false, false
 
   resetView : () =>
@@ -33,7 +42,7 @@ module.exports = class PlatformComponents extends Manager
     @fadeParentMethod ()=>
       for component in @components
         component.setState "mini"
-        @resiseParentMethod()
+        @resizeCb()
     ,false, false
 
   destroy : () ->

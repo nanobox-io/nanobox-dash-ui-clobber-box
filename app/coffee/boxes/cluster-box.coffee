@@ -13,6 +13,8 @@ module.exports = class ClusterBox extends Box
 
     @buildNav $node
     super $node, @data
+    PubSub.publish 'REGISTER.CLUSTER', @
+
     @buildStats $(".stats", $node)
 
   buildNav : ($node) ->
@@ -25,3 +27,7 @@ module.exports = class ClusterBox extends Box
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
   makeClusterName : (instances) -> "#{instances[0].hostName} - #{instances[instances.length-1].hostName}"
+
+  destroy : () ->
+    PubSub.publish 'UNREGISTER.CLUSTER', @
+    super()

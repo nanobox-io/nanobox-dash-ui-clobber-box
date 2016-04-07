@@ -4,7 +4,8 @@ StatsManager       = require 'managers/stats-manager'
 module.exports = class Box
 
   constructor: ($el, @data) ->
-    window.huh ||= []
+    Eventify.extend @
+    @id = @data.id
     @kind = "host"
     shadowIconsInstance.svgReplaceWithString pxSvgIconString, $el
     @$subContent = $(".sub-content", $el)
@@ -20,10 +21,8 @@ module.exports = class Box
     @state = "stats"
 
     @hideCurrentSubContent ()=>
-      console.log( window.sub == @$subContent[0])
-      console.log @$subContent[0]
       window.sub = @$subContent[0]
-      @subView = new StatsManager @$subContent, @kind
+      @subManager = new StatsManager @$subContent, @kind
       @resizeSubContent "stats"
 
   # ------------------------------------ Sub content
@@ -33,17 +32,15 @@ module.exports = class Box
 
   # Fades out the `.sub-content` div and calls the callback you pass
   hideCurrentSubContent : (cb, doDestroyCurrentContent=true, doCallResizeBeforeCb=false)=>
-
     # If there isn't currently a sub view, don't
     # fade anything out, just call the callback
-    if !@subView?
+    if !@subManager?
       cb()
       return
 
     me = @
     # Transition happens in the css, just set the value
     @$subContent.css opacity:0
-
     # Wait for the content to fade out, check _box.scss for duration
     setTimeout ()->
       if doDestroyCurrentContent
@@ -65,6 +62,8 @@ module.exports = class Box
       if cb?
         cb()
     , @animateDuration
+    @fire "resize", @
+
 
   # Close `.sub` regardless of what is in it
   closeSubContent : ->
@@ -79,11 +78,14 @@ module.exports = class Box
 
   # Destroy the sub item
   destroySubItem : () ->
-    return if !@subView?
-    @subView.destroy()
+    return if !@subManager?
+    @subManager.destroy()
     @$subContent.empty()
     @$subContent.attr 'class', "sub-content"
-    @subView = null
+    @subManager = null
+
+  removeSubContentAnimations : ->
+    @$sub.addClass "no-transition"
 
   # ------------------------------------ Stats
 
@@ -99,3 +101,5 @@ module.exports = class Box
 
   updateLiveStats     : (data) -> @stats.updateLiveStats data
   updateHistoricStats : (data) -> @stats.updateHistoricStats data
+
+  destroy : () ->

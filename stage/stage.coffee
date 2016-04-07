@@ -1,10 +1,12 @@
 ClobberBoxDataShim = require './shims/data-shim'
 window.clobberBoxDataShim = new ClobberBoxDataShim()
 
-boxes = hostBox = clusterBox = appComponent = platformComponent = ""
+boxes = []
 $holder = $ ".holder"
 
 window.init = ()=>
+  subscribeToRegistrations()
+  addEventListeners()
   statsDataSimultor.createFakeStatDataProvider()
 
   hostBox = new nanobox.ClobberBox()
@@ -19,36 +21,47 @@ window.init = ()=>
   platformComponent = new nanobox.ClobberBox()
   platformComponent.build $holder, nanobox.ClobberBox.PLATFORM_COMPONENT, clobberBoxDataShim.getPlatformComponent("hm", "Health Monitor", "health-monitor")
 
-  boxes = [hostBox, clusterBox, appComponent, platformComponent]
-
-  addEventListeners()
-
-addButtonEvents = ()=>
-  $("#show-platform-components").on "click", ()=> hostBox.box.showPlatformComponents()
-  $("#show-app-components").on      "click", ()=> hostBox.box.showAppComponents()
-  $("#show-scale").on               "click", ()=> hostBox.box.showScaleMachine()
-  $("#show-stats").on               "click", ()=> hostBox.box.showStats()
-
   # Useful for triggering some click right away
-  # $("#show-platform-components").trigger "click"
   # $("#show-app-components").trigger "click"
+
+subscribeToRegistrations = ->
+  PubSub.subscribe 'REGISTER'                , (m, box)=>
+    boxes.push box
+  # 'REGISTER.HOST'
+  # 'REGISTER.CLUSTER'
+  # 'REGISTER.PLATFORM_COMPONENT'
+  # 'REGISTER.APP_COMPONENT'
+  PubSub.subscribe 'UNREGISTER'              , (m, box)=>
+    removeBox box
+
+  # PubSub.subscribe 'UNREGISTER.HOST'
+  # PubSub.subscribe 'UNREGISTER.CLUSTER'
+  # PubSub.subscribe 'UNREGISTER.PLATFORM_COMPONENT'
+  # PubSub.subscribe 'UNREGISTER.APP_COMPONENT'
 
 
 addEventListeners = () ->
-  PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data).box.showAppComponents()
-  PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data).box.showPlatformComponents()
+  PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data).showAppComponents()
+  PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data).showPlatformComponents()
   PubSub.subscribe 'SHOW.INSTANCES'          , (m, data)=>
-  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data).box.showScaleMachine()
+  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data).showScaleMachine()
   PubSub.subscribe 'SHOW.STATS'              , (m, data)=>
     box = getBox(data)
-    box.box.showStats()
+    box.showStats()
 
   PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=>
   PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=>
   PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=>
-  PubSub.subscribe 'SHOW'                    , (m,data) => console.log m, data
+  PubSub.subscribe 'SHOW'                    , (m,data) =>
+    # console.log m, data
 
 getBox = (key) ->
   for box in boxes
     if key == box.id
       return box
+
+removeBox = (doomedBox)->
+  for box, i in boxes
+    if box.id == doomedBox.id
+      boxes.splice i, 1
+      return
