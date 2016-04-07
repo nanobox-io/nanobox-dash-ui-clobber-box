@@ -4,10 +4,12 @@ StatsManager       = require 'managers/stats-manager'
 module.exports = class Box
 
   constructor: ($el, @data) ->
+    window.huh ||= []
     @kind = "host"
     shadowIconsInstance.svgReplaceWithString pxSvgIconString, $el
-    @$subContent = $(".sub-content", @$node)
-    @$sub        = $(".sub", @$node)
+    @$subContent = $(".sub-content", $el)
+    @$sub        = $(".sub", $el)
+
     @fadeOutDuration = 300
     @animateDuration = 250
 
@@ -18,7 +20,10 @@ module.exports = class Box
     @state = "stats"
 
     @hideCurrentSubContent ()=>
-      @subView = new StatsManager $(".sub-content", @$node), @kind
+      console.log( window.sub == @$subContent[0])
+      console.log @$subContent[0]
+      window.sub = @$subContent[0]
+      @subView = new StatsManager @$subContent, @kind
       @resizeSubContent "stats"
 
   # ------------------------------------ Sub content

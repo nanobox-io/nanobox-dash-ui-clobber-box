@@ -5,6 +5,7 @@ componentBox = require 'jade/component-box'
 module.exports = class ComponentBox extends Box
 
   constructor: ($el, @data) ->
+    @kind = "component"
     $node = $ componentBox( @data )
     $el.append $node
 
@@ -28,7 +29,7 @@ module.exports = class ComponentBox extends Box
 
   buildPlatformComponentNav  : ($node) ->
     navItems = [
-      {txt:"Console", icon:'console'}
-      {txt:"Stats", icon:'stats'}
+      {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
+      {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'}
     ]
     @nav = new BoxNav $node, navItems, @data.id
