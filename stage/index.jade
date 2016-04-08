@@ -11,15 +11,15 @@ html(lang="en")
     link(href="bower-libs/scale-machine/rel/style.css", rel="stylesheet")
     link(href="bower-libs/hourly-average/rel/style.css", rel="stylesheet")
     link(href="bower-libs/usage-breakdown/rel/style.css", rel="stylesheet")
+    link(href="css/dashboard-svg.css", rel="stylesheet")
     // endbuild
     
     // build:css style.css
-    link(href="css/icons-svg.css", rel="stylesheet")
     link(href="css/main.css", rel="stylesheet")
     // endbuild
 
   body
-    .holder
+    .holder.boxes
     
     // build:remove 
     script(src="bower-libs/jquery/dist/jquery.js")
@@ -39,13 +39,13 @@ html(lang="en")
     script(src="bower-libs/usage-breakdown/rel/app.js")
     script(src="bower-libs/usage-breakdown/rel/data-shim.js")
     script(src="https://use.typekit.net/cqd5kth.js")
+    script(src="js/dashboard-svg.js")
     // endbuild
 
     script(type="text/javascript") try{Typekit.load({ async: true });}catch(e){}
 
     // build:js app.js
     script(src="js/main.js")
-    script(src="js/icons-svg.js")
     // endbuild
     
     // build:js2 data-shim.js 

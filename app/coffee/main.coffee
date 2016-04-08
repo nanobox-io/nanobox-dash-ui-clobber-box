@@ -5,7 +5,7 @@ ComponentBox = require 'boxes/component-box'
 class ClobberBox
 
   constructor: () ->
-    shadowIcons = new pxicons.ShadowIcons()
+    # shadowIcons = new pxicons.ShadowIcons()
 
   build : ($el, kind, @data)->
     switch kind

@@ -4,7 +4,7 @@ statsWrapper = require 'jade/stats-wrapper'
 module.exports = class StatsManager extends Manager
 
   constructor: ($el, @kind) ->
-    $statsWrapper = $ statsWrapper( {} )
+    $statsWrapper = $ statsWrapper( {kind: @kind} )
     $el.append $statsWrapper
 
     $hourlyAverage = $ ".hourly-avgs-wrap", $statsWrapper
@@ -14,6 +14,7 @@ module.exports = class StatsManager extends Manager
     hourly = new nanobox.HourlyAverage $hourlyAverage
     hourly.build()
 
-    # if @kind == "host"
-    #   usage = new nanobox.UsageBreakdown $breakdown
-    #   usage.build()
+    console.log @kind
+    if @kind == "host"
+      usage = new nanobox.UsageBreakdown $breakdown
+      usage.build()

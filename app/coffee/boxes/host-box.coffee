@@ -9,6 +9,8 @@ StatsManager       = require 'managers/stats-manager'
 module.exports = class HostBox extends Box
 
   constructor: ($el, @data) ->
+    @kind = "host"
+    
     @$node = $ hostBox( @data )
     $el.append @$node
 

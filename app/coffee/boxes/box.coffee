@@ -6,15 +6,15 @@ module.exports = class Box
   constructor: ($el, @data) ->
     Eventify.extend @
     @id = @data.id
-    @kind = "host"
-    shadowIconsInstance.svgReplaceWithString pxSvgIconString, $el
+
+    castShadows pxSvgIconString, $el
     @$subContent = $(".sub-content", $el)
     @$sub        = $(".sub", $el)
 
     @fadeOutDuration = 300
     @animateDuration = 250
 
-  # Shared
+  # ------------------------------------ Shared
 
   showStats : () ->
     return if @state == 'stats'
