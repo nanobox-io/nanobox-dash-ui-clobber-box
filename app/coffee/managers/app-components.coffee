@@ -11,11 +11,7 @@ module.exports = class AppComponents extends Manager
     for componentData in components
       component = new nanobox.ClobberBox()
       component.build $el, nanobox.ClobberBox.APP_COMPONENT, componentData
-      component.dontAnimateTransition()
       @components.push component
-
-      component.box.on "resize", (m,e)=>
-        @resizeCb()
 
   destroy : () ->
     for component in @components

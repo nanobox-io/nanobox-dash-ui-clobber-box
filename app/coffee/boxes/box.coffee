@@ -32,6 +32,7 @@ module.exports = class Box
 
   # Fades out the `.sub-content` div and calls the callback you pass
   hideCurrentSubContent : (cb, doDestroyCurrentContent=true, doCallResizeBeforeCb=false)=>
+    @setHeightToContent()
     # If there isn't currently a sub view, don't
     # fade anything out, just call the callback
     if !@subManager?
@@ -55,9 +56,10 @@ module.exports = class Box
   resizeSubContent : (cssClass, cb)=>
     if cssClass?
       @$subContent.addClass cssClass
-    @$sub.css height: @$subContent[0].offsetHeight
+    @setHeightToContent()
     @$sub.addClass "has-content"
     setTimeout ()=>
+      @$sub.css height: 'initial'
       @$subContent.css opacity:1
       if cb?
         cb()
@@ -67,13 +69,16 @@ module.exports = class Box
 
   # Close `.sub` regardless of what is in it
   closeSubContent : ->
-    @$sub.css height: 0
+    @setHeightToContent()
     @$subContent.css opacity:0
     @$sub.removeClass "has-content"
     setTimeout ()=>
       @state = ""
       @destroySubItem()
     , @animateDuration
+    setTimeout ()=>
+      @$sub.css height: 0
+    ,20
 
 
   # Destroy the sub item
@@ -86,6 +91,10 @@ module.exports = class Box
 
   removeSubContentAnimations : ->
     @$sub.addClass "no-transition"
+
+  # ------------------------------------ Helpers
+
+  setHeightToContent : () -> @$sub.css height: @$subContent[0].offsetHeight
 
   # ------------------------------------ Stats
 

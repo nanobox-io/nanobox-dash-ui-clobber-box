@@ -16,8 +16,6 @@ module.exports = class PlatformComponents extends Manager
       component.on "show-admin", @showComponentAdmin
       component.on "close-detail-view", @resetView
       @components.push component
-      # component.box.on "resize", (m,e)=>
-        # @resizeCb()
 
   showComponentAdmin : (e, id) =>
     return if !@components?
@@ -25,13 +23,6 @@ module.exports = class PlatformComponents extends Manager
       for component in @components
         if id == component.componentId
           component.setState "full"
-          component.box.dontAnimateTransition()
-          component.box.box.on "resize", (m,e)=>
-            setTimeout ()=>
-              console.log "resizing..., but not"
-              @resizeCb()
-            ,
-              3000
         else
           component.setState "hidden"
       @resizeCb()
