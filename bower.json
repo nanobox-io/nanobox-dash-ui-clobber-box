@@ -10,7 +10,8 @@
     "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component",
     "scale-machine": "nanobox-io/nanobox-dash-scale-machine",
     "hourly-average": "nanobox-io/nanobox-dash-ui-hourly-average",
-    "usage-breakdown": "nanobox-io/nanobox-dash-ui-usage-breakdown"
+    "usage-breakdown": "nanobox-io/nanobox-dash-ui-usage-breakdown",
+    "console": "nanobox-io/nanobox-dash-ui-console"
   },
   "ignore": [
     "app",

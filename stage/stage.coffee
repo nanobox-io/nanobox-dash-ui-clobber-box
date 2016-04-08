@@ -49,7 +49,7 @@ addEventListeners = () ->
     box = getBox(data)
     box.showStats()
 
-  PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=>
+  PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data).showConsole()
   PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=>
   PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=>
   PubSub.subscribe 'SHOW'                    , (m,data) =>

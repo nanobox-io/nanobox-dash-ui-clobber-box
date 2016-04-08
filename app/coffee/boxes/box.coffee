@@ -1,5 +1,5 @@
 StatsManager       = require 'managers/stats-manager'
-
+ConsoleManager     = require 'managers/console-manager'
 
 module.exports = class Box
 
@@ -24,6 +24,16 @@ module.exports = class Box
       window.sub = @$subContent[0]
       @subManager = new StatsManager @$subContent, @kind
       @resizeSubContent "stats"
+
+  showConsole : () ->
+    return if @state == 'console'
+    @state = "console"
+
+    @hideCurrentSubContent ()=>
+      window.sub = @$subContent[0]
+      @subManager = new ConsoleManager @$subContent, @kind
+      @resizeSubContent "console"
+
 
   # ------------------------------------ Sub content
 
