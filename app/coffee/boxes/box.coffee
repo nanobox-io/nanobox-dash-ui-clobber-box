@@ -1,5 +1,8 @@
 StatsManager       = require 'managers/stats-manager'
 ConsoleManager     = require 'managers/console-manager'
+PlatformComponents = require 'managers/platform-components'
+AppComponents      = require 'managers/app-components'
+ScaleManager       = require 'managers/scale-manager'
 
 module.exports = class Box
 
@@ -15,6 +18,21 @@ module.exports = class Box
     @animateDuration = 250
 
   # ------------------------------------ Shared
+
+  switchSubContent : (newState) ->
+    if @state == newState then @closeSubContent(); return
+    @state = newState
+    window.sub = @$subContent[0]
+
+    @hideCurrentSubContent ()=>
+      switch @state
+        when 'stats'               then @subManager = new StatsManager   @$subContent, @kind
+        when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
+        when 'platform-components' then @subManager = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
+        when 'scale-machine'       then @subManager = new ScaleManager $(".sub-content", @$node)
+        when 'app-components'      then @subManager = new AppComponents $(".sub-content", @$node), @data.appComponents, @resizeSubContent
+
+      @resizeSubContent @state
 
   showStats : () ->
     return if @state == 'stats'
