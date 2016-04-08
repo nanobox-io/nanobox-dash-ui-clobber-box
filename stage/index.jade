@@ -11,10 +11,11 @@ html(lang="en")
     link(href="bower-libs/scale-machine/rel/style.css", rel="stylesheet")
     link(href="bower-libs/hourly-average/rel/style.css", rel="stylesheet")
     link(href="bower-libs/usage-breakdown/rel/style.css", rel="stylesheet")
-    link(href="css/dashboard-svg.css", rel="stylesheet")
+    link(href="css/shared-svg.css", rel="stylesheet")
     // endbuild
     
     // build:css style.css
+    link(href="css/clobber-box-svg.css", rel="stylesheet")
     link(href="css/main.css", rel="stylesheet")
     // endbuild
 
@@ -39,12 +40,13 @@ html(lang="en")
     script(src="bower-libs/usage-breakdown/rel/app.js")
     script(src="bower-libs/usage-breakdown/rel/data-shim.js")
     script(src="https://use.typekit.net/cqd5kth.js")
-    script(src="js/dashboard-svg.js")
+    script(src="js/shared-svg.js")
     // endbuild
 
     script(type="text/javascript") try{Typekit.load({ async: true });}catch(e){}
 
     // build:js app.js
+    script(src="js/clobber-box-svg.js")
     script(src="js/main.js")
     // endbuild
     
