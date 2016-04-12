@@ -3,20 +3,23 @@ Saver   = require 'saver'
 
 module.exports = class ScaleManager extends Manager
 
-  constructor: ($el) ->
-    @scaleMachine = new nanobox.ScaleMachine $el, scaleMachineTestData.getHostOptions()
+  constructor: (@$el, serverSpecsId) ->
+    console.log @$el
+    console.log serverSpecsId
+    @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange
     super()
 
-    @scaleMachine.on "save",   onSave()
-    @scaleMachine.on "cancel", onCancel()
+  showSaver : (@$el) ->
+    saver = new Saver(@$el, @onSave, @onCancel)
 
-    @showSaver $el
-
-  showSaver : ($el) ->
-    saver = new Saver($el, @onSave, @onCancel)
+  onSelectionChange : ()=>
+    if !@saveVisible
+      @saveVisible = true
+      @showSaver @$el
 
   onSave : () =>
     console.log "save it!"
 
   onCancel : () =>
+    @saveVisible = false
     console.log "cancel it!"

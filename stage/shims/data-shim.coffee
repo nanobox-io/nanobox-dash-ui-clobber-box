@@ -20,6 +20,7 @@ module.exports = class ClobberBoxDataShim
     {
       id   : "host.#{++@hostCount}"
       name : "ec2.#{@hostCount}"
+      serverSpecsId : "b1"
       appComponents : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
       platformComponents : [
         {id: "lb", kind:"load-balancer"}
@@ -33,6 +34,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "cluster" in the format rails sends us such data
   getCluster : (totalMembers=4) ->
     data = {
+      serverSpecsId : "b4"
       id:"cluster.#{++@clusterCount}"
       name:"web #{++@appComponentCount}"
       serviceType:"ruby"
@@ -45,6 +47,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing an "App Component" in the format rails sends us such data
   getAppComponent : (kind='web', type="ruby") ->
     {
+      serverSpecsId : "b3"
       id          : "#{kind}.#{@appComponentCount}"
       name        : "#{kind} #{@appComponentCount}"
       serviceType : type
@@ -53,6 +56,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "Platform Component" in the format rails sends us such data
   getPlatformComponent : (id, name, serviceType) ->
     {
+      serverSpecsId : "b2"
       isPlatformComponent : true
       id                  : id,
       name                : name,

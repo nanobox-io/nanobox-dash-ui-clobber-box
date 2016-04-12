@@ -25,14 +25,14 @@ window.init = ()=>
   # $("#show-app-components").trigger "click"
 
 subscribeToRegistrations = ->
-  PubSub.subscribe 'REGISTER'                , (m, box)=>
-    boxes.push box
+  # Shim, this should be handled by valkrie..
+  PubSub.subscribe 'STATS.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
+  PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box
   # 'REGISTER.HOST'
   # 'REGISTER.CLUSTER'
   # 'REGISTER.PLATFORM_COMPONENT'
   # 'REGISTER.APP_COMPONENT'
-  PubSub.subscribe 'UNREGISTER'              , (m, box)=>
-    removeBox box
+  PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
 
   # PubSub.subscribe 'UNREGISTER.HOST'
   # PubSub.subscribe 'UNREGISTER.CLUSTER'
@@ -44,7 +44,7 @@ addEventListeners = () ->
   PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data).switchSubContent 'app-components'
   PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data).switchSubContent 'platform-components'
   PubSub.subscribe 'SHOW.INSTANCES'          , (m, data)=>
-  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data).switchSubContent 'scale-machine'
+  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data); getBox(data).switchSubContent 'scale-machine'
   PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data).switchSubContent 'stats'
 
   PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data).switchSubContent 'console'

@@ -28,9 +28,9 @@ module.exports = class Box
       switch @state
         when 'stats'               then @subManager = new StatsManager   @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
-        when 'platform-components' then @subManager = new PlatformComponents $(".sub-content", @$node), @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
-        when 'scale-machine'       then @subManager = new ScaleManager $(".sub-content", @$node)
-        when 'app-components'      then @subManager = new AppComponents $(".sub-content", @$node), @data.appComponents, @resizeSubContent
+        when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
+        when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId
+        when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
 
       @resizeSubContent @state
 

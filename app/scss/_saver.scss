@@ -1,6 +1,7 @@
 $saver-height: 50px;
-.saver      { height:$saver-height; background:#E8E8E8; display:flex; justify-content: flex-end;
-  .save-btn { background: white; color:$link-blue; padding:0 30px; text-transform:uppercase; line-height: 50px; cursor:pointer;
-    &:hover { background:darken($link-blue,10%); color:white; }
+.saver      { @include transition(all, 140ms); height:0; opacity:0; background:#E8E8E8; display:flex; justify-content: flex-end; overflow:hidden;
+  &.open    { height:$saver-height; opacity:1; }
+  .save-btn { height:$saver-height; background: white; color:$link-blue; padding:0 30px; text-transform:uppercase; line-height: 50px; cursor:pointer;
+    &:hover { background:#029ADB; color:white; }
   }
 }
