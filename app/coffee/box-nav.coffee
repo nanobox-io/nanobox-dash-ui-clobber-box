@@ -6,9 +6,9 @@ module.exports = class BoxNav
     $node = $ boxNav( {nav:navItems} )
     $el.append $node
     $(".nav-item",$node).on "click", (e)=>
-      @onClick e.currentTarget.getAttribute("data-event")
+      @onClick e.currentTarget.getAttribute("data-event"), e.currentTarget
 
   # ------------------------------------  Events
 
-  onClick : (event) ->
-    PubSub.publish event, @id
+  onClick : (event, el) ->
+    PubSub.publish event, {id: @id, el:el}

@@ -19,7 +19,7 @@ module.exports = class Box
 
   # ------------------------------------ Shared
 
-  switchSubContent : (newState) ->
+  switchSubContent : (newState, @clickedNavBtn) ->
     if @state == newState then @closeSubContent(); return
     @state = newState
     window.sub = @$subContent[0]
@@ -32,26 +32,8 @@ module.exports = class Box
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
 
+      @positionArrow @clickedNavBtn, @state
       @resizeSubContent @state
-
-  showStats : () ->
-    return if @state == 'stats'
-    @state = "stats"
-
-    @hideCurrentSubContent ()=>
-      window.sub = @$subContent[0]
-      @subManager = new StatsManager @$subContent, @kind
-      @resizeSubContent "stats"
-
-  showConsole : () ->
-    return if @state == 'console'
-    @state = "console"
-
-    @hideCurrentSubContent ()=>
-      window.sub = @$subContent[0]
-      @subManager = new ConsoleManager @$subContent, @kind
-      @resizeSubContent "console"
-
 
   # ------------------------------------ Sub content
 
@@ -123,6 +105,13 @@ module.exports = class Box
   # ------------------------------------ Helpers
 
   setHeightToContent : () -> @$sub.css height: @$subContent[0].offsetHeight
+
+  positionArrow : (el, cssClass) ->
+    $el = $(el)
+    @$subContent.append $("<div class='thing'/>")
+    $(".thing", @$subContent).css left : $el.offset().left + $(".text",el).width()/2 + 10
+    if cssClass?
+      $(".thing", @$subContent).addClass cssClass
 
   # ------------------------------------ Stats
 

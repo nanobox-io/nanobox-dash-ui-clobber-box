@@ -4,8 +4,6 @@ Saver   = require 'saver'
 module.exports = class ScaleManager extends Manager
 
   constructor: (@$el, serverSpecsId) ->
-    console.log @$el
-    console.log serverSpecsId
     @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange
     super()
 

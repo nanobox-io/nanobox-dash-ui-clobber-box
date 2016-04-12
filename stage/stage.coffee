@@ -41,13 +41,13 @@ subscribeToRegistrations = ->
 
 
 addEventListeners = () ->
-  PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data).switchSubContent 'app-components'
-  PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data).switchSubContent 'platform-components'
+  PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.id).switchSubContent 'app-components', data.el
+  PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data.id).switchSubContent 'platform-components', data.el
   PubSub.subscribe 'SHOW.INSTANCES'          , (m, data)=>
-  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data); getBox(data).switchSubContent 'scale-machine'
-  PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data).switchSubContent 'stats'
+  PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data.id).switchSubContent 'scale-machine', data.el
+  PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data.id).switchSubContent 'stats', data.el
 
-  PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data).switchSubContent 'console'
+  PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data.id).switchSubContent 'console', data.el
   PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=>
   PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=>
   PubSub.subscribe 'SHOW'                    , (m,data) =>
