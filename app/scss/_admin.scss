@@ -1,0 +1,10 @@
+.admin        { background:white; padding:12px; display:flex; align-items: center;
+  .info       { color:#5F7C87; margin-left:40px;
+    .title    { text-transform: uppercase; font-weight: $bold; font-size:19px; letter-spacing:0.06em; }
+    .txt      { font-size:14px; margin-bottom:10px; }
+    a         { color: $link-blue; text-decoration: none; font-size:14px;
+      &:hover { text-decoration:underline;}
+    }
+  }
+
+}

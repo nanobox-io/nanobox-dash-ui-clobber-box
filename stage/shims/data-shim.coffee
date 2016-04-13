@@ -37,6 +37,7 @@ module.exports = class ClobberBoxDataShim
       serverSpecsId : "b4"
       id:"cluster.#{++@clusterCount}"
       name:"web #{++@appComponentCount}"
+      appComponents : [ @getAppComponent() ]
       serviceType:"ruby"
       instances:[]
     }

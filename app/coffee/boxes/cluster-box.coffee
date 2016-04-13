@@ -20,7 +20,7 @@ module.exports = class ClusterBox extends Box
   buildNav : ($node) ->
     navItems = [
       {txt:"App Component", icon:'app-component', event:'SHOW.APP_COMPONENTS'}
-      {txt:"Instance Health", icon:'instance-health', event:'SHOW.INSTANCES'}
+      # {txt:"Instance Health", icon:'instance-health', event:'SHOW.INSTANCES'}
       {txt:"Scale", icon:'scale', event:'SHOW.SCALE'}
       {txt:"Stats", icon:'stats', event:'SHOW.STATS'}
     ]

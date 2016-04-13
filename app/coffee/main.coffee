@@ -1,10 +1,12 @@
-HostBox      = require 'boxes/host-box'
-ClusterBox   = require 'boxes/cluster-box'
-ComponentBox = require 'boxes/component-box'
+HostBox        = require 'boxes/host-box'
+ClusterBox     = require 'boxes/cluster-box'
+ComponentBox   = require 'boxes/component-box'
+WindowScroller = require 'misc/window-scroller'
 
 class ClobberBox
 
   constructor: () ->
+    new WindowScroller()
     # shadowIcons = new pxicons.ShadowIcons()
 
   build : ($el, kind, @data)->

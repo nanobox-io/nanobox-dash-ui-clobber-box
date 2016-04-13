@@ -44,22 +44,28 @@
   }
 
   // Sub Content
-  .sub                         { @include transition(all, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
-    &.no-transition            { transition: none; }
-    &.has-content              { margin:20px 0 55px; }
-    .sub-content               { position:relative; opacity:0; @include transition(opacity, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
-      .thing                   { z-index: 2; position:absolute; top:1px;
-        &:after                { bottom: 100%; left: 50%;	border: solid transparent;	content: "";	height: 0;	width: 0;	position: absolute;	pointer-events: none;	border-color: rgba(136, 183, 213, 0);	border-bottom-color: white;	border-width: 10px;	margin-left: -10px;}
-        &.app-components       {
-          &:after, &:before    { bottom: 100%; left: 50%; border: solid transparent; content: ""; height: 0; width: 0; position: absolute; pointer-events: none; }
-          &:after              { border-color: rgba(0,0,0, 0); border-bottom-color: #E5E5E5; border-width: 9px; margin-left: -9px; }
-          &:before             { border-color: rgba(0,0,0, 0); border-bottom-color: #f5f5f5; border-width: 11px; margin-left: -11px; }
+  .sub                        { @include transition(all, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+    &.no-transition           { transition: none; }
+    &.has-content             { margin:20px 0 55px; }
+    .sub-content              { position:relative; opacity:0; @include transition(opacity, 0.4s, cubic-bezier(1.000, 0.000, 0.000, 1.000));
+      .arrow-pointer          { z-index: 2; position:absolute; top:1px;
+        &:after               { bottom: 100%; left: 50%;	border: solid transparent;	content: "";	height: 0;	width: 0;	position: absolute;	pointer-events: none;	border-color: rgba(136, 183, 213, 0);	border-bottom-color: white;	border-width: 10px;	margin-left: -10px;}
+        &.app-components      {
+          &:after, &:before   { bottom: 100%; left: 50%; border: solid transparent; content: ""; height: 0; width: 0; position: absolute; pointer-events: none; }
+          &:after             { border-color: rgba(0,0,0, 0); border-bottom-color: #E5E5E5; border-width: 9px; margin-left: -9px; }
+          &:before            { border-color: rgba(0,0,0, 0); border-bottom-color: #f5f5f5; border-width: 11px; margin-left: -11px; }
         }
-        &.scale-machine:after  { border-bottom-color: #029ADB; }
+        &.scale-machine:after { border-bottom-color: #029ADB; }
+        &.console:after       { border-bottom-color: #202D36; }
       }
-      &.platform-components { display:flex; justify-content: space-between; width:600px; flex-wrap: wrap; padding-bottom:10px;}
-      &.app-components      { position:relative; padding-top:30px;
-        &:before            { z-index: -1; position:absolute; height:calc(100% - 40px);  background:#E5E5E5; border:solid white 1px; content:""; width:597px; display:block; top:-0px;}
+      &.platform-components   { display:flex; justify-content: space-between; width:600px; flex-wrap: wrap; padding-bottom:10px;
+        .has-content          { margin-bottom: -10px; }
+      }
+      &.app-components        { position:relative; padding-top:30px;
+        &:before              { z-index: -1; position:absolute; height:calc(100% - 35px); background:#E5E5E5; border:solid white 1px; content:""; width:597px; display:block; top:-0px;}
+        &:last-child          {
+          .sub.has-content    { padding-bottom: 29px; }
+        }
       }
     }
   }

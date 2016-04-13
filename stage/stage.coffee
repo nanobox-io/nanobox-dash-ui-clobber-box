@@ -15,12 +15,6 @@ window.init = ()=>
   clusterBox = new nanobox.ClobberBox()
   clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster()
 
-  appComponent = new nanobox.ClobberBox()
-  appComponent.build $holder, nanobox.ClobberBox.APP_COMPONENT, clobberBoxDataShim.getAppComponent()
-
-  platformComponent = new nanobox.ClobberBox()
-  platformComponent.build $holder, nanobox.ClobberBox.PLATFORM_COMPONENT, clobberBoxDataShim.getPlatformComponent("hm", "Health Monitor", "health-monitor")
-
   # Useful for triggering some click right away
   # $("#show-app-components").trigger "click"
 
@@ -48,8 +42,8 @@ addEventListeners = () ->
   PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data.id).switchSubContent 'stats', data.el
 
   PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data.id).switchSubContent 'console', data.el
-  PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=>
-  PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=>
+  PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=> getBox(data.id).switchSubContent 'split', data.el
+  PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> getBox(data.id).switchSubContent 'admin', data.el
   PubSub.subscribe 'SHOW'                    , (m,data) =>
     # console.log m, data
 

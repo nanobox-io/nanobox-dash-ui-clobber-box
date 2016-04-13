@@ -3,16 +3,18 @@ ConsoleManager     = require 'managers/console-manager'
 PlatformComponents = require 'managers/platform-components'
 AppComponents      = require 'managers/app-components'
 ScaleManager       = require 'managers/scale-manager'
+AdminManager       = require 'managers/admin-manager'
+SplitManager       = require 'managers/split-manager'
 
 module.exports = class Box
 
-  constructor: ($el, @data) ->
+  constructor: (@$node, @data) ->
     Eventify.extend @
     @id = @data.id
 
-    castShadows pxSvgIconString, $el
-    @$subContent = $(".sub-content", $el)
-    @$sub        = $(".sub", $el)
+    castShadows pxSvgIconString, @$node
+    @$subContent = $(".sub-content", @$node)
+    @$sub        = $(".sub", @$node)
 
     @fadeOutDuration = 300
     @animateDuration = 250
@@ -20,17 +22,21 @@ module.exports = class Box
   # ------------------------------------ Shared
 
   switchSubContent : (newState, @clickedNavBtn) ->
+
     if @state == newState then @closeSubContent(); return
     @state = newState
     window.sub = @$subContent[0]
 
     @hideCurrentSubContent ()=>
+
       switch @state
         when 'stats'               then @subManager = new StatsManager   @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
+        when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
+        when 'split'               then @subManager = new SplitManager @$subContent
 
       @positionArrow @clickedNavBtn, @state
       @resizeSubContent @state
@@ -64,6 +70,8 @@ module.exports = class Box
 
   # Change the `.sub` div's height to match the height of `.sub-content`
   resizeSubContent : (cssClass, cb)=>
+    PubSub.publish 'SCROLL_TO', @$node
+
     if cssClass?
       @$subContent.addClass cssClass
     @setHeightToContent()
@@ -108,10 +116,11 @@ module.exports = class Box
 
   positionArrow : (el, cssClass) ->
     $el = $(el)
-    @$subContent.append $("<div class='thing'/>")
-    $(".thing", @$subContent).css left : $el.offset().left + $(".text",el).width()/2 + 10
+    $arrowPointer = $("<div class='arrow-pointer'/>")
+    @$subContent.append $arrowPointer
+    $arrowPointer.css left : $el.offset().left + $(".text",el).width()/2 - 1
     if cssClass?
-      $(".thing", @$subContent).addClass cssClass
+      $arrowPointer.addClass cssClass
 
   # ------------------------------------ Stats
 

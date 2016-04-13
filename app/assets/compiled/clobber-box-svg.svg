@@ -11,6 +11,8 @@
 	.st5{fill:#6FCFC9;stroke:#6FCFC9;stroke-width:2;stroke-miterlimit:10;}
 	.st6{fill:none;stroke:#358285;stroke-width:1.7038;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st7{fill:none;}
+	.st8{fill:none;stroke:#678C9C;stroke-width:2;stroke-miterlimit:10;}
+	.st9{fill:#FFFFFF;stroke:#678C9C;stroke-width:2;stroke-miterlimit:10;}
 </style>
 <g id="nav-stats_x60_17x11">
 	<line class="st0" x1="0.75" y1="1.2" x2="0.75" y2="11"/>
@@ -20,13 +22,13 @@
 	<line class="st0" x1="15.65" y1="4.4" x2="15.65" y2="11"/>
 </g>
 <g id="nav-scale_x60_22x15">
-	<ellipse transform="matrix(0.9876 -0.1567 0.1567 0.9876 -1.2833 0.9922)" class="st0" cx="5.65" cy="8.635" rx="4.9" ry="4.9"/>
+	<ellipse transform="matrix(0.9876 -0.1567 0.1567 0.9876 -1.2832 0.9921)" class="st0" cx="5.65" cy="8.634" rx="4.9" ry="4.9"/>
 	<g>
 		<g>
-			<path class="st0" d="M10.153,2.239c0.3-0.2,0.5-0.4,0.8-0.6"/>
-			<path class="st1" d="M12.753,0.939c0.1,0,0.3-0.1,0.4-0.1c3.5-0.6,6.9,1.9,7.4,5.4c0.6,3.5-1.8,6.9-5.4,7.4
+			<path class="st0" d="M10.155,2.239c0.3-0.2,0.5-0.4,0.8-0.6"/>
+			<path class="st1" d="M12.755,0.939c0.1,0,0.3-0.1,0.4-0.1c3.5-0.6,6.9,1.9,7.4,5.4c0.6,3.5-1.8,6.9-5.4,7.4
 				c-0.6,0.1-1.1,0.1-1.6,0.1"/>
-			<path class="st0" d="M12.653,13.539c-0.3-0.1-0.6-0.2-0.9-0.3"/>
+			<path class="st0" d="M12.655,13.539c-0.3-0.1-0.6-0.2-0.9-0.3"/>
 		</g>
 	</g>
 </g>
@@ -43,30 +45,30 @@
 	<line class="st0" x1="2.75" y1="6.63" x2="14.75" y2="6.63"/>
 </g>
 <g id="nav-instance-health_x60_17x17">
-	<circle class="st2" cx="8.098" cy="1" r="1"/>
-	<circle class="st2" cx="8.098" cy="4.2" r="0.9"/>
-	<circle class="st2" cx="8.098" cy="8.2" r="1"/>
-	<ellipse transform="matrix(0.704 -0.7102 0.7102 0.704 -0.6174 9.2841)" class="st2" cx="10.829" cy="5.383" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(1 -0.0091 0.0091 1 -0.0733 0.1096)" class="st2" cx="12.006" cy="8.105" rx="0.9" ry="0.9"/>
+	<circle class="st2" cx="8.105" cy="1" r="1"/>
+	<circle class="st2" cx="8.105" cy="4.2" r="0.9"/>
+	<circle class="st2" cx="8.105" cy="8.2" r="1"/>
+	<ellipse transform="matrix(0.704 -0.7102 0.7102 0.704 -0.6427 9.2922)" class="st2" cx="10.826" cy="5.417" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(1 -0.0091 0.0091 1 -0.0732 0.1096)" class="st2" cx="12.012" cy="8.105" rx="0.9" ry="0.9"/>
 	
-		<ellipse transform="matrix(0.6975 -0.7166 0.7166 0.6975 -4.4704 11.0287)" class="st2" cx="10.827" cy="10.809" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(0.9998 -0.0182 0.0182 0.9998 -0.2152 0.1492)" class="st2" cx="8.091" cy="11.895" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(0.691 -0.7229 0.7229 0.691 -6.1668 7.2357)" class="st2" cx="5.38" cy="10.831" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(0.9996 -0.0271 0.0271 0.9996 -0.2179 0.1165)" class="st2" cx="4.191" cy="8.096" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(0.6848 -0.7287 0.7287 0.6848 -2.2708 5.5205)" class="st2" cx="5.246" cy="5.385" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(0.4398 -0.8981 0.8981 0.4398 4.7469 11.0456)" class="st2" cx="11.227" cy="1.718" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.7901 -0.613 0.613 0.7901 0.5865 9.1675)" class="st2" cx="13.679" cy="3.727" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9792 -0.2031 0.2031 0.9792 -1.0461 3.2087)" class="st2" cx="15.112" cy="6.701" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.2483 -0.9687 0.9687 0.2483 1.7334 21.9605)" class="st2" cx="15.016" cy="9.863" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.6494 -0.7605 0.7605 0.6494 -4.9382 14.722)" class="st2" cx="13.496" cy="12.716" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9177 -0.3973 0.3973 0.9177 -4.904 5.528)" class="st2" cx="10.889" cy="14.6" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.047 -0.9989 0.9989 0.047 -7.8472 22.2212)" class="st2" cx="7.722" cy="15.223" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.4818 -0.8763 0.8763 0.4818 -10.1653 11.4691)" class="st2" cx="4.614" cy="14.329" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.8181 -0.575 0.575 0.8181 -6.6049 3.4869)" class="st2" cx="2.21" cy="12.185" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9877 -0.1562 0.1562 0.9877 -1.4247 0.2691)" class="st2" cx="1" cy="9.199" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.2942 -0.9557 0.9557 0.2942 -4.8898 5.4276)" class="st2" cx="1.23" cy="6.025" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.6846 -0.7289 0.7289 0.6846 -1.4119 3.1103)" class="st2" cx="2.888" cy="3.187" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9354 -0.3535 0.3535 0.9354 -0.145 2.0345)" class="st2" cx="5.497" cy="1.414" rx="1" ry="1"/>
+		<ellipse transform="matrix(0.6975 -0.7166 0.7166 0.6975 -4.4862 11.0201)" class="st2" cx="10.809" cy="10.824" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.9998 -0.0182 0.0182 0.9998 -0.2152 0.1494)" class="st2" cx="8.099" cy="11.896" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.691 -0.7229 0.7229 0.691 -6.1397 7.2276)" class="st2" cx="5.384" cy="10.795" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.9996 -0.0271 0.0271 0.9996 -0.2179 0.1168)" class="st2" cx="4.199" cy="8.096" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.6848 -0.7287 0.7287 0.6848 -2.3111 5.5203)" class="st2" cx="5.226" cy="5.432" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.4398 -0.8981 0.8981 0.4398 4.7184 11.0366)" class="st2" cx="11.206" cy="1.736" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.7901 -0.613 0.613 0.7901 0.6087 9.1653)" class="st2" cx="13.687" cy="3.694" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9792 -0.2031 0.2031 0.9792 -1.047 3.2091)" class="st2" cx="15.113" cy="6.706" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.2483 -0.9687 0.9687 0.2483 1.7398 22.018)" class="st2" cx="15.057" cy="9.888" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.6494 -0.7605 0.7605 0.6494 -4.9259 14.7202)" class="st2" cx="13.5" cy="12.702" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9177 -0.3973 0.3973 0.9177 -4.9017 5.5345)" class="st2" cx="10.906" cy="14.597" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.047 -0.9989 0.9989 0.047 -7.8854 22.2255)" class="st2" cx="7.705" cy="15.245" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.4818 -0.8763 0.8763 0.4818 -10.1767 11.4479)" class="st2" cx="4.591" cy="14.328" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.8181 -0.575 0.575 0.8181 -6.6166 3.4881)" class="st2" cx="2.206" cy="12.204" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9877 -0.1562 0.1562 0.9877 -1.4245 0.2691)" class="st2" cx="1" cy="9.198" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.2942 -0.9557 0.9557 0.2942 -4.9407 5.4165)" class="st2" cx="1.197" cy="6.053" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.6846 -0.7289 0.7289 0.6846 -1.4075 3.1259)" class="st2" cx="2.908" cy="3.189" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9354 -0.3535 0.3535 0.9354 -0.14 2.0322)" class="st2" cx="5.493" cy="1.399" rx="1" ry="1"/>
 </g>
 <g id="corner-bg_x60_614x57">
 	<polygon class="st3" points="23.4,57 613.5,57 613.5,0 0,0 0,42.5 	"/>
@@ -76,13 +78,13 @@
 		c1.9,0,3.4-1.5,3.4-3.4s-1.5-3.4-3.4-3.4l0,0c-2.4,0-2.3,1.8-4.2,1.6C10.05,3.85,8.15,0.75,5.65,0.75L5.65,0.75z"/>
 </g>
 <g id="nav-admin_x60_24x18">
-	<ellipse transform="matrix(0.9413 -0.3375 0.3375 0.9413 -4.0965 4.169)" class="st4" cx="9.942" cy="13.866" rx="3.1" ry="3.1"/>
-	<ellipse transform="matrix(0.9412 -0.3377 0.3377 0.9412 -0.5107 4.7661)" class="st4" cx="13.443" cy="3.851" rx="3.1" ry="3.1"/>
-	<ellipse transform="matrix(0.9413 -0.3376 0.3376 0.9413 -1.7122 7.4806)" class="st4" cx="20.652" cy="8.663" rx="1.9" ry="1.9"/>
-	<line class="st4" x1="10.962" y1="11.059" x2="12.662" y2="6.759"/>
-	<line class="st4" x1="19.262" y1="7.459" x2="16.362" y2="5.659"/>
-	<ellipse transform="matrix(0.8869 -0.4619 0.4619 0.8869 -4.0206 2.2818)" class="st4" cx="2.65" cy="9.353" rx="1.9" ry="1.9"/>
-	<line class="st4" x1="4.262" y1="10.359" x2="7.362" y2="11.859"/>
+	<ellipse transform="matrix(0.9413 -0.3375 0.3375 0.9413 -4.0912 4.1698)" class="st4" cx="9.947" cy="13.851" rx="3.1" ry="3.1"/>
+	<ellipse transform="matrix(0.9412 -0.3377 0.3377 0.9412 -0.5106 4.7662)" class="st4" cx="13.443" cy="3.851" rx="3.1" ry="3.1"/>
+	<ellipse transform="matrix(0.9413 -0.3376 0.3376 0.9413 -1.7089 7.4826)" class="st4" cx="20.659" cy="8.655" rx="1.9" ry="1.9"/>
+	<line class="st4" x1="10.958" y1="11.058" x2="12.658" y2="6.758"/>
+	<line class="st4" x1="19.258" y1="7.458" x2="16.358" y2="5.658"/>
+	<ellipse transform="matrix(0.8869 -0.4619 0.4619 0.8869 -4.0204 2.2818)" class="st4" cx="2.65" cy="9.353" rx="1.9" ry="1.9"/>
+	<line class="st4" x1="4.258" y1="10.358" x2="7.358" y2="11.858"/>
 </g>
 <g id="nav-console_x60_19x12">
 	<rect x="0.75" y="0.75" class="st4" width="17.2" height="10.5"/>
@@ -92,17 +94,17 @@
 <g id="hex-glob-storage_x60_50x57">
 	<polygon class="st5" points="48.2,42.054 24.6,55.654 1,42.054 1,14.754 24.6,1.154 48.2,14.754 	"/>
 	
-		<rect x="15.895" y="19.747" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.8907 25.6729)" class="st6" width="17.3" height="17.3"/>
+		<rect x="15.887" y="19.756" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.8994 25.6697)" class="st6" width="17.3" height="17.3"/>
 	
-		<rect x="19.335" y="23.266" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.9425 25.6868)" class="st6" width="10.4" height="10.4"/>
+		<rect x="19.285" y="23.29" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.9744 25.6579)" class="st6" width="10.4" height="10.4"/>
 	
-		<rect x="25.268" y="21.233" transform="matrix(0.707 -0.7072 0.7072 0.707 -10.5534 31.192)" class="st6" width="14.2" height="14.2"/>
+		<rect x="25.289" y="21.233" transform="matrix(0.707 -0.7072 0.7072 0.707 -10.5474 31.2068)" class="st6" width="14.2" height="14.2"/>
 	
-		<rect x="9.906" y="21.33" transform="matrix(0.7072 -0.707 0.707 0.7072 -15.121 20.3476)" class="st6" width="14.2" height="14.2"/>
+		<rect x="9.902" y="21.359" transform="matrix(0.7072 -0.707 0.707 0.7072 -15.1427 20.3529)" class="st6" width="14.2" height="14.2"/>
 	
-		<rect x="37.557" y="24.548" transform="matrix(0.707 -0.7072 0.7072 0.707 -7.9305 37.5538)" class="st6" width="7.6" height="7.6"/>
+		<rect x="37.575" y="24.53" transform="matrix(0.707 -0.7072 0.7072 0.707 -7.9124 37.5608)" class="st6" width="7.6" height="7.6"/>
 	
-		<rect x="3.762" y="24.589" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -17.8595 13.6622)" class="st6" width="7.6" height="7.6"/>
+		<rect x="3.818" y="24.616" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -17.8618 13.7093)" class="st6" width="7.6" height="7.6"/>
 </g>
 <g id="hex-router_x60_50x57">
 	<polygon class="st5" points="48.2,42.054 24.6,55.654 1,42.054 1,14.754 24.6,1.154 48.2,14.754 	"/>
@@ -185,5 +187,27 @@
 	<polyline class="st6" points="3.6,33.256 15,40.456 15,34.956 3.7,27.856 	"/>
 	<path class="st6" d="M3.6,33.456"/>
 	<path class="st6" d="M3.6,33.456"/>
+</g>
+<g id="admin-octopus_x60_90x72">
+	<polygon class="st8" points="60.078,43.951 43.298,53.64 26.518,43.951 26.518,24.573 43.298,14.886 60.078,24.575 	"/>
+	<polyline class="st8" points="60.078,43.951 70.17,49.779 82.867,49.779 	"/>
+	<polyline class="st8" points="31.866,40.919 23.737,45.775 23.737,62.382 	"/>
+	<polyline class="st8" points="49.985,49.101 49.985,60.385 61.116,66.812 	"/>
+	<circle class="st8" cx="85.451" cy="49.779" r="2.583"/>
+	<circle class="st8" cx="23.737" cy="64.965" r="2.583"/>
+	<circle class="st9" cx="53.568" cy="34.263" r="2.583"/>
+	<circle class="st9" cx="33.975" cy="39.43" r="2.583"/>
+	<circle class="st9" cx="49.985" cy="49.779" r="2.583"/>
+	<circle class="st8" cx="62.776" cy="68.246" r="2.583"/>
+	<circle class="st8" cx="41.256" cy="25.734" r="2.583"/>
+	<circle class="st8" cx="15.952" cy="10.285" r="2.583"/>
+	<polyline class="st8" points="39.262,24.466 29.062,10.347 18.264,10.347 	"/>
+	<polyline class="st8" points="80.252,19.56 70.059,34.263 56.152,34.263 	"/>
+	<circle class="st9" cx="80.252" cy="19.56" r="2.583"/>
+	<polyline class="st8" points="61.164,3.584 61.116,14.062 52.501,20.2 	"/>
+	
+		<ellipse transform="matrix(0.8233 -0.5676 0.5676 0.8233 8.7737 35.3503)" class="st9" cx="61.164" cy="3.584" rx="2.583" ry="2.583"/>
+	<polyline class="st8" points="3.583,36.679 8.61,31.318 26.603,31.318 	"/>
+	<circle class="st9" cx="3.583" cy="36.679" r="2.583"/>
 </g>
 </svg>
