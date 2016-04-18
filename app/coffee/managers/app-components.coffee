@@ -12,6 +12,8 @@ module.exports = class AppComponents extends Manager
       component = new nanobox.ClobberBox()
       component.build $el, nanobox.ClobberBox.APP_COMPONENT, componentData
       @components.push component
+      component.setState 'building'
+      window.compono = component
 
   destroy : () ->
     for component in @components

@@ -1,15 +1,17 @@
 .box.component-box
-  .white-box
-    .corner-box
-      img.shadow-icon(data-src="corner-bg" )
-    
-    .service-bug  
-      .bg-hex
-      img.shadow-icon(data-src="hex-#{serviceType}" )
-    .id
-      .name=name
-      .service-name=serviceType
-    .stats
+  .main-content
+    .animation
+    .white-box
+      .corner-box
+        img.shadow-icon(data-src="corner-bg" )
+      
+      .id
+        .name=name
+        .service-name=serviceType
+      .stats
+  .service-bug  
+    .bg-hex
+    img.shadow-icon(data-src="hex-#{serviceType}" )
   .nav-holder
   .sub
     .sub-content

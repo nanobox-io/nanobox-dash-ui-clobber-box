@@ -17,11 +17,9 @@ class ClobberBox
       when ClobberBox.APP_COMPONENT      then @box = new ComponentBox $el, @data
     @stats = @box.stats
 
-  dontAnimateTransition : ()->
-    @box.removeSubContentAnimations()
-
-  destroy : () ->
-    @box.destroy()
+  setState : (state) -> @box.setState state
+  dontAnimateTransition : ()-> @box.removeSubContentAnimations()
+  destroy : () -> @box.destroy()
 
   # updateLiveStats     : (data)-> @box.updateLiveStats data
   # updateHistoricStat  : (data)-> @box.updateHistoricStat data

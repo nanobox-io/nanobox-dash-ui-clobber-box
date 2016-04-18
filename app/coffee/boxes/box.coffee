@@ -5,6 +5,7 @@ AppComponents      = require 'managers/app-components'
 ScaleManager       = require 'managers/scale-manager'
 AdminManager       = require 'managers/admin-manager'
 SplitManager       = require 'managers/split-manager'
+LineAnimator      = require 'misc/line-animator'
 
 module.exports = class Box
 
@@ -12,24 +13,27 @@ module.exports = class Box
     Eventify.extend @
     @id = @data.id
 
+    console.log @id
+
     castShadows pxSvgIconString, @$node
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
 
     @fadeOutDuration = 300
     @animateDuration = 250
+    @setState @data.state
 
   # ------------------------------------ Shared
 
-  switchSubContent : (newState, @clickedNavBtn) ->
+  switchSubContent : (newSubState, @clickedNavBtn) ->
 
-    if @state == newState then @closeSubContent(); return
-    @state = newState
+    if @subState == newSubState then @closeSubContent(); return
+    @subState = newSubState
     window.sub = @$subContent[0]
 
     @hideCurrentSubContent ()=>
 
-      switch @state
+      switch @subState
         when 'stats'               then @subManager = new StatsManager   @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
@@ -38,13 +42,10 @@ module.exports = class Box
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent
 
-      @positionArrow @clickedNavBtn, @state
-      @resizeSubContent @state
+      @positionArrow @clickedNavBtn, @subState
+      @resizeSubContent @subState
 
   # ------------------------------------ Sub content
-
-  setCurrentState : (@state) ->
-
 
   # Fades out the `.sub-content` div and calls the callback you pass
   hideCurrentSubContent : (cb, doDestroyCurrentContent=true, doCallResizeBeforeCb=false)=>
@@ -91,7 +92,7 @@ module.exports = class Box
     @$subContent.css opacity:0
     @$sub.removeClass "has-content"
     setTimeout ()=>
-      @state = ""
+      @subState = ""
       @destroySubItem()
     , @animateDuration
     setTimeout ()=>
@@ -109,6 +110,58 @@ module.exports = class Box
 
   removeSubContentAnimations : ->
     @$sub.addClass "no-transition"
+
+  # ------------------------------------ Main Content / State
+
+  setState : (state) ->
+    return if state == @state
+    @state = state
+    switch @state
+      when 'provisioning'    then @animatingState('build')
+      when 'decommissioning' then @animatingState('destroy')
+      when 'active'          then @activeState()
+      when 'errored'         then @erroredState()
+
+      # - unable to download image,
+      # - unable to stat container
+      # - unable to plan
+
+  animatingState : (animationKind) ->
+    @closeSubContent()
+    @fadeOutMainContent ()=>
+      @$node.css height: @$node.height() + 20
+      @destroyAnyAnimation()
+      @lineAnimation = new LineAnimator $('.animation', @$node),  @kind, animationKind
+      @setStateClassAndFadeIn 'animating'
+
+  activeState   : () ->
+    @fadeOutMainContent ()=>
+      @$node.css height: "initial"
+      @destroyAnyAnimation()
+      @setStateClassAndFadeIn 'active'
+
+  erroredState  : () ->
+    @switchMainViewState 'errored'
+
+  setStateClassAndFadeIn : (cssClass) ->
+    @hasContent = true
+    @$node.removeClass 'building active errored animating'
+    @$node.addClass cssClass
+    $(".main-content", @$node).css opacity:1
+
+  destroyAnyAnimation : () ->
+    if @lineAnimation?
+      @lineAnimation.destroy()
+      @lineAnimation = null
+
+  fadeOutMainContent : (cb) ->
+    if !@hasContent then cb(); return;
+    $(".main-content", @$node).css opacity:0
+    setTimeout ()->
+      cb()
+    , 250
+
+
 
   # ------------------------------------ Helpers
 

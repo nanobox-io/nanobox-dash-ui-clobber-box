@@ -33,6 +33,8 @@ subscribeToRegistrations = ->
   # PubSub.subscribe 'UNREGISTER.PLATFORM_COMPONENT'
   # PubSub.subscribe 'UNREGISTER.APP_COMPONENT'
 
+window.setState = (id, state)->
+  getBox(id).setState state
 
 addEventListeners = () ->
   PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.id).switchSubContent 'app-components', data.el

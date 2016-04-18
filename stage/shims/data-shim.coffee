@@ -18,6 +18,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "host" in the format rails sends us such data
   getHost : () ->
     {
+      state : "active"
       id   : "host.#{++@hostCount}"
       name : "ec2.#{@hostCount}"
       serverSpecsId : "b1"
@@ -34,6 +35,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "cluster" in the format rails sends us such data
   getCluster : (totalMembers=4) ->
     data = {
+      state : "active"
       serverSpecsId : "b4"
       id:"cluster.#{++@clusterCount}"
       name:"web #{++@appComponentCount}"
@@ -48,6 +50,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing an "App Component" in the format rails sends us such data
   getAppComponent : (kind='web', type="ruby") ->
     {
+      state : "active"
       serverSpecsId : "b3"
       id          : "#{kind}.#{@appComponentCount}"
       name        : "#{kind} #{@appComponentCount}"
@@ -57,6 +60,7 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "Platform Component" in the format rails sends us such data
   getPlatformComponent : (id, name, serviceType) ->
     {
+      state : "active"
       serverSpecsId : "b2"
       isPlatformComponent : true
       id                  : id,

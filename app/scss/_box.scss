@@ -1,4 +1,4 @@
-.box               { width:600px; margin-bottom:20px;
+.box               { width:600px; margin-bottom:20px; min-height:60px;
   .white-box       { padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
   .stats           { margin:0 10px 0 auto; }
   .name            { color:$slate-blue; }
@@ -11,12 +11,30 @@
     &.mongo-db .bg { fill:none; }
   }
 
+
+  .animation       { display:none; height: 60px;
+    &.component    { margin-left:-30px; margin-top:-10px; }
+  }
+
+  &.animating       { margin-top: -3px;
+    .white-box      { display:none;  }
+    .nav-holder     { opacity:0; pointer-events: none; }
+    .animation      { display:block; }
+    &.component-box {
+      .service-bug  { opacity:0.7; }
+    }
+  }
+
+  // Transitioning main content
+  .main-content    { @include transition(opacity, 250ms);
+
+  }
+
+
   // HOST BOX
   &.host-box       {
     .name          { font-size:30px; margin-right:10px;}
-    .service-icons { display:flex;
-
-    }
+    .service-icons { display:flex; }
   }
 
   // CLUSTER BOX
@@ -28,15 +46,16 @@
   }
 
   // COMPONENT BOX
-  &.component-box   {
+  &.component-box   { position:relative;
     .white-box      { background: none; position:relative; }
+    .animation      { position:absolute; top:-17px; left:-29px;  }
     .id             { margin-left:30px;
       .name         { font-size:20px; }
       .service-name { font-size:17px; font-weight:$medium; }
     }
     .id, .stats     { z-index:2; }
     .corner-box     { position:absolute; left:-15px;}
-    .service-bug    { position:relative;
+    .service-bug    { position:absolute; top:30px; left:11px; @include transition(opacity, 0.3s); opacity:1;
       > *           { position:absolute; }
       .bg-hex       { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
       svg           { top:-41px; left:-35px; }
