@@ -2,18 +2,22 @@ Manager = require 'managers/manager'
 
 module.exports = class AppComponents extends Manager
 
-  constructor: ($el, components, @resizeCb) ->
+  constructor: (@$el, components, @resizeCb) ->
     super()
     @components = []
-    @createComponents $el, components
-
-  createComponents : ($el, components) ->
     for componentData in components
-      component = new nanobox.ClobberBox()
-      component.build $el, nanobox.ClobberBox.APP_COMPONENT, componentData
-      @components.push component
-      component.setState 'building'
-      window.compono = component
+      @addComponent componentData
+
+  addComponent : (componentData) ->
+    component = new nanobox.ClobberBox()
+    component.build @$el, nanobox.ClobberBox.APP_COMPONENT, componentData
+    @components.push component
+
+  updateComponentState : (id, state) ->
+    for component in @components
+      console.log id, component
+      if id == component.box.id
+        component.box.setState state
 
   destroy : () ->
     for component in @components

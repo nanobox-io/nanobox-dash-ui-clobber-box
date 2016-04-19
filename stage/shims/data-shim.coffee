@@ -6,15 +6,6 @@ module.exports = class ClobberBoxDataShim
     @dbCount           = 0
     @clusterCount      = 0
 
-  # For Brevity when testing, this method sends a given clobberbox instance a
-  # dummy set of live stats, and a dummy historical stat of each metric type
-  # sendDummyStats : (clobberBox) ->
-  #   clobberBox.stats.updateLiveStats statsDataSimultor.generateFakeLiveStats()
-  #   clobberBox.stats.updateHistoricStat "disk", statsDataSimultor.generateFakeHistoricalStats()
-  #   clobberBox.stats.updateHistoricStat "ram", statsDataSimultor.generateFakeHistoricalStats()
-  #   clobberBox.stats.updateHistoricStat "cpu", statsDataSimultor.generateFakeHistoricalStats()
-  #   clobberBox.stats.updateHistoricStat "swap", statsDataSimultor.generateFakeHistoricalStats()
-
   # Generate data describing a "host" in the format rails sends us such data
   getHost : () ->
     {
@@ -48,13 +39,13 @@ module.exports = class ClobberBoxDataShim
     data
 
   # Generate data describing an "App Component" in the format rails sends us such data
-  getAppComponent : (kind='web', type="ruby") ->
+  getAppComponent : (kind='web', type="ruby", state="active") ->
     {
-      state : "active"
+      state         : state
       serverSpecsId : "b3"
-      id          : "#{kind}.#{@appComponentCount}"
-      name        : "#{kind} #{@appComponentCount}"
-      serviceType : type
+      id            : "#{kind}.#{@appComponentCount}"
+      name          : "#{kind} #{@appComponentCount}"
+      serviceType   : type
     }
 
   # Generate data describing a "Platform Component" in the format rails sends us such data

@@ -14,6 +14,10 @@ module.exports = class StatsManager extends Manager
     hourly = new nanobox.HourlyAverage $hourlyAverage
     hourly.build()
 
+    expanded = new nanobox.HourlyStats "expanded", $hourlyStats
+    expanded.build()
+
+
     # if @kind == "host"
     #   usage = new nanobox.UsageBreakdown $breakdown
     #   usage.build()

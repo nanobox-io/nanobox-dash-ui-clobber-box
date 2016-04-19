@@ -20,7 +20,7 @@ class ClobberBox
   setState : (state) -> @box.setState state
   dontAnimateTransition : ()-> @box.removeSubContentAnimations()
   destroy : () -> @box.destroy()
-
+  
   # updateLiveStats     : (data)-> @box.updateLiveStats data
   # updateHistoricStat  : (data)-> @box.updateHistoricStat data
   # initStats           : (data)-> @box.initStats data

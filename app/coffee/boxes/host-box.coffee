@@ -24,6 +24,21 @@ module.exports = class HostBox extends Box
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
+  addAppComponent : (componentData) ->
+    @data.appComponents.push componentData
+    if @subState == 'app-components'
+      @subManager.addComponent componentData
+
+  updateAppComponentState : (id, state) ->
+    for componentData in @data.appComponents
+      if id == componentData.id
+        componentData.state = state
+
+        if @subState == 'app-components'
+          @subManager.updateComponentState id, state
+
+
+
   destroy : () ->
     PubSub.publish 'UNREGISTER.HOST', @
     super()

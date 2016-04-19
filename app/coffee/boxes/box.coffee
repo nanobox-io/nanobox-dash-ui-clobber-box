@@ -13,8 +13,6 @@ module.exports = class Box
     Eventify.extend @
     @id = @data.id
 
-    console.log @id
-
     castShadows pxSvgIconString, @$node
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
@@ -22,6 +20,10 @@ module.exports = class Box
     @fadeOutDuration = 300
     @animateDuration = 250
     @setState @data.state
+
+  # ------------------------------------ These methods should all be overridden in an extending class
+
+  addAppComponent : () -> console.log "This is not a host box, and cannot add app components"
 
   # ------------------------------------ Shared
 
@@ -34,10 +36,10 @@ module.exports = class Box
     @hideCurrentSubContent ()=>
 
       switch @subState
-        when 'stats'               then @subManager = new StatsManager   @$subContent, @kind
+        when 'stats'               then @subManager = new StatsManager @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
-        when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId
+        when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId, @totalMembers
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent
@@ -113,18 +115,15 @@ module.exports = class Box
 
   # ------------------------------------ Main Content / State
 
-  setState : (state) ->
+  setState : (state, status, messageCode) ->
     return if state == @state
     @state = state
     switch @state
-      when 'provisioning'    then @animatingState('build')
-      when 'decommissioning' then @animatingState('destroy')
-      when 'active'          then @activeState()
-      when 'errored'         then @erroredState()
-
-      # - unable to download image,
-      # - unable to stat container
-      # - unable to plan
+      when 'created', 'initialized', 'ordered', 'provisioning', 'defunct'
+        @animatingState('build')
+      when 'active'         then @activeState()
+      when 'decomissioning' then @animatingState('destroy')
+      when 'archived'       then x = 0
 
   animatingState : (animationKind) ->
     @closeSubContent()
@@ -178,7 +177,7 @@ module.exports = class Box
   # ------------------------------------ Stats
 
   buildStats : ($el) ->
-    @stats = new nanobox.HourlyStats $el, nanobox.HourlyStats.strip
+    @stats = new nanobox.HourlyStats 'standard', $el
     statTypes = [
       {id:"cpu_used",  nickname: "CPU",  name:"CPU Used"}
       {id:"ram_used",  nickname: "RAM",  name:"RAM Used"}

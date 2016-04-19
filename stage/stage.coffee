@@ -1,3 +1,4 @@
+
 ClobberBoxDataShim = require './shims/data-shim'
 window.clobberBoxDataShim = new ClobberBoxDataShim()
 
@@ -9,11 +10,12 @@ window.init = ()=>
   addEventListeners()
   statsDataSimultor.createFakeStatDataProvider()
 
-  hostBox = new nanobox.ClobberBox()
+  window.hostBox = new nanobox.ClobberBox()
   hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost()
 
   clusterBox = new nanobox.ClobberBox()
   clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster()
+
 
   # Useful for triggering some click right away
   # $("#show-app-components").trigger "click"
@@ -33,8 +35,7 @@ subscribeToRegistrations = ->
   # PubSub.subscribe 'UNREGISTER.PLATFORM_COMPONENT'
   # PubSub.subscribe 'UNREGISTER.APP_COMPONENT'
 
-window.setState = (id, state)->
-  getBox(id).setState state
+window.setState = (id, state)-> getBox(id).setState state
 
 addEventListeners = () ->
   PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.id).switchSubContent 'app-components', data.el
