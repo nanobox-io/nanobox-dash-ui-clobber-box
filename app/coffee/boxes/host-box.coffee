@@ -24,20 +24,44 @@ module.exports = class HostBox extends Box
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
-  addAppComponent : (componentData) ->
+  addComponent : (componentData) ->
     @data.appComponents.push componentData
     if @subState == 'app-components'
       @subManager.addComponent componentData
-
-  updateAppComponentState : (id, state) ->
+      
+  # Add a component generation at runtime
+  addGeneration : (componentId, generationData) ->
     for componentData in @data.appComponents
-      if id == componentData.id
-        componentData.state = state
-
+      if componentData.id == componentId
+        componentData.generations.push generationData
         if @subState == 'app-components'
-          @subManager.updateComponentState id, state
+          @subManager.addGeneration componentData, generationData
 
+  # Set a generation's state
+  setGenerationState : (id, state) ->
+    for componentData in @data.appComponents
+      for generation in componentData.generations
+        # Save new state in data obj
+        if id == generation.id
+          generation.state = state
 
+          # If sub components are open, update visual state as well
+          if @subState == 'app-components'
+            @subManager.updateGenerationState id, state
+
+  # True if one of my components owns the generation with this id
+  hasGenerationWithId : (id) ->
+    for componentData in @data.appComponents
+      for generation in componentData.generations
+        if generation.id == id
+          return true
+    return false
+
+  hasComponentWithId : (id) ->
+    for componentData in @data.appComponents
+      if componentData.id == id
+        return true
+    return false
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.HOST', @

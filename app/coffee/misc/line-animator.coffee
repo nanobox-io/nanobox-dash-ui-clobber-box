@@ -1,11 +1,11 @@
 module.exports = class LineAnimator
 
-  constructor: (@$el, componentKind, animationKind) ->
+  constructor: (@$el, componentKind, animationKind, message) ->
     @setCrossPlatform()
-
-    $svg = $ "<img class='shadow-icon' data-src='#{componentKind}-silvering' />"
+    svgId = @getSvgId componentKind
+    $svg = $ "<img class='shadow-icon' data-src='#{svgId}' />"
     @$el.append $svg
-    castShadows pxSvgIconString, @$el
+    castShadows @$el
     @path = $( 'path', @$el )[0]
     @path.style['stroke-dashoffset'] = 3000
     @startAnimation animationKind
@@ -55,6 +55,13 @@ module.exports = class LineAnimator
       @speed  = 6
       @offset = 0
       @destroyTick()
+
+  getSvgId : (componentKind) ->
+    console.log componentKind
+    switch componentKind
+      when 'host', 'cluster' then 'host-silvering'
+      when 'component'       then 'component-silvering'
+
 
   setCrossPlatform : ()->
     return if window.crossPlatformAlreadySet

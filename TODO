@@ -1,2 +1,8 @@
-☐ Add hostBox.addComponent()
-  For when a new comp
+✔ Set animating states of clusters and of bunkhaus hosts
+  ✔ Create svg
+☐ Add in status (offline, online, error)
+  ☐ Handle errored / offline status
+☐ When a component is added, it should animate in from 0 height to actual height
+☐ window scrolling
+  ☐ If user starts to scroll, cancel animation
+☐ Re-design scalemachine so it doesn't have a background

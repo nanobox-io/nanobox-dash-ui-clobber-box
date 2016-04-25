@@ -1,19 +1,21 @@
 module.exports = class ClobberBoxDataShim
 
   constructor : () ->
-    @hostCount         = 0
-    @appComponentCount = 0
-    @dbCount           = 0
-    @clusterCount      = 0
+    @hostCount              = 0
+    @appComponentCount      = 0
+    @dbCount                = 0
+    @clusterCount           = 0
+    @genericGenerationCount = 0
 
   # Generate data describing a "host" in the format rails sends us such data
   getHost : () ->
+    @hostCount++
     {
-      state : "active"
-      id   : "host.#{++@hostCount}"
-      name : "ec2.#{@hostCount}"
-      serverSpecsId : "b1"
-      appComponents : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
+      state              : "active"
+      id                 : "host.#{@hostCount}"
+      name               : "ec2.#{@hostCount}"
+      serverSpecsId      : "b1"
+      appComponents      : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
       platformComponents : [
         {id: "lb", kind:"load-balancer"}
         {id: "lg", kind:"logger"}
@@ -25,23 +27,25 @@ module.exports = class ClobberBoxDataShim
 
   # Generate data describing a "cluster" in the format rails sends us such data
   getCluster : (totalMembers=4) ->
+    @clusterCount++
+
     data = {
-      state : "active"
       serverSpecsId : "b4"
-      id:"cluster.#{++@clusterCount}"
-      name:"web #{++@appComponentCount}"
+      id            : "cluster.#{@clusterCount}"
+      name          : "web #{++@appComponentCount}"
       appComponents : [ @getAppComponent() ]
-      serviceType:"ruby"
-      instances:[]
+      serviceType   : "ruby"
+      instances     : []
     }
     for i in [1..totalMembers]
       data.instances.push {id:"web.#{@appComponentCount}.#{i}", hostId:"ec2.#{++@hostCount}", hostName:"ec2.#{@hostCount}"}
     data
 
   # Generate data describing an "App Component" in the format rails sends us such data
-  getAppComponent : (kind='web', type="ruby", state="active") ->
+  getAppComponent : (kind='web', type="ruby") ->
     {
-      state         : state
+      generations   : [ @getGeneration "#{kind}.#{@appComponentCount}" ]
+      state         : 'active'
       serverSpecsId : "b3"
       id            : "#{kind}.#{@appComponentCount}"
       name          : "#{kind} #{@appComponentCount}"
@@ -51,10 +55,16 @@ module.exports = class ClobberBoxDataShim
   # Generate data describing a "Platform Component" in the format rails sends us such data
   getPlatformComponent : (id, name, serviceType) ->
     {
-      state : "active"
-      serverSpecsId : "b2"
+      state               : "active"
+      serverSpecsId       : "b2"
       isPlatformComponent : true
       id                  : id,
       name                : name,
       serviceType         : serviceType
+    }
+
+  getGeneration : (parentId, state='active') ->
+    {
+      state : state,
+      id    : "#{parentId}.gen#{@genericGenerationCount++}"
     }

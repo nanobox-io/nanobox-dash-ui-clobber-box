@@ -6,5 +6,5 @@ module.exports = class AdminManager extends Manager
   constructor : ($el) ->
     $node = $ admin( {} )
     $el.append $node
-    castShadows pxSvgIconString, @$node
+    castShadows @$node
     super()

@@ -4,23 +4,28 @@ module.exports = class AppComponents extends Manager
 
   constructor: (@$el, components, @resizeCb) ->
     super()
-    @components = []
+    @generations = []
     for componentData in components
       @addComponent componentData
 
   addComponent : (componentData) ->
-    component = new nanobox.ClobberBox()
-    component.build @$el, nanobox.ClobberBox.APP_COMPONENT, componentData
-    @components.push component
+    for generationData in componentData.generations
+      if generationData.state != "archived"
+        @addGeneration componentData, generationData
 
-  updateComponentState : (id, state) ->
-    for component in @components
-      console.log id, component
-      if id == component.box.id
-        component.box.setState state
+
+  addGeneration : (componentData, generationData) ->
+    generation = new nanobox.ClobberBox()
+    generation.build @$el, nanobox.ClobberBox.APP_COMPONENT_GENERATION, {componentData:componentData, generationData:generationData}
+    @generations.push generation
+
+  updateGenerationState : (id, state) ->
+    for generation in @generations
+      if id == generation.box.id
+        generation.box.setState state
 
   destroy : () ->
-    for component in @components
-      component.box.off()
-      component.destroy()
+    for generation in @generations
+      generation.box.off()
+      generation.destroy()
     super()

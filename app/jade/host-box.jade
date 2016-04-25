@@ -1,12 +1,15 @@
 .box.host-box
-  .animation
-  .white-box
-    .name=name
-    .service-icons
-      each service in appComponents
-        .service-icon(class="#{service.serviceType}")
-          img.shadow-icon(data-src="hex-#{service.serviceType}" scalable="true", xtra="2")
-    .stats
+  .main-content
+    .animation
+      .svg-holder
+      .title
+    .white-box
+      .name=name
+      .service-icons
+        each service in appComponents
+          .service-icon(class="#{service.serviceType}")
+            img.shadow-icon(data-src="hex-#{service.serviceType}" scalable="true", xtra="2")
+      .stats
   .nav-holder
   .sub
     .sub-content

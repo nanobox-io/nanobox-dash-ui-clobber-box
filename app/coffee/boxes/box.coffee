@@ -13,7 +13,9 @@ module.exports = class Box
     Eventify.extend @
     @id = @data.id
 
-    castShadows pxSvgIconString, @$node
+    console.log @id
+
+    castShadows @$node
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
 
@@ -23,7 +25,9 @@ module.exports = class Box
 
   # ------------------------------------ These methods should all be overridden in an extending class
 
-  addAppComponent : () -> console.log "This is not a host box, and cannot add app components"
+  addAppComponent     : () -> console.log "This is not a host, and cannot add app components"
+  hasComponentWithId  : () -> false # only used by host boxes..
+  hasGenerationWithId : () -> false # only used by host boxes..
 
   # ------------------------------------ Shared
 
@@ -120,20 +124,29 @@ module.exports = class Box
     @state = state
     switch @state
       when 'created', 'initialized', 'ordered', 'provisioning', 'defunct'
-        @animatingState('build')
+        @animatingState 'build', @getStateMessage(@state)
       when 'active'         then @activeState()
-      when 'decomissioning' then @animatingState('destroy')
-      when 'archived'       then x = 0
+      when 'decomissioning' then @animatingState 'destroy', @getStateMessage(@state)
+      when 'archived'       then @destroy()
 
-  animatingState : (animationKind) ->
-    @closeSubContent()
-    @fadeOutMainContent ()=>
-      @$node.css height: @$node.height() + 20
-      @destroyAnyAnimation()
-      @lineAnimation = new LineAnimator $('.animation', @$node),  @kind, animationKind
-      @setStateClassAndFadeIn 'animating'
+  animatingState : (animationKind, message) ->
+    if @animationKind == animationKind
+      $('.animation .title', @$node).text message
+      return
+    else
+      @animationKind = animationKind
+      @closeSubContent()
+      @fadeOutMainContent ()=>
+        # Add some extra padding to the bottom because otherwise it overlaps
+        xtra = if @$node.is(':last-child') then 15 else 0
+        @$node.css height: @$node.height() + xtra
+        @destroyAnyAnimation()
+        $('.animation .title', @$node).text message
+        @lineAnimation = new LineAnimator $('.animation .svg-holder', @$node),  @kind, @animationKind
+        @setStateClassAndFadeIn 'animating'
 
   activeState   : () ->
+    @animationKind = null
     @fadeOutMainContent ()=>
       @$node.css height: "initial"
       @destroyAnyAnimation()
@@ -174,6 +187,15 @@ module.exports = class Box
     if cssClass?
       $arrowPointer.addClass cssClass
 
+  getStateMessage : (state) ->
+    switch state
+      when 'created'        then "#{@id} : Creating"
+      when 'initialized'    then "#{@id} : Initializing"
+      when 'ordered'        then "#{@id} : Ordering"
+      when 'provisioning'   then "#{@id} : Provisioning"
+      when 'defunct'        then "#{@id} : Defunct"
+      when 'decomissioning' then "#{@id} : Decomissioning"
+
   # ------------------------------------ Stats
 
   buildStats : ($el) ->
@@ -190,3 +212,15 @@ module.exports = class Box
   updateHistoricStats : (data) -> @stats.updateHistoricStats data
 
   destroy : () ->
+    @$node.css height: @$node.height()
+    me = @
+
+    @$node.addClass 'faded'
+
+    setTimeout ()->
+      me.$node.addClass 'archived'
+    , 300
+
+    setTimeout ()=>
+      @$node.remove()
+    , 750

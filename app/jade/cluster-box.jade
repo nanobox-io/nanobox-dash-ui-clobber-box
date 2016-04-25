@@ -1,14 +1,17 @@
 .box.cluster-box
-  .animation
-  .white-box
-    .id
-      .name=clusterName
-      .service-name=serviceType
-    .component
-      .service-icon(class="#{serviceType}")
-        img.shadow-icon(data-src="hex-#{serviceType}" scalable="true", xtra="2")
-      .total=totalMembers
-    .stats
+  .main-content
+    .animation
+      .svg-holder
+      .title
+    .white-box
+      .id
+        .name=clusterName
+        .service-name=serviceType
+      .component
+        .service-icon(class="#{serviceType}")
+          img.shadow-icon(data-src="hex-#{serviceType}" scalable="true", xtra="2")
+        .total=totalMembers
+      .stats
   .nav-holder
   .sub
     .sub-content
