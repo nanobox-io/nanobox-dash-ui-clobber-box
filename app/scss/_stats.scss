@@ -1,7 +1,9 @@
 .stats-wrapper         { width:600px;
   .hourly              { display:flex; width:600px; justify-content: space-between; margin-bottom:5px;
     .hourly-avgs-wrap  { background:white; width:250px;   }
-    .hourly-stats-wrap { background:#FEFEFE; width:345px; box-sizing: border-box; padding:10px 20px 0 30px; }
+    .hourly-stats-wrap { background:#FEFEFE; width:345px; box-sizing: border-box; padding:10px 20px 0 30px;
+      .slider.open     { left: -301px; width: 614px;}
+    }
   }
   .breakdown-wrap      { background:white; padding:10px 30px; }
 }

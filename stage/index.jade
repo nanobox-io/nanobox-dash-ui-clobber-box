@@ -22,11 +22,32 @@ html(lang="en")
     // endbuild
 
   body
+    .ui-shim
+      .label Hosts: 
+      .state
+        .txt Set
+        select#hosts
+        .txt state to
+        select#host-states
+        button#hosts go
+      .label Generations: 
+      .state
+        .txt Set
+        select#generation
+        .txt state to
+        select#gen-states
+        button#generations go
+      .label Components
+      .state
+        .txt Add Generation to
+        select#components
+        button#add-generation go
     .holder.boxes
     
     // build:remove 
     script(src="bower-libs/jquery/dist/jquery.js")
     script(src="bower-libs/PubSubJS/src/pubsub.js")
+    script(src="bower-libs/moment/min/moment.min.js")
     script(src="bower-libs/jade/runtime.js")
     script(src="bower-libs/velocity/velocity.js")
     script(src="bower-libs/shadow-icons/rel/app.js")

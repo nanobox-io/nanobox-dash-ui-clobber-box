@@ -13,8 +13,6 @@ module.exports = class Box
     Eventify.extend @
     @id = @data.id
 
-    console.log @id
-
     castShadows @$node
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
@@ -36,9 +34,7 @@ module.exports = class Box
     if @subState == newSubState then @closeSubContent(); return
     @subState = newSubState
     window.sub = @$subContent[0]
-
     @hideCurrentSubContent ()=>
-
       switch @subState
         when 'stats'               then @subManager = new StatsManager @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
@@ -46,10 +42,32 @@ module.exports = class Box
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId, @totalMembers
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
-        when 'split'               then @subManager = new SplitManager @$subContent
+        when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @closeSubContent
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState
+
+  # ------------------------------------ Generation - used by hosts and clusters
+  
+  # True if one of my components owns the generation with this id
+  hasGenerationWithId : (id) ->
+    for componentData in @data.appComponents
+      for generation in componentData.generations
+        if generation.id == id
+          return true
+    return false
+
+  # Set a generation's state
+  setGenerationState : (id, state) ->
+    for componentData in @data.appComponents
+      for generation in componentData.generations
+        # Save new state in data obj
+        if id == generation.id
+          generation.state = state
+
+          # If sub components are open, update visual state as well
+          if @subState == 'app-components'
+            @subManager.updateGenerationState id, state
 
   # ------------------------------------ Sub content
 
@@ -93,7 +111,7 @@ module.exports = class Box
 
 
   # Close `.sub` regardless of what is in it
-  closeSubContent : ->
+  closeSubContent : =>
     @setHeightToContent()
     @$subContent.css opacity:0
     @$sub.removeClass "has-content"

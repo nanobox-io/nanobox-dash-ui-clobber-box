@@ -1,4 +1,4 @@
-
+UI                 = require './test-ui/ui'
 ClobberBoxDataShim = require './shims/data-shim'
 window.clobberBoxDataShim = new ClobberBoxDataShim()
 
@@ -7,6 +7,7 @@ $holder = $ ".holder"
 
 window.init = ()=>
   statsDataSimultor.createFakeStatDataProvider()
+  ui = new UI $('body')
 
   #  ------------------------------------ Adding Items
 
@@ -20,6 +21,7 @@ window.init = ()=>
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()
     hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost()
+    ui.noteComponents(hostBox)
 
   window.addCluster = ()->
     clusterBox = new nanobox.ClobberBox()

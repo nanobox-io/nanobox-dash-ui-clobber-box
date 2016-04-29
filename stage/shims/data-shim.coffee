@@ -15,7 +15,7 @@ module.exports = class ClobberBoxDataShim
       id                 : "host.#{@hostCount}"
       name               : "ec2.#{@hostCount}"
       serverSpecsId      : "b1"
-      appComponents      : [ @getAppComponent(), @getAppComponent('db', 'mongo-db') ]
+      appComponents      : [ @getAppComponent(), @getAppComponent('db', 'mongo-db', false) ]
       platformComponents : [
         {id: "lb", kind:"load-balancer"}
         {id: "lg", kind:"logger"}
@@ -42,7 +42,7 @@ module.exports = class ClobberBoxDataShim
     data
 
   # Generate data describing an "App Component" in the format rails sends us such data
-  getAppComponent : (kind='web', type="ruby") ->
+  getAppComponent : (kind='web', type="ruby", scalesHorizontally=true) ->
     {
       generations   : [ @getGeneration "#{kind}.#{@appComponentCount}" ]
       state         : 'active'
@@ -50,6 +50,7 @@ module.exports = class ClobberBoxDataShim
       id            : "#{kind}.#{@appComponentCount}"
       name          : "#{kind} #{@appComponentCount}"
       serviceType   : type
+      scalesHoriz   : scalesHorizontally
     }
 
   # Generate data describing a "Platform Component" in the format rails sends us such data
