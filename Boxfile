@@ -1,5 +1,5 @@
 web1:
-  type: static
+  type: php
   document_root: server
   httpd_document_root: server
   httpd_index_list: index.html
