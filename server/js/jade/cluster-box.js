@@ -1,0 +1,7 @@
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (clusterName, serviceType, totalMembers) {
+buf.push("<div class=\"box cluster-box\"><div class=\"main-content\"><div class=\"animation\"><div class=\"svg-holder\"></div><div class=\"title\"></div></div><div class=\"white-box\"><div class=\"id\"><div class=\"name\">" + (jade.escape(null == (jade_interp = clusterName) ? "" : jade_interp)) + "</div><div class=\"service-name\">" + (jade.escape(null == (jade_interp = serviceType) ? "" : jade_interp)) + "</div></div><div class=\"component\"><div" + (jade.cls(['service-icon',"" + (serviceType) + ""], [null,true])) + "><img" + (jade.attr("data-src", "hex-" + (serviceType) + "", true, false)) + " scalable=\"true\" xtra=\"2\" class=\"shadow-icon\"/></div><div class=\"total\">" + (jade.escape(null == (jade_interp = totalMembers) ? "" : jade_interp)) + "</div></div><div class=\"stats\"></div></div></div><div class=\"nav-holder\"></div><div class=\"sub\"><div class=\"sub-content\"></div></div></div>");}.call(this,"clusterName" in locals_for_with?locals_for_with.clusterName:typeof clusterName!=="undefined"?clusterName:undefined,"serviceType" in locals_for_with?locals_for_with.serviceType:typeof serviceType!=="undefined"?serviceType:undefined,"totalMembers" in locals_for_with?locals_for_with.totalMembers:typeof totalMembers!=="undefined"?totalMembers:undefined));;return buf.join("");
+}

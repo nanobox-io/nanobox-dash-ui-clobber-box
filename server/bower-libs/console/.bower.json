@@ -1,0 +1,33 @@
+{
+  "name": "console",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js"
+  },
+  "ignore": [
+    "app",
+    "libs",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  },
+  "homepage": "https://github.com/nanobox-io/nanobox-dash-ui-console",
+  "_release": "a46fd82d9f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a46fd82d9fd418d1f7d6a57c2ddcf9393d638bb0"
+  },
+  "_source": "git://github.com/nanobox-io/nanobox-dash-ui-console.git",
+  "_target": "*",
+  "_originalSource": "nanobox-io/nanobox-dash-ui-console"
+}

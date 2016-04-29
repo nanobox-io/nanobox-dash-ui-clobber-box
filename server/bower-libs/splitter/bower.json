@@ -1,0 +1,25 @@
+{
+  "name": "splitter",
+  "version": "0.0.9",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "scale-machine": "nanobox-io/nanobox-dash-scale-machine",
+    "PubSubJS": "pubsub-js#^1.5.3"
+  },
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  }
+}

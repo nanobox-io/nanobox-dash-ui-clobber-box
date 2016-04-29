@@ -1,0 +1,7 @@
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (name, serviceType) {
+buf.push("<div class=\"box component-box\"><div class=\"main-content\"><div class=\"animation\"><div class=\"svg-holder\"></div><div class=\"title\"></div></div><div class=\"white-box\"><div class=\"corner-box\"><img data-src=\"corner-bg\" class=\"shadow-icon\"/></div><div class=\"id\"><div class=\"name\">" + (jade.escape(null == (jade_interp = name) ? "" : jade_interp)) + "</div><div class=\"service-name\">" + (jade.escape(null == (jade_interp = serviceType) ? "" : jade_interp)) + "</div></div><div class=\"stats\"></div></div></div><div class=\"service-bug\"> <div class=\"bg-hex\"></div><img" + (jade.attr("data-src", "hex-" + (serviceType) + "", true, false)) + " class=\"shadow-icon\"/></div><div class=\"nav-holder\"></div><div class=\"sub\"><div class=\"sub-content\"></div></div></div>");}.call(this,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"serviceType" in locals_for_with?locals_for_with.serviceType:typeof serviceType!=="undefined"?serviceType:undefined));;return buf.join("");
+}

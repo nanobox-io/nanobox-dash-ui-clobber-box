@@ -1,0 +1,34 @@
+{
+  "name": "scale-machine",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "PubSubJS": "pubsub-js#^1.5.3",
+    "eventify": "sdomino/eventify"
+  },
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  },
+  "homepage": "https://github.com/nanobox-io/nanobox-dash-scale-machine",
+  "_release": "ba00d5450c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ba00d5450cd0e63549b9f9607d434609381d693a"
+  },
+  "_source": "git://github.com/nanobox-io/nanobox-dash-scale-machine.git",
+  "_target": "*",
+  "_originalSource": "nanobox-io/nanobox-dash-scale-machine"
+}

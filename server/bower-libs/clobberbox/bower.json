@@ -1,0 +1,27 @@
+{
+  "name": "clobberbox",
+  "version": "0.0.15",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "hourly-stats": "nanobox-io/nanobox-dash-ui-hourly-stats",
+    "PubSubJS": "pubsub-js#^1.5.3",
+    "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component"
+  },
+  "ignore": [
+    "app",
+    "libs",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  }
+}

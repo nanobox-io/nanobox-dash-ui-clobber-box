@@ -1,0 +1,14 @@
+{
+  "name": "eventify",
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    ".gitignore",
+    "gulpfile.*",
+    "LICENSE",
+    "node_modules",
+    "package.json",
+    "README.md",
+    "src"
+  ]
+}

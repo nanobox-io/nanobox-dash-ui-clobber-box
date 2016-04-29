@@ -1,0 +1,34 @@
+{
+  "name": "splitter",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "scale-machine": "nanobox-io/nanobox-dash-scale-machine",
+    "PubSubJS": "pubsub-js#^1.5.3"
+  },
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  },
+  "homepage": "https://github.com/nanobox-io/nanobox-dash-ui-splitter",
+  "_release": "53f7b2a538",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "53f7b2a5383303b029ad3435ad144e5068850dd6"
+  },
+  "_source": "git://github.com/nanobox-io/nanobox-dash-ui-splitter.git",
+  "_target": "*",
+  "_originalSource": "nanobox-io/nanobox-dash-ui-splitter"
+}
