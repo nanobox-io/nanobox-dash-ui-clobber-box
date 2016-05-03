@@ -22,11 +22,11 @@
     "jade": "~1.6.0"
   },
   "homepage": "https://github.com/nanobox-io/nanobox-dash-scale-machine",
-  "_release": "ba00d5450c",
+  "_release": "7e536400b6",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "ba00d5450cd0e63549b9f9607d434609381d693a"
+    "commit": "7e536400b6c9a3c1fff7894cde7830cd7a564419"
   },
   "_source": "git://github.com/nanobox-io/nanobox-dash-scale-machine.git",
   "_target": "*",

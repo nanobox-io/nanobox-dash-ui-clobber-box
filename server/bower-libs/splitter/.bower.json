@@ -22,11 +22,11 @@
     "jade": "~1.6.0"
   },
   "homepage": "https://github.com/nanobox-io/nanobox-dash-ui-splitter",
-  "_release": "53f7b2a538",
+  "_release": "ea538f2c1f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "53f7b2a5383303b029ad3435ad144e5068850dd6"
+    "commit": "ea538f2c1f6e64b74a96c35fa8d245f0d2712dc9"
   },
   "_source": "git://github.com/nanobox-io/nanobox-dash-ui-splitter.git",
   "_target": "*",

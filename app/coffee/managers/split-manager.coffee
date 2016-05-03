@@ -13,6 +13,8 @@ module.exports = class SplitManager extends Manager
     app = new nanobox.Splitter $el, isHorizontal, bunkHouses, @onSubmit, @onCancel
     super()
 
-  onSubmit : () ->
+  onSubmit : (data) ->
+    console.log "We probably need to broadcast this data out to rails somehow.. Probably with pubsub"
+    console.log data
 
   onCancel : () => @hideCb()
