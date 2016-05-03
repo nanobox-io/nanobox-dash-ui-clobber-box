@@ -8,14 +8,13 @@ module.exports = class ClobberBoxDataShim
     @genericGenerationCount = 0
 
   # Generate data describing a "host" in the format rails sends us such data
-  getHost : () ->
+  getHost : (showBunchesOfComponents=true) ->
     @hostCount++
-    {
+    data = {
       state              : "active"
       id                 : "host.#{@hostCount}"
       name               : "ec2.#{@hostCount}"
       serverSpecsId      : "b1"
-      appComponents      : [ @getAppComponent(), @getAppComponent('db', 'mongo-db', false) ]
       platformComponents : [
         {id: "lb", kind:"load-balancer"}
         {id: "lg", kind:"logger"}
@@ -24,6 +23,30 @@ module.exports = class ClobberBoxDataShim
         {id: "gs", kind:"glob-storage"}
       ]
     }
+    if !showBunchesOfComponents
+      data.appComponents = [
+        @getAppComponent(),
+        @getAppComponent('db', 'mongo-db', false)
+      ]
+    else
+      data.appComponents = [
+        @getAppComponent(),
+        @getAppComponent('db', 'mongo-db', false)
+        @getAppComponent('web', 'node', true)
+        @getAppComponent('web', 'memcached', true)
+        @getAppComponent('web', 'python', true)
+        @getAppComponent('web', 'storage', true)
+        @getAppComponent('web', 'java', true)
+        @getAppComponent('web', 'php', true)
+        @getAppComponent('db', 'couch-db', false)
+        @getAppComponent('db', 'maria-db', false)
+        @getAppComponent('db', 'postgres-db', false)
+        @getAppComponent('db', 'redis', false)
+        @getAppComponent('db', 'percona-db', false)
+        @getAppComponent('web', 'default', true)
+        @getAppComponent('db', 'default-db', false)
+      ]
+    return data
 
   # Generate data describing a "cluster" in the format rails sends us such data
   getCluster : (totalMembers=4) ->

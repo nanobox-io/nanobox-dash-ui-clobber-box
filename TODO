@@ -6,3 +6,12 @@
 ☐ window scrolling
   ☐ If user starts to scroll, cancel animation
 ☐ Re-design scalemachine so it doesn't have a background
+
+
+- Design for login / register / etc
+- App Create
+  - Design
+  - Build js component
+- Process viewer
+- Simple war-room
+- Update design for re-deploy

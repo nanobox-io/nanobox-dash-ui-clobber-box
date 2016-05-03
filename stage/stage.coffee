@@ -20,7 +20,7 @@ window.init = ()=>
 
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()
-    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost()
+    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(false)
     ui.noteComponents(hostBox)
 
   window.addCluster = ()->
