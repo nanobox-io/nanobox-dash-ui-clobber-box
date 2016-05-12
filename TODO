@@ -15,3 +15,31 @@
 - Process viewer
 - Simple war-room
 - Update design for re-deploy
+
+DEPLOY HISTORY:
+- Remove branch and id
+- Someday create ui for specifying how many deploys to save
+- probably a link from deploy history to the page where you admin that number
+
+LAUNCH APP:
+1 - Name your APP
+2 - Choose a provider
+3 - Pick a size?
+4 - Review and launch
+    + Free for the first few weeks
+    + Open source / Non-Profit free
+
+
+SSL CERTS ------------------------------------ :
+
+Let's encrypt :
+  - All we need is the first step of the current pagodabox
+    ssl cert add process which has them fill out the name, etc
+
+Import an existing cert:
+  - Like third step of pagodabox cert proces
+    - Key
+    - Certificate
+    - Certificate authority
+
+Current Pagodabox process:

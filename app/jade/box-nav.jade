@@ -1,6 +1,6 @@
 .box-nav
   each item in nav
-    .nav-item(data-event="#{item.event}")
+    .nav-item(data-event="#{item.event}" class="nav-#{item.icon}")
       .icon
         img.shadow-icon(data-src="nav-#{item.icon}" xtra="2")
       .text=item.txt
