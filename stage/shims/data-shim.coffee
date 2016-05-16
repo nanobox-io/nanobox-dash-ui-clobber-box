@@ -16,11 +16,11 @@ module.exports = class ClobberBoxDataShim
       name               : "ec2.#{@hostCount}"
       serverSpecsId      : "b1"
       platformComponents : [
-        {id: "lb", kind:"load-balancer"}
-        {id: "lg", kind:"logger"}
-        {id: "hm", kind:"health-monitor"}
-        {id: "mr", kind:"router"}
-        {id: "gs", kind:"glob-storage"}
+        {id: "lb", isSplitable: Math.random() > 0.5, kind:"load-balancer"}
+        {id: "lg", isSplitable: Math.random() > 0.5, kind:"logger"}
+        {id: "hm", isSplitable: Math.random() > 0.5, kind:"health-monitor"}
+        {id: "mr", isSplitable: Math.random() > 0.5, kind:"router"}
+        {id: "gs", isSplitable: Math.random() > 0.5, kind:"glob-storage"}
       ]
     }
     if !showBunchesOfComponents

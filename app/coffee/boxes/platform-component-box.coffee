@@ -14,7 +14,7 @@ module.exports = class PlatformComponentBox extends Box
     PubSub.publish 'REGISTER.PLATFORM_COMPONENT', @
 
     super $node, @data
-    @buildStats $(".stats", $node)
+    @buildStats $(".stats-strip", $node)
 
   buildPlatformComponentNav  : ($node) ->
     navItems = [

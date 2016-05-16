@@ -10,7 +10,7 @@ module.exports = class PlatformComponents extends Manager
   createComponents : ($el, platformComponents) ->
     @components = []
     for componentData in platformComponents
-      component = new nanobox.PlatformComponent $el, componentData.kind, componentData.id
+      component = new nanobox.PlatformComponent $el, componentData.kind, componentData.id, componentData.isSplitable
       component.setState "mini"
       # Events
       component.on "show-admin", @showComponentAdmin

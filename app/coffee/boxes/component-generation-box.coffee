@@ -18,7 +18,7 @@ module.exports = class ComponentGenerationBox extends Box
     PubSub.publish 'REGISTER.APP_COMPONENT', @
 
     super $node, compiledData
-    @buildStats $(".stats", $node)
+    @buildStats $(".stats-strip", $node)
 
   buildAppComponentNav : ($node) ->
     navItems = [

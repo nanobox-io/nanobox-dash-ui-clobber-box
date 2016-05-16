@@ -1,9 +1,13 @@
 .stats-wrapper         { width:600px;
+  .title               { text-align: center; color:#547F91; font-style:italic; font-size:12px; padding: 20px 0;  }
   .hourly              { display:flex; width:600px; justify-content: space-between; margin-bottom:5px;
-    .hourly-avgs-wrap  { background:white; width:250px;   }
-    .hourly-stats-wrap { background:#FEFEFE; width:345px; box-sizing: border-box; padding:10px 20px 0 30px;
-      .slider.open     { left: -301px; width: 614px;}
+    .hourly-avgs-wrap  { background:white; width:250px;
+      svg              { margin-top:-35px; }
+    }
+    .hourly-stats-wrap { background:#FEFEFE; width:345px; box-sizing: border-box; padding:0px 20px 20px 24px;
+      .title           { text-align: left; }
+      .slider.open     { left: -295px; width: 614px;}
     }
   }
-  .breakdown-wrap      { background:white; padding:10px 30px; }
+  .breakdown-wrap      { background:white; padding:0px 30px; }
 }

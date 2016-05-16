@@ -48,7 +48,7 @@ module.exports = class Box
       @resizeSubContent @subState
 
   # ------------------------------------ Generation - used by hosts and clusters
-  
+
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->
     for componentData in @data.appComponents
@@ -217,7 +217,7 @@ module.exports = class Box
   # ------------------------------------ Stats
 
   buildStats : ($el) ->
-    @stats = new nanobox.HourlyStats 'standard', $el
+    @stats = new nanobox.HourlyStats $el, {view: 'standard'}
     statTypes = [
       {id:"cpu_used",  nickname: "CPU",  name:"CPU Used"}
       {id:"ram_used",  nickname: "RAM",  name:"RAM Used"}

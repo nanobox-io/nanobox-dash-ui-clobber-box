@@ -13,7 +13,7 @@ module.exports = class HostBox extends Box
     @buildNav @$node
     super @$node, @data
     PubSub.publish 'REGISTER.HOST', @
-    @buildStats $(".stats", @$node)
+    @buildStats $(".stats-strip", @$node)
 
   buildNav : ($node) ->
     navItems = [
@@ -28,7 +28,7 @@ module.exports = class HostBox extends Box
     @data.appComponents.push componentData
     if @subState == 'app-components'
       @subManager.addComponent componentData
-      
+
   # Add a component generation at runtime
   addGeneration : (componentId, generationData) ->
     for componentData in @data.appComponents

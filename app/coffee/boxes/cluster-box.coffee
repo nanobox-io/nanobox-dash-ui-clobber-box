@@ -15,7 +15,7 @@ module.exports = class ClusterBox extends Box
     super $node, @data
     PubSub.publish 'REGISTER.CLUSTER', @
 
-    @buildStats $(".stats", $node)
+    @buildStats $(".stats-strip", $node)
 
   buildNav : ($node) ->
     navItems = [
