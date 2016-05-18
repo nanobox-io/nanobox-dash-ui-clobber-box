@@ -9,7 +9,7 @@ module.exports = class AppComponent
     @id              = "#{kind}.#{++AppComponent.appComponentCount}"
     @name            = "#{kind} #{AppComponent.appComponentCount}"
     @generations     = []
-    addGeneration()
+    @addGeneration()
 
   addGeneration : (state='active') ->
     @generations.push
