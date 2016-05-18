@@ -20,12 +20,12 @@ window.init = ()=>
 
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()
-    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(false)
+    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(true).serialize()
     ui.noteComponents(hostBox)
 
   window.addCluster = ()->
     clusterBox = new nanobox.ClobberBox()
-    clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster()
+    clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster().serialize()
 
   # ------------------------------------ State
 
