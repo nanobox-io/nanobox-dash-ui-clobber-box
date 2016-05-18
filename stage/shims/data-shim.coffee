@@ -11,3 +11,9 @@ module.exports = class ClobberBoxDataShim
   getCluster           : (totalMembers)                   -> new Cluster totalMembers
   getAppComponent      : (kind, type, scalesHorizontally) -> new AppComponent kind, type, scalesHorizontally
   getPlatformComponent : (id, kind)                       -> new PlatformComponent id, kind
+
+  #
+  resetCounts : ()->
+    Host.hostCount                 = 0
+    AppComponent.appComponentCount = 0
+    Cluster.clusterCount           = 0
