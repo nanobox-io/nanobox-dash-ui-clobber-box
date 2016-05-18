@@ -57,7 +57,6 @@ module.exports = class LineAnimator
       @destroyTick()
 
   getSvgId : (componentKind) ->
-    console.log componentKind
     switch componentKind
       when 'host', 'cluster' then 'host-silvering'
       when 'component'       then 'component-silvering'
