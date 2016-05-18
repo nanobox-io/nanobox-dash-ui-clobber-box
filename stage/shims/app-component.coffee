@@ -8,11 +8,13 @@ module.exports = class AppComponent
     @serverSpecsId   = "b3"
     @id              = "#{kind}.#{++AppComponent.appComponentCount}"
     @name            = "#{kind} #{AppComponent.appComponentCount}"
-    @generations     = [ @getGeneration() ]
+    @generations     = []
+    addGeneration()
 
-  getGeneration : (state='active') ->
-    state : state,
-    id    : "#{@id}.gen#{@generationCount++}"
+  addGeneration : (state='active') ->
+    @generations.push
+      state : state,
+      id    : "#{@id}.gen#{@generationCount++}"
 
   serialize : () ->
     generations   : @generations
