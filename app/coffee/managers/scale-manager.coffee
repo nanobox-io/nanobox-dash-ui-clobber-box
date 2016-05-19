@@ -16,11 +16,9 @@ module.exports = class ScaleManager extends Manager
     saver = new Saver(@$el, @onSave, @onCancel)
 
   onSelectionChange : (selection)=>
-    console.log selection
     @showSaver @$el
 
   onInstanceTotalChange : (instances)=>
-    console.log "#{instances}"
     @showSaver @$el
 
   onSave : () =>

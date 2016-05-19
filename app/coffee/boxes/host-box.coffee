@@ -25,15 +25,16 @@ module.exports = class HostBox extends Box
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
   addComponent : (componentData) ->
-    @data.appComponents.push componentData
+    # @data.appComponents.push componentData
+
     if @subState == 'app-components'
       @subManager.addComponent componentData
 
   removeComponent : (componentId) ->
-    for componentData, i in @data.appComponents
-      if componentData.id == componentId
-        @data.appComponents.splice i, 1
-
+    # for componentData, i in @data.appComponents
+    #   if componentData.id == componentId
+    #     @data.appComponents.splice i, 1
+    #     break
 
     if @subState == 'app-components'
       @subManager.removeComponent componentId
@@ -42,12 +43,15 @@ module.exports = class HostBox extends Box
   addGeneration : (componentId, generationData) ->
     for componentData in @data.appComponents
       if componentData.id == componentId
-        componentData.generations.push generationData
+        # componentData.generations.push generationData
         if @subState == 'app-components'
           @subManager.addGeneration componentData, generationData
 
-  removeGenration : () ->
-
+  removeGeneration : (generationId) ->
+    # componentId = getComponentIdContainingGenerationId()
+    # return if !componentId
+    if @subState == 'app-components'
+      @subManager.removeGeneration generationId
 
   # Set a generation's state
   setGenerationState : (id, state) ->
@@ -63,10 +67,13 @@ module.exports = class HostBox extends Box
 
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->
+    return @getComponentIdContainingGenerationId(id)?
+
+  getComponentIdContainingGenerationId : (generationId) ->
     for componentData in @data.appComponents
       for generation in componentData.generations
-        if generation.id == id
-          return true
+        if generation.id == generationId
+          return componentData.id
     return false
 
   hasComponentWithId : (id) ->

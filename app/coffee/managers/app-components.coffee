@@ -13,16 +13,22 @@ module.exports = class AppComponents extends Manager
       if generationData.state != "archived"
         @addGeneration componentData, generationData
 
-  removeComponent : () ->
-
+  removeComponent : (componentId) ->
+    for generationBox in @generations
+      if generationBox.data.componentData.id == componentId
+        generationBox.destroy()
+        break
 
   addGeneration : (componentData, generationData) ->
     generation = new nanobox.ClobberBox()
     generation.build @$el, nanobox.ClobberBox.APP_COMPONENT_GENERATION, {componentData:componentData, generationData:generationData}
     @generations.push generation
 
-  removeGeneration : () ->
-
+  removeGeneration : (generationId) ->
+    for generationBox in @generations
+      if generationBox.data.generationData.id == generationId
+        generationBox.destroy()
+        break
 
   updateGenerationState : (id, state) ->
     for generation in @generations

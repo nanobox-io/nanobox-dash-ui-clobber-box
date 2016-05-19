@@ -26,16 +26,16 @@ html(lang="en")
       .label Hosts: 
       .state
         .txt Set
-        select.hosts
+        select.hosts#hosts-state-selector
         .txt state to
-        select#host-states
+        select.states#host-states
         button#hosts go
       .label Generations: 
       .state
         .txt Set
-        select#generation
+        select.generations#generations-state-selector
         .txt state to
-        select#gen-states
+        select.states#gen-states
         button#generations go
       .label Components
       .state
@@ -43,8 +43,8 @@ html(lang="en")
         select.hosts#add-component-select
         button#add-component go
       .state
-        .txt Remove Component from
-        select.hosts#remove-component-select
+        .txt Remove Component 
+        select.components#remove-component-select
         button#remove-component go
       .state
         .txt Add Generation to
@@ -52,7 +52,7 @@ html(lang="en")
         button#add-generation go
       .state
         .txt Remove Generation from
-        select.components#remove-generation-select
+        select.generations#remove-generation-select
         button#remove-generation go
     .holder.boxes
     

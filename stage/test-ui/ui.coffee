@@ -1,8 +1,8 @@
 module.exports = class UI
 
   constructor: () ->
-    @initStateSelector $("#host-states")
-    @initStateSelector $("#gen-states")
+    @initStateSelector $(".states")
+    # @initStateSelector $("#gen-states")
     @initEvents()
 
     PubSub.subscribe 'REGISTER', (m, box)=>
@@ -25,16 +25,14 @@ module.exports = class UI
 
   initEvents : () ->
     $("button#hosts").on 'click', ()=>
-      id = $("select#hosts").val()
+      id = $("select#hosts-state-selector").val()
       state = $("select#host-states").val()
       setState id, state
 
     $("button#generations").on 'click', ()=>
-      id = $("select#generation").val()
+      id = $("select#generations-state-selector").val()
       state = $("select#gen-states").val()
       setGenerationState id, state
-
-    #
 
     $("button#add-generation").on 'click', ()=>
       addGeneration $("select#add-generation-select").val()

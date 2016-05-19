@@ -6,6 +6,6 @@ module.exports = class Generation
     @state = state
     @id    = "#{parentId}.gen#{Generation.genericGenerationCount++}"
 
-  serialize:
+  serialize: ()->
     state : @state
     id    : @id

@@ -18,11 +18,12 @@ window.init = ()=>
   window.addComponent = (hostId)->
     getBox(hostId).addComponent clobberBoxDataShim.getAppComponent().serialize()
 
-  window.removeComponent = (hostId)->
-    console.log hostId
+  window.removeComponent = (componentId)->
+    getParentOfComponent(componentId).removeComponent componentId
+    # getBox(hostId).addComponent
 
-  window.removeGeneration = (componentId)->
-    console.log componentId
+  window.removeGeneration = (generationId)->
+    getParentOfGeneration(generationId).removeGeneration generationId
 
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()

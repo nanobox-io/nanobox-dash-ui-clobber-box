@@ -138,6 +138,7 @@ module.exports = class Box
   # ------------------------------------ Main Content / State
 
   setState : (state, status, messageCode) ->
+    console.log state
     return if state == @state
     @state = state
     switch @state
@@ -163,7 +164,7 @@ module.exports = class Box
         @lineAnimation = new LineAnimator $('.animation .svg-holder', @$node),  @kind, @animationKind
         @setStateClassAndFadeIn 'animating'
 
-  activeState   : () ->
+  activeState : () ->
     @animationKind = null
     @fadeOutMainContent ()=>
       @$node.css height: "initial"
@@ -230,10 +231,10 @@ module.exports = class Box
   updateHistoricStats : (data) -> @stats.updateHistoricStats data
 
   destroy : () ->
+    @$node.addClass 'faded'
+
     @$node.css height: @$node.height()
     me = @
-
-    @$node.addClass 'faded'
 
     setTimeout ()->
       me.$node.addClass 'archived'
