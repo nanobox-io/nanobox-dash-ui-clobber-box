@@ -12,11 +12,17 @@ window.init = ()=>
   #  ------------------------------------ Adding Items
 
   window.addGeneration = (componentId, state='provisioning')->
-    genData = clobberBoxDataShim.getGeneration(componentId, state)
+    genData = clobberBoxDataShim.getGeneration(componentId, state).serialize()
     getParentOfComponent(componentId).addGeneration componentId, genData
 
   window.addComponent = (hostId)->
-    getBox(hostId).addComponent clobberBoxDataShim.getAppComponent()
+    getBox(hostId).addComponent clobberBoxDataShim.getAppComponent().serialize()
+
+  window.removeComponent = (hostId)->
+    console.log hostId
+
+  window.removeGeneration = (componentId)->
+    console.log componentId
 
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()

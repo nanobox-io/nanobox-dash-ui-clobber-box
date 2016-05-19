@@ -10,9 +10,9 @@ module.exports = class UI
 
   registerBox : (box) ->
     if box.data.id.includes 'gen'
-      @addToSelector $('#generation'), box
+      @addToSelector $('.generations'), box
     else
-      @addToSelector $('#hosts'), box
+      @addToSelector $('.hosts'), box
 
   addToSelector : ($selector, box) ->
     return if $("option[value='#{box.data.id}']", $selector).length != 0
@@ -34,11 +34,21 @@ module.exports = class UI
       state = $("select#gen-states").val()
       setGenerationState id, state
 
+    #
+
     $("button#add-generation").on 'click', ()=>
-      id = $("select#components").val()
-      addGeneration id
+      addGeneration $("select#add-generation-select").val()
+
+    $("button#remove-generation").on 'click', ()=>
+      removeGeneration $("select#remove-generation-select").val()
+
+    $("button#add-component").on 'click', ()=>
+      addComponent $("select#add-component-select").val()
+
+    $("button#remove-component").on 'click', ()=>
+      removeComponent $("select#remove-component-select").val()
 
   noteComponents : (box) ->
-    $selector = $ "select#components"
+    $selector = $ "select.components"
     for component in box.data.appComponents
       $selector.append "<option value='#{component.id}'>#{component.id}</option>"

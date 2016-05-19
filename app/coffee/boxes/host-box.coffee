@@ -29,6 +29,15 @@ module.exports = class HostBox extends Box
     if @subState == 'app-components'
       @subManager.addComponent componentData
 
+  removeComponent : (componentId) ->
+    for componentData, i in @data.appComponents
+      if componentData.id == componentId
+        @data.appComponents.splice i, 1
+
+
+    if @subState == 'app-components'
+      @subManager.removeComponent componentId
+
   # Add a component generation at runtime
   addGeneration : (componentId, generationData) ->
     for componentData in @data.appComponents
@@ -36,6 +45,9 @@ module.exports = class HostBox extends Box
         componentData.generations.push generationData
         if @subState == 'app-components'
           @subManager.addGeneration componentData, generationData
+
+  removeGenration : () ->
+
 
   # Set a generation's state
   setGenerationState : (id, state) ->

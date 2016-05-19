@@ -26,7 +26,7 @@ html(lang="en")
       .label Hosts: 
       .state
         .txt Set
-        select#hosts
+        select.hosts
         .txt state to
         select#host-states
         button#hosts go
@@ -39,9 +39,21 @@ html(lang="en")
         button#generations go
       .label Components
       .state
+        .txt Add Component to
+        select.hosts#add-component-select
+        button#add-component go
+      .state
+        .txt Remove Component from
+        select.hosts#remove-component-select
+        button#remove-component go
+      .state
         .txt Add Generation to
-        select#components
+        select.components#add-generation-select
         button#add-generation go
+      .state
+        .txt Remove Generation from
+        select.components#remove-generation-select
+        button#remove-generation go
     .holder.boxes
     
     // build:remove 
