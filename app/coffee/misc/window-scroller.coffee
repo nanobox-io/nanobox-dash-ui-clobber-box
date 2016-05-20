@@ -9,19 +9,23 @@ module.exports = class WindowScroller
       @scrollWindowTo data, 480, 600, 20
 
   scrollWindowTo : ($el, delay=0, duration=500, topPadding=0) ->
-    top = $el.offset().top - topPadding
+    topOfElement = $el.offset().top - topPadding
 
+    # If the user scrolls durring the animation, cancel the animation
+    $(window).on 'mousewheel', ()->
+      $('html,body').stop true, false
+      $(window).off 'mousewheel'
 
     # If the target scroll position cannot be scrolled to the top of the page
     # because the body height isn't tall enough to accomodate the needed space
-    # below the target item
-    if $('body').height() - top < top
-      top = $('body').height() - top
+    # below the target item, scroll to the bottom of the page
+    # if $('body').height() - topOfElement < topOfElement
+      # topOfElement = topOfElement
 
-    # I don't remember what we're checking for with top != topPadding...I'm tempted to remove it
-    if top != topPadding
-      $('html,body')
-        .velocity('scroll',{ delay:delay, duration:duration, offset:top, easing:'easeInOutQuint'})
+    $('html,body')
+      .velocity 'scroll',{ delay:delay, duration:duration, offset:topOfElement, easing:'easeInOutQuint', complete:()->
+        $(window).off 'mousewheel'
+      }
 
   scrollWindowtoFutureSize : ($el, delay=0, duration=500, topPadding, projectedHeight=0 ) ->
     top           = $el.offset().top - topPadding
