@@ -1,6 +1,7 @@
 Box                = require 'boxes/box'
 BoxNav             = require 'box-nav'
 hostBox            = require 'jade/host-box'
+miniIcons          = require 'jade/host-mini-icons'
 
 module.exports = class HostBox extends Box
 
@@ -9,6 +10,9 @@ module.exports = class HostBox extends Box
 
     @$node = $ hostBox( @data )
     $el.append @$node
+
+    @$serviceIcons = $(".service-icons", @$node)
+    @updateMiniIcons()
 
     @buildNav @$node
     super @$node, @data
@@ -25,17 +29,17 @@ module.exports = class HostBox extends Box
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
   addComponent : (componentData) ->
-    # @data.appComponents.push componentData
-
+    @data.appComponents.push componentData
+    @updateMiniIcons()
     if @subState == 'app-components'
       @subManager.addComponent componentData
 
   removeComponent : (componentId) ->
-    # for componentData, i in @data.appComponents
-    #   if componentData.id == componentId
-    #     @data.appComponents.splice i, 1
-    #     break
-
+    for componentData, i in @data.appComponents
+      if componentData.id == componentId
+        @data.appComponents.splice i, 1
+        break
+    @updateMiniIcons()
     if @subState == 'app-components'
       @subManager.removeComponent componentId
 
@@ -81,6 +85,12 @@ module.exports = class HostBox extends Box
       if componentData.id == id
         return true
     return false
+
+  updateMiniIcons : () ->
+    @$serviceIcons.empty()
+    $icons = $ miniIcons( @data )
+    @$serviceIcons.append $icons
+    castShadows @$serviceIcons
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.HOST', @

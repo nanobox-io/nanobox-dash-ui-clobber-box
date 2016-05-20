@@ -6,18 +6,6 @@
     .white-box
       .name=name
       .service-icons
-        //- Show 4 icons, if there is more than 4, show the first 3 icons
-        //- and then an empty icon with a number for how many are not shown
-        each service, i in appComponents
-          if i < 3 || ( i==3 && appComponents.length == 4 )
-            .service-icon(class="#{service.serviceType}")
-              img.shadow-icon(data-src="hex-#{service.serviceType}" scalable="true", xtra="2")
-        if appComponents.length > 4
-          .service-icon.empty
-            img.shadow-icon(data-src="hex-empty" scalable="true", xtra="2")
-            .txt
-              .num #{appComponents.length-3} 
-              span more
       .stats-strip
   .nav-holder
   .sub

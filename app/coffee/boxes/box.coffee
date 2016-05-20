@@ -138,7 +138,6 @@ module.exports = class Box
   # ------------------------------------ Main Content / State
 
   setState : (state, status, messageCode) ->
-    console.log state
     return if state == @state
     @state = state
     switch @state
