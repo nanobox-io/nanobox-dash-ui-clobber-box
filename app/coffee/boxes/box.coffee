@@ -42,7 +42,7 @@ module.exports = class Box
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId, @totalMembers
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
-        when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @closeSubContent
+        when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @closeSubContent, @componentData.id
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState

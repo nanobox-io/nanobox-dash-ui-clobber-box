@@ -3,18 +3,22 @@ split = require 'jade/split'
 
 module.exports = class SplitManager extends Manager
 
-  constructor: ($el, isHorizontal, @hideCb) ->
+  constructor: ($el, isHorizontal, @hideCb, componentId) ->
     bunkHouses = [
       {id:"a", name:"EC2 1", current:true, }
       {id:"b", name:"EC2 2"}
       {id:"c", name:"EC2 3"}
     ]
 
-    app = new nanobox.Splitter $el, isHorizontal, bunkHouses, @onSubmit, @onCancel
+    config =
+      componentId  : componentId
+      isHorizontal : isHorizontal
+      bunkHouses   : bunkHouses
+      submitCb     : @onSubmit
+      cancelCb     : @onCancel
+
+    app = new nanobox.Splitter $el, config
     super()
 
   onSubmit : (data) ->
-    console.log "We probably need to broadcast this data out to rails somehow.. Probably with pubsub"
-    console.log data
-
   onCancel : () => @hideCb()
