@@ -11,11 +11,11 @@ module.exports = class Host
     @name           = "ec2.#{Host.hostCount}"
     @serverSpecsId  = "b1"
     @platformComponents = [
-      new PlatformComponent( "lb", "load-balancer")
+      new PlatformComponent( "lb", "mesh")
       new PlatformComponent( "lg", "logger")
-      new PlatformComponent( "hm", "health-monitor")
-      new PlatformComponent( "mr", "router")
-      new PlatformComponent( "gs", "glob-storage")
+      new PlatformComponent( "hm", "monitor")
+      new PlatformComponent( "mr", "pusher")
+      new PlatformComponent( "gs", "warehouse")
     ]
     @appComponents  = []
     @createComponents makeLotsOfComponents

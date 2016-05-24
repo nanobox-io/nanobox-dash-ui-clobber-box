@@ -3,7 +3,8 @@ Saver   = require 'saver'
 
 module.exports = class ScaleManager extends Manager
 
-  constructor: (@$el, serverSpecsId, currentTotal) ->
+  constructor: (@$el, serverSpecsId, currentTotal, hostId) ->
+    console.log hostId
     if currentTotal?
       @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange, @onInstanceTotalChange, currentTotal
     else
@@ -22,7 +23,7 @@ module.exports = class ScaleManager extends Manager
     @showSaver @$el
 
   onSave : () =>
-    console.log "save it!"
+    PubSub.publish 'SCALE', @scaleMachine.getUserSelectedPlan()
 
   onCancel : () =>
     @saveVisible = false

@@ -52,6 +52,7 @@ window.init = ()=>
     PubSub.subscribe 'STATS.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
     PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box
     PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
+    PubSub.subscribe 'SCALE'            , (m, data)-> console.log("New Scale:"); console.log data
 
 
   addEventListeners = () ->
