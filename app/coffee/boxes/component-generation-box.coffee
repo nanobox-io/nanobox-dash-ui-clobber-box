@@ -23,7 +23,7 @@ module.exports = class ComponentGenerationBox extends Box
   buildAppComponentNav : ($node) ->
     navItems = [
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
-      {txt:"Split",   icon:'split',   event:'SHOW.SPLIT'  }
+      {txt:"Move",    icon:'split',   event:'SHOW.SPLIT'  }
       {txt:"Admin",   icon:'admin',   event:'SHOW.ADMIN'  }
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
     ]

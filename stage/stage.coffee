@@ -30,9 +30,24 @@ window.init = ()=>
     hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(true).serialize()
     ui.noteComponents(hostBox)
 
-  window.addCluster = ()->
-    clusterBox = new nanobox.ClobberBox()
-    clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, clobberBoxDataShim.getCluster().serialize()
+  window.addCluster = (clusterData)->
+    for generation in clusterData.generations
+      data =
+        serviceId        : clusterData.id
+        serviceState     : clusterData.state
+        name             : clusterData.name
+        serviceType      : clusterData.serviceType
+        scalesHoriz      : clusterData.scalesHoriz
+        scalesRedund     : clusterData.scalesRedund
+        instances        : clusterData.instances # Delete
+        id               : generation.id
+        generationState  : generation.state
+        generationStatus : generation.status
+        members          : generation.instances
+        totalMembers     : generation.instances.length
+
+      clusterBox = new nanobox.ClobberBox()
+      clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, data
 
   # ------------------------------------ State
 
@@ -93,4 +108,4 @@ window.init = ()=>
 
   # ------------------------------------ Start the app
   addHost()
-  addCluster()
+  addCluster( clobberBoxDataShim.getCluster().serialize() )

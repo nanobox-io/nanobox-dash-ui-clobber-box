@@ -18,7 +18,7 @@ module.exports = class PlatformComponentBox extends Box
 
   buildPlatformComponentNav  : ($node) ->
     navItems = [
-      {txt:"Split",   icon:'split',   event:'SHOW.SPLIT'  }
+      {txt:"Move",    icon:'split',   event:'SHOW.SPLIT'  }
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'}
     ]
