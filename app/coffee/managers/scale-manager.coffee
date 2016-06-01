@@ -3,9 +3,15 @@ Saver   = require 'saver'
 
 module.exports = class ScaleManager extends Manager
 
-  constructor: (@$el, serverSpecsId, currentTotal, hostId) ->
-    console.log hostId
+  constructor: (@$el, serverSpecsId, currentTotal, data) ->
+    if data.serviceId?
+      @hostId = data.serviceId
+      @isCluster = true
+    else
+      @hostId = data.id
+
     if currentTotal?
+      @instances = currentTotal
       @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange, @onInstanceTotalChange, currentTotal
     else
       @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange
@@ -19,11 +25,21 @@ module.exports = class ScaleManager extends Manager
   onSelectionChange : (selection)=>
     @showSaver @$el
 
-  onInstanceTotalChange : (instances)=>
+  onInstanceTotalChange : (@instances)=>
     @showSaver @$el
 
   onSave : () =>
-    PubSub.publish 'SCALE', @scaleMachine.getUserSelectedPlan()
+    data =
+      hostId    : @hostId
+      newPlan   : @scaleMachine.getUserSelectedPlan()
+      isCluster : @isCluster == true
+
+    if @instances?
+      data.totalInstances = @instances
+    else
+      data.totalInstances = "na"
+
+    PubSub.publish 'SCALE.SAVE', data
 
   onCancel : () =>
     @saveVisible = false

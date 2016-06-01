@@ -21,4 +21,7 @@ module.exports = class SplitManager extends Manager
     super()
 
   onSubmit : (data) ->
-  onCancel : () => @hideCb()
+    PubSub.publish 'SPLIT.SAVE', data 
+
+  onCancel : () =>
+    @hideCb()
