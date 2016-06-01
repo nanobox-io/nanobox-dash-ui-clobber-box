@@ -27,7 +27,7 @@ window.init = ()=>
 
   window.addHost = ()->
     hostBox = new nanobox.ClobberBox()
-    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(true).serialize()
+    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(false).serialize()
     ui.noteComponents(hostBox)
 
   window.addCluster = (clusterData)->
@@ -73,7 +73,7 @@ window.init = ()=>
   addEventListeners = () ->
     PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.id).switchSubContent 'app-components', data.el
     PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> getBox(data.id).switchSubContent 'platform-components', data.el
-    PubSub.subscribe 'SHOW.INSTANCES'          , (m, data)=>
+    PubSub.subscribe 'SHOW.HOST-INTANCES'      , (m, data)=> getBox(data.id).switchSubContent 'host-instances', data.el
     PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data.id).switchSubContent 'scale-machine', data.el
     PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data.id).switchSubContent 'stats', data.el
     PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data.id).switchSubContent 'console', data.el

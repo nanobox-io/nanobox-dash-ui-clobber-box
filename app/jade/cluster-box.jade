@@ -4,14 +4,17 @@
       .svg-holder
       .title
     .white-box
-      .id
-        .name=clusterName
-        .service-name=serviceType
-      .component
-        .service-icon(class="#{serviceType}")
-          img.shadow-icon(data-src="hex-#{serviceType}" scalable="true", xtra="2")
+      .corner-box
+        img.shadow-icon(data-src="corner-bg" )
+      if scalesHoriz
         .total=totalMembers
+      .id
+        .name=name
+        .hosts <span>Cluster : </span>#{clusterName}
       .stats-strip
+  .service-bug  
+    .bg-hex
+    img.shadow-icon(data-src="hex-#{serviceType}" )
   .nav-holder
   .sub
     .sub-content

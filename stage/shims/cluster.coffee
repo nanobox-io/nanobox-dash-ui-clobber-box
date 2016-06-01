@@ -7,9 +7,9 @@ module.exports = class Cluster
 
   constructor: (totalMembers=4, totalGenerations=1) ->
     @id            = "cluster.#{Cluster.clusterCount}"
-    @name          = "web #{++AppComponent.appComponentCount}"
+    @name          = "Main App"
     @state         = "active"
-    @serviceType   = "ruby"
+    @serviceType   = "python"
     @scalesHoriz   = true
     @scalesRedund  = false
     @generations   = []

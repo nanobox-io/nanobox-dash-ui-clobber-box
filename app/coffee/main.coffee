@@ -1,4 +1,5 @@
 HostBox                = require 'boxes/host-box'
+HostInstanceBox        = require 'boxes/host-instance-box'
 ClusterBox             = require 'boxes/cluster-box'
 ComponentGenerationBox = require 'boxes/component-generation-box'
 PlatformComponent      = require 'boxes/platform-component-box'
@@ -16,6 +17,7 @@ class ClobberBox
       when ClobberBox.CLUSTER                  then @box = new ClusterBox $el, @data
       when ClobberBox.APP_COMPONENT_GENERATION then @box = new ComponentGenerationBox $el, @data
       when ClobberBox.PLATFORM_COMPONENT       then @box = new PlatformComponent $el, @data
+      when ClobberBox.HOST_INSTANCE            then @box = new HostInstanceBox $el, @data
     @stats = @box.stats
 
   setState : (state) -> @box.setState state
@@ -32,6 +34,7 @@ class ClobberBox
   @HOST                     : 'host'
   @PLATFORM_COMPONENT       : 'platform-component'
   @APP_COMPONENT_GENERATION : 'app-component-generation'
+  @HOST_INSTANCE            : 'host-instance'
 
 window.nanobox ||= {}
 nanobox.ClobberBox = ClobberBox

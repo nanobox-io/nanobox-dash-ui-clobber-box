@@ -1,11 +1,12 @@
-StatsManager       = require 'managers/stats-manager'
-ConsoleManager     = require 'managers/console-manager'
-PlatformComponents = require 'managers/platform-components'
-AppComponents      = require 'managers/app-components'
-ScaleManager       = require 'managers/scale-manager'
-AdminManager       = require 'managers/admin-manager'
-SplitManager       = require 'managers/split-manager'
-LineAnimator      = require 'misc/line-animator'
+AdminManager        = require 'managers/admin-manager'
+AppComponents       = require 'managers/app-components'
+ConsoleManager      = require 'managers/console-manager'
+HostInstanceManager = require 'managers/host-instance-manager'
+LineAnimator        = require 'misc/line-animator'
+PlatformComponents  = require 'managers/platform-components'
+ScaleManager        = require 'managers/scale-manager'
+SplitManager        = require 'managers/split-manager'
+StatsManager        = require 'managers/stats-manager'
 
 module.exports = class Box
 
@@ -43,6 +44,7 @@ module.exports = class Box
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @closeSubContent, @componentData.id
+        when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState

@@ -5,7 +5,7 @@
   .name                      { color:$slate-blue; }
   .id                        {
     *                        { color:$slate-blue; }
-    .service-name            { text-transform: uppercase; }
+    .service-name            { }
   }
   .service-icon              { width:31px; margin:2px 3px 0 0;
     // &.ruby .bg,
@@ -51,16 +51,16 @@
 
   // HOST BOX
   &.host-box                 {
-    .main-content{
-      .name                    { font-size:30px; margin-right:10px;}
-      .service-icons           { display:flex;
-        .service-icon          {
-          &.empty              { position:relative;
-            .txt               { position:absolute; font-weight: $bold; color:#32B7F0; top:2px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 31px;
-              .num             { font-size: 18px; margin-left:-2px;
-                &:before       { content:"+"; font-size:14px;}
+    .main-content            {
+      .name                  { font-size:30px; margin-right:10px;}
+      .service-icons         { display:flex;
+        .service-icon        {
+          &.empty            { position:relative;
+            .txt             { position:absolute; font-weight: $bold; color:#32B7F0; top:2px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 31px;
+              .num           { font-size: 18px; margin-left:-2px;
+                &:before     { content:"+"; font-size:14px;}
               }
-              span             { font-size:10px; margin-top:-7px; }
+              span           { font-size:10px; margin-top:-7px; }
             }
           }
         }
@@ -68,22 +68,9 @@
     }
   }
 
-  // CLUSTER BOX
-  &.cluster-box              {
-    .white-box               {
-      .component             { position: relative; margin-left:20px;
-        .icon                { width:31px; }
-        .total               { position: absolute; right:-8px; bottom:0; background:$link-blue; width:20px; height:20px; color:white; border-radius: 50%; text-align: center; font-size:12px; line-height: 20px; }
-      }
-    }
-  }
-
-  // COMPONENT BOX
-  &.component-box            { position:relative;
-    &.platform-component     {
-      .nav-split             { display: none; }
-      &.splitable .nav-split { display: flex; }
-    }
+  // Hex style box. Used for components and for clusters
+  &.component-box,
+  &.cluster-box              { position:relative;
     .white-box               { background: none; position:relative; }
     .animation               { position:absolute; top:-17px; left:-29px;
       .title                 { margin-right:10px; text-shadow: 0px 1px 1px #9E9E9E;  }
@@ -96,8 +83,49 @@
     .corner-box              { position:absolute; left:-15px;}
     .service-bug             { position:absolute; top:30px; left:11px; @include transition(opacity, 0.3s); opacity:1;
       > *                    { position:absolute; }
-      .bg-hex                { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
+      // .bg-hex                { background:url('/assets/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
+      .bg-hex                { background:url('/assets/sprite.png') -71px -0;; width:65px; height:75px; top:-48px; left:-44px; }
       svg                    { top:-41px; left:-35px; }
+    }
+  }
+
+
+  // COMPONENT BOX
+  &.component-box            { position:relative;
+    &.platform-component     {
+      .nav-split             { display: none; }
+      &.splitable .nav-split { display: flex; }
+    }
+    .id                      {
+      .service-name          { font-size:12px; }
+    }
+    .service-bug             {
+      .bg-hex                { background:url('/assets/sprite.png'); }
+    }
+  }
+
+  // CLUSTER BOX
+  &.cluster-box              {
+    .white-box               {
+      .total                 { z-index:3; position: absolute; left:-24px; bottom:7px; background:white; width:20px; height:20px; color:$link-blue; border-radius: 50%; text-align: center; font-size:12px; line-height: 20px; @include drop-shadow($xoffset:0px, $yoffset:1px, $blur:5px, $color:rgba(#000, 0.3), $radius:0px); }
+    }
+    .id                      {
+      .name                  { }
+      .hosts                 { font-size:12px;
+        span                 { font-style: italic; color:#829FAB }
+      }
+    }
+  }
+
+  &.host-instance-box        { margin-bottom:18px;
+    .white-box               { background:white; height:44px; }
+    .name                    { font-size:15px;
+      span                   { font-size:13px; font-style: italic; color:#829FAB }
+    }
+    .square-service-icon     { width:35px; height:36px; margin-left:-6px; margin-right:20px;
+      svg                    { transform:scale(0.70) translate(-10px, -15px);
+        .bg                  { display:none }
+      }
     }
   }
 

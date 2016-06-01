@@ -7,6 +7,7 @@ module.exports = class ComponentGenerationBox extends Box
   constructor: ($el, data) ->
     @kind = "component"
     @componentData  = data.componentData
+    @componentData.kind = @getServiceCommonName(data.componentData.serviceType)
     @generationData = data.generationData
     @data           = @componentData
     compiledData    = { id: @generationData.id, state: @generationData.state }
@@ -33,3 +34,22 @@ module.exports = class ComponentGenerationBox extends Box
   destroy : () ->
     PubSub.publish 'UNREGISTER.APP_COMPONENT', @
     super()
+
+  getServiceCommonName : (serviceName) ->
+    switch serviceName
+      when 'ruby'        then 'Ruby'
+      when 'mongo-db'    then 'Mongo'
+      when 'node'        then 'Node JS'
+      when 'memcached'   then 'MemcacheD'
+      when 'python'      then 'Python'
+      when 'storage'     then 'Storage'
+      when 'java'        then 'Java'
+      when 'php'         then 'PHP'
+      when 'couch-db'    then 'Couch DB'
+      when 'maria-db'    then 'Maria DB'
+      when 'postgres-db' then 'Postgres DB'
+      when 'redis'       then 'Redis'
+      when 'percona-db'  then 'Percona DB'
+      when 'default'     then ' '
+      when 'default-db'  then ' '
+      else                    ' '

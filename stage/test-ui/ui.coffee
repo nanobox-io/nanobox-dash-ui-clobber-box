@@ -10,9 +10,9 @@ module.exports = class UI
 
   registerBox : (box) ->
     if box.data.id.includes 'gen'
-      @addToSelector $('.generations'), box
+      @addToSelector $('.generations', '.ui-shim'), box
     else
-      @addToSelector $('.hosts'), box
+      @addToSelector $('.hosts', '.ui-shim'), box
 
   addToSelector : ($selector, box) ->
     return if $("option[value='#{box.data.id}']", $selector).length != 0
