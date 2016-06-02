@@ -4,13 +4,15 @@ Saver   = require 'saver'
 module.exports = class ScaleManager extends Manager
 
   constructor: (@$el, serverSpecsId, currentTotal, data) ->
+
     if data.serviceId?
       @hostId = data.serviceId
       @isCluster = true
     else
+      @bunkhouseId = data.bunkhouseId
       @hostId = data.id
 
-    if currentTotal?
+    if data.scalesHoriz
       @instances = currentTotal
       @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange, @onInstanceTotalChange, currentTotal
     else
@@ -38,6 +40,7 @@ module.exports = class ScaleManager extends Manager
       data.totalInstances = @instances
     else
       data.totalInstances = "na"
+      data.bunkhouseId = @bunkhouseId
 
     PubSub.publish 'SCALE.SAVE', data
 

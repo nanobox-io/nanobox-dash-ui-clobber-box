@@ -6,6 +6,7 @@ module.exports = class HostInstance extends Box
 
   constructor: ($el, @data) ->
     console.log @data
+    
     $node = $ hostInstanceBox( @data )
     $el.append $node
 

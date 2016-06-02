@@ -10,6 +10,7 @@ module.exports = class Host
     @id             = "host.#{++Host.hostCount}"
     @name           = "ec2.#{Host.hostCount}"
     @serverSpecsId  = "b1"
+    @bunkhouseId    = "bunkhouse"
     @platformComponents = [
       new PlatformComponent( "lb", "mesh")
       new PlatformComponent( "lg", "logger")
@@ -55,5 +56,6 @@ module.exports = class Host
     id                 : @id
     name               : @name
     serverSpecsId      : @serverSpecsId
+    bunkhouseId        : @bunkhouseId
     platformComponents : @serializeComponents @platformComponents
     appComponents      : @serializeComponents @appComponents

@@ -1,12 +1,12 @@
 AppComponent      = require './app-component'
 Host              = require './host'
 
-module.exports = class Cluster
+module.exports = class HorizCluster
 
   @clusterCount : 0
 
   constructor: (totalMembers=4, totalGenerations=1) ->
-    @id            = "cluster.#{Cluster.clusterCount}"
+    @id            = "cluster.#{HorizCluster.clusterCount}"
     @name          = "Main App"
     @state         = "active"
     @serviceType   = "python"

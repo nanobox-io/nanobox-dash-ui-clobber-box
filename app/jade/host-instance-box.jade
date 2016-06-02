@@ -4,9 +4,19 @@
       .svg-holder
       .title
     .white-box
-      .square-service-icon
-        img.shadow-icon(data-src="hex-#{componentData.serviceType}" )
-      .name <span>Host: </span>#{memberData.hostName}
+      if componentData.scalesHoriz
+        .square-service-icon
+          img.shadow-icon(data-src="hex-#{componentData.serviceType}" )
+        .host <span>Host: </span>#{memberData.hostName}
+      else
+        .square-service-icon
+          if memberData.role == 'arbiter'
+            img.shadow-icon(data-src="hex-arbiter" )
+          else
+            img.shadow-icon(data-src="hex-#{componentData.serviceType}" )
+        .data-info
+          .host <span>Host: </span>#{memberData.hostId}
+          .name <span>Role: </span>#{memberData.role}
       .service-icons
       .stats-strip
   .nav-holder

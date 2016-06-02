@@ -119,10 +119,11 @@
 
   &.host-instance-box        { margin-bottom:18px;
     .white-box               { background:white; height:44px; }
-    .name                    { font-size:15px;
+    .name                    { text-transform: capitalize; }
+    .name, .host             { font-size:15px; color:$slate-blue;
       span                   { font-size:13px; font-style: italic; color:#829FAB }
     }
-    .square-service-icon     { width:35px; height:36px; margin-left:-6px; margin-right:20px;
+    .square-service-icon     { width:35px; height:36px; margin-left:-6px; margin-right:10px;
       svg                    { transform:scale(0.70) translate(-10px, -15px);
         .bg                  { display:none }
       }

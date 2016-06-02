@@ -1,7 +1,8 @@
 AppComponent      = require './app-component'
 PlatformComponent = require './platform-component'
 Host              = require './host'
-Cluster           = require './cluster'
+HorizCluster      = require './horiz-cluster'
+DataCluster       = require './data-cluster'
 Generation        = require './generation'
 
 module.exports = class ClobberBoxDataShim
@@ -9,7 +10,8 @@ module.exports = class ClobberBoxDataShim
   constructor : () ->
 
   getHost              : (makeLotsOfComponents=false)     -> new Host makeLotsOfComponents
-  getCluster           : (totalMembers)                   -> new Cluster totalMembers
+  getHorizCluster      : (totalMembers)                   -> new HorizCluster totalMembers
+  getDataCluster       : ()                               -> new DataCluster
   getAppComponent      : (kind, type, scalesHorizontally) -> new AppComponent kind, type, scalesHorizontally
   getPlatformComponent : (id, kind)                       -> new PlatformComponent id, kind
   getGeneration        : (parentId, state)                -> new Generation parentId, state
@@ -18,4 +20,5 @@ module.exports = class ClobberBoxDataShim
   resetCounts : ()->
     Host.hostCount                 = 0
     AppComponent.appComponentCount = 0
-    Cluster.clusterCount           = 0
+    HorizCluster.clusterCount      = 0
+    DAtaCluster.clusterCount       = 0

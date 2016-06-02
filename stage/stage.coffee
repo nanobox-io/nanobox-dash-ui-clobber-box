@@ -109,4 +109,5 @@ window.init = ()=>
 
   # ------------------------------------ Start the app
   addHost()
-  addCluster( clobberBoxDataShim.getCluster().serialize() )
+  addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
+  addCluster( clobberBoxDataShim.getDataCluster().serialize() )
