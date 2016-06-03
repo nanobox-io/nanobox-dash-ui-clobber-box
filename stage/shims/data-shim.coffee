@@ -21,4 +21,4 @@ module.exports = class ClobberBoxDataShim
     Host.hostCount                 = 0
     AppComponent.appComponentCount = 0
     HorizCluster.clusterCount      = 0
-    DAtaCluster.clusterCount       = 0
+    DataCluster.clusterCount       = 0
