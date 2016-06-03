@@ -12,11 +12,18 @@ module.exports = class ScaleManager extends Manager
       @bunkhouseId = data.bunkhouseId
       @hostId = data.id
 
-    if data.scalesHoriz
-      @instances = currentTotal
-      @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange, @onInstanceTotalChange, currentTotal
-    else
-      @scaleMachine = new nanobox.ScaleMachine @$el, serverSpecsId, @onSelectionChange
+
+    @instances = currentTotal
+    @scalesHoriz = data.scalesHoriz
+
+    scaleConfigs =
+      activeServerId          : serverSpecsId
+      onSpecsChange           : @onSelectionChange
+      totalInstances          : currentTotal
+      isHorizontallyScalable  : data.scalesHoriz
+      isCluster               : @isCluster
+
+    @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
     super()
 
   showSaver : (@$el) ->
@@ -31,15 +38,13 @@ module.exports = class ScaleManager extends Manager
     @showSaver @$el
 
   onSave : () =>
+    newPlans = @scaleMachine.getUserSelectedPlan()
     data =
       hostId    : @hostId
-      newPlan   : @scaleMachine.getUserSelectedPlan()
+      newPlan   : newPlans
       isCluster : @isCluster == true
 
-    if @instances?
-      data.totalInstances = @instances
-    else
-      data.totalInstances = "na"
+    if !@isCluster
       data.bunkhouseId = @bunkhouseId
 
     PubSub.publish 'SCALE.SAVE', data
