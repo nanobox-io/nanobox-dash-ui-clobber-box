@@ -4,4 +4,8 @@ $saver-height: 40px;
   .save-btn { font-size: 15px; height:$saver-height; color: white; letter-spacing: 0.08em; background:#00AEBF; padding:0 30px; text-transform:uppercase; line-height: $saver-height; cursor:pointer;
     &:hover { background:$link-blue; }
   }
+  .cancel   { cursor: pointer; display:flex; align-items: center; margin:0 auto -2px 8px; font-size:14px; font-style:italic;  color:#828F9C;
+    .txt    { margin-left: 6px; }
+    &:hover { color:#445362; }
+  }
 }

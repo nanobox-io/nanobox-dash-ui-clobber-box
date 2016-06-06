@@ -3,7 +3,7 @@ Saver   = require 'saver'
 
 module.exports = class ScaleManager extends Manager
 
-  constructor: (@$el, serverSpecsId, currentTotal, data) ->
+  constructor: (@$el, serverSpecsId, currentTotal, data, @hideCb) ->
 
     if data.serviceId?
       @hostId = data.serviceId
@@ -51,4 +51,4 @@ module.exports = class ScaleManager extends Manager
 
   onCancel : () =>
     @saveVisible = false
-    console.log "cancel it!"
+    @hideCb()
