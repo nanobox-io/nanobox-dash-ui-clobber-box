@@ -5,8 +5,8 @@ hostInstanceBox = require 'jade/host-instance-box'
 module.exports = class HostInstance extends Box
 
   constructor: ($el, @data) ->
-    console.log @data
-    
+    @kind = "host-instance"
+
     $node = $ hostInstanceBox( @data )
     $el.append $node
 

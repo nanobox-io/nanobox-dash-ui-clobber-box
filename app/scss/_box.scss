@@ -84,7 +84,7 @@
     .service-bug             { position:absolute; top:30px; left:11px; @include transition(opacity, 0.3s); opacity:1;
       > *                    { position:absolute; }
       // .bg-hex                { background:url(/assets/core-styles/sprite.png'); width:65px; height:75px; top:-48px; left:-44px; }
-      .bg-hex                { background:url('/assets/core-styles/sprite.png') -71px -0;; width:65px; height:75px; top:-48px; left:-44px; }
+      .bg-hex                { background:url('/assets/core-styles/sprite.png') -71px -0; width:65px; height:75px; top:-48px; left:-44px; }
       svg                    { top:-41px; left:-35px; }
     }
   }
@@ -101,6 +101,10 @@
     }
     .service-bug             {
       .bg-hex                { background:url('/assets/core-styles/sprite.png'); }
+    }
+    .stats-strip             { align-self: flex-end; margin-bottom:9px; position:relative;
+      &:before               { content:"Docker Container Health: "; font-size:11px; font-style:italic; color:#BABABA; top:-15px; left:40px; position:absolute; }
+      &:after                { content:""; display:block; position:absolute; top: -15px; left:20px;  background:url('/assets/core-styles/sprite.png') -143px -7px; width:15px; height:10px; }
     }
   }
 

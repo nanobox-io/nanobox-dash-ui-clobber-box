@@ -219,13 +219,17 @@ module.exports = class Box
   # ------------------------------------ Stats
 
   buildStats : ($el) ->
-    @stats = new nanobox.HourlyStats $el, {view: 'standard'}
-    statTypes = [
-      {id:"cpu_used",  nickname: "CPU",  name:"CPU Used"}
-      {id:"ram_used",  nickname: "RAM",  name:"RAM Used"}
-      {id:"swap_used", nickname: "SWAP", name:"Swap Used"}
-      {id:"disk_used", nickname: "DISK", name:"Disk Used"}
-    ]
+    params = {view: 'standard', metrics: ['cpu', 'ram'] }
+
+    if @kind != 'component'
+      params.metrics.push 'swap'
+      params.metrics.push 'disk'
+
+    if @kind == 'host-instance'
+      params.compressView = true
+
+    @stats = new nanobox.HourlyStats $el, params
+
     @stats.build()
 
   updateLiveStats     : (data) -> @stats.updateLiveStats data
