@@ -28,6 +28,8 @@ module.exports = class HostBox extends Box
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
 
+  getServerSpecIds : () -> @data.serverSpecsId
+
   addComponent : (componentData) ->
     @data.appComponents.push componentData
     @updateMiniIcons()

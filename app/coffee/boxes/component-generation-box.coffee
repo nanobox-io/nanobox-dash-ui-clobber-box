@@ -30,8 +30,6 @@ module.exports = class ComponentGenerationBox extends Box
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @generationData.id
 
-  getServerSpecIds : () -> @data.serverSpecsId
-
   destroy : () ->
     PubSub.publish 'UNREGISTER.APP_COMPONENT', @
     super()
