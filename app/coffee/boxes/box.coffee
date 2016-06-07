@@ -40,11 +40,11 @@ module.exports = class Box
         when 'stats'               then @subManager = new StatsManager @$subContent, @kind
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformComponents, @hideCurrentSubContent, @resizeSubContent
-        when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @data.serverSpecsId, @totalMembers, @data, @closeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @data.appComponents, @resizeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @closeSubContent, @componentData.id
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
+        when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState

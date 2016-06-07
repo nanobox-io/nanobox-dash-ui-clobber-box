@@ -2,6 +2,8 @@ Manager = require 'managers/manager'
 
 module.exports = class PlatformComponents extends Manager
 
+  # TODO : Make this work with the generation pattern and also allow scaling
+
   constructor: ($el, platformComponents, @fadeParentMethod, @resizeCb) ->
     super()
 

@@ -14,7 +14,12 @@ module.exports = class StatsManager extends Manager
     hourly = new nanobox.HourlyAverage $hourlyAverage
     hourly.build()
 
-    expanded = new nanobox.HourlyStats $hourlyStats, {view:"expanded"}
+    params = {view:"expanded", metrics: ['cpu', 'ram'] }
+    if @kind != 'component'
+      params.metrics.push 'swap'
+      params.metrics.push 'disk'
+
+    expanded = new nanobox.HourlyStats $hourlyStats, params
     expanded.build()
 
 

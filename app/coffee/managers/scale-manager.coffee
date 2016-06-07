@@ -3,8 +3,7 @@ Saver   = require 'saver'
 
 module.exports = class ScaleManager extends Manager
 
-  constructor: (@$el, serverSpecsId, currentTotal, data, @hideCb) ->
-
+  constructor: (@$el, currentServerSpecsIds, currentTotal, data, @hideCb) ->
     if data.serviceId?
       @hostId = data.serviceId
       @isCluster = true
@@ -17,7 +16,7 @@ module.exports = class ScaleManager extends Manager
     @scalesHoriz = data.scalesHoriz
 
     scaleConfigs =
-      activeServerId          : serverSpecsId
+      activeServerId          : currentServerSpecsIds
       onSpecsChange           : @onSelectionChange
       totalInstances          : currentTotal
       isHorizontallyScalable  : data.scalesHoriz

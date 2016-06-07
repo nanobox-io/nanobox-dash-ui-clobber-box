@@ -6,6 +6,8 @@ module.exports = class PlatformComponentBox extends Box
 
   constructor: ($el, @data) ->
     @kind = "component"
+    @componentData  = @data.componentData
+    @generationData = @data.generationData
     $node = $ componentBox( @data )
     $node.addClass 'platform-component'
     $el.append $node

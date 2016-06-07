@@ -52,31 +52,3 @@ module.exports = class DataCluster
     # appComponents : [@appComponent.serialize()]
     serviceType   : @serviceType
     # instances     : @instances
-
-
-x =  {
-      "id": "web.main",
-      "name": "jade-jug",
-      "state": "active",
-      "serviceType": "default",
-      "scalesHoriz": true,
-      "scalesRedund": false,
-      "generations": [
-        {
-          "id": "web.main.gen2",
-          "state": "active",
-          "status": "online",
-          "instances": [
-            {
-              "id": 1,
-              "hostId": "do.2",
-              "hostName": "do.2",
-              "state": "active",
-              "status": "online",
-              "role": "default",
-              "serverSpecsId": "512mb"
-            }
-          ]
-        }
-      ]
-    }
