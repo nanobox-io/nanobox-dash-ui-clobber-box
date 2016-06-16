@@ -199,6 +199,8 @@ module.exports = class Box
 
   setHeightToContent : () -> @$sub.css height: @$subContent[0].offsetHeight
 
+  getName : () -> if @data.name? then return @data.name else return @data.id
+
   positionArrow : (el, cssClass) ->
     $el = $(el)
     $arrowPointer = $("<div class='arrow-pointer'/>")
@@ -209,12 +211,12 @@ module.exports = class Box
 
   getStateMessage : (state) ->
     switch state
-      when 'created'        then "#{@id} : Creating"
-      when 'initialized'    then "#{@id} : Initializing"
-      when 'ordered'        then "#{@id} : Ordering"
-      when 'provisioning'   then "#{@id} : Provisioning"
-      when 'defunct'        then "#{@id} : Defunct"
-      when 'decomissioning' then "#{@id} : Decomissioning"
+      when 'created'        then "#{@getName()} : Creating"
+      when 'initialized'    then "#{@getName()} : Initializing"
+      when 'ordered'        then "#{@getName()} : Ordering"
+      when 'provisioning'   then "#{@getName()} : Provisioning"
+      when 'defunct'        then "#{@getName()} : Defunct"
+      when 'decomissioning' then "#{@getName()} : Decomissioning"
 
   # ------------------------------------ Stats
 

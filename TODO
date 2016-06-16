@@ -1,3 +1,8 @@
+
+☐ Show name when silvering in, not ID
+
+------------------------------------------------------------------------
+
 ✔ Set animating states of clusters and of bunkhaus hosts
   ✔ Create svg
 ☐ Add in status (offline, online, error)
