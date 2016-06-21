@@ -5,7 +5,6 @@ clusterBox  = require 'jade/cluster-box'
 module.exports = class ClusterBox extends Box
 
   constructor: ($el, @data) ->
-    # console.log @data
     @kind = "cluster"
     @data.clusterName = @makeClusterName @data.members
     @totalMembers = @data.totalMembers

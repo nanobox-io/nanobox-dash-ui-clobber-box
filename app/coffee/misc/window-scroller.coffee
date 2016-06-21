@@ -32,11 +32,6 @@ module.exports = class WindowScroller
     bodyHeight    = $('body').height() + projectedHeight
     windowHeight  = $(window).height()
 
-    # console.log """
-    # top    : #{top}
-    # body   : #{$('body').height()}
-    # window : #{$(window).height()}
-    # """
 
     # If bodyheight is short enough that top can't be scrolled to the top of
     # the window, just scroll as far as the body can be scrolled

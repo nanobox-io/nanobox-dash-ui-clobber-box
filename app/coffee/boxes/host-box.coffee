@@ -33,7 +33,7 @@ module.exports = class HostBox extends Box
   addComponent : (componentData) ->
     @data.appComponents.push componentData
     @updateMiniIcons()
-    if @subState == 'app-components'
+    if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.addComponent componentData
 
   removeComponent : (componentId) ->
@@ -42,7 +42,7 @@ module.exports = class HostBox extends Box
         @data.appComponents.splice i, 1
         break
     @updateMiniIcons()
-    if @subState == 'app-components'
+    if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeComponent componentId
 
   # Add a component generation at runtime
@@ -50,25 +50,28 @@ module.exports = class HostBox extends Box
     for componentData in @data.appComponents
       if componentData.id == componentId
         # componentData.generations.push generationData
-        if @subState == 'app-components'
+        if @subState == 'app-components' || @subState == 'platform-components'
           @subManager.addGeneration componentData, generationData
 
   removeGeneration : (generationId) ->
     # componentId = getComponentIdContainingGenerationId()
     # return if !componentId
-    if @subState == 'app-components'
+    if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeGeneration generationId
 
   # Set a generation's state
   setGenerationState : (id, state) ->
-    for componentData in @data.appComponents
+    for componentData in @getAllComponents()
       for generation in componentData.generations
         # Save new state in data obj
         if id == generation.id
           generation.state = state
 
           # If sub components are open, update visual state as well
-          if @subState == 'app-components'
+          if @subState == 'app-components' || @subState == 'platform-components'
+            @subManager.updateGenerationState id, state
+
+          else if @subState == 'platform-components'
             @subManager.updateGenerationState id, state
 
   # True if one of my components owns the generation with this id
@@ -76,14 +79,14 @@ module.exports = class HostBox extends Box
     return @getComponentIdContainingGenerationId(id)?
 
   getComponentIdContainingGenerationId : (generationId) ->
-    for componentData in @data.appComponents
+    for componentData in @getAllComponents()
       for generation in componentData.generations
         if generation.id == generationId
           return componentData.id
     return false
 
   hasComponentWithId : (id) ->
-    for componentData in @data.appComponents
+    for componentData in @getAllComponents()
       if componentData.id == id
         return true
     return false
@@ -97,3 +100,11 @@ module.exports = class HostBox extends Box
   destroy : () ->
     PubSub.publish 'UNREGISTER.HOST', @
     super()
+
+  # ------------------------------------ Helpers
+
+  getAllComponents : () ->
+    ar = @data.appComponents.concat []
+    for service in @data.platformServices
+      ar = ar.concat service.components
+    ar

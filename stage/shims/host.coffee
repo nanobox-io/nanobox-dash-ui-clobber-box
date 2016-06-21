@@ -12,7 +12,7 @@ module.exports = class Host
     @serverSpecsId  =
       primary: "b1"
     @bunkhouseId    = "bunkhouse"
-    @platformComponents = [
+    @platformServices = [
       new PlatformComponent( "lb", "mesh")
       new PlatformComponent( "lg", "logger")
       new PlatformComponent( "hm", "monitor")
@@ -58,5 +58,5 @@ module.exports = class Host
     name               : @name
     serverSpecsId      : @serverSpecsId
     bunkhouseId        : @bunkhouseId
-    platformComponents : @serializeComponents @platformComponents
+    platformServices   : @serializeComponents @platformServices
     appComponents      : @serializeComponents @appComponents

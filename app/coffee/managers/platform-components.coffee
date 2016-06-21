@@ -1,36 +1,63 @@
 Manager = require 'managers/manager'
+AppComponents = require 'managers/app-components'
 
+# TODO - Rename this to PlatformServices
 module.exports = class PlatformComponents extends Manager
 
-  # TODO : Make this work with the generation pattern and also allow scaling
-
-  constructor: ($el, platformComponents, @fadeParentMethod, @resizeCb) ->
+  constructor: (@$el, platformServices, @fadeParentMethod, @resizeCb) ->
     super()
 
-    @createComponents $el, platformComponents
+    @createComponents @$el, platformServices
 
-  createComponents : ($el, platformComponents) ->
+  createComponents : (@$el, platformServices) ->
     @components = []
-    for componentData in platformComponents
-      component = new nanobox.PlatformComponent $el, componentData.kind, componentData.id, componentData.isSplitable
+    for componentData in platformServices
+
+      data  =
+        componentKind:componentData.kind
+        componentId:componentData.id
+        isSplitable:componentData.isSplitable
+        showAdminCb:@showComponentAdmin
+        resetViewCb:@resetView
+
+      component = new nanobox.PlatformComponent @$el, data
       component.setState "mini"
+      component.rawData = componentData
       # Events
-      component.on "show-admin", @showComponentAdmin
-      component.on "close-detail-view", @resetView
       @components.push component
 
-  showComponentAdmin : (e, id) =>
+  # New methods for adding / updating / removing components and generations
+  addGeneration : (componentData, generationData) ->
+    @componentManager.addGeneration componentData, generationData
+  removeGeneration : (generationId) ->
+    @componentManager.removeGeneration generationId
+  addComponent : (componentData) ->
+    @componentManager.addComponent componentData
+  removeComponent : (componentId) ->
+    @componentManager.removeComponent componentId
+  updateGenerationState : (id, state) ->
+    @componentManager.updateGenerationState id, state
+
+
+
+  showComponentAdmin : (id) =>
     return if !@components?
+    @viewComponentAdmin id
+
+  viewComponentAdmin : (id) ->
     @fadeParentMethod ()=>
       for component in @components
         if id == component.componentId
           component.setState "full"
         else
           component.setState "hidden"
+
+      # Create a component manager to handle any sub components in this platform service
+      @componentManager = new AppComponents $('.bg-div', @$el), @getComponentById(id).rawData.components, @resizeCb
       @resizeCb()
     ,false, false
 
-  resetView : () =>
+  resetView : (id) =>
     return if !@components?
     @fadeParentMethod ()=>
       for component in @components
@@ -38,8 +65,15 @@ module.exports = class PlatformComponents extends Manager
         @resizeCb()
     ,false, false
 
+  getComponentById : (id) ->
+    for component in @components
+      if id == component.componentId
+        return component
+
   destroy : () ->
     for component in @components
       component.destroy()
+    if @componentManager?
+      @componentManager.destroy()
     super()
     @components = null
