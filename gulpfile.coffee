@@ -38,8 +38,8 @@ cssPath           = 'app/scss/**/*.scss'
 cssStagePath      = 'stage/stage.scss'
 appJsPath         = ['app/coffee/**/*.coffee', "#{jadeDestination}/**/*.js"]
 stageJsPath       = 'stage/**/*.coffee'
-assetPath         = ['app/assets/*.!(svg)', 'libs/core-styles/**/*.png']
-svgPath           = ['libs/core-styles/svg/compiled/**/*.svg', 'app/assets/compiled/**/*.svg']
+assetPath         = ['app/assets/*.!(svg)', 'lib/assets/core-styles/**/*.png']
+svgPath           = ['lib/assets/core-styles/svg/compiled/**/*.svg', 'app/assets/compiled/**/*.svg']
 mainJsFile        = './app/coffee/main.coffee'
 mainStageJsFile   = './stage/stage.coffee'
 
