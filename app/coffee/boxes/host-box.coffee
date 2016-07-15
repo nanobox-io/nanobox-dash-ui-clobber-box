@@ -1,6 +1,7 @@
 Box                = require 'boxes/box'
 BoxNav             = require 'box-nav'
 hostBox            = require 'jade/host-box'
+hostBoxNoDeploys   = require 'jade/host-box-no-deploys'
 miniIcons          = require 'jade/host-mini-icons'
 
 module.exports = class HostBox extends Box
@@ -77,8 +78,10 @@ module.exports = class HostBox extends Box
 
   # When there are no deploys, this gets called
   showAsReadyForDeploys : () ->
-    console.log "AHHHHHH! no Deploys!!"
-
+    @$serviceIcons.empty()
+    $readyForAppDeploy = $ hostBoxNoDeploys( {} )
+    @$serviceIcons.append $readyForAppDeploy
+    castShadows @$serviceIcons
 
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->

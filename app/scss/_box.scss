@@ -64,6 +64,10 @@
             }
           }
         }
+        // No deploys or services
+        .no-deploys          { display: flex; color: #1EB8FF; font-weight: $semibold; font-style: italic; font-size:12px; margin-left: 5px;
+          .txt               { width:70px; margin-left:10px;  }
+        }
       }
     }
   }

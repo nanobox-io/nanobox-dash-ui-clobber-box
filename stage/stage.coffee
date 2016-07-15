@@ -111,3 +111,6 @@ window.init = ()=>
   addHost()
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
   addCluster( clobberBoxDataShim.getDataCluster().serialize() )
+
+  # Test no deploys
+  window.setNoDeploys = ()-> getBox("host.1").showAsReadyForDeploys()
