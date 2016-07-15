@@ -74,6 +74,12 @@ module.exports = class HostBox extends Box
           else if @subState == 'platform-components'
             @subManager.updateGenerationState id, state
 
+
+  # When there are no deploys, this gets called
+  showAsReadyForDeploys : () ->
+    console.log "AHHHHHH! no Deploys!!"
+
+
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->
     return @getComponentIdContainingGenerationId(id)?

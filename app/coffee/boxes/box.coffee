@@ -49,6 +49,7 @@ module.exports = class Box
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState
 
+  
   # ------------------------------------ Generation - used by hosts and clusters
 
   # True if one of my components owns the generation with this id
