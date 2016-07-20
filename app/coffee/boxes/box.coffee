@@ -49,7 +49,7 @@ module.exports = class Box
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState
 
-  
+
   # ------------------------------------ Generation - used by hosts and clusters
 
   # True if one of my components owns the generation with this id
@@ -206,7 +206,7 @@ module.exports = class Box
     $el = $(el)
     $arrowPointer = $("<div class='arrow-pointer'/>")
     @$subContent.append $arrowPointer
-    $arrowPointer.css left : $el.offset().left + $(".text",el).width()/2 - 1
+    $arrowPointer.css left : $el.position().left + $(".text",el).width()/2 - 1
     if cssClass?
       $arrowPointer.addClass cssClass
 

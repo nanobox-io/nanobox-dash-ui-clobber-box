@@ -1,14 +1,17 @@
 .deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px;
   &.instructions     {
-    .details         { display:flex; }
-    .main            { display: none; }
+    .details         { opacity:1; display:flex; }
+    .main            { opacity:0; display:none; }
   }
-  .main              { color: #079EE3; font-weight: $bold; text-transform: uppercase; display: flex; flex-direction:column; align-items: center;
+  .main              { @include transition(opacity, 0.3s); cursor:pointer; color: #079EE3; font-weight: $bold; text-transform: uppercase; display: flex; flex-direction:column; align-items: center;
     svg              { margin-bottom: -130px; }
     .title           { font-size:30px; letter-spacing: 0.05em;  }
     .sub-title       { letter-spacing: 0.05em; color:#1EB8FF;  }
   }
-  .details           { display: none; flex-direction: column; padding: 0 50px;
+  .details           { @include transition(opacity, 0.3s); display: none; opacity:0;  flex-direction: column; padding: 0 50px; position:relative;
+    .close-btn       { cursor: pointer; position: absolute; top: -7px; right: 14px; transform: scale(0.9);
+      svg *          { fill:#BFD1DE}
+    }
     .detail          { display: flex; margin:30px 0;
       .icon          { width:130px; text-align: center; }
       .info          {
