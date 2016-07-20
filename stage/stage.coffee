@@ -39,6 +39,7 @@ window.init = ()=>
         serviceType      : clusterData.serviceType
         scalesHoriz      : clusterData.scalesHoriz
         scalesRedund     : clusterData.scalesRedund
+        adminPath        : clusterData.adminPath
         instances        : clusterData.instances # Delete
         id               : generation.id
         generationState  : generation.state

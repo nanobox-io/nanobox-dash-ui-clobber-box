@@ -13,6 +13,7 @@ module.exports = class HorizCluster
     @scalesHoriz   = true
     @scalesRedund  = false
     @generations   = []
+    @adminPath     = "/some/path/to/admin"
 
     for i in [1..totalGenerations]
       generation =
@@ -44,8 +45,9 @@ module.exports = class HorizCluster
     scalesHoriz   : @scalesHoriz
     scalesRedund  : @scalesRedund
     generations   : @generations
-    # appComponents : [@appComponent.serialize()]
     serviceType   : @serviceType
+    adminPath     : @adminPath
+    # appComponents : [@appComponent.serialize()]
     # instances     : @instances
 
 

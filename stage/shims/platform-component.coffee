@@ -5,6 +5,7 @@ module.exports = class PlatformComponent
   constructor: (@id, @kind) ->
     @isSplitable     = Math.random() > 0.5
     @mode            = 'simple' # 'scalable'
+    @adminPath     = "/some/path/to/admin"
     @components      = [
       new AppComponent('db', 'default-db', false).serialize()
       new AppComponent('db', 'default-db', false).serialize()
@@ -16,6 +17,7 @@ module.exports = class PlatformComponent
     isSplitable   : @isSplitable
     mode          : @mode
     components    : @components
+    adminPath     : @adminPath
 
 
 {

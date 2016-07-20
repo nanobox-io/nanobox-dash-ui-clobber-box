@@ -14,6 +14,7 @@ module.exports = class DataCluster
     @serviceType   = "mysql-db"
     @scalesHoriz   = false
     @scalesRedund  = true
+    @adminPath     = "/some/path/to/admin"
     @generations   = []
 
     for i in [1..totalGenerations]
@@ -51,4 +52,6 @@ module.exports = class DataCluster
     generations   : @generations
     # appComponents : [@appComponent.serialize()]
     serviceType   : @serviceType
+    adminPath     : @adminPath
+
     # instances     : @instances

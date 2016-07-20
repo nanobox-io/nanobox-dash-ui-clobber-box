@@ -9,6 +9,8 @@ module.exports = class AppComponent
     @id              = "#{kind}.#{++AppComponent.appComponentCount}"
     @name            = "#{kind} #{AppComponent.appComponentCount}"
     @generations     = []
+    @adminPath       = "/some/path/to/admin"
+
     @addGeneration()
 
   addGeneration : (state='active') ->
@@ -24,3 +26,4 @@ module.exports = class AppComponent
     name          : @name
     serviceType   : @type
     scalesHoriz   : @scalesHorizontally
+    adminPath     : @adminPath

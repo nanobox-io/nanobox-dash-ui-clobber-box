@@ -3,8 +3,8 @@ admin   = require 'jade/admin'
 
 module.exports = class AdminManager extends Manager
 
-  constructor : ($el) ->
-    $node = $ admin( {} )
+  constructor : ($el, adminUrl) ->
+    $node = $ admin( {adminUrl:adminUrl} )
     $el.append $node
     castShadows @$node
     super()
