@@ -1,0 +1,22 @@
+.deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px;
+  &.instructions     {
+    .details         { display:flex; }
+    .main            { display: none; }
+  }
+  .main              { color: #079EE3; font-weight: $bold; text-transform: uppercase; display: flex; flex-direction:column; align-items: center;
+    svg              { margin-bottom: -130px; }
+    .title           { font-size:30px; letter-spacing: 0.05em;  }
+    .sub-title       { letter-spacing: 0.05em; color:#1EB8FF;  }
+  }
+  .details           { display: none; flex-direction: column; padding: 0 50px;
+    .detail          { display: flex; margin:30px 0;
+      .icon          { width:130px; text-align: center; }
+      .info          {
+        .title       { font-weight: $bold; text-transform: uppercase; font-size:24px; color: #1CACEF; }
+        .sub         { color: #4B6373; font-style: italic; font-size:13px;
+          a          { border-bottom: 1px solid #1EB8FF; }
+        }
+      }
+    }
+  }
+}

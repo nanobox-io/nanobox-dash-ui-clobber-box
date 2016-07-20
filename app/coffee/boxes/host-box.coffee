@@ -1,16 +1,17 @@
 Box                = require 'boxes/box'
 BoxNav             = require 'box-nav'
+DeployInstructions = require 'misc/deploy-instructions'
 hostBox            = require 'jade/host-box'
 hostBoxNoDeploys   = require 'jade/host-box-no-deploys'
 miniIcons          = require 'jade/host-mini-icons'
 
 module.exports = class HostBox extends Box
 
-  constructor: ($el, @data) ->
+  constructor: (@$el, @data) ->
     @kind = "host"
 
     @$node = $ hostBox( @data )
-    $el.append @$node
+    @$el.append @$node
 
     @$serviceIcons = $(".service-icons", @$node)
     @updateMiniIcons()
@@ -19,6 +20,8 @@ module.exports = class HostBox extends Box
     super @$node, @data
     PubSub.publish 'REGISTER.HOST', @
     @buildStats $(".stats-strip", @$node)
+
+    @showAsReadyForDeploys()
 
   buildNav : ($node) ->
     navItems = [
@@ -82,6 +85,9 @@ module.exports = class HostBox extends Box
     $readyForAppDeploy = $ hostBoxNoDeploys( {} )
     @$serviceIcons.append $readyForAppDeploy
     castShadows @$serviceIcons
+
+    deployInstructions = new DeployInstructions @$el, 'asdf'
+
 
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->

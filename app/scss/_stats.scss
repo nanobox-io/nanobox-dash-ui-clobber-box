@@ -1,6 +1,6 @@
-.stats-wrapper         { width:600px;
+.stats-wrapper         { width:$component-width;;
   .title               { text-align: center; color:#547F91; font-style:italic; font-size:12px; padding: 20px 0;  }
-  .hourly              { display:flex; width:600px; justify-content: space-between; margin-bottom:5px;
+  .hourly              { display:flex; width:$component-width;; justify-content: space-between; margin-bottom:5px;
     .hourly-avgs-wrap  { background:white; width:250px;
       svg              { margin-top:-35px; }
     }
