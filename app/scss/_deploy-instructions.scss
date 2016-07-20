@@ -17,7 +17,15 @@
       .info          {
         .title       { font-weight: $bold; text-transform: uppercase; font-size:24px; color: #1CACEF; }
         .sub         { color: #4B6373; font-style: italic; font-size:13px;
-          a          { border-bottom: 1px solid #1EB8FF; }
+          a          { border-bottom: 1px solid #1EB8FF; margin-right:10px;
+            &:hover  { color:#1EB8FF; }
+          }
+          .code      { font-style:normal;
+            *        { font-family: $monaco; @include selectable; }
+            .line    { color: #1CACEF;
+              span   { color: #ED6B81;}
+            }
+          }
         }
       }
     }
