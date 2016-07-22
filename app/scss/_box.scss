@@ -143,7 +143,7 @@
     &.no-transition          { transition: none; }
     &.has-content            { margin:20px 0 55px; }
     .sub-content             { position:relative; opacity:0; @include transition(opacity, 0.4s, $easing);
-      .arrow-pointer         { z-index: 2; position:absolute; top:1px;
+      .arrow-pointer         { z-index: 1; position:absolute; top:1px;
         &:after              { bottom: 100%; left: 50%;	border: solid transparent;	content: "";	height: 0;	width: 0;	position: absolute;	pointer-events: none;	border-color: rgba(136, 183, 213, 0);	border-bottom-color: white;	border-width: 10px;	margin-left: -10px;}
         &.app-components,
         &.scale-machine      { min-height: initial; border:none;
@@ -152,7 +152,7 @@
           &:before           { border-color: rgba(0,0,0, 0); border-bottom-color: white; border-width: 11px; margin-left: -11px; }
         }
         &.scale-machine      { top:0px;
-          &:after            { border-bottom-color: $pale-sky2; }
+          &:after            { border-bottom-color: #E3E9ED; }
         }
         &.split:after        { border-bottom-color: #BDC9CC; }
         // &.scale-machine:after { border-bottom-color: #029ADB; }
