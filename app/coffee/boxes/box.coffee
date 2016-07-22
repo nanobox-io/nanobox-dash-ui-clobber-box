@@ -206,7 +206,8 @@ module.exports = class Box
     $el = $(el)
     $arrowPointer = $("<div class='arrow-pointer'/>")
     @$subContent.append $arrowPointer
-    $arrowPointer.css left : $el.position().left + $(".text",el).width()/2 - 1
+    console.log Number $el.css('padding-left')
+    $arrowPointer.css left : $el.position().left + ($(el).width()/2) + 15
     if cssClass?
       $arrowPointer.addClass cssClass
 
