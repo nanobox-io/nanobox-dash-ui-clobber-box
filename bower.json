@@ -1,6 +1,6 @@
 {
   "name": "clobberbox",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "dependencies": {
     "jquery": "*",
     "velocity": "~1.1.0",
