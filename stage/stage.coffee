@@ -56,6 +56,19 @@ window.init = ()=>
   window.setState = (id, state)->
     getBox(id).setState state
 
+  # I don't know if we're going to build this functionality..
+  window.manageComponent = (componentId)->
+    box = getBox(componentId)
+    if box?
+      x = 0
+      # Open the box...
+      return
+
+    boxHost = getParentOfComponent()
+    if boxHost?
+      x = 0
+      # Open the box's sub component
+
   # Used to set the state of any generations
   window.setGenerationState = (id, state)->
     getParentOfGeneration(id).setGenerationState id, state
@@ -66,7 +79,7 @@ window.init = ()=>
   subscribeToRegistrations = ->
     # Shim, this should be handled by valkrie..
     PubSub.subscribe 'SCALE.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
-    PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box
+    PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box; console.log box
     PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
     PubSub.subscribe 'SCALE.SAVE'       , (m, data)-> console.log("New Scale:"); console.log data
     PubSub.subscribe 'SPLIT.SAVE'       , (m, data)-> console.log("Split:"); console.log data
