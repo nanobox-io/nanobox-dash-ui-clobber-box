@@ -10,7 +10,7 @@ module.exports = class ComponentGenerationBox extends Box
     @componentData.kind = @getServiceCommonName(data.componentData.serviceType)
     @generationData = data.generationData
     @data           = @componentData
-    compiledData    = { id: @generationData.id, state: @generationData.state }
+    compiledData    = { id: @generationData.id, state: @generationData.state, adminPath:@data.adminPath }
 
     $node = $ componentBox( @componentData )
     $el.append $node
