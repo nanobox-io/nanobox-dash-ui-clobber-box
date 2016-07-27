@@ -21,8 +21,6 @@ module.exports = class HostBox extends Box
     PubSub.publish 'REGISTER.HOST', @
     @buildStats $(".stats-strip", @$node)
 
-    @showAsReadyForDeploys()
-
   buildNav : ($node) ->
     navItems = [
       {txt:"Platform Components", icon:'platform-component', event: 'SHOW.PLATFORM_COMPONENTS'}
@@ -81,6 +79,8 @@ module.exports = class HostBox extends Box
 
   # When there are no deploys, this gets called
   showAsReadyForDeploys : () ->
+    return if @readyForDeploysIsShown
+    @readyForDeploysIsShown = true
     @$serviceIcons.empty()
     $readyForAppDeploy = $ hostBoxNoDeploys( {} )
     @$serviceIcons.append $readyForAppDeploy
