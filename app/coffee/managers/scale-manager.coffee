@@ -22,6 +22,7 @@ module.exports = class ScaleManager extends Manager
       isHorizontallyScalable  : data.scalesHoriz
       isCluster               : @isCluster
 
+    console.log scaleConfigs
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
     super()
 

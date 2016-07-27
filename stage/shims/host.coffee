@@ -9,8 +9,7 @@ module.exports = class Host
     @state          = "active"
     @id             = "host.#{++Host.hostCount}"
     @name           = "ec2.#{Host.hostCount}"
-    @serverSpecsId  =
-      primary: "b1"
+    @serverSpecsId  = "b1"
     @bunkhouseId    = "bunkhouse"
     @platformServices = [
       new PlatformComponent( "lb", "mesh")
