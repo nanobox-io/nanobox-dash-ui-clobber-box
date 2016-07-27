@@ -11,6 +11,8 @@ StatsManager        = require 'managers/stats-manager'
 module.exports = class Box
 
   constructor: (@$node, @data) ->
+    console.log "--"
+    console.log @data
     Eventify.extend @
     @id = @data.id
 
