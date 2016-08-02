@@ -2,7 +2,7 @@ module.exports = class AppComponent
 
   @appComponentCount : 0
 
-  constructor : (kind='web', @type="ruby", @scalesHorizontally=true) ->
+  constructor : (kind='web', @type="ruby", @scalesHorizontally=true, @scalesRedund=false) ->
     @generationCount = 1
     @state           = 'active'
     @serverSpecsId   = "b3"
@@ -26,4 +26,5 @@ module.exports = class AppComponent
     name          : @name
     serviceType   : @type
     scalesHoriz   : @scalesHorizontally
+    scalesRedund  : @scalesRedund
     adminPath     : @adminPath

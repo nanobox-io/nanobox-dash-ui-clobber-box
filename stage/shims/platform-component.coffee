@@ -7,8 +7,8 @@ module.exports = class PlatformComponent
     @mode            = 'simple' # 'scalable'
     @adminPath       = "/some/path/to/admin"
     @components      = [
-      new AppComponent('db', 'default-db', false).serialize()
-      new AppComponent('db', 'default-db', false).serialize()
+      new AppComponent('web', 'web-db', true, true).serialize()
+      new AppComponent('db', 'default-db', false, false).serialize()
     ]
 
   serialize : () ->

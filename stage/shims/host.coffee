@@ -23,8 +23,8 @@ module.exports = class Host
 
   createComponents : (makeLotsOfComponents) ->
     if !makeLotsOfComponents
-      @addComponent()
-      @addComponent('db', 'mongo-db', false)
+      @addComponent('web', 'ruby', true, true)
+      @addComponent('db', 'mongo-db', false, true)
     else
       @addComponent()
       @addComponent('db',  'mongo-db', false)
@@ -42,8 +42,8 @@ module.exports = class Host
       @addComponent('web', 'default', true)
       @addComponent('db',  'default-db', false)
 
-  addComponent : (kind, type, isHorizontallyScalable) ->
-    @appComponents.push new AppComponent(kind, type, isHorizontallyScalable)
+  addComponent : (kind, type, isHorizontallyScalable, isRedundScalable) ->
+    @appComponents.push new AppComponent(kind, type, isHorizontallyScalable, isRedundScalable)
 
   serializeComponents : (components) ->
     ar = []
