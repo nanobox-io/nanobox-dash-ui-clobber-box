@@ -3,9 +3,9 @@ AppComponent = require './app-component'
 module.exports = class PlatformComponent
 
   constructor: (@id, @kind) ->
-    @isSplitable     = Math.random() > 0.5
+    @isSplitable     = true
     @mode            = 'simple' # 'scalable'
-    @adminPath     = "/some/path/to/admin"
+    @adminPath       = "/some/path/to/admin"
     @components      = [
       new AppComponent('db', 'default-db', false).serialize()
       new AppComponent('db', 'default-db', false).serialize()

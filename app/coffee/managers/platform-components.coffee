@@ -17,6 +17,7 @@ module.exports = class PlatformComponents extends Manager
         componentKind:componentData.kind
         componentId:componentData.id
         isSplitable:componentData.isSplitable
+        mode:componentData.mode
         showAdminCb:@showComponentAdmin
         resetViewCb:@resetView
 
