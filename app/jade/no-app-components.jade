@@ -1,0 +1,12 @@
+.no-components.app-components
+  .title No App Components Deployed
+  .sub Language and Service Guides:
+  .languages
+    each language in languages
+      a.language(href="#{language.guide}")
+        img.shadow-icon(data-src="#{language.icon}")
+        .txt=language.title
+  .sub.general General Guides:
+  .guides
+    a.guide(href="#") Deploying your app
+    a.guide(href="#") Scaling &amp; Moving Components

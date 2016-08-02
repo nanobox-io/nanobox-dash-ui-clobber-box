@@ -14,12 +14,12 @@ module.exports = class PlatformComponents extends Manager
     for componentData in platformServices
 
       data  =
-        componentKind:componentData.kind
-        componentId:componentData.id
-        isSplitable:componentData.isSplitable
-        mode:componentData.mode
-        showAdminCb:@showComponentAdmin
-        resetViewCb:@resetView
+        componentKind : componentData.kind
+        componentId   : componentData.id
+        isSplitable   : componentData.isSplitable
+        mode          : componentData.mode
+        showAdminCb   : @showComponentAdmin
+        resetViewCb   : @resetView
 
       component = new nanobox.PlatformComponent @$el, data
       component.setState "mini"
