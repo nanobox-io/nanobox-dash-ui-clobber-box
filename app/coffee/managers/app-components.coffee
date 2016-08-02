@@ -22,7 +22,7 @@ module.exports = class AppComponents extends Manager
       {icon:'hex-php', title:"PHP", guide:"http://nanobox-guides.gopagoda.io/php/"}
       {icon:'hex-mysql-db', title:"MySQL", guide:"http://nanobox-guides.gopagoda.io/mysql/"}
       {icon:'hex-mongo-db', title:"MongoDB", guide:"http://nanobox-guides.gopagoda.io/mongodb/"}
-      {icon:'hex-percona-db', title:"Percona DB", guide:"http://nanobox-guides.gopagoda.io/percona/"}
+      {icon:'hex-percona-db', title:"Percona", guide:"http://nanobox-guides.gopagoda.io/percona/"}
       {icon:'hex-redis', title:"Redis", guide:"http://nanobox-guides.gopagoda.io/redis/"}
       {icon:'hex-memcached', title:"Memcached", guide:"http://nanobox-guides.gopagoda.io/memcached/"}
       {icon:'hex-postgres-db', title:"Postgres", guide:"http://nanobox-guides.gopagoda.io/postgres/"}

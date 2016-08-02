@@ -1,17 +1,21 @@
 .no-components         { position:relative; padding:0 30px 60px;
   // No App Components ----------------- :
   &.app-components     { display:flex; flex-direction:column; align-items: center; font-weight:$semibold; font-style:italic; color: #17364B;
-    .title             { font-size:24px; }
+    .title             { font-size:22px; }
     .sub               { font-size: 16px; color:#3F5F6B; border-bottom:1px solid #C5D4DF; align-self: flex-start; margin:40px 0 10px; width: 100%;
       &.general        { margin-top:0px; }
     }
     .guides            { display:flex; align-self: flex-start; flex-direction: column;  }
-    a.guide            { color:#1486BA; font-size:13px; margin-bottom:8px;  }
+    a.guide            { color:#1486BA; font-size:13px; margin-bottom:8px;
+      &:hover          {border-bottom:1px solid #82C3DD; margin-bottom:7px; }
+    }
     .languages         { display:flex; width:600px; flex-wrap: wrap; margin: 15px 0; padding:0 20px;
       svg              { max-height:57px;  }
       .language        { display:flex; flex-direction: column; align-items: center; width: 12.5%; margin-bottom:30px;
-        .txt           { padding-top:7px; color:#3F5F6B; }
-        &:hover        {}
+        .txt           { padding-top:7px; color:#3C6B7D; }
+        &:hover        {
+          .txt         { color:#0B2C38; border-bottom:1px solid #82C3DD; margin-bottom:-1px; }
+        }
       }
     }
   }
