@@ -1,4 +1,4 @@
-.deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px;
+.deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px; order:999;
   &.instructions     {
     .details         { opacity:1; display:flex; }
     .main            { opacity:0; display:none; }
