@@ -1,11 +1,17 @@
 $saver-height: 40px;
-.saver      { padding-left:8px; @include transition(all, 140ms); height:0; opacity:0; background:#E3E9ED; display:flex; justify-content: flex-end; overflow:hidden;
-  &.open    { height:$saver-height; opacity:1; }
-  .save-btn { font-size: 15px; height:$saver-height; color: white; letter-spacing: 0.08em; background:$azul; padding:0 30px; text-transform:uppercase; line-height: $saver-height; cursor:pointer;
-    &:hover { background:$link-blue; }
+.saver        { padding-left:8px; @include transition(all, 140ms); height:0; opacity:0; background:#E3E9ED; display:flex; justify-content: flex-end; overflow:hidden;
+  &.open      { height:$saver-height; opacity:1; }
+  .save-btn   { font-size: 15px; height:$saver-height; color: white; letter-spacing: 0.08em; background:$azul; padding:0 30px; text-transform:uppercase; line-height: $saver-height; cursor:pointer;
+    &:hover   { background:$link-blue; }
   }
-  .cancel   { cursor: pointer; display:flex; align-items: center; margin:0 auto -2px 8px; font-size:14px; font-style:italic;  color:#828F9C;
-    .txt    { margin-left: 6px; }
-    &:hover { color:#445362; }
+  .cancel     { cursor: pointer; display:flex; align-items: center; margin:0 auto -2px 8px; font-size:14px; font-style:italic;  color:#828F9C;
+    .txt      { margin-left: 6px; }
+    &:hover   { color:#445362; }
+  }
+  button.save { letter-spacing: 0.08em; background:$azul; padding:0 30px; text-transform:uppercase; border-radius: 0; font-size:13px; min-width: initial; transition-duration: 0s;
+    &:after   { content:"SAVE"; margin:0; font-size:15px;  }
+    &:hover   { background: #008AC9;
+      &:after { color:white; }
+    }
   }
 }

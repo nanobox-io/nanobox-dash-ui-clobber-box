@@ -1,6 +1,7 @@
-.admin
-  img.shadow-icon(data-src="admin-octopus")
-  .info
-    .title Admin
-    .txt Connection Credentials, Renaming, etc..
-    a(href="#{adminUrl}") Admin this Component
+.admin-manage
+  .actions
+    each action in actions
+      .action(data-action="#{action.name}" class="#{action.name}")
+        img.shadow-icon(data-src="admin-#{action.name}")
+        .name=action.name
+        .short!=action.short

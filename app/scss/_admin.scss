@@ -1,9 +1,17 @@
-.admin        { background:white; padding:12px; display:flex; align-items: center;
-  .info       { color:#5F7C87; margin-left:40px;
-    .title    { text-transform: uppercase; font-weight: $bold; font-size:19px; letter-spacing:0.06em; }
-    .txt      { font-size:14px; margin-bottom:10px; }
-    a         { color: $link-blue; text-decoration: none; font-size:14px;
-      &:hover { text-decoration:underline;}
+.admin-manage    { background:white; padding:45px 12px 50px; display:flex; align-items: center; width:600px;
+  .actions       { display: flex; justify-content: space-between; width:100%;
+    .action      { display: flex; flex-direction: column; align-items: center; width:120px; cursor:pointer;
+      .name      { color:#029ADB;  text-transform: uppercase; margin:8px 0 5px; font-size:14px; }
+      .short     { text-align: center; font-style: italic; color:#547F91; font-size:12px;  }
+      &.manage   { width: 200px; position:relative; margin-right:-15px;
+        &:before { content:""; display:block; height:100px; position: absolute; left:30px; border-left:solid 1px #EEE; padding-left:20px; margin-left:-15px; }
+      }
+      &:hover    {
+        .name    { color:#005980; }
+        svg      {
+          circle { fill:#005980; }
+        }
+      }
     }
   }
 }

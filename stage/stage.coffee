@@ -40,6 +40,7 @@ window.init = ()=>
         scalesHoriz      : clusterData.scalesHoriz
         scalesRedund     : clusterData.scalesRedund
         adminPath        : clusterData.adminPath
+        actionPath       : clusterData.adminPath
         instances        : clusterData.instances # Delete
         id               : generation.id
         generationState  : generation.state
