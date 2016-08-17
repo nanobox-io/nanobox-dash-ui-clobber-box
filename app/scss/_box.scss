@@ -87,7 +87,7 @@
     .corner-box              { position:absolute; left:-15px; top:0 }
     .service-bug             { position:absolute; top:30px; left:11px; @include transition(opacity, 0.3s); opacity:1;
       > *                    { position:absolute; }
-      .bg-hex                { background:url('/assets/core-styles/sprite.png') -71px -0; width:65px; height:75px; top:-48px; left:-44px; }
+      .bg-hex                { background:url('/assets/sprite.png') -71px -0; width:65px; height:75px; top:-48px; left:-44px; }
       .icon                  { top: -47px; left: -40px; width: 60px;}
     }
   }
@@ -106,11 +106,11 @@
       .service-name          { font-size:12px; }
     }
     .service-bug             {
-      .bg-hex                { background:url('/assets/core-styles/sprite.png') -182px -26px; width:160px; height:125px; top: -32px; left: -90px;}
+      .bg-hex                { background:url('/assets/sprite.png') -182px -26px; width:160px; height:125px; top: -32px; left: -90px;}
     }
     .stats-strip             { align-self: flex-end; margin-bottom:9px; position:relative;
       &:before               { content:"Docker Container Health: "; font-size:11px; font-style:italic; color:#BABABA; top:-15px; left:40px; position:absolute; }
-      &:after                { content:""; display:block; position:absolute; top: -15px; left:20px;  background:url('/assets/core-styles/sprite.png') -143px -7px; width:15px; height:10px; }
+      &:after                { content:""; display:block; position:absolute; top: -15px; left:20px;  background:url('/assets/sprite.png') -143px -7px; width:15px; height:10px; }
     }
   }
 
