@@ -84,7 +84,7 @@
       .service-name          { font-size:17px; font-weight:$medium; }
     }
     .id, .stats-strip        { z-index:2; }
-    .corner-box              { position:absolute; left:-15px;}
+    .corner-box              { position:absolute; left:-15px; top:0 }
     .service-bug             { position:absolute; top:30px; left:11px; @include transition(opacity, 0.3s); opacity:1;
       > *                    { position:absolute; }
       .bg-hex                { background:url('/assets/core-styles/sprite.png') -71px -0; width:65px; height:75px; top:-48px; left:-44px; }
