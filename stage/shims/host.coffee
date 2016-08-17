@@ -20,28 +20,28 @@ module.exports = class Host
       new PlatformComponent( "gs", "warehouse")
     ]
     @appComponents  = []
-    # @createComponents makeLotsOfComponents
+    @createComponents makeLotsOfComponents
 
   createComponents : (makeLotsOfComponents) ->
     if !makeLotsOfComponents
-      @addComponent('web', 'ruby', true, true)
-      @addComponent('db', 'mongo-db', false, true)
+      @addComponent('web', 'some-rubyengine', true, true)
+      @addComponent('db', 'mongo12', false, true)
     else
       @addComponent()
-      @addComponent('db',  'mongo-db', false)
-      @addComponent('web', 'node', true)
-      @addComponent('web', 'memcached', true)
-      @addComponent('web', 'python', true)
-      @addComponent('web', 'storage', true)
-      @addComponent('web', 'java', true)
-      @addComponent('web', 'php', true)
-      @addComponent('db',  'couch-db', false)
-      @addComponent('db',  'maria-db', false)
-      @addComponent('db',  'postgres-db', false)
-      @addComponent('db',  'redis', false)
-      @addComponent('db',  'percona-db', false)
-      @addComponent('web', 'default', true)
-      @addComponent('db',  'default-db', false)
+      @addComponent('db',  'mongo-engine', false)
+      @addComponent('web', 'node-engine', true)
+      @addComponent('web', 'memcached-engine', true)
+      @addComponent('web', 'python-engine', true)
+      @addComponent('web', 'storage-engine', true)
+      @addComponent('web', 'java-engine', true)
+      @addComponent('web', 'php-engine', true)
+      @addComponent('db',  'couch-engine', false)
+      @addComponent('db',  'maria-engine', false)
+      @addComponent('db',  'postgres-engine', false)
+      @addComponent('db',  'redis-engine', false)
+      @addComponent('db',  'percona-engine', false)
+      @addComponent('web', 'somerandomdb', true)
+      @addComponent('db',  'nothingwillmatch', false)
 
   addComponent : (kind, type, isHorizontallyScalable, isRedundScalable) ->
     @appComponents.push new AppComponent(kind, type, isHorizontallyScalable, isRedundScalable)

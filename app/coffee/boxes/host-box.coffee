@@ -4,6 +4,7 @@ DeployInstructions = require 'misc/deploy-instructions'
 hostBox            = require 'jade/host-box'
 hostBoxNoDeploys   = require 'jade/host-box-no-deploys'
 miniIcons          = require 'jade/host-mini-icons'
+NameMachine        = require 'misc/name-machine'
 
 module.exports = class HostBox extends Box
 
@@ -109,6 +110,9 @@ module.exports = class HostBox extends Box
     return false
 
   updateMiniIcons : () ->
+    for component in @data.appComponents
+      component._serviceType = NameMachine.findName component.serviceType
+
     @$serviceIcons.empty()
     $icons = $ miniIcons( @data )
     @$serviceIcons.append $icons

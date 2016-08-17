@@ -1,6 +1,7 @@
 Box         = require 'boxes/box'
 BoxNav      = require 'box-nav'
 clusterBox  = require 'jade/cluster-box'
+NameMachine = require 'misc/name-machine'
 
 module.exports = class ClusterBox extends Box
 
@@ -8,6 +9,11 @@ module.exports = class ClusterBox extends Box
     @kind = "cluster"
     @data.clusterName = @makeClusterName @data.members
     @totalMembers = @data.totalMembers
+
+    # There's a chance this was already added by the host, but if not, add it
+    if !@data._serviceType?
+      @data._serviceType = NameMachine.findName @data.serviceType
+
     $node = $ clusterBox( @data )
     $el.append $node
 

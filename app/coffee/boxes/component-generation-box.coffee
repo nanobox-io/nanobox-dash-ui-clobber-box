@@ -1,13 +1,18 @@
 Box          = require 'boxes/box'
 BoxNav       = require 'box-nav'
 componentBox = require 'jade/component-box'
+NameMachine  = require 'misc/name-machine'
 
 module.exports = class ComponentGenerationBox extends Box
 
   constructor: ($el, data) ->
     @kind = "component"
     @componentData  = data.componentData
-    @componentData.kind = @getServiceCommonName(data.componentData.serviceType)
+
+    # There's a chance this was already added by the host, but if not, add it
+    if !@componentData._serviceType?
+      @componentData._serviceType = NameMachine.findName @componentData.serviceType
+
     @generationData = data.generationData
     @data           = @componentData
     compiledData    = { id: @generationData.id, state: @generationData.state, adminPath:@data.adminPath }

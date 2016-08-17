@@ -10,11 +10,12 @@
         .total=totalMembers
       .id
         .name=name
-        .hosts <span>Cluster : </span>#{clusterName}
+        .hosts <span>Cluster : </span>#{_serviceType.name}
       .stats-strip
   .service-bug  
     .bg-hex
-    img.shadow-icon(data-src="hex-#{serviceType}" )
+    .icon
+      img.shadow-icon(data-src="hex-#{_serviceType.id}", scalable="true" )
   .nav-holder
   .sub
     .sub-content

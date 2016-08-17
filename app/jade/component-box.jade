@@ -9,11 +9,12 @@
       
       .id
         .name=name
-        .service-name #{kind}
+        .service-name #{_serviceType.name}
       .stats-strip
   .service-bug  
     .bg-hex
-    img.shadow-icon(data-src="hex-#{serviceType}" )
+    .icon
+      img.shadow-icon(data-src="hex-#{_serviceType.id}", scalable="true" )
   .nav-holder
   .sub
     .sub-content
