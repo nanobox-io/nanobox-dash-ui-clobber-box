@@ -6,8 +6,6 @@ NameMachine  = require 'misc/name-machine'
 module.exports = class ComponentGenerationBox extends Box
 
   constructor: ($el, data) ->
-    console.log "component.."
-    console.log data
     @kind = "component"
     @componentData  = data.componentData
 
