@@ -13,11 +13,11 @@ module.exports = class Host
     @bunkhouseId    = "bunkhouse"
     @actionPath     = "/some/path/to/actions"
     @platformServices = [
-      new PlatformComponent( "lb", "mesh", "portal")
-      new PlatformComponent( "lg", "logger", "logvac")
-      new PlatformComponent( "hm", "monitor", "pulse")
-      new PlatformComponent( "mr", "pusher", "mist")
-      new PlatformComponent( "gs", "warehouse", "hoarder")
+      new PlatformComponent( "lb", "mesh", "nanobox/portal")
+      new PlatformComponent( "lg", "logger", "nanobox/logvac")
+      new PlatformComponent( "hm", "monitor", "nanobox/pulse")
+      new PlatformComponent( "mr", "pusher", "nanobox/mist")
+      new PlatformComponent( "gs", "warehouse", "nanobox/hoarder")
     ]
     @appComponents  = []
     @createComponents makeLotsOfComponents
