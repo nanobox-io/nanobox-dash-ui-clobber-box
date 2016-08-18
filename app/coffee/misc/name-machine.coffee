@@ -15,6 +15,13 @@ module.exports = class NameMachine
     postgres  : 'Postgres DB'
     redis     : 'Redis'
     percona   : 'Percona DB'
+
+    mist      : "Message Bus"
+    logvac    : "Logger"
+    pulse     : "Monitor"
+    portal    : "Routing Mesh"
+    hoarder   : "Warehouse"
+
     db        : 'Database'
     default   : 'Default'
 
@@ -22,6 +29,7 @@ module.exports = class NameMachine
     return { id: id, name:NameMachine[id] }
 
   @findName : (haystack) ->
+    console.log haystack
     for key, val of NameMachine.services
       if new RegExp(key,"g").test haystack
         return { id: key, name:val }
