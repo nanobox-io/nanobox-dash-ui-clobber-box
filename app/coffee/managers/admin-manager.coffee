@@ -17,6 +17,7 @@ module.exports = class AdminManager extends Manager
         {name:"refresh", short:"Start & Stop<br/>Processes"}
         {name:"reboot",  short:"Start & Stop<br/>all Containers"}
         {name:"rebuild", short:"Kill & Replace<br/>all Containers"}
+        {name:"update",  short:"Update to latest<br/>stable config"}
         {name:"manage",  short:"Connection Details,<br/>Deletion, etc."}
       ]
 
