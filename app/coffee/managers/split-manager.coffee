@@ -22,7 +22,9 @@ module.exports = class SplitManager extends Manager
     app = new nanobox.Splitter $el, config
     super()
 
-  onSubmit : (data) ->
+  onSubmit : (data) =>
+    data.submitCb = @hideCb
+    console.log data
     PubSub.publish 'SPLIT.SAVE', data
 
   onCancel : () =>
