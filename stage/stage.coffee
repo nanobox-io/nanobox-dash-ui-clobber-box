@@ -82,7 +82,7 @@ window.init = ()=>
     PubSub.subscribe 'SCALE.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
     PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box;
     PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
-    PubSub.subscribe 'SCALE.SAVE'       , (m, data)-> console.log("New Scale:"); console.log data
+    PubSub.subscribe 'SCALE.SAVE'       , (m, data)-> console.log("New Scale:"); console.log data; data.submitCb()
     PubSub.subscribe 'SPLIT.SAVE'       , (m, data)-> console.log("Split:"); console.log data
 
 

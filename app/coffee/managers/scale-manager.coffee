@@ -42,6 +42,7 @@ module.exports = class ScaleManager extends Manager
       hostId    : @hostId
       newPlan   : newPlans
       isCluster : @isCluster == true
+      submitCb  : @hideCb
 
     if !@isCluster
       data.bunkhouseId = @bunkhouseId

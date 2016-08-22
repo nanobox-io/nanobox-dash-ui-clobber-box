@@ -63,3 +63,19 @@ Import an existing cert:
     - Certificate authority
 
 Current Pagodabox process:
+
+Host Launch:
+Says Provisioning
+
+Stats:
+- Pulse endpoint
+- Pulse token
+
+(Unique request for each metric)
+
+
+Modals:
+- Confimation
+- Sanity Check Modals
+  - with confimation field
+- plan specific modals

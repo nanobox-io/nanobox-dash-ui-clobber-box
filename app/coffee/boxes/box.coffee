@@ -37,7 +37,7 @@ module.exports = class Box
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
       switch @subState
-        when 'stats'               then @subManager = new StatsManager @$subContent, @kind
+        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, @data.id
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
@@ -222,13 +222,22 @@ module.exports = class Box
   # ------------------------------------ Stats
 
   buildStats : ($el) ->
-    params = {view: 'standard', metrics: ['cpu', 'ram'] }
+    params =
+      view     : 'standard',
+      metrics  : ['cpu', 'ram']
+      entity   : @kind
+      entityId : @data.id
+      days     : "1"
+
+    if @kind == 'cluster'
+      params.entity = 'component'
 
     if @kind != 'component'
       params.metrics.push 'swap'
       params.metrics.push 'disk'
 
     if @kind == 'host-instance'
+      params.entity = 'member'
       params.compressView = true
 
     @stats = new nanobox.HourlyStats $el, params
