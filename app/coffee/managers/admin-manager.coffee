@@ -10,14 +10,14 @@ module.exports = class AdminManager extends Manager
   build : ($el) ->
     if @isHost
       actions = [
-        {name:"reboot",  short:"Hard Poweroff and Poweron of Server"}
+        {name:"reboot",  short:"Hard Power-Off & Power-On of Server"}
       ]
     else
       actions = [
-        {name:"refresh", short:"Start & Stop<br/>Processes"}
-        {name:"reboot",  short:"Start & Stop<br/>all Containers"}
-        {name:"rebuild", short:"Kill & Replace<br/>all Containers"}
-        {name:"update",  short:"Update to latest<br/>stable config"}
+        {name:"refresh", short:"Stop & Restart<br/>Processes"}
+        {name:"reboot",  short:"Reboot<br/>all Hosts"}
+        {name:"rebuild", short:"Rebuild & Replace<br/>all Hosts"}
+        {name:"update",  short:"Update to Latest<br/>Stable Config"}
         {name:"manage",  short:"Connection Details,<br/>Deletion, etc."}
       ]
 

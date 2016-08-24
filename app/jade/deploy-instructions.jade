@@ -12,15 +12,14 @@
       .info
         .title Install Nanobox Locally
         .sub
-          a Download nanobox
-          a Connect to your account
+          a(href="#") Download nanobox
     .detail
       .icon
         img.shadow-icon(data-src="deploy-code")
       .info
         .title Develop your app locally
         .sub
-          a Guide to Developing your app locally
+          a(href="https://docs.nanobox.io/local-dev/") Documentation for developing your app locally
     .detail
       .icon
         img.shadow-icon(data-src="deploy-app-drip")
@@ -29,6 +28,6 @@
         .sub
           .txt cd into your app's directory and run
           .code
-            .line <span>nanobox</span> link goat-parapet
+            .line <span>nanobox</span> link #{app.name}
             .line <span>nanobox</span> build
             .line <span>nanobox</span> deploy
