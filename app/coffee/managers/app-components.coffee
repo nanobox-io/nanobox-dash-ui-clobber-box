@@ -15,20 +15,24 @@ module.exports = class AppComponents extends Manager
 
   addNoComponentsPlaceholder : () ->
     languages = [
-      {icon : 'hex-ruby',        title:"Ruby",      guide:"http://nanobox-guides.gopagoda.io/ruby/"}
-      {icon : 'hex-python',      title:"Python",    guide:"http://nanobox-guides.gopagoda.io/python/"}
-      {icon : 'hex-node',        title:"NodeJs",    guide:"http://nanobox-guides.gopagoda.io/nodejs/"}
-      {icon : 'hex-java',        title:"Java",      guide:"http://nanobox-guides.gopagoda.io/java/"}
-      {icon : 'hex-php',         title:"PHP",       guide:"http://nanobox-guides.gopagoda.io/php/"}
-      {icon : 'hex-mysql',       title:"MySQL",     guide:"http://nanobox-guides.gopagoda.io/mysql/"}
-      {icon : 'hex-mongo',       title:"MongoDB",   guide:"http://nanobox-guides.gopagoda.io/mongodb/"}
-      {icon : 'hex-percona',     title:"Percona",   guide:"http://nanobox-guides.gopagoda.io/percona/"}
-      {icon : 'hex-redis',       title:"Redis",     guide:"http://nanobox-guides.gopagoda.io/redis/"}
-      {icon : 'hex-memcached',   title:"Memcached", guide:"http://nanobox-guides.gopagoda.io/memcached/"}
-      {icon : 'hex-postgres',    title:"Postgres",  guide:"http://nanobox-guides.gopagoda.io/postgres/"}
-      {icon : 'hex-maria',       title:"MariaDB",   guide:"http://nanobox-guides.gopagoda.io/mariadb/"}
-      {icon : 'hex-couch',       title:"CouchDB",   guide:"http://nanobox-guides.gopagoda.io/couchdb/"}
-      # {icon:'hex-storage', title:"Storage", guide:"http://nanobox-guides.gopagoda.io/php/"}
+      {icon : 'hex-ruby',        title:"Ruby",      guide:"https://guides.nanobox.io/ruby/"}
+      {icon : 'hex-python',      title:"Python",    guide:"https://guides.nanobox.io/python/"}
+      {icon : 'hex-node',        title:"NodeJs",    guide:"https://guides.nanobox.io/nodejs/"}
+      {icon : 'hex-php',         title:"PHP",       guide:"https://guides.nanobox.io/php/"}
+      {icon : 'hex-java',        title:"Java",      guide:"https://guides.nanobox.io/java/"}
+      {icon : 'hex-scala',       title:"Scala",     guide:"https://guides.nanobox.io/scala/"}
+      {icon : 'hex-go',          title:"Go",        guide:"https://guides.nanobox.io/go/"}
+      {icon : 'hex-erlang',      title:"Erlang",    guide:"https://guides.nanobox.io/erlang/"}
+      {icon : 'hex-closure',     title:"Clojure",   guide:"https://guides.nanobox.io/clojure/"}
+      {icon : 'hex-postgres',    title:"Postgres",  guide:"https://guides.nanobox.io/postgresql/"}
+      {icon : 'hex-mysql',       title:"MySQL",     guide:"https://guides.nanobox.io/mysql/"}
+      {icon : 'hex-mongo',       title:"MongoDB",   guide:"https://guides.nanobox.io/mongodb/"}
+      {icon : 'hex-redis',       title:"Redis",     guide:"https://guides.nanobox.io/redis/"}
+      {icon : 'hex-memcached',   title:"Memcached", guide:"https://guides.nanobox.io/memcached/"}
+      # {icon : 'hex-percona',     title:"Percona",   guide:"https://guides.nanobox.io/percona/"}
+      # {icon : 'hex-maria',       title:"MariaDB",   guide:"https://guides.nanobox.io/mariadb/"}
+      # {icon : 'hex-couch',       title:"CouchDB",   guide:"https://guides.nanobox.io/couchdb/"}
+      # {icon:'hex-storage', title:"Storage", guide:"https://guides.nanobox.io/php/"}
     ]
     @$noComponents = $ noAppComponents( {languages:languages} )
     @$el.append @$noComponents
