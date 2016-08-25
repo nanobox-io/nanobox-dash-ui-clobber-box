@@ -20,8 +20,8 @@ module.exports = class StatsManager extends Manager
       metrics  : ['cpu', 'ram']
       entity   : @kind
       entityId : entityId
-      start    : '7d'
-      stop     : '0d'
+      start    : '25h'
+      stop     : '0h'
 
     if @kind != 'component'
       params.metrics.push 'swap'
