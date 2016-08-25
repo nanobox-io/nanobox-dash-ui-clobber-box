@@ -12,27 +12,37 @@ module.exports = class StatsManager extends Manager
     $hourlyStats   = $ ".hourly-stats-wrap", $statsWrapper
     $breakdown     = $ ".breakdown-wrap", $statsWrapper
 
-    hourly = new nanobox.HourlyAverage $hourlyAverage
-    hourly.build()
 
-    params =
-      view     : "expanded"
-      metrics  : ['cpu', 'ram']
+
+    hourlyParams =
       entity   : @kind
       entityId : entityId
+      metrics  : ['cpu', 'ram']
+
+    statsParams =
+      entity   : @kind
+      entityId : entityId
+      metrics  : ['cpu', 'ram']
+      view     : "expanded"
       start    : '24h'
       stop     : '0h'
 
     if @kind != 'component'
-      params.metrics.push 'swap'
-      params.metrics.push 'disk'
+      hourlyParams.metrics.push 'swap'
+      hourlyParams.metrics.push 'disk'
+      statsParams.metrics.push  'swap'
+      statsParams.metrics.push  'disk'
 
     if @kind == 'host-instance'
-      params.entity = 'member'
+      hourlyParams.entity = 'member'
+      statsParams.entity  = 'member'
 
-    expanded = new nanobox.HourlyStats $hourlyStats, params
+
+    hourly = new nanobox.HourlyAverage $hourlyAverage, hourlyParams
+    hourly.build()
+
+    expanded = new nanobox.HourlyStats $hourlyStats, statsParams
     expanded.build()
-
 
     if @kind == "host"
       usage = new nanobox.UsageBreakdown $breakdown
