@@ -4,8 +4,6 @@ statsWrapper = require 'jade/stats-wrapper'
 module.exports = class StatsManager extends Manager
 
   constructor: ($el, @kind, entityId) ->
-    console.log @kind
-    console.log entityId
 
     $statsWrapper = $ statsWrapper( {kind: @kind} )
     $el.append $statsWrapper
