@@ -20,7 +20,7 @@ module.exports = class StatsManager extends Manager
       metrics  : ['cpu', 'ram']
       entity   : @kind
       entityId : entityId
-      start    : '25h'
+      start    : '24h'
       stop     : '0h'
 
     if @kind != 'component'
