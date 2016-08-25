@@ -227,8 +227,8 @@ module.exports = class Box
       metrics  : ['cpu', 'ram']
       entity   : @kind
       entityId : @data.id
-      start    : '0d'
-      end      : '1d'
+      start    : '25h'
+      stop     : '0h'
 
     if @kind == 'cluster'
       params.entity = 'component'
