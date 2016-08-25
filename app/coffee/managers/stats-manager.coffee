@@ -21,7 +21,7 @@ module.exports = class StatsManager extends Manager
       entity   : @kind
       entityId : entityId
       start    : '7d'
-      end      : '0d'
+      stop     : '0d'
 
     if @kind != 'component'
       params.metrics.push 'swap'
