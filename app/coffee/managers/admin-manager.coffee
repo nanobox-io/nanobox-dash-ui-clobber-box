@@ -29,6 +29,9 @@ module.exports = class AdminManager extends Manager
       @runAction $(e.currentTarget).attr 'data-action'
 
   runAction : (action) ->
+    if action == "update"
+      action = "update_service"
+
     # If this is the manager action:
     if action == "manage"
       window.location = @adminUrl
