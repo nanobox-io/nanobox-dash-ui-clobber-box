@@ -12,8 +12,6 @@ module.exports = class StatsManager extends Manager
     $hourlyStats   = $ ".hourly-stats-wrap", $statsWrapper
     $breakdown     = $ ".breakdown-wrap", $statsWrapper
 
-
-
     hourlyParams =
       entity   : @kind
       entityId : entityId
@@ -36,7 +34,6 @@ module.exports = class StatsManager extends Manager
     if @kind == 'host-instance'
       hourlyParams.entity = 'member'
       statsParams.entity  = 'member'
-
 
     hourly = new nanobox.HourlyAverage $hourlyAverage, hourlyParams
     hourly.build()
