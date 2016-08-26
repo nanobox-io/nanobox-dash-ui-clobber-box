@@ -137,14 +137,14 @@ module.exports = class HostBox extends Box
     # App Components
     for component in @data.appComponents
       data.services.push
-        entityId : component.componentData.id
+        entityId : component.id
         kind     : NameMachine.findName(component.serviceType).id
         name     : component.name
         type     : 'service'
     # Platform Components
     for component in @data.platformServices
       data.services.push
-        entityId : component.componentData.id
+        entityId : component.id
         kind     : NameMachine.findName(component.serviceType).id
         name     : component.name
         type     : 'internal'
