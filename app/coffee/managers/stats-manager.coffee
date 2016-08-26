@@ -25,6 +25,8 @@ module.exports = class StatsManager extends Manager
       start    : '24h'
       stop     : '0h'
 
+    console.log "Breakdown data:"
+    console.log breakdownData
     usageBreakdownParams =
       liveHostStats : breakdownData.hostStats
       services      : breakdownData.services
