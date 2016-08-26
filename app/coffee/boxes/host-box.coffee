@@ -142,11 +142,12 @@ module.exports = class HostBox extends Box
         name     : component.name
         type     : 'service'
     # Platform Components
-    for component in @data.platformServices
-      data.services.push
-        entityId : component.id
-        kind     : NameMachine.findName(component.serviceType).id
-        name     : component.name
-        type     : 'internal'
+    for service in @data.platformServices
+      for component in service.components
+        data.services.push
+          entityId : component.id
+          kind     : NameMachine.findName(component.serviceType).id
+          name     : component.name
+          type     : 'internal'
 
     return data
