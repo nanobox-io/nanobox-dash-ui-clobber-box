@@ -25,13 +25,10 @@ module.exports = class StatsManager extends Manager
       start    : '24h'
       stop     : '0h'
 
-    console.log "Breakdown data:"
-    console.log breakdownData
     usageBreakdownParams =
       liveHostStats : breakdownData.hostStats
       services      : breakdownData.services
       metrics       : ['ram', 'cpu']
-
 
     if @kind != 'component'
       hourlyParams.metrics.push 'swap'
@@ -50,5 +47,5 @@ module.exports = class StatsManager extends Manager
     expanded.build()
 
     if @kind == "host"
-      usage = new nanobox.UsageBreakdown $breakdown
+      usage = new nanobox.UsageBreakdown $breakdown, usageBreakdownParams
       usage.build()
