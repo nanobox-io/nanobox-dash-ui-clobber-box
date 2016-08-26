@@ -2,6 +2,7 @@ AdminManager        = require 'managers/admin-manager'
 AppComponents       = require 'managers/app-components'
 ConsoleManager      = require 'managers/console-manager'
 HostInstanceManager = require 'managers/host-instance-manager'
+HourlyStats         = nanobox.HourlyStats
 LineAnimator        = require 'misc/line-animator'
 PlatformComponents  = require 'managers/platform-components'
 ScaleManager        = require 'managers/scale-manager'
@@ -37,7 +38,7 @@ module.exports = class Box
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
       switch @subState
-        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, @data.id
+        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, @data.id, @getDataForUsageBreakdown()
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
@@ -241,7 +242,7 @@ module.exports = class Box
       params.entity = 'member'
       params.compressView = true
 
-    @stats = new nanobox.HourlyStats $el, params
+    @stats = new HourlyStats $el, params
 
     @stats.build()
 

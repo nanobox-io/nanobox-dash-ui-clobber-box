@@ -128,4 +128,5 @@ window.init = ()=>
   addCluster( clobberBoxDataShim.getDataCluster().serialize() )
 
   # Test no deploys
-  window.setNoDeploys = ()-> getBox("host.1").showAsReadyForDeploys()
+  window.setNoDeploys     = ()-> getBox("host.1").showAsReadyForDeploys()
+  window.getComponentData = ()-> getBox("host.1").getDataForUsageBreakdown()

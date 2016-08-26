@@ -129,3 +129,24 @@ module.exports = class HostBox extends Box
     for service in @data.platformServices
       ar = ar.concat service.components
     ar
+
+  getDataForUsageBreakdown : ()->
+    data =
+      services  : []
+      hostStats : @stats.getLiveStats()
+    # App Components
+    for component in @data.appComponents
+      data.services.push
+        entityId : component.id
+        kind     : NameMachine.findName(component.serviceType).id
+        name     : component.name
+        type     : 'service'
+    # Platform Components
+    for component in @data.platformServices
+      data.services.push
+        entityId : component.id
+        kind     : NameMachine.findName(component.serviceType).id
+        name     : component.name
+        type     : 'internal'
+
+    return data

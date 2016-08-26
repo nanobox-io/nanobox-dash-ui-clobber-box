@@ -3,7 +3,7 @@ statsWrapper = require 'jade/stats-wrapper'
 
 module.exports = class StatsManager extends Manager
 
-  constructor: ($el, @kind, entityId) ->
+  constructor: ($el, @kind, entityId, breakdownData) ->
 
     $statsWrapper = $ statsWrapper( {kind: @kind} )
     $el.append $statsWrapper
@@ -24,6 +24,12 @@ module.exports = class StatsManager extends Manager
       view     : "expanded"
       start    : '24h'
       stop     : '0h'
+
+    usageBreakdownParams =
+      liveHostStats : breakdownData.hostStats
+      services      : breakdownData.services
+      metrics       : ['ram', 'cpu']
+
 
     if @kind != 'component'
       hourlyParams.metrics.push 'swap'
