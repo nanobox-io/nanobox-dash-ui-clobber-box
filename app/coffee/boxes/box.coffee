@@ -237,7 +237,7 @@ module.exports = class Box
       params.metrics.push 'swap'
       params.metrics.push 'disk'
     else
-      params.id = @componentData.id
+      params.entityId = @componentData.id
 
     if @kind == 'host-instance'
       params.entity = 'member'
