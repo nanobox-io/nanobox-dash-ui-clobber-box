@@ -2,7 +2,6 @@ AdminManager        = require 'managers/admin-manager'
 AppComponents       = require 'managers/app-components'
 ConsoleManager      = require 'managers/console-manager'
 HostInstanceManager = require 'managers/host-instance-manager'
-HourlyStats         = nanobox.HourlyStats
 LineAnimator        = require 'misc/line-animator'
 PlatformComponents  = require 'managers/platform-components'
 ScaleManager        = require 'managers/scale-manager'
@@ -242,7 +241,7 @@ module.exports = class Box
       params.entity = 'member'
       params.compressView = true
 
-    @stats = new HourlyStats $el, params
+    @stats = new nanobox.HourlyStats $el, params
 
     @stats.build()
 
