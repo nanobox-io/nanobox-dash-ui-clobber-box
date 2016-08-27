@@ -263,3 +263,5 @@ module.exports = class Box
     setTimeout ()=>
       @$node.remove()
     , 750
+
+  getDataForUsageBreakdown : () -> #only used by hosts

@@ -25,10 +25,6 @@ module.exports = class StatsManager extends Manager
       start    : '24h'
       stop     : '0h'
 
-    usageBreakdownParams =
-      liveHostStats : breakdownData.hostStats
-      services      : breakdownData.services
-      metrics       : ['ram', 'cpu']
 
     if @kind != 'component'
       hourlyParams.metrics.push 'swap'
@@ -47,5 +43,9 @@ module.exports = class StatsManager extends Manager
     expanded.build()
 
     if @kind == "host"
+      usageBreakdownParams =
+        liveHostStats : breakdownData.hostStats
+        services      : breakdownData.services
+        metrics       : ['ram', 'cpu']
       usage = new nanobox.UsageBreakdown $breakdown, usageBreakdownParams
       usage.build()
