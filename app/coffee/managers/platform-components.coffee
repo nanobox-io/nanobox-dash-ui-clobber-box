@@ -13,13 +13,18 @@ module.exports = class PlatformComponents extends Manager
     @components = []
     for componentData in platformServices
 
+      componentIds = []
+      for component in componentData.components
+        componentIds.push component.id
+
       data  =
         componentKind : componentData.kind
-        componentId   : componentData.id
+        serviceId     : componentData.id
         isSplitable   : componentData.isSplitable
         mode          : componentData.mode
         showAdminCb   : @showComponentAdmin
         resetViewCb   : @resetView
+        componentIds  : componentIds
 
       component = new nanobox.PlatformComponent @$el, data
       component.setState "mini"
