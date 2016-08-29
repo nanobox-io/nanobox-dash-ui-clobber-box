@@ -39,8 +39,8 @@ module.exports = class PlatformComponents extends Manager
     @componentManager.removeGeneration generationId
   addComponent : (componentData) ->
     @componentManager.addComponent componentData
-  removeComponent : (componentId) ->
-    @componentManager.removeComponent componentId
+  removeComponent : (serviceId) ->
+    @componentManager.removeComponent serviceId
   updateGenerationState : (id, state) ->
     @componentManager.updateGenerationState id, state
 
@@ -53,13 +53,12 @@ module.exports = class PlatformComponents extends Manager
   viewComponentAdmin : (id) ->
     @fadeParentMethod ()=>
       for component in @components
-        if id == component.componentId
+        if id == component.serviceId
           component.setState "full"
         else
           component.setState "hidden"
 
       # Create a component manager to handle any sub components in this platform service
-      console.log id
       @componentManager = new AppComponents $('.bg-div', @$el), @getComponentById(id).rawData.components, @resizeCb
       @resizeCb()
     ,false, false
@@ -74,7 +73,7 @@ module.exports = class PlatformComponents extends Manager
 
   getComponentById : (id) ->
     for component in @components
-      if id == component.componentId
+      if id == component.serviceId
         return component
 
   destroy : () ->
