@@ -37,7 +37,6 @@ module.exports = class Box
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
       switch @subState
-        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, @data.id, @getDataForUsageBreakdown()
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
@@ -45,6 +44,9 @@ module.exports = class Box
         when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @componentData.scalesRedund, @closeSubContent, @componentData.id
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
+        when 'stats'
+          id          = if @kind == 'component' then @componentData.id else @data.id
+          @subManager = new StatsManager @$subContent, @kind, id, @getDataForUsageBreakdown()
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState
