@@ -14,8 +14,8 @@ module.exports = class PlatformComponents extends Manager
     for componentData in platformServices
 
       componentIds = []
-      for component in componentData.components
-        componentIds.push component.id
+      for comp in componentData.components
+        componentIds.push comp.id
 
       data  =
         componentKind : componentData.kind
@@ -59,6 +59,7 @@ module.exports = class PlatformComponents extends Manager
           component.setState "hidden"
 
       # Create a component manager to handle any sub components in this platform service
+      console.log id
       @componentManager = new AppComponents $('.bg-div', @$el), @getComponentById(id).rawData.components, @resizeCb
       @resizeCb()
     ,false, false
