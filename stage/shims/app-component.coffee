@@ -11,6 +11,8 @@ module.exports = class AppComponent
     @generations     = []
     @adminPath       = "/some/path/to/admin"
     @actionPath      = "/some/path/to/action"
+    @category        = componentData.category
+    @clusterable     = componentData.clusterable
     @addGeneration()
 
   addGeneration : (state='active') ->
