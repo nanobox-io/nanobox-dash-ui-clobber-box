@@ -79,3 +79,15 @@ Modals:
 - Sanity Check Modals
   - with confimation field
 - plan specific modals
+
+
+TODO ------------------------------------ :
+☐ Scale horizontal component looks like vertical - See https://dashboard.nanobox.io/apps/632831e2-b8f9-4f18-8e95-36bd7d4e3970/valkrie (scalesRedund)
+☐ Submit on scale not working
+sequence viewer:
+✔ remove skip     done(√)
+✔ Add meta     done(√)
+✔ Integrate new data structure     done(√)
+
+category : web, worker, data
+clusterable : true, false
