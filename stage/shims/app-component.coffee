@@ -2,7 +2,7 @@ module.exports = class AppComponent
 
   @appComponentCount : 0
 
-  constructor : (kind='web', @type="ruby", @scalesHorizontally=true, @scalesRedund=false) ->
+  constructor : (kind='web', @type="ruby", scalesHorizontally=true, scalesRedund=false) ->
     @generationCount = 1
     @state           = 'active'
     @serverSpecsId   = "b3"
@@ -11,8 +11,8 @@ module.exports = class AppComponent
     @generations     = []
     @adminPath       = "/some/path/to/admin"
     @actionPath      = "/some/path/to/action"
-    @category        = componentData.category
-    @clusterable     = componentData.clusterable
+    @category        = if scalesHorizontally? then 'data' else 'data'
+    @clusterable     = scalesRedund
     @addGeneration()
 
   addGeneration : (state='active') ->
@@ -27,7 +27,7 @@ module.exports = class AppComponent
     id            : @id
     name          : @name
     serviceType   : @type
-    scalesHoriz   : @scalesHorizontally
-    scalesRedund  : @scalesRedund
     adminPath     : @adminPath
     actionPath    : @actionPath
+    category      : @category
+    clusterable   : @clusterable

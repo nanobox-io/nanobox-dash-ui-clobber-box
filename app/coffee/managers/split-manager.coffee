@@ -3,18 +3,19 @@ split = require 'jade/split'
 
 module.exports = class SplitManager extends Manager
 
-  constructor: ($el, isHorizontal, scalesRedund, @hideCb, componentId) ->
+  constructor: ($el, category, clusterable, @hideCb, componentId) ->
     # TODO : Remove these hard coded valuse
     bunkHouses = [
       {id:"a", name:"EC2 1", current:true, }
       {id:"b", name:"EC2 2"}
       {id:"c", name:"EC2 3"}
     ]
-
     config =
-      scalesRedund : scalesRedund
+      # scalesRedund : scalesRedund
+      # isHorizontal : isHorizontal
       componentId  : componentId
-      isHorizontal : isHorizontal
+      category     : category
+      clusterable  : clusterable
       bunkHouses   : bunkHouses
       submitCb     : @onSubmit
       cancelCb     : @onCancel

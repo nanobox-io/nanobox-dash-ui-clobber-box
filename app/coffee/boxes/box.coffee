@@ -32,6 +32,8 @@ module.exports = class Box
 
   switchSubContent : (newSubState, @clickedNavBtn) ->
 
+    console.log @componentData
+
     if @subState == newSubState then @closeSubContent(); return
     @subState = newSubState
     window.sub = @$subContent[0]
@@ -41,7 +43,7 @@ module.exports = class Box
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
         when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath
-        when 'split'               then @subManager = new SplitManager @$subContent, @componentData.scalesHoriz, @componentData.scalesRedund, @closeSubContent, @componentData.id
+        when 'split'               then @subManager = new SplitManager @$subContent, @componentData.category, @componentData.clusterable, @closeSubContent, @componentData.id
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
         when 'stats'
