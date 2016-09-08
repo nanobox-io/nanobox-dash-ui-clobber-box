@@ -244,6 +244,9 @@ module.exports = class Box
       params.entity = 'member'
       params.compressView = true
 
+    if @kind == 'host' or  @kind == 'host-instance'
+      params.entityId = @data.name
+
     @stats = new nanobox.HourlyStats $el, params
 
     @stats.build()
