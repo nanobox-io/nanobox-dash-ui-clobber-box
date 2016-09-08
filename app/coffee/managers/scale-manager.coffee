@@ -21,6 +21,7 @@ module.exports = class ScaleManager extends Manager
       onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
       isHorizontallyScalable  : data.category != 'data' && @isCluster
+      category                : data.category
       isCluster               : @isCluster
 
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
