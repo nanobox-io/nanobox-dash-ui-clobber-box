@@ -39,6 +39,8 @@ window.init = ()=>
         serviceType      : clusterData.serviceType
         scalesHoriz      : clusterData.scalesHoriz
         scalesRedund     : clusterData.scalesRedund
+        category         : clusterData.category
+        clusterable      : clusterData.clusterable
         adminPath        : clusterData.adminPath
         actionPath       : clusterData.adminPath
         instances        : clusterData.instances # Delete
@@ -80,6 +82,7 @@ window.init = ()=>
   subscribeToRegistrations = ->
     # Shim, this should be handled by valkrie..
     PubSub.subscribe 'SCALE.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
+    PubSub.subscribe 'GET_BUNKHOUSES'   , (m, cb)-> cb [ {id:"a", name:"EC2 1", current:true, }, {id:"c", name:"EC2 3"} ]
     PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box;
     PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
     PubSub.subscribe 'SCALE.SAVE'       , (m, data)-> console.log("New Scale:"); console.log data; data.submitCb()

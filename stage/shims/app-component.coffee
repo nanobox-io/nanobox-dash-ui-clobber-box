@@ -11,7 +11,7 @@ module.exports = class AppComponent
     @generations     = []
     @adminPath       = "/some/path/to/admin"
     @actionPath      = "/some/path/to/action"
-    @category        = if scalesHorizontally? then 'data' else 'data'
+    @category        = if scalesHorizontally then 'web' else 'data'
     @clusterable     = scalesRedund
     @addGeneration()
 
