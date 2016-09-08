@@ -19,7 +19,7 @@ module.exports = class ScaleManager extends Manager
       activeServerId          : currentServerSpecsIds
       onSpecsChange           : @onSelectionChange
       totalInstances          : currentTotal
-      isHorizontallyScalable  : data.scalesHoriz
+      isHorizontallyScalable  : data.category != 'data'
       isCluster               : @isCluster
 
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs

@@ -12,8 +12,8 @@ module.exports = class DataCluster
     @name          = "Customers DB"
     @state         = "active"
     @serviceType   = "mysql-db"
-    @scalesHoriz   = false
-    @scalesRedund  = true
+    @category      = "data"
+    @clusterable   = true
     @adminPath     = "/some/path/to/admin"
     @generations   = []
 
@@ -47,8 +47,8 @@ module.exports = class DataCluster
     id            : @id
     state         : @state
     name          : @name
-    scalesHoriz   : @scalesHoriz
-    scalesRedund  : @scalesRedund
+    category      : @category
+    clusterable   : @clusterable
     generations   : @generations
     # appComponents : [@appComponent.serialize()]
     serviceType   : @serviceType

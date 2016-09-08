@@ -10,8 +10,8 @@ module.exports = class HorizCluster
     @name          = "Main App"
     @state         = "active"
     @serviceType   = "python"
-    @scalesHoriz   = true
-    @scalesRedund  = false
+    @category      = "web"
+    @clusterable   = true
     @generations   = []
     @adminPath     = "/some/path/to/admin"
 
@@ -43,37 +43,9 @@ module.exports = class HorizCluster
     state         : @state
     name          : @name
     scalesHoriz   : @scalesHoriz
+    category      : @category
+    clusterable   : @clusterable
     scalesRedund  : @scalesRedund
     generations   : @generations
     serviceType   : @serviceType
     adminPath     : @adminPath
-    # appComponents : [@appComponent.serialize()]
-    # instances     : @instances
-
-
-x =  {
-      "id": "web.main",
-      "name": "jade-jug",
-      "state": "active",
-      "serviceType": "default",
-      "scalesHoriz": true,
-      "scalesRedund": false,
-      "generations": [
-        {
-          "id": "web.main.gen2",
-          "state": "active",
-          "status": "online",
-          "instances": [
-            {
-              "id": 1,
-              "hostId": "do.2",
-              "hostName": "do.2",
-              "state": "active",
-              "status": "online",
-              "role": "default",
-              "serverSpecsId": "512mb"
-            }
-          ]
-        }
-      ]
-    }

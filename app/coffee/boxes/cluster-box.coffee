@@ -40,7 +40,7 @@ module.exports = class ClusterBox extends Box
     ids = {}
     # If horizontal cluster, all members will be at the same scale, grab
     # the id from the first member in the arry
-    if @data.scalesHoriz
+    if @data.category != "data"
       ids.primary = @data.members[0].serverSpecsId
     # If it's a data cluster, grab the scale from each member
     else
