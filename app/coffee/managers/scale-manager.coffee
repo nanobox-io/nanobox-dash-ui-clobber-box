@@ -21,9 +21,9 @@ module.exports = class ScaleManager extends Manager
       onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
       isHorizontallyScalable  : data.category != 'data' && @isCluster
-      category                : data.category
       isCluster               : @isCluster
 
+    @category     = data.category
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
     super()
 
@@ -58,6 +58,7 @@ module.exports = class ScaleManager extends Manager
       newPlan    : newPlans
       entityType : if @isCluster then 'cluster' else 'bunkhouse'
       submitCb   : @hideCb
+      category   : @category
 
     if !@isCluster
       data.entityId = @bunkhouseId
