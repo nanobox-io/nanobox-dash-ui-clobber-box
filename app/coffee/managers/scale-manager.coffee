@@ -18,6 +18,7 @@ module.exports = class ScaleManager extends Manager
     scaleConfigs =
       activeServerId          : currentServerSpecsIds
       onSpecsChange           : @onSelectionChange
+      onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
       isHorizontallyScalable  : data.category != 'data'
       isCluster               : @isCluster
@@ -28,7 +29,7 @@ module.exports = class ScaleManager extends Manager
   showSaver : (@$el) ->
     return if @saveVisible
     @saveVisible = true
-    saver = new Saver(@$el, @onSave, @onCancel)
+    @saver = new Saver(@$el, @onSaveClick, @onCancel)
 
   onSelectionChange : (selection)=>
     @showSaver @$el
@@ -36,7 +37,20 @@ module.exports = class ScaleManager extends Manager
   onInstanceTotalChange : (@instances)=>
     @showSaver @$el
 
-  onSave : () =>
+  onSaveClick : () =>
+    options =
+      modal    : "action-confirmation-modal"
+      header   : "Scale Confirmation"
+      content  : "Lorem Ipsum : Scaling this component will take if offline for some amount of time.."
+      onOpen   : ->
+      onSubmit : @saveIt
+      onClose  : ->
+
+    # load and show a modal
+    nanobox.Modals.load options
+
+  saveIt : () =>
+    @saver.changeState 'saving'
     newPlans = @scaleMachine.getUserSelectedPlan()
     data =
       hostId    : @hostId

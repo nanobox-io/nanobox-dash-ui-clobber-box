@@ -12,7 +12,8 @@
     "hourly-average": "nanobox-io/nanobox-dash-ui-hourly-average",
     "usage-breakdown": "nanobox-io/nanobox-dash-ui-usage-breakdown",
     "splitter": "nanobox-io/nanobox-dash-ui-splitter",
-    "console": "nanobox-io/nanobox-dash-ui-console#^0.0.5"
+    "console": "nanobox-io/nanobox-dash-ui-console#^0.0.5",
+    "modals": "nanobox-io/nanobox-dash-ui-modals"
   },
   "ignore": [
     "app",
