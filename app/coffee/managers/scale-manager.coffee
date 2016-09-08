@@ -20,7 +20,7 @@ module.exports = class ScaleManager extends Manager
       onSpecsChange           : @onSelectionChange
       onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
-      isHorizontallyScalable  : data.category != 'data'
+      isHorizontallyScalable  : data.category != 'data' && @isCluster
       isCluster               : @isCluster
 
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
@@ -53,13 +53,13 @@ module.exports = class ScaleManager extends Manager
     @saver.changeState 'saving'
     newPlans = @scaleMachine.getUserSelectedPlan()
     data =
-      hostId    : @hostId
-      newPlan   : newPlans
-      isCluster : @isCluster == true
-      submitCb  : @hideCb
+      entityId   : @hostId
+      newPlan    : newPlans
+      entityType : if @isCluster then 'cluster' else 'bunkhouse'
+      submitCb   : @hideCb
 
     if !@isCluster
-      data.bunkhouseId = @bunkhouseId
+      data.entityId = @bunkhouseId
 
     PubSub.publish 'SCALE.SAVE', data
 
