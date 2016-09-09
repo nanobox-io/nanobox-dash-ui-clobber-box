@@ -1,7 +1,7 @@
 .admin-manage
-  .actions
+  .actions(class="#{klass}")
     each action in actions
-      .action(data-action="#{action.name}" class="#{action.name}")
+      .action(data-action="#{action.name}" class="#{action.name} #{action.klass}")
         img.shadow-icon(data-src="admin-#{action.name}")
         .name=action.name
         .short!=action.short

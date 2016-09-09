@@ -39,7 +39,7 @@ module.exports = class Box
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
-        when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath
+        when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
         when 'split'               then @subManager = new SplitManager @$subContent, @componentData.category, @componentData.clusterable, @closeSubContent, @componentData.id
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
