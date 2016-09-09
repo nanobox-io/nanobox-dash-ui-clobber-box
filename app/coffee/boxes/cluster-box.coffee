@@ -30,6 +30,7 @@ module.exports = class ClusterBox extends Box
       {txt:"Admin", icon:'admin', event:'SHOW.ADMIN'  }
       {txt:"Scale", icon:'scale', event:'SHOW.SCALE'}
       {txt:"Hosts", icon:'instance-health', event:'SHOW.HOST-INTANCES'}
+      {txt:"Move",    icon:'split',   event:'SHOW.SPLIT'  }
       # {txt:"Stats", icon:'stats', event:'SHOW.STATS'}
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
