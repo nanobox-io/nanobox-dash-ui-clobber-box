@@ -126,9 +126,9 @@ window.init = ()=>
   addEventListeners()
 
   # ------------------------------------ Start the app
-  addHost()
+  # addHost()
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
-  addCluster( clobberBoxDataShim.getDataCluster().serialize() )
+  # addCluster( clobberBoxDataShim.getDataCluster().serialize() )
 
   # Test no deploys
   window.setNoDeploys     = ()-> getBox("host.1").showAsReadyForDeploys()

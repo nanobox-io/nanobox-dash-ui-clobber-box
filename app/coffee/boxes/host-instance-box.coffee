@@ -11,9 +11,6 @@ module.exports = class HostInstance extends Box
     if !@data._serviceType?
       @data._serviceType = NameMachine.findName @data.componentData.serviceType
 
-    console.log @data
-    console.log @data._serviceType
-
     $node = $ hostInstanceBox( @data )
     $el.append $node
 

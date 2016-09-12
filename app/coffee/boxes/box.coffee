@@ -36,7 +36,8 @@ module.exports = class Box
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
       # Sometimes we should use @data, other times @component data
-      data = if @kind == 'component' then @componentData else @data
+      data = if @kind == 'component' then @componentData  else @data
+      id   = if @kind == 'cluster'   then @data.serviceId else @data.id
 
       switch @subState
         when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
@@ -45,7 +46,7 @@ module.exports = class Box
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
-        when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @kind=='cluster', @closeSubContent, data.id
+        when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @kind=='cluster', @closeSubContent, id
         when 'stats'               then @subManager = new StatsManager @$subContent, @kind, data.id, @getDataForUsageBreakdown()
 
       @positionArrow @clickedNavBtn, @subState
