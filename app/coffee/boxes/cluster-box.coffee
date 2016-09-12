@@ -8,7 +8,7 @@ module.exports = class ClusterBox extends Box
   constructor: ($el, @data) ->
     @kind = "cluster"
     @data.clusterName = @makeClusterName @data.members
-    @totalMembers = @data.totalMembers
+    @totalMembers = @data.members.length
 
     # There's a chance this was already added by the host, but if not, add it
     if !@data._serviceType?

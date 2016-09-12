@@ -45,7 +45,7 @@ module.exports = class Box
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
-        when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @closeSubContent, data.id
+        when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @kind=='cluster', @closeSubContent, data.id
         when 'stats'               then @subManager = new StatsManager @$subContent, @kind, data.id, @getDataForUsageBreakdown()
 
       @positionArrow @clickedNavBtn, @subState

@@ -3,11 +3,12 @@ split = require 'jade/split'
 
 module.exports = class SplitManager extends Manager
 
-  constructor: ($el, @category, @clusterable, @hideCb, @componentId) ->
+  constructor: ($el, @category, @clusterable, @isCluster, @hideCb, @componentId) ->
     PubSub.publish 'GET_BUNKHOUSES',
       id : @componentId
       cb : (bunkHouses)=>
         config =
+          isCluster    : @isCluster
           componentId  : @componentId
           category     : @category
           clusterable  : @clusterable
