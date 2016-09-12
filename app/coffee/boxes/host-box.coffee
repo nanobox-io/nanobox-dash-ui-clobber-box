@@ -24,9 +24,10 @@ module.exports = class HostBox extends Box
 
   buildNav : ($node) ->
     navItems = [
+      {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Admin", icon:'admin', event:'SHOW.ADMIN'  }
-      {txt:"Platform Components", icon:'platform-component', event: 'SHOW.PLATFORM_COMPONENTS'}
-      {txt:"App Components", icon:'app-component', event: 'SHOW.APP_COMPONENTS'}
+      {txt:"Platform", icon:'platform-component', event: 'SHOW.PLATFORM_COMPONENTS'}
+      {txt:"App", icon:'app-component', event: 'SHOW.APP_COMPONENTS'}
       {txt:"Scale",  icon:'scale', event: 'SHOW.SCALE'}
       {txt:"Stats", icon:'stats', event: 'SHOW.STATS'}
     ]
