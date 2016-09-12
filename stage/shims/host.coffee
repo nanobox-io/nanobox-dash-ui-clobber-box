@@ -24,7 +24,7 @@ module.exports = class Host
 
   createComponents : (makeLotsOfComponents) ->
     if !makeLotsOfComponents
-      @addComponent('web', 'some-rubyengine', true, true)
+      @addComponent('web', 'middleman', true, true)
       @addComponent('db', 'mongo12', false, true)
     else
       @addComponent()

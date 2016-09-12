@@ -6,14 +6,14 @@
     .white-box
       if componentData.scalesHoriz
         .square-service-icon
-          img.shadow-icon(data-src="hex-#{componentData.serviceType}" )
+          img.shadow-icon(data-src="hex-#{_serviceType.id}" )
         .host <span>Host: </span>#{memberData.hostName}
       else
         .square-service-icon
           if memberData.role == 'arbiter'
             img.shadow-icon(data-src="hex-arbiter" )
           else
-            img.shadow-icon(data-src="hex-#{componentData.serviceType}" )
+            img.shadow-icon(data-src="hex-#{_serviceType.id}" )
         .data-info
           .host <span>Host: </span>#{memberData.hostId}
           .name <span>Role: </span>#{memberData.role}

@@ -1,11 +1,18 @@
 Box             = require 'boxes/box'
 BoxNav          = require 'box-nav'
 hostInstanceBox = require 'jade/host-instance-box'
+NameMachine = require 'misc/name-machine'
 
 module.exports = class HostInstance extends Box
 
   constructor: ($el, @data) ->
     @kind = "host-instance"
+
+    if !@data._serviceType?
+      @data._serviceType = NameMachine.findName @data.componentData.serviceType
+
+    console.log @data
+    console.log @data._serviceType
 
     $node = $ hostInstanceBox( @data )
     $el.append $node
