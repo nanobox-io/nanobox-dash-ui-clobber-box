@@ -13,7 +13,7 @@ module.exports = class AdminManager extends Manager
       actions = [
         {name:"reboot",  short:"Hard Power-Off & Power-On of Server"}
       ]
-      if @data.appComponents.length == 0 && @data.platformComponents.length == 0
+      if @data.appComponents.length == 0 && @data.platformServices.length == 0
         actions.push {name:"delete",  short:"Delete This Host"}
       else
         actions.push {name:"delete",  short:"To Delete, remove all components", klass:"disabled"}
