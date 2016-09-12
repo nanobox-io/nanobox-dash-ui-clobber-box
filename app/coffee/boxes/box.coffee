@@ -36,8 +36,12 @@ module.exports = class Box
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
       # Sometimes we should use @data, other times @component data
-      data = if @kind == 'component' then @componentData  else @data
-      id   = if @kind == 'cluster'   then @data.serviceId else @data.id
+      id   = @data.id
+      data = @data
+      switch @kind
+        when 'cluster'   then id = @data.serviceId
+        when 'component' then id = @componentData.id; data = @componentData
+
 
       switch @subState
         when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
