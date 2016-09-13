@@ -32,7 +32,7 @@ module.exports = class Box
 
   switchSubContent : (newSubState, @clickedNavBtn) ->
     if @subState == newSubState
-      if @subManager.secondClick() 
+      if @subManager.secondClick()
         return;
       else
         @closeSubContent(); return
@@ -211,7 +211,13 @@ module.exports = class Box
 
   setHeightToContent : () -> @$sub.css height: @$subContent[0].offsetHeight
 
-  getName : () -> if @data.name? then return @data.name else return @data.id
+  getName : () ->
+    if @data.name?
+      return @data.name
+    else if @componentData?
+      return @componentData.name
+    else
+      @data.id
 
   positionArrow : (el, cssClass) ->
     $el = $(el)
@@ -241,14 +247,15 @@ module.exports = class Box
       start    : '24h'
       stop     : '0h'
 
-    if @kind == 'cluster'
-      params.entity = 'component'
-
     if @kind != 'component'
       params.metrics.push 'swap'
       params.metrics.push 'disk'
     else
       params.entityId = @componentData.id
+
+    if @kind == 'cluster'
+      params.entity   = 'component'
+      params.entityId = @data.serviceId
 
     if @kind == 'host-instance'
       params.entity = 'member'

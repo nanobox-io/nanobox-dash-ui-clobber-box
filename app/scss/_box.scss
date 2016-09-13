@@ -28,7 +28,7 @@
 
   .animation                 {display:none; height: 60px;
     &.component              {margin-left:-30px; margin-top:-10px; }
-    .title                   {color:white; font-style:italic; font-weight:$medium; font-size:13px; text-align:right; margin-top:-2px; margin-left:auto; width:300px; text-transform:uppercase; text-shadow: 0px 1px 1px #BABABA; }
+    .title                   {font-style:italic; font-weight:$bold; font-size:12px; text-align:right; margin:-3px 0 0 0; text-transform:uppercase; background:white; padding:1px 4px; color:#c8cfd4; }
   }
   &.added                    {opacity:1; }
   &.faded                    {opacity:0; @include transition(all, 190ms); }
@@ -37,7 +37,7 @@
   &.animating                {margin-top: -3px;
     .white-box               {display:none;  }
     .nav-holder              {opacity:0; pointer-events: none; }
-    .animation               {display:block; }
+    .animation               {display:block;  display: flex; flex-direction: column; align-items: flex-end; }
     &.component-box          {
       .service-bug           {opacity:0.6; }
     }
@@ -83,7 +83,7 @@
   &.cluster-box              {position:relative;
     .white-box               {background: none; position:relative; }
     .animation               {position:absolute; top:-17px; left:-29px;
-      .title                 {margin-right:10px; text-shadow: 0px 1px 1px #9E9E9E;  }
+      .title                 { }
     }
     .id                      {margin-left:30px;
       .name                  {font-size:20px; }
