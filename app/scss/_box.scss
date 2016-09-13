@@ -131,6 +131,7 @@
         span                 {font-style: italic; color:#829FAB }
       }
     }
+    .sub-content.split       {background:#E2E8EC; border:solid white 1px; border-top:none; border-bottom:none; }
   }
 
   &.host-instance-box        {margin-bottom:18px;
@@ -139,9 +140,10 @@
     .name, .host             {font-size:15px; color:$slate-blue;
       span                   {font-size:13px; font-style: italic; color:#829FAB }
     }
-    .square-service-icon     {width:35px; height:36px; margin-left:-6px; margin-right:10px;
+    .square-service-icon     {width: 60px; margin-left: -32px; margin-right: -5px; margin-top: 16px;
+
       svg                    {transform:scale(0.70) translate(-10px, -15px);
-        .bg                  {display:none }
+        // .bg                  {display:none }
       }
     }
   }
@@ -162,7 +164,7 @@
         &.scale-machine      {top:0px;
           &:after            {border-bottom-color: #E3E9ED; }
         }
-        &.split:after        {border-bottom-color: #BDC9CC; }
+        &.split:after        {border-bottom-color: #CDD3D8; }
         // &.scale-machine:after { border-bottom-color: #029ADB; }
         &.console:after      {border-bottom-color: #202D36; }
       }

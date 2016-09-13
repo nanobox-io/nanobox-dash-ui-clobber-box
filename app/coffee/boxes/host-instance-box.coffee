@@ -17,8 +17,8 @@ module.exports = class HostInstance extends Box
     @buildNav $node
 
     super $node, @data
-    $('.square-service-icon', $node).css background: $('.bg', $node).css( 'fill')
-    $('.bg', $node).css fill: 'none', stroke: 'none'
+    # $('.square-service-icon', $node).css background: $('.bg', $node).css( 'fill')
+    # $('.bg', $node).css fill: 'none', stroke: 'none'
 
     PubSub.publish 'REGISTER.HOST-INSTANCE', @
     @buildStats $(".stats-strip", @$node)
