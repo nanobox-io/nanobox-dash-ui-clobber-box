@@ -1,12 +1,13 @@
 //- Show 4 icons, if there is more than 4, show the first 3 icons
 //- and then an empty icon with a number for how many are not shown
-each service, i in appComponents
-  if i < 3 || ( i==3 && appComponents.length == 4 )
-    .service-icon(class="#{service._serviceType.id}")
-      img.shadow-icon(data-src="hex-#{service._serviceType.id}" scalable="true", xtra="2")
-if appComponents.length > 4
-  .service-icon.empty
-    img.shadow-icon(data-src="hex-empty" scalable="true", xtra="2")
-    .txt
-      .num #{appComponents.length-3} 
-      span more
+.small-icons(class= appComponents.length >3 ? 'smaller' : '' )
+  each service, i in appComponents
+    if i < 3 || ( i==3 && appComponents.length == 4 )
+      .service-icon(class="#{service._serviceType.id}")
+        img.shadow-icon(data-src="hex-#{service._serviceType.id}" scalable="true", xtra="2")
+  if appComponents.length > 4
+    .service-icon.empty
+      img.shadow-icon(data-src="hex-empty" scalable="true", xtra="2")
+      .txt
+        .num #{appComponents.length-3} 
+        span more

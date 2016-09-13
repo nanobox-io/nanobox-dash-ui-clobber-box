@@ -25,9 +25,9 @@ window.init = ()=>
   window.removeGeneration = (generationId)->
     getParentOfGeneration(generationId).removeGeneration generationId
 
-  window.addHost = ()->
+  window.addHost = (lotsOfIcons)->
     hostBox = new nanobox.ClobberBox()
-    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(false).serialize()
+    hostBox.build $holder, nanobox.ClobberBox.HOST, clobberBoxDataShim.getHost(lotsOfIcons).serialize()
     ui.noteComponents(hostBox)
 
   window.addCluster = (clusterData)->
@@ -126,9 +126,9 @@ window.init = ()=>
   addEventListeners()
 
   # ------------------------------------ Start the app
-  # addHost()
+  addHost()
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
-  # addCluster( clobberBoxDataShim.getDataCluster().serialize() )
+  addCluster( clobberBoxDataShim.getDataCluster().serialize() )
 
   # Test no deploys
   window.setNoDeploys     = ()-> getBox("host.1").showAsReadyForDeploys()

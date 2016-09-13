@@ -53,6 +53,7 @@ module.exports = class PlatformComponents extends Manager
     @viewComponentAdmin id
 
   viewComponentAdmin : (id) ->
+    @adminingComponent = true
     @fadeParentMethod ()=>
       for component in @components
         if id == component.serviceId
@@ -66,6 +67,7 @@ module.exports = class PlatformComponents extends Manager
     ,false, false
 
   resetView : (id) =>
+    @adminingComponent = false
     return if !@components?
     @fadeParentMethod ()=>
       for component in @components
@@ -77,6 +79,14 @@ module.exports = class PlatformComponents extends Manager
     for component in @components
       if id == component.serviceId
         return component
+
+  # In case the user clicks Platform while platform is still open
+  secondClick : () ->
+    if @adminingComponent
+      @resetView();
+      return true
+    else
+      return false
 
   destroy : () ->
     for component in @components

@@ -31,7 +31,11 @@ module.exports = class Box
   # ------------------------------------ Shared
 
   switchSubContent : (newSubState, @clickedNavBtn) ->
-    if @subState == newSubState then @closeSubContent(); return
+    if @subState == newSubState
+      if @subManager.secondClick() 
+        return;
+      else
+        @closeSubContent(); return
     @subState = newSubState
     window.sub = @$subContent[0]
     @hideCurrentSubContent ()=>
