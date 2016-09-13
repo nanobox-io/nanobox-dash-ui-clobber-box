@@ -45,6 +45,7 @@ module.exports = class Box
       switch @kind
         when 'cluster'   then id = @data.serviceId
         when 'component' then id = @componentData.id; data = @componentData
+        when 'host'      then id = @data.name
 
 
       switch @subState
@@ -55,7 +56,7 @@ module.exports = class Box
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @kind=='cluster', @closeSubContent, id
-        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, data.id, @getDataForUsageBreakdown()
+        when 'stats'               then @subManager = new StatsManager @$subContent, @kind, id, @getDataForUsageBreakdown()
 
       @positionArrow @clickedNavBtn, @subState
       @resizeSubContent @subState
