@@ -260,7 +260,6 @@ module.exports = class Box
 
     if @kind == 'host-instance'
       params.entityId = @data.id
-      params.entity = 'host'
       params.compressView = true
 
     if @kind == 'host'

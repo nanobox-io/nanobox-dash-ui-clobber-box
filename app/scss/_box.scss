@@ -138,7 +138,7 @@
     .white-box               {background:white; height:44px; }
     .name                    {text-transform: capitalize; }
     .name, .host             {font-size:15px; color:$slate-blue;
-      span                   {font-size:13px; font-style: italic; color:#829FAB; user-select: none;   line-height: 18px;}
+      span                   {font-size:13px; font-style: italic; color:#829FAB; user-select: none; line-height: 18px;}
     }
     .host                    {@include selectable;}
     .square-service-icon     {width: 60px; margin-left: -32px; margin-right: -5px; margin-top: 16px;
