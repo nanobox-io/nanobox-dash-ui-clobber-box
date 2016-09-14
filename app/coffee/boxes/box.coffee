@@ -259,10 +259,11 @@ module.exports = class Box
       params.entityId = @data.serviceId
 
     if @kind == 'host-instance'
-      params.entity = 'member'
+      params.entityId = @data.id
+      params.entity = 'host'
       params.compressView = true
 
-    if @kind == 'host' or  @kind == 'host-instance'
+    if @kind == 'host'
       params.entityId = @data.name
 
     @stats = new nanobox.HourlyStats $el, params
