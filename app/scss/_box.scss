@@ -2,7 +2,7 @@
   $easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   .white-box                 {padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
   .stats-strip               {margin:0 0 0 auto;  }
-  .name                      {color:$slate-blue; }
+  .name                      {color:$slate-blue; @include selectable;}
   .id                        {
     *                        {color:$slate-blue; }
     .service-name            {}
@@ -138,8 +138,9 @@
     .white-box               {background:white; height:44px; }
     .name                    {text-transform: capitalize; }
     .name, .host             {font-size:15px; color:$slate-blue;
-      span                   {font-size:13px; font-style: italic; color:#829FAB }
+      span                   {font-size:13px; font-style: italic; color:#829FAB; user-select: none;   line-height: 18px;}
     }
+    .host                    {@include selectable;}
     .square-service-icon     {width: 60px; margin-left: -32px; margin-right: -5px; margin-top: 16px;
 
       svg                    {transform:scale(0.70) translate(-10px, -15px);
