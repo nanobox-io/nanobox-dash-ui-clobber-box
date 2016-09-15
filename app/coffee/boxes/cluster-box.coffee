@@ -27,6 +27,7 @@ module.exports = class ClusterBox extends Box
     navItems = [
       # {txt:"App Component", icon:'app-component', event:'SHOW.APP_COMPONENTS'}
       # {txt:"Instance Health", icon:'instance-health', event:'SHOW.INSTANCES'}
+      {txt:"Console", icon:'console', event:'SHOW.CONSOLE'  }
       {txt:"Admin", icon:'admin', event:'SHOW.ADMIN'  }
       {txt:"Scale", icon:'scale', event:'SHOW.SCALE'}
       {txt:"Hosts", icon:'instance-health', event:'SHOW.HOST-INTANCES'}
