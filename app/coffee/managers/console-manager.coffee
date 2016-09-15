@@ -1,4 +1,5 @@
-Manager = require 'managers/manager'
+Manager        = require 'managers/manager'
+NameMachine    = require 'misc/name-machine'
 
 module.exports = class ConsoleManager extends Manager
 
@@ -42,6 +43,7 @@ module.exports = class ConsoleManager extends Manager
     app = new nanobox.Console $el, consoleParams
 
   getParams : (kind, data, isTunnel) ->
+    console.log data
     blob =
       id                : data.name
       kind              : kind
@@ -54,8 +56,8 @@ module.exports = class ConsoleManager extends Manager
       blob.dockerId = "#{data.componentData.uid}.#{data.memberData.uid}"
 
     if isTunnel
-      serviceIcon       : 'mongo'
-      tunnelCredentials :
+      blob.serviceIcon = NameMachine.findName(data.serviceType).id
+      blob.tunnelCredentials =
         DB_HOST : '127.0.0.1'
         DB_PORT : '4000'
         DB_USER : 'nanobox'

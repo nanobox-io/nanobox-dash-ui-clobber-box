@@ -167,7 +167,8 @@
         }
         &.split:after        {border-bottom-color: #CDD3D8; }
         // &.scale-machine:after { border-bottom-color: #029ADB; }
-        &.console:after      {border-bottom-color: #C5D3DB; }
+        &.console:after,
+        &.tunnel:after       {border-bottom-color: #C5D3DB; }
       }
       &.platform-components  {display:flex; justify-content: space-between; width:$component-width; flex-wrap: wrap; padding-bottom:10px;
         .has-content         {margin-bottom: -10px; }
