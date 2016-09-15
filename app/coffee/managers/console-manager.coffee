@@ -51,7 +51,7 @@ module.exports = class ConsoleManager extends Manager
 
     if kind == 'host-instance'
       blob.id       = data.id
-      blob.dockerId = "#{data.componentData.uid}.#{data.memberData.id}"
+      blob.dockerId = "#{data.componentData.uid}.#{data.memberData.uid}"
 
     if isTunnel
       serviceIcon       : 'mongo'
