@@ -28,11 +28,15 @@ module.exports = class ComponentGenerationBox extends Box
 
   buildAppComponentNav : ($node) ->
     navItems = [
-      {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
-      {txt:"Move",    icon:'split',   event:'SHOW.SPLIT'  }
-      {txt:"Admin",   icon:'admin',   event:'SHOW.ADMIN'  }
-      {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
+      {txt:"Console",  icon:'console', event:'SHOW.CONSOLE' }
+      {txt:"Move",     icon:'split',   event:'SHOW.SPLIT'   }
+      {txt:"Admin",    icon:'admin',   event:'SHOW.ADMIN'   }
+      {txt:"Stats",    icon:'stats',   event:'SHOW.STATS'   }
     ]
+
+    if @componentData.category == 'data'
+      navItems.unshift {txt:"Connect", icon:'tunnel', event:'SHOW.TUNNEL' }
+
     @nav = new BoxNav $('.nav-holder', $node), navItems, @generationData.id
 
   destroy : () ->

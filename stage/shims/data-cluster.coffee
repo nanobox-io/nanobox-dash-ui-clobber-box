@@ -45,6 +45,7 @@ module.exports = class DataCluster
 
   serialize : () ->
     id            : @id
+    uid           : @id
     state         : @state
     name          : @name
     category      : @category

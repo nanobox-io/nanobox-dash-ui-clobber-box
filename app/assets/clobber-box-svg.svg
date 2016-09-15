@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="svgs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 600 480" style="enable-background:new 0 0 600 480;" xml:space="preserve">
@@ -16,10 +16,10 @@
 	.st10{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:10;}
 	.st11{fill:#1EB8FF;}
 	.st12{fill:none;stroke:#1EB8FF;stroke-miterlimit:10;}
-	.st13{opacity:0.03;fill:url(#SVGID_1_);enable-background:new    ;}
-	.st14{opacity:0.03;fill:url(#SVGID_2_);enable-background:new    ;}
-	.st15{opacity:0.03;fill:url(#SVGID_3_);enable-background:new    ;}
-	.st16{opacity:0.03;fill:url(#SVGID_4_);enable-background:new    ;}
+	.st13{opacity:3.000000e-02;fill:url(#SVGID_1_);enable-background:new    ;}
+	.st14{opacity:3.000000e-02;fill:url(#SVGID_2_);enable-background:new    ;}
+	.st15{opacity:3.000000e-02;fill:url(#SVGID_3_);enable-background:new    ;}
+	.st16{opacity:3.000000e-02;fill:url(#SVGID_4_);enable-background:new    ;}
 	.st17{opacity:0.39;fill:url(#SVGID_5_);enable-background:new    ;}
 	.st18{opacity:0.39;fill:url(#SVGID_6_);enable-background:new    ;}
 	.st19{opacity:0.72;fill:url(#SVGID_7_);enable-background:new    ;}
@@ -55,8 +55,7 @@
 	<line class="st0" x1="130.8" y1="118" x2="130.8" y2="124.6"/>
 </g>
 <g id="nav-scale">
-	
-		<ellipse transform="matrix(0.9876 -0.1567 0.1567 0.9876 -17.9444 14.375)" class="st0" cx="82.193" cy="120.989" rx="4.9" ry="4.9"/>
+	<ellipse transform="matrix(0.9876 -0.1567 0.1567 0.9876 -17.9436 14.3743)" class="st0" cx="82.2" cy="121" rx="4.9" ry="4.9"/>
 	<g>
 		<g>
 			<path class="st0" d="M86.7,114.6c0.3-0.2,0.5-0.4,0.8-0.6"/>
@@ -82,38 +81,30 @@
 	<circle class="st2" cx="158.3" cy="111.1" r="1"/>
 	<circle class="st2" cx="158.3" cy="114.3" r="0.9"/>
 	<circle class="st2" cx="158.3" cy="118.3" r="1"/>
+	<ellipse transform="matrix(0.704 -0.7102 0.7102 0.704 -34.3713 148.5357)" class="st2" cx="161" cy="115.5" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(1 -9.099623e-03 9.099623e-03 1 -1.069 1.481)" class="st2" cx="162.2" cy="118.2" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.6975 -0.7166 0.7166 0.6975 -37.9342 151.9552)" class="st2" cx="161" cy="120.9" rx="0.9" ry="0.9"/>
 	
-		<ellipse transform="matrix(0.704 -0.7102 0.7102 0.704 -34.3715 148.5356)" class="st2" cx="161.007" cy="115.502" rx="0.9" ry="0.9"/>
-	<ellipse transform="matrix(1 -0.0091 0.0091 1 -1.0689 1.481)" class="st2" cx="162.214" cy="118.21" rx="0.9" ry="0.9"/>
+		<ellipse transform="matrix(0.9998 -1.820062e-02 1.820062e-02 0.9998 -2.194 2.9011)" class="st2" cx="158.3" cy="122" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.691 -0.7229 0.7229 0.691 -39.312 149.8522)" class="st2" cx="155.6" cy="120.9" rx="0.9" ry="0.9"/>
 	
-		<ellipse transform="matrix(0.6975 -0.7166 0.7166 0.6975 -37.9348 151.9534)" class="st2" cx="161.009" cy="120.908" rx="0.9" ry="0.9"/>
+		<ellipse transform="matrix(0.9996 -2.710089e-02 2.710089e-02 0.9996 -3.1463 4.2274)" class="st2" cx="154.4" cy="118.2" rx="0.9" ry="0.9"/>
 	
-		<ellipse transform="matrix(0.9998 -0.0182 0.0182 0.9998 -2.1941 2.9012)" class="st2" cx="158.289" cy="121.992" rx="0.9" ry="0.9"/>
+		<ellipse transform="matrix(0.6848 -0.7287 0.7287 0.6848 -35.1909 149.6452)" class="st2" cx="155.4" cy="115.5" rx="0.9" ry="0.9"/>
+	<ellipse transform="matrix(0.4398 -0.8981 0.8981 0.4398 -9.9774 207.634)" class="st2" cx="161.4" cy="111.8" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.7901 -0.613 0.613 0.7901 -35.3536 124.3616)" class="st2" cx="163.9" cy="113.8" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9792 -0.2031 0.2031 0.9792 -20.2785 36.0098)" class="st2" cx="165.3" cy="116.8" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.2483 -0.9687 0.9687 0.2483 8.0586 250.2913)" class="st2" cx="165.3" cy="120" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.6494 -0.7605 0.7605 0.6494 -35.9839 167.5658)" class="st2" cx="163.7" cy="122.8" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9177 -0.3973 0.3973 0.9177 -36.2833 74.2709)" class="st2" cx="161.1" cy="124.7" rx="1" ry="1"/>
 	
-		<ellipse transform="matrix(0.691 -0.7229 0.7229 0.691 -39.3144 149.8477)" class="st2" cx="155.607" cy="120.907" rx="0.9" ry="0.9"/>
-	
-		<ellipse transform="matrix(0.9996 -0.0271 0.0271 0.9996 -3.1464 4.2275)" class="st2" cx="154.39" cy="118.192" rx="0.9" ry="0.9"/>
-	
-		<ellipse transform="matrix(0.6848 -0.7287 0.7287 0.6848 -35.1889 149.6481)" class="st2" cx="155.401" cy="115.503" rx="0.9" ry="0.9"/>
-	
-		<ellipse transform="matrix(0.4398 -0.8981 0.8981 0.4398 -9.9782 207.6341)" class="st2" cx="161.447" cy="111.815" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.7901 -0.613 0.613 0.7901 -35.3544 124.3597)" class="st2" cx="163.904" cy="113.802" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9792 -0.2031 0.2031 0.9792 -20.278 36.0082)" class="st2" cx="165.314" cy="116.81" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.2483 -0.9687 0.9687 0.2483 8.054 250.2905)" class="st2" cx="165.296" cy="119.956" rx="1" ry="1"/>
-	
-		<ellipse transform="matrix(0.6494 -0.7605 0.7605 0.6494 -35.988 167.5606)" class="st2" cx="163.716" cy="122.807" rx="1" ry="1"/>
-	
-		<ellipse transform="matrix(0.9177 -0.3973 0.3973 0.9177 -36.2834 74.2701)" class="st2" cx="161.104" cy="124.702" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.047 -0.9989 0.9989 0.047 25.1601 277.0471)" class="st2" cx="157.775" cy="125.338" rx="1" ry="1"/>
-	
-		<ellipse transform="matrix(0.4818 -0.8763 0.8763 0.4818 -28.8038 200.1511)" class="st2" cx="154.825" cy="124.429" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.8181 -0.575 0.575 0.8181 -42.607 109.8647)" class="st2" cx="152.384" cy="122.291" rx="1" ry="1"/>
-	
-		<ellipse transform="matrix(0.9877 -0.1562 0.1562 0.9877 -16.7782 25.0812)" class="st2" cx="151.193" cy="119.294" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.2942 -0.9557 0.9557 0.2942 -4.2531 226.736)" class="st2" cx="151.39" cy="116.248" rx="1" ry="1"/>
-	
-		<ellipse transform="matrix(0.6846 -0.7289 0.7289 0.6846 -34.2969 147.3229)" class="st2" cx="153.093" cy="113.294" rx="1" ry="1"/>
-	<ellipse transform="matrix(0.9354 -0.3535 0.3535 0.9354 -29.361 62.2369)" class="st2" cx="155.689" cy="111.492" rx="1" ry="1"/>
+		<ellipse transform="matrix(4.699976e-02 -0.9989 0.9989 4.699976e-02 25.1622 277.047)" class="st2" cx="157.8" cy="125.3" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.4818 -0.8763 0.8763 0.4818 -28.8012 200.153)" class="st2" cx="154.8" cy="124.4" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.8181 -0.575 0.575 0.8181 -42.6082 109.8601)" class="st2" cx="152.4" cy="122.3" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9877 -0.1562 0.1562 0.9877 -16.7779 25.0806)" class="st2" cx="151.2" cy="119.3" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.2942 -0.9557 0.9557 0.2942 -4.2624 226.7336)" class="st2" cx="151.4" cy="116.3" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.6846 -0.7289 0.7289 0.6846 -34.2982 147.3213)" class="st2" cx="153.1" cy="113.3" rx="1" ry="1"/>
+	<ellipse transform="matrix(0.9354 -0.3535 0.3535 0.9354 -29.3607 62.2346)" class="st2" cx="155.7" cy="111.5" rx="1" ry="1"/>
 </g>
 <g id="corner-bg">
 	<polygon class="st3" points="9.9,-18 600,-18 600,-75 -13.5,-75 -13.5,-32.5 	"/>
@@ -124,16 +115,19 @@
 </g>
 <g id="nav-admin">
 	
-		<ellipse transform="matrix(0.9413 -0.3375 0.3375 0.9413 -25.3936 102.3247)" class="st4" cx="281.585" cy="124.193" rx="3.1" ry="3.1"/>
+		<ellipse transform="matrix(0.9413 -0.3375 0.3375 0.9413 -25.3938 102.322)" class="st4" cx="281.6" cy="124.2" rx="3.1" ry="3.1"/>
 	
-		<ellipse transform="matrix(0.9412 -0.3377 0.3377 0.9412 -21.8149 102.9817)" class="st4" cx="285.07" cy="114.188" rx="3.1" ry="3.1"/>
-	
-		<ellipse transform="matrix(0.9413 -0.3376 0.3376 0.9413 -23.0137 105.6681)" class="st4" cx="292.306" cy="119.002" rx="1.9" ry="1.9"/>
+		<ellipse transform="matrix(0.9412 -0.3377 0.3377 0.9412 -21.8154 102.9765)" class="st4" cx="285.1" cy="114.2" rx="3.1" ry="3.1"/>
+	<ellipse transform="matrix(0.9413 -0.3376 0.3376 0.9413 -23.0135 105.6691)" class="st4" cx="292.3" cy="119" rx="1.9" ry="1.9"/>
 	<line class="st4" x1="282.6" y1="121.4" x2="284.3" y2="117.1"/>
 	<line class="st4" x1="290.9" y1="117.8" x2="288" y2="116"/>
 	
-		<ellipse transform="matrix(0.8869 -0.4619 0.4619 0.8869 -24.2735 140.229)" class="st4" cx="274.283" cy="119.693" rx="1.9" ry="1.9"/>
+		<ellipse transform="matrix(0.8869 -0.4619 0.4619 0.8869 -24.2744 140.2252)" class="st4" cx="274.3" cy="119.7" rx="1.9" ry="1.9"/>
 	<line class="st4" x1="275.9" y1="120.7" x2="279" y2="122.2"/>
+</g>
+<g id="nav-tunnel">
+	<line class="st0" x1="315.2" y1="119" x2="327.8" y2="119"/>
+	<polyline class="st0" points="322.6,113.6 328.1,119 322.6,124.4 	"/>
 </g>
 <g id="nav-console">
 	<rect x="186.5" y="114.3" class="st4" width="17.2" height="10.5"/>
@@ -143,17 +137,15 @@
 <g id="hex-glob-storage">
 	<polygon class="st5" points="340.8,74.8 317.2,88.4 293.6,74.8 293.6,47.5 317.2,33.9 340.8,47.5 	"/>
 	
-		<rect x="308.49" y="52.503" transform="matrix(0.7071 -0.7071 0.7071 0.7071 49.6467 242.1629)" class="st6" width="17.3" height="17.3"/>
+		<rect x="308.5" y="52.5" transform="matrix(0.7071 -0.7071 0.7071 0.7071 49.6447 242.1619)" class="st6" width="17.3" height="17.3"/>
 	
-		<rect x="311.893" y="56.011" transform="matrix(0.7071 -0.7071 0.7071 0.7071 49.5918 242.1467)" class="st6" width="10.4" height="10.4"/>
+		<rect x="311.9" y="56" transform="matrix(0.7071 -0.7071 0.7071 0.7071 49.5899 242.1456)" class="st6" width="10.4" height="10.4"/>
+	<rect x="317.9" y="54" transform="matrix(0.707 -0.7072 0.7072 0.707 52.009 247.7337)" class="st6" width="14.2" height="14.2"/>
 	
-		<rect x="317.888" y="53.997" transform="matrix(0.707 -0.7072 0.7072 0.707 52.0114 247.7349)" class="st6" width="14.2" height="14.2"/>
+		<rect x="302.5" y="54.1" transform="matrix(0.7072 -0.707 0.707 0.7072 47.3755 236.8041)" class="st6" width="14.2" height="14.2"/>
+	<rect x="330.2" y="57.3" transform="matrix(0.707 -0.7072 0.7072 0.707 54.6443 254.0947)" class="st6" width="7.6" height="7.6"/>
 	
-		<rect x="302.495" y="54.102" transform="matrix(0.7072 -0.707 0.707 0.7072 47.3774 236.805)" class="st6" width="14.2" height="14.2"/>
-	
-		<rect x="330.183" y="57.297" transform="matrix(0.707 -0.7072 0.7072 0.707 54.6465 254.0962)" class="st6" width="7.6" height="7.6"/>
-	
-		<rect x="296.394" y="57.39" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.657 230.1911)" class="st6" width="7.6" height="7.6"/>
+		<rect x="296.4" y="57.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.6553 230.1901)" class="st6" width="7.6" height="7.6"/>
 </g>
 <g id="hex-router">
 	<polygon class="st5" points="268.9,74.8 245.3,88.4 221.7,74.8 221.7,47.5 245.3,33.9 268.9,47.5 	"/>
@@ -253,8 +245,7 @@
 	<polyline class="st8" points="80,181.8 69.8,196.5 55.9,196.5 	"/>
 	<circle class="st9" cx="80" cy="181.8" r="2.6"/>
 	<polyline class="st8" points="60.9,165.8 60.9,176.3 52.3,182.5 	"/>
-	
-		<ellipse transform="matrix(0.8233 -0.5676 0.5676 0.8233 -83.4014 63.8811)" class="st9" cx="60.902" cy="165.895" rx="2.6" ry="2.6"/>
+	<ellipse transform="matrix(0.8233 -0.5676 0.5676 0.8233 -83.401 63.8807)" class="st9" cx="60.9" cy="165.9" rx="2.6" ry="2.6"/>
 	<polyline class="st8" points="3.3,198.9 8.4,193.6 26.4,193.6 	"/>
 	<circle class="st9" cx="3.3" cy="198.9" r="2.6"/>
 </g>
@@ -297,36 +288,36 @@
 		L579-146.3h8.2l10.4,11.1v-11.1h-4.2"/>
 </g>
 <g id="ready-for-deploy">
-	<path class="st11" d="M328.2,124.4c-0.3,0-0.5-0.1-0.7-0.2s-0.4-0.2-0.6-0.4l-3.7-3.8c-0.2-0.2-0.3-0.4-0.4-0.6s-0.1-0.5-0.1-0.7
+	<path class="st11" d="M382.7,124.4c-0.3,0-0.5-0.1-0.7-0.2s-0.4-0.2-0.6-0.4l-3.7-3.8c-0.2-0.2-0.3-0.4-0.4-0.6s-0.1-0.5-0.1-0.7
 		s0-0.5,0.1-0.7s0.2-0.4,0.4-0.6c0.2-0.2,0.4-0.3,0.6-0.4s0.5-0.1,0.7-0.1s0.5,0.1,0.7,0.1c0.2,0.1,0.4,0.2,0.6,0.4l2.4,2.4l6-6
 		c0.2-0.2,0.4-0.3,0.6-0.4s0.5-0.1,0.7-0.1s0.5,0,0.7,0.1s0.4,0.2,0.6,0.4c0.2,0.2,0.3,0.4,0.4,0.6s0.1,0.5,0.1,0.7
-		c0,0.3,0,0.5-0.1,0.7s-0.2,0.4-0.4,0.6l-7.4,7.4c-0.2,0.2-0.4,0.3-0.6,0.4C328.7,124.4,328.4,124.4,328.2,124.4z"/>
-	<circle class="st12" cx="329.4" cy="118.3" r="14.3"/>
+		c0,0.3,0,0.5-0.1,0.7s-0.2,0.4-0.4,0.6l-7.4,7.4c-0.2,0.2-0.4,0.3-0.6,0.4C383.2,124.4,382.9,124.4,382.7,124.4z"/>
+	<circle class="st12" cx="383.9" cy="118.3" r="14.3"/>
 </g>
 <g id="deploy-inst">
 	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="449.8745" y1="52.1646" x2="590.3409" y2="-59.2853" gradientTransform="matrix(0.4515 0.8923 0.8923 -0.4515 277.7434 -240.0641)">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="434.6636" y1="403.0794" x2="575.13" y2="514.5294" gradientTransform="matrix(0.4515 0.8923 -0.8923 0.4515 690.8254 -432.0341)">
 		<stop  offset="0" style="stop-color:#8EA5B3"/>
 		<stop  offset="0.7169" style="stop-color:#90A8B6;stop-opacity:0.2831"/>
 		<stop  offset="1" style="stop-color:#94ACBA;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st13" points="538.3,341.3 418.6,302 478.7,118.8 598.4,158 	"/>
 	
-		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="823.6568" y1="790.858" x2="964.1231" y2="679.4081" gradientTransform="matrix(-0.4515 0.8923 -0.8923 -0.4515 1626.2566 -240.0641)">
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="989.0366" y1="-692.5155" x2="1129.5029" y2="-581.0656" gradientTransform="matrix(-0.4515 0.8923 0.8923 0.4515 1613.1746 -432.0341)">
 		<stop  offset="0" style="stop-color:#8EA5B3"/>
 		<stop  offset="0.7169" style="stop-color:#90A8B6;stop-opacity:0.2831"/>
 		<stop  offset="1" style="stop-color:#94ACBA;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st14" points="537.8,341.3 657.5,302 597.4,118.8 477.7,158 	"/>
 	
-		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="715.0176" y1="752.9412" x2="855.4839" y2="641.4913" gradientTransform="matrix(-0.2522 0.9677 -0.9677 -0.2522 1456.7701 -365.9628)">
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="829.9836" y1="-641.7781" x2="970.45" y2="-530.3282" gradientTransform="matrix(-0.2522 0.9677 0.9677 0.2522 1378.1921 -505.2508)">
 		<stop  offset="0" style="stop-color:#8EA5B3"/>
 		<stop  offset="0.7169" style="stop-color:#90A8B6;stop-opacity:0.2831"/>
 		<stop  offset="1" style="stop-color:#94ACBA;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st15" points="580.3,337.2 689,273.5 591.4,107.1 482.7,170.9 	"/>
 	
-		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="1274.3903" y1="694.3087" x2="1414.8568" y2="582.8588" gradientTransform="matrix(-0.9757 0.2192 -0.2192 -0.9757 1943.4042 543.6217)">
+		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="1638.8358" y1="-534.7396" x2="1779.3024" y2="-423.2897" gradientTransform="matrix(-0.9757 0.2192 0.2192 0.9757 2264.0161 308.0437)">
 		<stop  offset="0" style="stop-color:#8EA5B3"/>
 		<stop  offset="0.7169" style="stop-color:#90A8B6;stop-opacity:0.2831"/>
 		<stop  offset="1" style="stop-color:#94ACBA;stop-opacity:0"/>
@@ -334,31 +325,31 @@
 	<polygon class="st16" points="383.9,266.6 490.3,334 593.5,171 487,103.6 	"/>
 	<circle class="st11" cx="540" cy="120.4" r="63"/>
 	
-		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="567.5" y1="638.0092" x2="567.5" y2="691.8983" gradientTransform="matrix(1 0 0 -1 0 760)">
+		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="567.5" y1="-438.0092" x2="567.5" y2="-491.8983" gradientTransform="matrix(1 0 0 1 0 560)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st17" points="571.5,37 563.5,41.6 563.5,132.6 571.5,128 	"/>
 	
-		<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="572.6" y1="634.5807" x2="572.6" y2="688.4698" gradientTransform="matrix(1 0 0 -1 0 760)">
+		<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="572.6" y1="-434.5807" x2="572.6" y2="-488.4698" gradientTransform="matrix(1 0 0 1 0 560)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st18" points="576.6,40.4 568.6,45 568.6,136 576.6,131.4 	"/>
 	
-		<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="514.4" y1="643.4218" x2="514.4" y2="688.9211" gradientTransform="matrix(1 0 0 -1 0 760)">
+		<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="514.4" y1="-443.4218" x2="514.4" y2="-488.9211" gradientTransform="matrix(1 0 0 1 0 560)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st19" points="518.4,67.1 510.4,71.7 510.4,122.7 518.4,118.1 	"/>
 	
-		<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="507.3" y1="646.2794" x2="507.3" y2="691.7787" gradientTransform="matrix(1 0 0 -1 0 760)">
+		<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="507.3" y1="-446.2794" x2="507.3" y2="-491.7787" gradientTransform="matrix(1 0 0 1 0 560)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
 	<polygon class="st20" points="511.3,64.2 503.3,68.8 503.3,119.9 511.3,115.3 	"/>
 	
-		<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="593.9252" y1="636.1529" x2="593.9252" y2="688.8599" gradientTransform="matrix(-1 0 0 -1 1150.4752 760)">
+		<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="993.9252" y1="-436.1529" x2="993.9252" y2="-488.8599" gradientTransform="matrix(-1 0 0 1 1550.4752 560)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
@@ -506,8 +497,8 @@
 </g>
 <g id="admin-delete">
 	<circle class="st41" cx="421.8" cy="412" r="25.7"/>
-	<line class="st42" x1="410.233" y1="400.333" x2="433.567" y2="423.667"/>
-	<line class="st42" x1="433.567" y1="400.333" x2="410.233" y2="423.667"/>
+	<line class="st42" x1="410.2" y1="400.3" x2="433.6" y2="423.7"/>
+	<line class="st42" x1="433.6" y1="400.3" x2="410.2" y2="423.7"/>
 </g>
 <g id="admin-manage">
 	<circle class="st41" cx="282.1" cy="412" r="25.7"/>
@@ -519,8 +510,8 @@
 	<line class="st42" x1="270" y1="410.6" x2="282.1" y2="403.6"/>
 </g>
 <g id="admin-update">
-	<circle class="st41" cx="351.95" cy="412.65" r="25.685"/>
-	<line class="st42" x1="341.6" y1="412.65" x2="361.582" y2="412.65"/>
-	<polyline class="st42" points="355.229,406.297 361.582,412.65 355.229,419.003 	"/>
+	<circle class="st41" cx="352" cy="412.6" r="25.7"/>
+	<line class="st42" x1="341.6" y1="412.6" x2="361.6" y2="412.6"/>
+	<polyline class="st42" points="355.2,406.3 361.6,412.6 355.2,419 	"/>
 </g>
 </svg>

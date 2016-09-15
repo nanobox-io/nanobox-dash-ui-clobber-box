@@ -40,6 +40,7 @@ module.exports = class HorizCluster
 
   serialize : () ->
     id            : @id
+    uid           : @id
     state         : @state
     name          : @name
     scalesHoriz   : @scalesHoriz

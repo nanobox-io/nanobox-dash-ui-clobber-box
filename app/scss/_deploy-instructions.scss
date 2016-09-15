@@ -1,4 +1,4 @@
-.deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px; order:999;
+.deploy-instructions { background: white; width:$component-width; border-radius: 5px; margin-bottom:30px; padding:20px 0 30px; order:999; opacity:1; 
   &.instructions     {
     .details         { opacity:1; display:flex; }
     .main            { opacity:0; display:none; }
@@ -30,4 +30,5 @@
       }
     }
   }
+  &.hidden           {opacity:0; transition: opacity 400ms; }
 }

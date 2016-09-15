@@ -90,8 +90,11 @@ module.exports = class HostBox extends Box
     @$serviceIcons.append $readyForAppDeploy
     castShadows @$serviceIcons
 
-    deployInstructions = new DeployInstructions @$el, 'asdf'
+    @deployInstructions = new DeployInstructions @$el, 'asdf'
+    PubSub.subscribe 'HIDE_NO_DEPLOYS_MESSSAGE', @hideNoDeploysInstructions
 
+  hideNoDeploysInstructions : () =>
+    if @deployInstructions? then @deployInstructions.hide()
 
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->

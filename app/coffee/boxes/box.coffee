@@ -47,11 +47,11 @@ module.exports = class Box
         when 'component' then id = @componentData.id; data = @componentData
         when 'host'      then id = @data.name
 
-
       switch @subState
         when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
-        when 'console'             then @subManager = new ConsoleManager @$subContent, @kind
+        when 'console'             then @subManager = new ConsoleManager @$subContent, @kind, data
+        when 'tunnel'              then @subManager = new ConsoleManager @$subContent, @kind, data, true
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
         when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
@@ -259,7 +259,6 @@ module.exports = class Box
       params.entityId = @data.serviceId
 
     if @kind == 'host-instance'
-      params.entityId = @data.id
       params.compressView = true
 
     if @kind == 'host'

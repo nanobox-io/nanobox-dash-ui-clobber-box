@@ -44,6 +44,7 @@ window.init = ()=>
         adminPath        : clusterData.adminPath
         actionPath       : clusterData.adminPath
         instances        : clusterData.instances # Delete
+        uid              : clusterData.uid
         id               : generation.id
         generationState  : generation.state
         generationStatus : generation.status
@@ -96,6 +97,7 @@ window.init = ()=>
     PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> getBox(data.id).switchSubContent 'scale-machine', data.el
     PubSub.subscribe 'SHOW.STATS'              , (m, data)=> getBox(data.id).switchSubContent 'stats', data.el
     PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> getBox(data.id).switchSubContent 'console', data.el
+    PubSub.subscribe 'SHOW.TUNNEL'             , (m, data)=> getBox(data.id).switchSubContent 'tunnel', data.el
     PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=> getBox(data.id).switchSubContent 'split', data.el
     PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> getBox(data.id).switchSubContent 'admin', data.el
 

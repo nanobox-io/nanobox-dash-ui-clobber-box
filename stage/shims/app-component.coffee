@@ -26,6 +26,7 @@ module.exports = class AppComponent
     serverSpecsId : @serverSpecsId
     id            : @id
     name          : @name
+    uid           : @id
     serviceType   : @type
     adminPath     : @adminPath
     actionPath    : @actionPath

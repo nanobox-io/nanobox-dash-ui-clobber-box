@@ -15,3 +15,10 @@ module.exports = class DeployInstructions
 
   hideInstructions : ()->
     @$node.removeClass "instructions"
+
+  hide : () ->
+    @$node.addClass 'hidden'
+    setTimeout ()=>
+      @$node.remove()
+    ,
+      1000

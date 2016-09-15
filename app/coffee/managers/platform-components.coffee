@@ -34,6 +34,8 @@ module.exports = class PlatformComponents extends Manager
       # Events
       @components.push component
 
+    @addViewClassToMatchNumOfComponents @components.length
+
   # New methods for adding / updating / removing components and generations
   addGeneration : (componentData, generationData) ->
     @componentManager.addGeneration componentData, generationData
@@ -87,6 +89,15 @@ module.exports = class PlatformComponents extends Manager
       return true
     else
       return false
+
+  addViewClassToMatchNumOfComponents : (numComponents) ->
+    switch numComponents
+      when 5     then return
+      when 4,3   then klass = "not-full"
+      when 2,1   then klass = 'not-full border-top'
+
+    @$el.addClass klass
+
 
   destroy : () ->
     for component in @components
