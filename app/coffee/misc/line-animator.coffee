@@ -6,7 +6,7 @@ module.exports = class LineAnimator
     $svg = $ "<img class='shadow-icon' data-src='#{svgId}' />"
     @$el.append $svg
     castShadows @$el
-    @path = $( 'path', @$el )[0]
+    @path = $( 'path, polyline', @$el )[0]
     @path.style['stroke-dashoffset'] = 3000
     @startAnimation animationKind
 
@@ -58,8 +58,9 @@ module.exports = class LineAnimator
 
   getSvgId : (componentKind) ->
     switch componentKind
-      when 'host', 'cluster' then 'host-silvering'
-      when 'component'       then 'component-silvering'
+      when 'host'       then 'host-silvering'
+      when 'cluster'    then 'cluster-silvering'
+      when 'component'  then 'component-silvering'
 
 
   setCrossPlatform : ()->
