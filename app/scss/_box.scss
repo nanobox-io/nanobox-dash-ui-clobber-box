@@ -40,10 +40,10 @@
     .animation               {display:block;  display: flex; flex-direction: column; align-items: flex-end; }
     &.component-box,
     &.cluster-box            {
-      .service-bug           {opacity:0.75; }
+      .service-bug           {opacity:0.6; }
     }
     &.cluster-box            {
-      .animation             {top:-13px; left:-33px;}
+      .animation             {top: -18px; left:-33px;}
     }
   }
 
