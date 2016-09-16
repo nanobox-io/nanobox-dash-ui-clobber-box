@@ -47,6 +47,7 @@ module.exports = class UI
       removeComponent $("select#remove-component-select").val()
 
   noteComponents : (box) ->
+    return if !box.data.appComponents?
     $selector = $ "select.components"
     for component in box.data.appComponents
       $selector.append "<option value='#{component.id}'>#{component.id}</option>"

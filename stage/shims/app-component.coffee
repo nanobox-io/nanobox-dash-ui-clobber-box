@@ -21,7 +21,7 @@ module.exports = class AppComponent
       id    : "#{@id}.gen#{@generationCount++}"
 
   serialize : () ->
-    generations   : @generations
+    # generations   : @generations
     state         : @state
     serverSpecsId : @serverSpecsId
     id            : @id

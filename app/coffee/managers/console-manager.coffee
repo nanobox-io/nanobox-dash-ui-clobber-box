@@ -10,8 +10,6 @@ module.exports = class ConsoleManager extends Manager
     app           = new nanobox.Console $el, consoleParams
 
   getParams : (kind, data, isTunnel) ->
-    console.log data
-
     blob =
       id                : data.name
       kind              : kind
@@ -25,7 +23,7 @@ module.exports = class ConsoleManager extends Manager
 
     else if kind == 'cluster'
       blob.id = data.uid
-      
+
     if isTunnel
       blob.serviceIcon = NameMachine.findName(data.serviceType).id
       blob.tunnelCredentials =
