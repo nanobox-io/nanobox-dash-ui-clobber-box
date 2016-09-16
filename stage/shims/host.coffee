@@ -59,5 +59,5 @@ module.exports = class Host
     serverSpecsId      : @serverSpecsId
     bunkhouseId        : @bunkhouseId
     actionPath         : @actionPath
-    # platformServices   : @serializeComponents @platformServices
-    # appComponents      : @serializeComponents @appComponents
+    platformServices   : @serializeComponents @platformServices
+    appComponents      : @serializeComponents @appComponents

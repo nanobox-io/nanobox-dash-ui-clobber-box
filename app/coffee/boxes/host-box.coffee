@@ -114,12 +114,10 @@ module.exports = class HostBox extends Box
     return false
 
   updateMiniIcons : () ->
-    @$serviceIcons.empty()
-    return if !@data.appComponents?
-
     for component in @data.appComponents
       component._serviceType = NameMachine.findName component.serviceType
 
+    @$serviceIcons.empty()
     $icons = $ miniIcons( @data )
     @$serviceIcons.append $icons
     castShadows @$serviceIcons
