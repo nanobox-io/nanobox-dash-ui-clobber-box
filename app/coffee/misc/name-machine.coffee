@@ -85,4 +85,4 @@ module.exports = class NameMachine
     for key, val of NameMachine.entities
       if val.exp.test haystack
         return { id: key, name:val.name }
-    return {id: 'default', name: NameMachine.entities.default }
+    return {id: 'default', name: 'Component' }

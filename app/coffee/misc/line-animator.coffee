@@ -13,7 +13,7 @@ module.exports = class LineAnimator
   buildTick : () =>
     if @dashArray[1] > 80
       for item, i in @dashArray by 2
-        if @dashArray[i+1] > 80
+        if @dashArray[i+1] > 50
           inc = Math.random()/4
           @dashArray[i]   += inc
           @dashArray[i+1] -= inc

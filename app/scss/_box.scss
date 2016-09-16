@@ -43,7 +43,9 @@
       .service-bug           {opacity:0.6; }
     }
     &.cluster-box            {
-      .animation             {top: -18px; left:-33px;}
+      .animation             {top: -18px; left:-33px;
+        .title               {margin-top:-11px;}
+      }
     }
   }
 
