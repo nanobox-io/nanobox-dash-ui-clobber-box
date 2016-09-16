@@ -5,7 +5,7 @@ module.exports = class HorizCluster
 
   @clusterCount : 0
 
-  constructor: (totalMembers=4, totalGenerations=1) ->
+  constructor: (totalMembers=4, totalGenerations=2) ->
     @id            = "cluster.#{HorizCluster.clusterCount}"
     @name          = "Main App"
     @state         = "active"
@@ -18,9 +18,11 @@ module.exports = class HorizCluster
     for i in [1..totalGenerations]
       generation =
         id        : "web.main.gen#{i}"
-        state     : "active" # Not used ?
+        state     : 'active'
         status    : "online" # Not used ?
         instances : []
+      if i % 2 == 0
+        generation.state = 'provisioning'
       for i in [1..totalMembers]
         generation.instances.push
           id            : i
@@ -50,3 +52,4 @@ module.exports = class HorizCluster
     generations   : @generations
     serviceType   : @serviceType
     adminPath     : @adminPath
+    state         : 'provisioning'

@@ -38,8 +38,12 @@
     .white-box               {display:none;  }
     .nav-holder              {opacity:0; pointer-events: none; }
     .animation               {display:block;  display: flex; flex-direction: column; align-items: flex-end; }
-    &.component-box          {
-      .service-bug           {opacity:0.6; }
+    &.component-box,
+    &.cluster-box            {
+      .service-bug           {opacity:0.75; }
+    }
+    &.cluster-box            {
+      .animation             {top:0; left:0;}
     }
   }
 

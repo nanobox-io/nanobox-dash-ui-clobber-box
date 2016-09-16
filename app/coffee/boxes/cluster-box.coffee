@@ -51,6 +51,8 @@ module.exports = class ClusterBox extends Box
 
     return ids
 
+  getState : () -> @data.generationState
+
   destroy : () ->
     PubSub.publish 'UNREGISTER.CLUSTER', @
     super()

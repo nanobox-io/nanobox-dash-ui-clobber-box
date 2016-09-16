@@ -20,7 +20,8 @@ module.exports = class Box
 
     @fadeOutDuration = 300
     @animateDuration = 250
-    @setState @data.state
+
+    @setState @getState()
 
   # ------------------------------------ These methods should all be overridden in an extending class
 
@@ -157,7 +158,7 @@ module.exports = class Box
     @state = state
     switch @state
       when 'created', 'initialized', 'ordered', 'provisioning', 'defunct'
-        @animatingState 'build', @getStateMessage(@state)
+        @animatingState('build', @getStateMessage(@state))
       when 'active'         then @activeState()
       when 'decomissioning' then @animatingState 'destroy', @getStateMessage(@state)
       when 'archived'       then @destroy()
@@ -286,3 +287,4 @@ module.exports = class Box
     , 750
 
   getDataForUsageBreakdown : () -> #only used by hosts
+  getState : () -> @data.state
