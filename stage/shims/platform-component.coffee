@@ -2,12 +2,12 @@ AppComponent = require './app-component'
 
 module.exports = class PlatformComponent
 
-  constructor: (@id, @kind, componentKind='mist') ->
+  constructor: (@id, @kind, componentKind='mist', hostId) ->
     @isSplitable     = true
     @mode            = 'simple' # 'scalable'
     @adminPath       = "/some/path/to/admin"
     @components      = [
-      new AppComponent('web', componentKind, true, true).serialize()
+      new AppComponent('web', componentKind, true, true, hostId).serialize()
     ]
 
   serialize : () ->

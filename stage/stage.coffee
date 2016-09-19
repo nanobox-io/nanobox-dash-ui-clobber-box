@@ -102,9 +102,9 @@ window.init = ()=>
     PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> getBox(data.id).switchSubContent 'admin', data.el
 
   # ------------------------------------ Helpers
-  getBox = (id) ->
+  getBox = (uri) ->
     for box in boxes
-      if id == box._address
+      if uri == box.uri
         return box
 
   getParentOfComponent = (id) ->

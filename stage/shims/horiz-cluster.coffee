@@ -1,4 +1,3 @@
-AppComponent      = require './app-component'
 Host              = require './host'
 
 module.exports = class HorizCluster
@@ -14,6 +13,7 @@ module.exports = class HorizCluster
     @clusterable   = true
     @generations   = []
     @adminPath     = "/some/path/to/admin"
+    @uri           = @id
 
     for i in [1..totalGenerations]
       generation =
@@ -34,12 +34,6 @@ module.exports = class HorizCluster
           serverSpecsId : "b2"
       @generations.push generation
 
-    #
-    # @appComponent  = new AppComponent() # delete
-    # @instances     = []                 # delete
-    # for i in [1..totalMembers]
-      # @instances.push {id:"web.#{AppComponent.appComponentCount}.#{i}", hostId:"ec2.#{++Host.hostCount}", hostName:"ec2.#{Host.hostCount}"}
-
   serialize : () ->
     id            : @id
     uid           : @id
@@ -52,4 +46,5 @@ module.exports = class HorizCluster
     generations   : @generations
     serviceType   : @serviceType
     adminPath     : @adminPath
+    uri           : @uri
     state         : 'provisioning'

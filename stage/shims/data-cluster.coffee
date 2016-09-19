@@ -1,4 +1,3 @@
-AppComponent      = require './app-component'
 Host              = require './host'
 
 module.exports = class DataCluster
@@ -15,6 +14,7 @@ module.exports = class DataCluster
     @category      = "data"
     @clusterable   = true
     @adminPath     = "/some/path/to/admin"
+    @uri           = @id
     @generations   = []
 
     for i in [1..totalGenerations]
@@ -51,8 +51,8 @@ module.exports = class DataCluster
     category      : @category
     clusterable   : @clusterable
     generations   : @generations
-    # appComponents : [@appComponent.serialize()]
     serviceType   : @serviceType
     adminPath     : @adminPath
+    uri           : @uri
 
     # instances     : @instances

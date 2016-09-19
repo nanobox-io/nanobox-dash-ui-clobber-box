@@ -13,11 +13,11 @@ module.exports = class Host
     @bunkhouseId    = "bunkhouse"
     @actionPath     = "/some/path/to/actions"
     @platformServices = [
-      new PlatformComponent( "lb", "mesh", "nanobox/portal")
-      new PlatformComponent( "lg", "logger", "nanobox/logvac")
-      new PlatformComponent( "hm", "monitor", "nanobox/pulse")
-      new PlatformComponent( "mr", "pusher", "nanobox/mist")
-      new PlatformComponent( "gs", "warehouse", "nanobox/hoarder")
+      new PlatformComponent( "lb", "mesh", "nanobox/portal", @id)
+      new PlatformComponent( "lg", "logger", "nanobox/logvac", @id)
+      new PlatformComponent( "hm", "monitor", "nanobox/pulse", @id)
+      new PlatformComponent( "mr", "pusher", "nanobox/mist", @id)
+      new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
     ]
     @appComponents  = []
     @createComponents makeLotsOfComponents
@@ -44,7 +44,7 @@ module.exports = class Host
       @addComponent('db',  'nothingwillmatch', false)
 
   addComponent : (kind, type, isHorizontallyScalable, isRedundScalable) ->
-    @appComponents.push new AppComponent(kind, type, isHorizontallyScalable, isRedundScalable)
+    @appComponents.push new AppComponent(kind, type, isHorizontallyScalable, isRedundScalable, @id)
 
   serializeComponents : (components) ->
     ar = []

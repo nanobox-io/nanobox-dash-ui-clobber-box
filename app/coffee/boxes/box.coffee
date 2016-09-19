@@ -12,8 +12,11 @@ module.exports = class Box
 
   constructor: (@$node, @data) ->
     Eventify.extend @
-    @id = @data.id
+    @id       = @data.id
     @_address = @getAddress()
+    @uri      = @getURI()
+
+    console.log @uri
 
     castShadows @$node
     @$subContent = $(".sub-content", @$node)
@@ -290,3 +293,4 @@ module.exports = class Box
   getDataForUsageBreakdown : () -> #only used by hosts
   getState : () -> @data.state
   getAddress : ()-> @data.id
+  getURI : ()-> @data.id

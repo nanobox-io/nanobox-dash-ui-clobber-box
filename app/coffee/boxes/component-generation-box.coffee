@@ -21,24 +21,23 @@ module.exports = class ComponentGenerationBox extends Box
     $node = $ componentBox( @componentData )
     $el.append $node
 
+    super $node, compiledData
     @buildAppComponentNav $node
     PubSub.publish 'REGISTER.APP_COMPONENT', @
-
-    super $node, compiledData
     @buildStats $(".stats-strip", $node)
 
   buildAppComponentNav : ($node) ->
     navItems = [
       {txt:"Console",  icon:'console', event:'SHOW.CONSOLE' }
       {txt:"Move",     icon:'split',   event:'SHOW.SPLIT'   }
-      {txt:"Admin",    icon:'admin',   event:'SHOW.ADMIN'   }
       {txt:"Stats",    icon:'stats',   event:'SHOW.STATS'   }
     ]
 
     if @componentData.category == 'data'
       navItems.unshift {txt:"Connect", icon:'tunnel', event:'SHOW.TUNNEL' }
 
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @generationData.id
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
+    castShadows $('.nav-holder', $node)
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.APP_COMPONENT', @
@@ -63,4 +62,5 @@ module.exports = class ComponentGenerationBox extends Box
       when 'default'     then ' '
       else                    ' '
 
-  getAddress : ()-> "#{@hostAddress}-#{@data.id}" 
+  getAddress  : ()-> "#{@hostAddress}-#{@data.id}"
+  getURI      : ()-> @data.uri

@@ -107,9 +107,9 @@ module.exports = class HostBox extends Box
           return componentData.id
     return false
 
-  hasComponentWithId : (id) ->
+  hasComponentWithUri : (uri) ->
     for componentData in @getAllComponents()
-      if componentData.id == id
+      if "#{@uri}/#{componentData.id}" == uri
         return true
     return false
 
