@@ -2,7 +2,7 @@ boxNav = require 'jade/box-nav'
 
 module.exports = class BoxNav
 
-  constructor: ($el, navItems, @id) ->
+  constructor: ($el, navItems, @uri) ->
     $node = $ boxNav( {nav:navItems} )
     $el.append $node
     $(".nav-item",$node).on "click", (e)=>
@@ -11,4 +11,4 @@ module.exports = class BoxNav
   # ------------------------------------  Events
 
   onClick : (event, el) ->
-    PubSub.publish event, {id: @id, el:el}
+    PubSub.publish event, {uri: @uri, el:el}

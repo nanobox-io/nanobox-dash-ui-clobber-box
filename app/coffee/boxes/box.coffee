@@ -15,9 +15,6 @@ module.exports = class Box
     @id       = @data.id
     @_address = @getAddress()
     @uri      = @getURI()
-
-    console.log @uri
-
     castShadows @$node
     @$subContent = $(".sub-content", @$node)
     @$sub        = $(".sub", @$node)
@@ -293,4 +290,6 @@ module.exports = class Box
   getDataForUsageBreakdown : () -> #only used by hosts
   getState : () -> @data.state
   getAddress : ()-> @data.id
-  getURI : ()-> @data.id
+  getURI : ()->
+    if @data.uri? then return @data.uri
+    else               return @data.id

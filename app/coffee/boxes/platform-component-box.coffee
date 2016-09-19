@@ -26,7 +26,7 @@ module.exports = class PlatformComponentBox extends Box
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'}
     ]
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.uri
 
   setSplitability : (isSplitable) ->
     if isSplitable

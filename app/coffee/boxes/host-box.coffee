@@ -31,7 +31,8 @@ module.exports = class HostBox extends Box
       {txt:"Scale",  icon:'scale', event: 'SHOW.SCALE'}
       {txt:"Stats", icon:'stats', event: 'SHOW.STATS'}
     ]
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.id
+    console.log @data
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.uri
 
   getServerSpecIds : () ->
     {primary: @data.serverSpecsId}
