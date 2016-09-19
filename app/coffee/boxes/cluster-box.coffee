@@ -16,9 +16,9 @@ module.exports = class ClusterBox extends Box
 
     $node = $ clusterBox( @data )
     $el.append $node
+    super $node, @data
 
     @buildNav $node
-    super $node, @data
     PubSub.publish 'REGISTER.CLUSTER', @
 
     @buildStats $(".stats-strip", $node)

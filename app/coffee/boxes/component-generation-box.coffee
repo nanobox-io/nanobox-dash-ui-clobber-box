@@ -62,4 +62,4 @@ module.exports = class ComponentGenerationBox extends Box
       else                    ' '
 
   getAddress  : ()-> "#{@hostAddress}-#{@data.id}"
-  getURI      : ()-> @data.uri
+  getURI      : ()-> @componentData.uri

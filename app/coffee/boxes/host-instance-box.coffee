@@ -14,9 +14,8 @@ module.exports = class HostInstance extends Box
     $node = $ hostInstanceBox( @data )
     $el.append $node
 
-    @buildNav $node
-
     super $node, @data
+    @buildNav $node
 
     PubSub.publish 'REGISTER.HOST-INSTANCE', @
     @buildStats $(".stats-strip", @$node)
