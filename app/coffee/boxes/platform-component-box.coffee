@@ -4,8 +4,10 @@ componentBox = require 'jade/component-box'
 
 module.exports = class PlatformComponentBox extends Box
 
-  constructor: ($el, @data) ->
-    @kind = "component"
+  constructor: ($el, data) ->
+    @data           = data.data
+    @hostAddress    = data.hostAddress
+    @kind           = "component"
     @componentData  = @data.componentData
     @generationData = @data.generationData
     $node = $ componentBox( @data )
@@ -36,3 +38,5 @@ module.exports = class PlatformComponentBox extends Box
   destroy : () ->
     PubSub.publish 'UNREGISTER.PLATFORM_COMPONENT', @
     super()
+
+  getAddress : ()-> "#{@hostAddress}-#{@data.id}"

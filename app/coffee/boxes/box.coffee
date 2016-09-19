@@ -13,6 +13,7 @@ module.exports = class Box
   constructor: (@$node, @data) ->
     Eventify.extend @
     @id = @data.id
+    @_address = @getAddress()
 
     castShadows @$node
     @$subContent = $(".sub-content", @$node)
@@ -50,11 +51,11 @@ module.exports = class Box
 
       switch @subState
         when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
-        when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent
+        when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent, @_address
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind, data
         when 'tunnel'              then @subManager = new ConsoleManager @$subContent, @kind, data, true
         when 'host-instances'      then @subManager = new HostInstanceManager @$subContent, @data
-        when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent
+        when 'platform-components' then @subManager = new PlatformComponents @$subContent, @data.platformServices, @hideCurrentSubContent, @resizeSubContent, @_address
         when 'scale-machine'       then @subManager = new ScaleManager @$subContent, @getServerSpecIds(), @totalMembers, @data, @closeSubContent
         when 'split'               then @subManager = new SplitManager @$subContent, data.category, data.clusterable, @kind=='cluster', @closeSubContent, id
         when 'stats'               then @subManager = new StatsManager @$subContent, @kind, id, @getDataForUsageBreakdown()
@@ -288,3 +289,4 @@ module.exports = class Box
 
   getDataForUsageBreakdown : () -> #only used by hosts
   getState : () -> @data.state
+  getAddress : ()-> @data.id

@@ -4,7 +4,7 @@ AppComponents = require 'managers/app-components'
 # TODO - Rename this to PlatformServices
 module.exports = class PlatformComponents extends Manager
 
-  constructor: (@$el, platformServices, @fadeParentMethod, @resizeCb) ->
+  constructor: (@$el, platformServices, @fadeParentMethod, @resizeCb, @hostAddress) ->
     super()
 
     @createComponents @$el, platformServices
@@ -64,7 +64,7 @@ module.exports = class PlatformComponents extends Manager
           component.setState "hidden"
 
       # Create a component manager to handle any sub components in this platform service
-      @componentManager = new AppComponents $('.bg-div', @$el), @getComponentById(id).rawData.components, @resizeCb
+      @componentManager = new AppComponents $('.bg-div', @$el), @getComponentById(id).rawData.components, @resizeCb, @hostAddress
       @resizeCb()
     ,false, false
 

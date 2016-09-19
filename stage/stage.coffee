@@ -104,7 +104,7 @@ window.init = ()=>
   # ------------------------------------ Helpers
   getBox = (id) ->
     for box in boxes
-      if id == box.id
+      if id == box._address
         return box
 
   getParentOfComponent = (id) ->

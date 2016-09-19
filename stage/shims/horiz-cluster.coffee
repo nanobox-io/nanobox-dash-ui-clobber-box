@@ -21,7 +21,7 @@ module.exports = class HorizCluster
         state     : 'active'
         status    : "online" # Not used ?
         instances : []
-      # if i % 2 == 0
+      # if i % 2 != 0
       #   generation.state = 'provisioning'
       for i in [1..totalMembers]
         generation.instances.push

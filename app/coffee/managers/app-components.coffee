@@ -3,7 +3,7 @@ noAppComponents = require 'jade/no-app-components'
 
 module.exports = class AppComponents extends Manager
 
-  constructor: (@$el, components, @resizeCb) ->
+  constructor: (@$el, components, @resizeCb, hostAddress) ->
     super()
     @generations = []
     if components.length == 0
@@ -11,7 +11,7 @@ module.exports = class AppComponents extends Manager
       @resizeCb
     else
       for componentData in components
-        @addComponent componentData
+        @addComponent componentData, hostAddress
 
   addNoComponentsPlaceholder : () ->
     languages = [
@@ -44,11 +44,11 @@ module.exports = class AppComponents extends Manager
       @$noComponents = null
 
 
-  addComponent : (componentData) ->
+  addComponent : (componentData, hostAddress) ->
     for generationData in componentData.generations
       if generationData.state != "archived"
         @clearNoComponentsHelper()
-        @addGeneration componentData, generationData
+        @addGeneration componentData, generationData, hostAddress
 
   removeComponent : (componentId) ->
     for generationBox in @generations
@@ -56,9 +56,9 @@ module.exports = class AppComponents extends Manager
         generationBox.destroy()
         break
 
-  addGeneration : (componentData, generationData) ->
+  addGeneration : (componentData, generationData, hostAddress) ->
     generation = new nanobox.ClobberBox()
-    generation.build @$el, nanobox.ClobberBox.APP_COMPONENT_GENERATION, {componentData:componentData, generationData:generationData}
+    generation.build @$el, nanobox.ClobberBox.APP_COMPONENT_GENERATION, {componentData:componentData, generationData:generationData, hostAddress:hostAddress}
     @generations.push generation
 
   removeGeneration : (generationId) ->

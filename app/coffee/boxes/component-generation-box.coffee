@@ -6,6 +6,7 @@ NameMachine  = require 'misc/name-machine'
 module.exports = class ComponentGenerationBox extends Box
 
   constructor: ($el, data) ->
+    @hostAddress = data.hostAddress
     @kind = "component"
     @componentData  = data.componentData
 
@@ -61,3 +62,5 @@ module.exports = class ComponentGenerationBox extends Box
       when 'default'     then ' '
       when 'default'     then ' '
       else                    ' '
+
+  getAddress : ()-> "#{@hostAddress}-#{@data.id}" 
