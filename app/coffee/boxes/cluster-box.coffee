@@ -34,7 +34,7 @@ module.exports = class ClusterBox extends Box
       {txt:"Move",    icon:'split',   event:'SHOW.SPLIT'  }
       # {txt:"Stats", icon:'stats', event:'SHOW.STATS'}
     ]
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.uri
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
 
   makeClusterName : (instances) -> "#{instances[0].hostName} - #{instances[instances.length-1].hostName}"
 

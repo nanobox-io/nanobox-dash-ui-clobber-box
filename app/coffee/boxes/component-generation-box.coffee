@@ -37,7 +37,6 @@ module.exports = class ComponentGenerationBox extends Box
       navItems.unshift {txt:"Connect", icon:'tunnel', event:'SHOW.TUNNEL' }
 
     @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
-    castShadows $('.nav-holder', $node)
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.APP_COMPONENT', @

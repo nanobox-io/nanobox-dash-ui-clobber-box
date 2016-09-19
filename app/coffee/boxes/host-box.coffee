@@ -17,8 +17,8 @@ module.exports = class HostBox extends Box
     @$serviceIcons = $(".service-icons", @$node)
     @updateMiniIcons()
 
-    @buildNav @$node
     super @$node, @data
+    @buildNav @$node
     PubSub.publish 'REGISTER.HOST', @
     @buildStats $(".stats-strip", @$node)
 
@@ -31,8 +31,8 @@ module.exports = class HostBox extends Box
       {txt:"Scale",  icon:'scale', event: 'SHOW.SCALE'}
       {txt:"Stats", icon:'stats', event: 'SHOW.STATS'}
     ]
-    console.log @data
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.uri
+    console.log @uri
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
 
   getServerSpecIds : () ->
     {primary: @data.serverSpecsId}

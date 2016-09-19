@@ -26,7 +26,7 @@ module.exports = class HostInstance extends Box
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
     ]
-    @nav = new BoxNav $('.nav-holder', $node), navItems, @data.uri
+    @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.HOST-INSTANCE', @
