@@ -39,10 +39,8 @@
     .nav-holder              {opacity:0; pointer-events: none; }
     .animation               {display:block;  display: flex; flex-direction: column; align-items: flex-end; }
     &.component-box,
-    &.cluster-box            {
+    &.cluster-box            {margin-top: 0px;
       .service-bug           {opacity:0.6; }
-    }
-    &.cluster-box            {
       .animation             {top: -18px; left:-33px;
         .title               {margin-top:-11px;}
       }
