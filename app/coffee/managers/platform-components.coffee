@@ -6,17 +6,14 @@ module.exports = class PlatformComponents extends Manager
 
   constructor: (@$el, platformServices, @fadeParentMethod, @resizeCb, @hostAddress) ->
     super()
-
     @createComponents @$el, platformServices
 
   createComponents : (@$el, platformServices) ->
     @components = []
     for componentData in platformServices
-
       componentIds = []
       for comp in componentData.components
         componentIds.push comp.id
-
       data  =
         componentKind : componentData.kind
         serviceId     : componentData.id
@@ -27,13 +24,11 @@ module.exports = class PlatformComponents extends Manager
         showAdminCb   : @showComponentAdmin
         resetViewCb   : @resetView
         componentIds  : componentIds
-
       component = new nanobox.PlatformComponent @$el, data
       component.setState "mini"
       component.rawData = componentData
       # Events
       @components.push component
-
     @addViewClassToMatchNumOfComponents @components.length
 
   # New methods for adding / updating / removing components and generations
@@ -95,7 +90,7 @@ module.exports = class PlatformComponents extends Manager
       when 5     then return
       when 4,3   then klass = "not-full"
       when 2,1   then klass = 'not-full border-top'
-
+      when 0     then klass = 'no-components'
     @$el.addClass klass
 
 

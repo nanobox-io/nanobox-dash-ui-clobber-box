@@ -60,8 +60,6 @@ module.exports = class HostBox extends Box
           @subManager.addGeneration componentData, generationData
 
   removeGeneration : (generationId) ->
-    # componentId = getComponentIdContainingGenerationId()
-    # return if !componentId
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeGeneration generationId
 

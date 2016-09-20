@@ -7,7 +7,10 @@ module.exports = class AppComponents extends Manager
     super()
     @generations = []
     if components.length == 0
-      @addNoComponentsPlaceholder()
+      if nanobox.noDeploys
+        @addNoComponentsPlaceholder()
+      else
+        @$el.addClass 'no-components'
       @resizeCb
     else
       for componentData in components
@@ -56,6 +59,8 @@ module.exports = class AppComponents extends Manager
         generationBox.destroy()
         @generations.splice i, 1
         break
+    if @generations.lenght == 0
+      @$el.addClass 'no-components'
 
   addGeneration : (componentData, generationData, hostAddress) ->
     generation = new nanobox.ClobberBox()

@@ -190,6 +190,16 @@
           .sub.has-content   {padding-bottom: 29px; }
         }
       }
+      // No Components to show:
+      &.no-components         {
+        &.app-components,
+        &.platform-components {
+          &:after             {content:"No Components Deployed to this host"; z-index: 100}
+        }
+        &.platform-components {background:white;padding:30px; color:#3C6D8F; font-size:12px; font-weight:600; font-style:italic;
+          &:after             {content:"No Platform Services on this host"; margin:0 auto; }
+        }
+      }
     }
   }
 }

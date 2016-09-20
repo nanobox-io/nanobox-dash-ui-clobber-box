@@ -5,6 +5,8 @@ window.clobberBoxDataShim = new ClobberBoxDataShim()
 boxes = []
 $holder = $ ".holder"
 
+nanobox.noDeploys = false
+
 window.init = ()=>
   statsDataSimultor.createFakeStatDataProvider()
   ui = new UI $('body')
