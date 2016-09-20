@@ -59,7 +59,7 @@
   &.host-box                 {
     .main-content            {
       .name                  {font-size:30px; margin-right:10px;}
-      .service-icons         {
+      .service-icons         {cursor:pointer;
         .small-icons         {display:flex;
           .service-icon      {width: 38px; margin-top:-1px;
             &.in-flux        {animation: FLUX 2.1s infinite cubic-bezier(0.445, 0.050, 0.550, 0.950);}

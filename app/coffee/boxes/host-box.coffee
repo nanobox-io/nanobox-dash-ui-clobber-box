@@ -15,6 +15,7 @@ module.exports = class HostBox extends Box
     @$el.append @$node
 
     @$serviceIcons = $(".service-icons", @$node)
+    @$serviceIcons.on 'click', (e)=> @nav.trigger 'app-component'
     @updateMiniIcons()
 
     super @$node, @data
