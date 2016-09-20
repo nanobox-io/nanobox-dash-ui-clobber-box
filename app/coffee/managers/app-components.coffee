@@ -51,9 +51,10 @@ module.exports = class AppComponents extends Manager
         @addGeneration componentData, generationData, hostAddress
 
   removeComponent : (componentId) ->
-    for generationBox in @generations
+    for generationBox, i in @generations
       if generationBox.data.componentData.id == componentId
         generationBox.destroy()
+        @generations.splice i, 1
         break
 
   addGeneration : (componentData, generationData, hostAddress) ->
@@ -62,9 +63,10 @@ module.exports = class AppComponents extends Manager
     @generations.push generation
 
   removeGeneration : (generationId) ->
-    for generationBox in @generations
+    for generationBox, i in @generations
       if generationBox.data.generationData.id == generationId
         generationBox.destroy()
+        @generations.splice i, 1
         break
 
   updateGenerationState : (id, state) ->
