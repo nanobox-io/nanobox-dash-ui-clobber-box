@@ -58,10 +58,12 @@ module.exports = class HostBox extends Box
         # componentData.generations.push generationData
         if @subState == 'app-components' || @subState == 'platform-components'
           @subManager.addGeneration componentData, generationData
+    @updateMiniIcons()
 
   removeGeneration : (generationId) ->
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeGeneration generationId
+    @updateMiniIcons()
 
   # Set a generation's state
   setGenerationState : (id, state) ->
@@ -77,6 +79,7 @@ module.exports = class HostBox extends Box
 
           else if @subState == 'platform-components'
             @subManager.updateGenerationState id, state
+    @updateMiniIcons()
 
 
   # When there are no deploys, this gets called
@@ -88,7 +91,7 @@ module.exports = class HostBox extends Box
     @$serviceIcons.append $readyForAppDeploy
     castShadows @$serviceIcons
 
-    @deployInstructions = new DeployInstructions @$el, 'asdf'
+    @deployInstructions = new DeployInstructions @$el
     PubSub.subscribe 'HIDE_NO_DEPLOYS_MESSSAGE', @hideNoDeploysInstructions
 
   hideNoDeploysInstructions : () =>
@@ -113,7 +116,14 @@ module.exports = class HostBox extends Box
 
   updateMiniIcons : () ->
     for component in @data.appComponents
-      component._serviceType = NameMachine.findName component.serviceType
+      if !component._serviceType?
+        component._serviceType = NameMachine.findName component.serviceType
+
+      component._inFlux = false
+      for generation in component.generations
+        if generation.state != 'active'
+          component._inFlux = true
+          break
 
     @$serviceIcons.empty()
     $icons = $ miniIcons( @data )

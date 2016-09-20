@@ -2,8 +2,8 @@ deployInstructions = require 'jade/deploy-instructions'
 
 module.exports = class DeployInstructions
 
-  constructor: ($el, appName) ->
-    @$node = $ deployInstructions( {appName:appName} )
+  constructor: ($el) ->
+    @$node = $ deployInstructions( {appName:nanobox.appName} )
     $el.append @$node
     castShadows @$node
 

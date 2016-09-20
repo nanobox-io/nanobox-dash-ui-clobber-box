@@ -41,6 +41,8 @@
     &.component-box,
     &.cluster-box            {margin-top: 0px;
       .service-bug           {opacity:0.6; }
+    }
+    &.cluster-box            {
       .animation             {top: -18px; left:-33px;
         .title               {margin-top:-11px;}
       }
@@ -60,6 +62,12 @@
       .service-icons         {
         .small-icons         {display:flex;
           .service-icon      {width: 38px; margin-top:-1px;
+            &.in-flux        {animation: FLUX 2.1s infinite cubic-bezier(0.445, 0.050, 0.550, 0.950);}
+            @keyframes FLUX {
+              0%   { opacity: 0.25; }
+              50%  { opacity: 0.75; }
+              100% { opacity: 0.25; }
+            }
             &.empty          {position:relative;
               .txt           {position:absolute; font-weight: $bold; color:#32B7F0; top:2px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 31px;
                 .num         {font-size: 18px; margin-left:-2px;
@@ -108,6 +116,7 @@
 
   // COMPONENT BOX
   &.component-box            {position:relative;
+    &.animating              {min-height: 80px;}
     &.platform-component     {
       .nav-split             {display: none; }
       &.splitable .nav-split {display: flex; }
@@ -158,6 +167,7 @@
     &.no-transition          {transition: none; }
     &.has-content            {margin:20px 0 55px; }
     .sub-content             {position:relative; opacity:0; @include transition(opacity, 0.4s, $easing);
+      .console-component     {margin-bottom: -5px;}
       .arrow-pointer         {z-index: 1; position:absolute; top:1px;
         &:after              {bottom: 100%; left: 50%;	border: solid transparent;	content: "";	height: 0;	width: 0;	position: absolute;	pointer-events: none;	border-color: rgba(136, 183, 213, 0);	border-bottom-color: white;	border-width: 10px;	margin-left: -10px;}
         &.app-components,
@@ -185,7 +195,7 @@
         }
       }
       &.app-components       {position:relative; padding-top:30px;
-        &:before             {position:absolute; height:calc(100% - 35px); background:#E3E9ED; border:solid white 1px; content:""; width:597px; display:block; top:-0px;}
+        &:before             {position:absolute; height:calc(100% - 24px); background:#E3E9ED; outline:solid white 1px; content:""; width:600px; display:block; top:-0px;}
         &:last-child         {
           .sub.has-content   {padding-bottom: 29px; }
         }

@@ -6,6 +6,7 @@ boxes = []
 $holder = $ ".holder"
 
 nanobox.noDeploys = false
+nanobox.appName   = 'fishfeather'
 
 window.init = ()=>
   statsDataSimultor.createFakeStatDataProvider()

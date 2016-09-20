@@ -3,7 +3,7 @@
 .small-icons(class= appComponents.length >3 ? 'smaller' : '' )
   each service, i in appComponents
     if i < 3 || ( i==3 && appComponents.length == 4 )
-      .service-icon(class="#{service._serviceType.id}")
+      .service-icon(class=service._inFlux ? "in-flux #{service._serviceType.id}" : "#{service._serviceType.id}" )
         img.shadow-icon(data-src="hex-#{service._serviceType.id}" scalable="true", xtra="2")
   if appComponents.length > 4
     .service-icon.empty
