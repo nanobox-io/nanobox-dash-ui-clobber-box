@@ -59,13 +59,13 @@ module.exports = class AppComponents extends Manager
         generationBox.destroy()
         @generations.splice i, 1
         break
-    if @generations.lenght == 0
-      @$el.addClass 'no-components'
+    @checkForGenerations()
 
   addGeneration : (componentData, generationData, hostAddress) ->
     generation = new nanobox.ClobberBox()
     generation.build @$el, nanobox.ClobberBox.APP_COMPONENT_GENERATION, {componentData:componentData, generationData:generationData, hostAddress:hostAddress}
     @generations.push generation
+    @checkForGenerations()
 
   removeGeneration : (generationId) ->
     for generationBox, i in @generations
@@ -78,6 +78,12 @@ module.exports = class AppComponents extends Manager
     for generation in @generations
       if id == generation.box.id
         generation.box.setState state
+
+  checkForGenerations : () ->
+    if @generations.length == 0
+      @$el.addClass 'no-components'
+    else
+      @$el.removeClass 'no-components'
 
   destroy : () ->
     for generation in @generations
