@@ -38,16 +38,10 @@ module.exports = class HostBox extends Box
     {primary: @data.serverSpecsId}
 
   addComponent : (componentData) ->
-    @data.appComponents.push componentData
-    @updateMiniIcons()
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.addComponent componentData
 
   removeComponent : (componentId) ->
-    for componentData, i in @data.appComponents
-      if componentData.id == componentId
-        @data.appComponents.splice i, 1
-        break
     @updateMiniIcons()
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeComponent componentId
@@ -66,6 +60,7 @@ module.exports = class HostBox extends Box
       @subManager.removeGeneration generationId
     @updateMiniIcons()
 
+  # I DON'T THINK THIS METHOD IS USED !?!?!?
   # Set a generation's state
   setGenerationState : (id, state) ->
     for componentData in @getAllComponents()
@@ -121,6 +116,9 @@ module.exports = class HostBox extends Box
         component._serviceType = NameMachine.findName component.serviceType
 
       component._inFlux = false
+      if component.generations.length == 0
+        component._inFlux = true
+
       for generation in component.generations
         if generation.state != 'active'
           component._inFlux = true
