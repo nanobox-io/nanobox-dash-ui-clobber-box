@@ -28,6 +28,7 @@ module.exports = class Box
 
   addAppComponent     : () -> console.log "This is not a host, and cannot add app components"
   hasComponentWithId  : () -> false # only used by host boxes..
+  hasComponentWithUri : () -> false # only used by host boxes..
   hasGenerationWithId : () -> false # only used by host boxes..
 
   # ------------------------------------ Shared
