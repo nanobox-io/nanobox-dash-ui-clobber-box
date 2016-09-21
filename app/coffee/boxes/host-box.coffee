@@ -42,7 +42,6 @@ module.exports = class HostBox extends Box
       @subManager.addComponent componentData
 
   removeComponent : (componentId) ->
-    @updateMiniIcons()
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeComponent componentId
 
@@ -53,12 +52,10 @@ module.exports = class HostBox extends Box
         # componentData.generations.push generationData
         if @subState == 'app-components' || @subState == 'platform-components'
           @subManager.addGeneration componentData, generationData
-    @updateMiniIcons()
 
   removeGeneration : (generationId) ->
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeGeneration generationId
-    @updateMiniIcons()
 
   # I DON'T THINK THIS METHOD IS USED !?!?!?
   # Set a generation's state
@@ -75,7 +72,6 @@ module.exports = class HostBox extends Box
 
           else if @subState == 'platform-components'
             @subManager.updateGenerationState id, state
-    @updateMiniIcons()
 
 
   # When there are no deploys, this gets called
