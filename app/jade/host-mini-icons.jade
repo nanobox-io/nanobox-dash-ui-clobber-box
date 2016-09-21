@@ -7,7 +7,8 @@
         if service._inFlux
           .flux-holder
             img.shadow-icon(data-src="hex-in-flux" scalable="true")
-        img.shadow-icon(data-src="hex-#{service._serviceType.id}" scalable="true", xtra="2")
+        .icon-holder
+          img.shadow-icon(data-src="hex-#{service._serviceType.id}" scalable="true")
   if appComponents.length > 4
     .service-icon.empty
       img.shadow-icon(data-src="hex-empty" scalable="true", xtra="2")

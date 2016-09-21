@@ -17,9 +17,11 @@ module.exports = class AppComponent
     @addGeneration()
 
   addGeneration : (state='provisioning') ->
-    @generations.push
+    obj =
       state : state,
       id    : "#{@id}.gen#{@generationCount++}"
+    if Math.random() > 0.5 then obj.state = 'active'
+    @generations.push obj
 
   serialize : () ->
     generations   : @generations
