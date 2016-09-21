@@ -40,10 +40,12 @@ module.exports = class HostBox extends Box
   addComponent : (componentData) ->
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.addComponent componentData
+    @updateMiniIcons()
 
   removeComponent : (componentId) ->
     if @subState == 'app-components' || @subState == 'platform-components'
       @subManager.removeComponent componentId
+    @updateMiniIcons()
 
   # Add a component generation at runtime
   addGeneration : (componentId, generationData) ->
