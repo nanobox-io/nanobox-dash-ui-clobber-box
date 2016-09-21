@@ -16,7 +16,7 @@ module.exports = class AppComponent
     @uri             = "#{hostId}/#{@id}"
     @addGeneration()
 
-  addGeneration : (state='active') ->
+  addGeneration : (state='provisioning') ->
     @generations.push
       state : state,
       id    : "#{@id}.gen#{@generationCount++}"

@@ -61,12 +61,20 @@
       .name                  {font-size:30px; margin-right:10px;}
       .service-icons         {cursor:pointer;
         .small-icons         {display:flex;
-          .service-icon      {width: 38px; margin-top:-1px;
-            &.in-flux        {animation: FLUX 2.1s infinite cubic-bezier(0.445, 0.050, 0.550, 0.950);}
+          .service-icon      {width: 38px; margin-top:-1px;position:relative;
+            &.in-flux        {width: 37px;
+              .flux-holder   { position: absolute; width:116%; top:-6%; left:-6%;
+                svg polygon  {stroke-dasharray:4, 2, 9, 2; animation: FLUX 2s infinite linear;}
+              }
+            }
+            // @keyframes FLUX {
+            //   0%   { opacity: 0.25; }
+            //   50%  { opacity: 0.75; }
+            //   100% { opacity: 0.25; }
+            // }
             @keyframes FLUX {
-              0%   { opacity: 0.25; }
-              50%  { opacity: 0.75; }
-              100% { opacity: 0.25; }
+              0%   { stroke-dashoffset: 0; }
+              100%   { stroke-dashoffset: 100%; }
             }
             &.empty          {position:relative;
               .txt           {position:absolute; font-weight: $bold; color:#32B7F0; top:2px; text-align: center; display: flex; flex-direction: column; align-items: center; width: 31px;
