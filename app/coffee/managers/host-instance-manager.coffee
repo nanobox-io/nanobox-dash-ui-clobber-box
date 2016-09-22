@@ -21,7 +21,7 @@ module.exports = class HostInstanceManager extends Manager
     console.log
     for host in @hosts
       console.log host
-      console.log hostId
+      console.log host.id
       if host.id == memberId
         console.log 'hmm, should be removing..'
         host.box.off()
