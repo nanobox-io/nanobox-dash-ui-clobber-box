@@ -7,11 +7,12 @@ module.exports = class ClusterBox extends Box
 
   constructor: ($el, @data) ->
     @kind = "cluster"
-    @totalMembers = @data.members.length
 
     # There's a chance this was already added by the host, but if not, add it
     if !@data._serviceType?
       @data._serviceType = NameMachine.findName @data.serviceType
+
+    @update @data
 
     $node = $ clusterBox( @data )
     $el.append $node
@@ -57,6 +58,8 @@ module.exports = class ClusterBox extends Box
   removeMember : (memberId) ->
     if @subState == 'host-instances'
       @subManager.removeMember memberId
+
+  update : (@data) -> @totalMembers = @data.members.length
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.CLUSTER', @
