@@ -18,9 +18,10 @@ module.exports = class HostInstanceManager extends Manager
 
   removeMember : (memberId) ->
     console.log "REMOVING MEMBER: #{memberId}"
-    console.log
     for host in @hosts
       console.log host
+      console.log host.box
+      console.log host.box.data
       console.log host.box.id
       if host.box.id == memberId
         console.log 'hmm, should be removing..'
