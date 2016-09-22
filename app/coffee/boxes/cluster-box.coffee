@@ -7,7 +7,6 @@ module.exports = class ClusterBox extends Box
 
   constructor: ($el, @data) ->
     @kind = "cluster"
-    @data.clusterName = @makeClusterName @data.members
     @totalMembers = @data.members.length
 
     # There's a chance this was already added by the host, but if not, add it
@@ -36,8 +35,6 @@ module.exports = class ClusterBox extends Box
     ]
     @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
 
-  makeClusterName : (instances) -> "#{instances[0].hostName} - #{instances[instances.length-1].hostName}"
-
   getServerSpecIds : () ->
     ids = {}
     # If horizontal cluster, all members will be at the same scale, grab
@@ -52,6 +49,14 @@ module.exports = class ClusterBox extends Box
     return ids
 
   getState : () -> @data.generationState
+
+  addMember    : (memberData) ->
+    if @subState == 'host-instances'
+      @subManager.addMember memberData
+
+  removeMember : (memberId) ->
+    if @subState == 'host-instances'
+      @subManager.removeMember memberId
 
   destroy : () ->
     PubSub.publish 'UNREGISTER.CLUSTER', @
