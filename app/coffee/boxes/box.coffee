@@ -11,7 +11,6 @@ StatsManager        = require 'managers/stats-manager'
 module.exports = class Box
 
   constructor: (@$node, @data) ->
-    @$node.addClass 'just-born'
     Eventify.extend @
     @id       = @data.id
     @_address = @getAddress()
@@ -22,12 +21,6 @@ module.exports = class Box
 
     @fadeOutDuration = 300
     @animateDuration = 250
-    # 
-    # @$node.css {'max-height':0, opacity:0}
-    # setTimeout ()=>
-    #   @$node.css {'max-height':85, opacity:1}
-    # ,
-    #   200
 
     @setState @getState()
 
@@ -191,7 +184,7 @@ module.exports = class Box
   activeState : () ->
     @animationKind = null
     @fadeOutMainContent ()=>
-      # @$node.css height: "initial"
+      @$node.css height: "initial"
       @destroyAnyAnimation()
       @setStateClassAndFadeIn 'active'
 
