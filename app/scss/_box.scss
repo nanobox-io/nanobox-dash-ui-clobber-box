@@ -1,6 +1,4 @@
-$fadeOutDuration : 300ms;
-$animateDuration : 250ms;
-.box                          {width:$component-width; margin-bottom:20px; // opacity:1; transition:max-height 100ms $easeInOut, opacity 200ms $easeInOut;
+.box                          {width:$component-width; margin-bottom:20px; opacity:1;  // @include transition(all, 400ms, cubic-bezier(0.960, 0.000, 0.075, 1.000));
   $easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   .white-box                  {padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
   .stats-strip                {margin:0 0 0 auto;  }
@@ -34,7 +32,7 @@ $animateDuration : 250ms;
   }
   &.added                     {opacity:1; }
   &.faded                     {opacity:0; @include transition(all, 190ms); }
-  &.archived                  {margin-bottom:0px; height:0 !important; @include transition(all, $animateDuration, $easing); }
+  &.archived                  {margin-bottom:0px; height:0 !important; @include transition(all, 350ms, $easing); }
 
   &.animating                 {margin-top: -3px;
     .white-box                {display:none;  }
@@ -52,7 +50,7 @@ $animateDuration : 250ms;
   }
 
   // Transitioning main content
-  .main-content               {@include transition(opacity, $fadeOutDuration);
+  .main-content               {@include transition(opacity, 250ms);
 
   }
 
@@ -178,10 +176,10 @@ $animateDuration : 250ms;
   }
 
   // Sub Content
-  .sub                        {@include transition(all, $animateDuration, $easing);
+  .sub                        {@include transition(all, 0.4s, $easing);
     &.no-transition           {transition: none; }
     &.has-content             {margin:20px 0 55px; }
-    .sub-content              {position:relative; opacity:0; transition: opacity 0.4s;
+    .sub-content              {position:relative; opacity:0; @include transition(opacity, 0.4s, $easing);
       .console-component      {margin-bottom: -5px;}
       .arrow-pointer          {z-index: 1; position:absolute; top:1px;
         &:after               {bottom: 100%; left: 50%;	border: solid transparent;	content: "";	height: 0;	width: 0;	position: absolute;	pointer-events: none;	border-color: rgba(136, 183, 213, 0);	border-bottom-color: white;	border-width: 10px;	margin-left: -10px;}
@@ -215,11 +213,10 @@ $animateDuration : 250ms;
           .sub.has-content    {padding-bottom: 29px; }
         }
       }
-      &.split                 {margin-bottom: -6px;}
       // No Components to show:
       &.no-components         {
         &.app-components,
-        &.platform-components {transition: opacity, 0.4s, $easing;
+        &.platform-components {
           &:after             {content:"No Components Deployed to this host"; z-index: 100}
         }
         &.platform-components {background:white;padding:30px; color:#3C6D8F; font-size:12px; font-weight:600; font-style:italic;
