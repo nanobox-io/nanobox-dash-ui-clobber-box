@@ -70,6 +70,9 @@ module.exports = class NameMachine
     db        :
       name: 'Database'
       exp : /db/
+    tolmar:
+      name: 'Gulp Static Site'
+      exp : /tolmar/
     default   :
       name: 'Default'
       exp : /default/
