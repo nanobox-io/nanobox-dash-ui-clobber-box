@@ -26,11 +26,5 @@ module.exports = class ConsoleManager extends Manager
 
     if isTunnel
       blob.serviceIcon = NameMachine.findName(data.serviceType).id
-      blob.tunnelCredentials =
-        DB_HOST : '127.0.0.1'
-        DB_PORT : '4000'
-        DB_USER : 'nanobox'
-        DB_PASS : 'yYBavcCUWuz'
-        DB_NAME : 'data.db'
 
     blob

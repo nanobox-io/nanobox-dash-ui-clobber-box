@@ -36,6 +36,7 @@ module.exports = class ComponentGenerationBox extends Box
     if @componentData.category == 'data'
       navItems.unshift {txt:"Connect", icon:'tunnel', event:'SHOW.TUNNEL' }
 
+    # Add the admin nav item as the first item in the nav
     navItems.unshift {txt:"Admin",    icon:'admin',   event:'SHOW.ADMIN' }
 
     @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
