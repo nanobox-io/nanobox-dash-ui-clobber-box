@@ -24,15 +24,24 @@ module.exports = class AppComponent
     @generations.push obj
 
   serialize : () ->
-    generations   : @generations
-    state         : @state
-    serverSpecsId : @serverSpecsId
-    id            : @id
-    name          : @name
-    uid           : @id
-    serviceType   : @type
-    adminPath     : @adminPath
-    actionPath    : @actionPath
-    category      : @category
-    clusterable   : @clusterable
-    uri           : @uri
+    data =
+      generations   : @generations
+      state         : @state
+      serverSpecsId : @serverSpecsId
+      id            : @id
+      name          : @name
+      uid           : @id
+      serviceType   : @type
+      adminPath     : @adminPath
+      actionPath    : @actionPath
+      category      : @category
+      clusterable   : @clusterable
+      uri           : @uri
+    if @category == 'data'
+      data.tunnelCredentials =
+        DB_HOST : '127.0.0.1'
+        DB_PORT : '4000'
+        DB_USER : 'nanobox'
+        DB_PASS : 'yYBavcCUWuz'
+        DB_NAME : 'data.db'
+    data

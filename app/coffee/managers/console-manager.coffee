@@ -27,4 +27,7 @@ module.exports = class ConsoleManager extends Manager
     if isTunnel
       blob.serviceIcon = NameMachine.findName(data.serviceType).id
 
+    if data.tunnelCredentials && isTunnel?
+      blob.tunnelCredentials = data.tunnelCredentials
+
     blob
