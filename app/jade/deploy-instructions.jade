@@ -10,24 +10,25 @@
       .icon
         img.shadow-icon(data-src="deploy-laptop")
       .info
-        .title Install Nanobox Locally
+        .title Install Nanobox 
         .sub
           a(href="//nanobox.io/download/" target="_blank") Download nanobox
     .detail
       .icon
         img.shadow-icon(data-src="deploy-code")
       .info
-        .title Develop your app locally
+        .title Develop your app
         .sub
-          a(href="//guides.nanobox.io" target="_blank") Documentation for developing your app locally
+          .txt <a href="//guides.nanobox.io" target="_blank">Choose Your Language</a>
+          //- .code
+          //-   .line <span>nanobox</span> run
     .detail
       .icon
         img.shadow-icon(data-src="deploy-app-drip")
       .info
-        .title Build and Deploy
+        .title Deploy
         .sub
           .txt cd into your app's directory and run
           .code
-            .line <span>nanobox</span> link #{appName}
-            .line <span>nanobox</span> build
+            .line <span>nanobox</span> remote add #{appName}
             .line <span>nanobox</span> deploy
