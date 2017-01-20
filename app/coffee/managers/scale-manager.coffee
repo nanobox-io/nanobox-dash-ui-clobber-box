@@ -4,13 +4,19 @@ Saver   = require 'saver'
 module.exports = class ScaleManager extends Manager
 
   constructor: (@$el, currentServerSpecsIds, currentTotal, data, @hideCb) ->
+    console.log "scaleDATA : "
+    console.log data
+
     if data.serviceId?
       @hostId = data.serviceId
-      @isCluster = true
+      # @isCluster = true
     else
       @bunkhouseId = data.bunkhouseId
       @hostId = data.id
 
+
+    # TEMP TODO : remove this when we allow data components to scale as a cluster
+    # if
 
     @instances = currentTotal
     @scalesHoriz = data.scalesHoriz
@@ -21,7 +27,7 @@ module.exports = class ScaleManager extends Manager
       onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
       isHorizontallyScalable  : data.category != 'data' && @isCluster
-      isCluster               : @isCluster
+      isCluster               : data.category != 'data'
 
     @category     = data.category
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs

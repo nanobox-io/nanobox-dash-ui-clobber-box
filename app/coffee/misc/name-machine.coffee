@@ -22,6 +22,21 @@ module.exports = class NameMachine
     php       :
       name: 'PHP'
       exp : /php/
+    erlang :
+      name : 'Erlang'
+      exp : /erlang/
+    elixir :
+      name : 'Elixir'
+      exp : /elixir/
+    scala :
+      name : 'Scala'
+      exp : /scala/
+    rust :
+      name : 'Rust'
+      exp : /rust/
+    java :
+      name : 'Java'
+      exp : /java/
 
     # Data Services
     mysql     :
@@ -37,7 +52,7 @@ module.exports = class NameMachine
       name: 'Maria DB'
       exp : /maria/
     postgres  :
-      name: 'Postgres DB'
+      name: 'Postgres'
       exp : /postgres/
     redis     :
       name: 'Redis'
@@ -45,6 +60,12 @@ module.exports = class NameMachine
     percona   :
       name: 'Percona DB'
       exp : /percona/
+    memcached   :
+      name: 'Memcached'
+      exp : /memcached/
+    rethink   :
+      name: 'Rethink'
+      exp : /rethink/
 
     # Platform Services
     mist      :

@@ -24,9 +24,9 @@ module.exports = class AppComponents extends Manager
       {icon : 'hex-php',         title:"PHP",       guide:"https://guides.nanobox.io/php/"}
       {icon : 'hex-java',        title:"Java",      guide:"https://guides.nanobox.io/java/"}
       {icon : 'hex-scala',       title:"Scala",     guide:"https://guides.nanobox.io/scala/"}
-      {icon : 'hex-go',          title:"Go",        guide:"https://guides.nanobox.io/go/"}
+      {icon : 'hex-golang',      title:"Go",        guide:"https://guides.nanobox.io/go/"}
       {icon : 'hex-erlang',      title:"Erlang",    guide:"https://guides.nanobox.io/erlang/"}
-      {icon : 'hex-closure',     title:"Clojure",   guide:"https://guides.nanobox.io/clojure/"}
+      {icon : 'hex-clojure',     title:"Clojure",   guide:"https://guides.nanobox.io/clojure/"}
       {icon : 'hex-postgres',    title:"Postgres",  guide:"https://guides.nanobox.io/postgresql/"}
       {icon : 'hex-mysql',       title:"MySQL",     guide:"https://guides.nanobox.io/mysql/"}
       {icon : 'hex-mongo',       title:"MongoDB",   guide:"https://guides.nanobox.io/mongodb/"}
