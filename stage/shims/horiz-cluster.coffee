@@ -5,15 +5,19 @@ module.exports = class HorizCluster
   @clusterCount : 0
 
   constructor: (totalMembers=4, totalGenerations=1) ->
-    @id            = "cluster.#{HorizCluster.clusterCount}"
-    @name          = "Main App"
-    @state         = "active"
-    @serviceType   = "ruby"
-    @category      = "web"
-    @clusterable   = true
-    @generations   = []
-    @adminPath     = "/some/path/to/admin"
-    @uri           = @id
+    @id                = "cluster.#{HorizCluster.clusterCount}"
+    @name              = "Main App"
+    @state             = "active"
+    @serviceType       = "ruby"
+    @category          = "web"
+    @clusterable       = true
+    @generations       = []
+    @adminPath         = "/some/path/to/admin"
+    @uri               = @id
+    @clusterShapeIs    = 'horizontal'
+    @clusterShapeCanBe = clobbershim.getClusterPotential(true)
+    @topology          = 'cluster'
+
 
     for i in [1..totalGenerations]
       generation =
@@ -35,16 +39,19 @@ module.exports = class HorizCluster
       @generations.push generation
 
   serialize : () ->
-    id            : @id
-    uid           : @id
-    state         : @state
-    name          : @name
-    scalesHoriz   : @scalesHoriz
-    category      : @category
-    clusterable   : @clusterable
-    scalesRedund  : @scalesRedund
-    generations   : @generations
-    serviceType   : @serviceType
-    adminPath     : @adminPath
-    uri           : @uri
-    state         : 'provisioning'
+    id                : @id
+    uid               : @id
+    state             : @state
+    name              : @name
+    scalesHoriz       : @scalesHoriz
+    category          : @category
+    clusterable       : @clusterable
+    scalesRedund      : @scalesRedund
+    generations       : @generations
+    serviceType       : @serviceType
+    adminPath         : @adminPath
+    uri               : @uri
+    state             : 'provisioning'
+    clusterShapeIs    : @clusterShapeIs
+    clusterShapeCanBe : @clusterShapeCanBe
+    topology          : @topology

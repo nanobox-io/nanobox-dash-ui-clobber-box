@@ -5,7 +5,6 @@ componentBox = require 'jade/component-box'
 module.exports = class PlatformComponentBox extends Box
 
   constructor: ($el, data) ->
-    console.log "ASDFASDFASDF"
     @data           = data.data
     @hostAddress    = data.hostAddress
     @kind           = "component"

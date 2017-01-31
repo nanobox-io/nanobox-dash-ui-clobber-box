@@ -7,15 +7,18 @@ module.exports = class DataCluster
   constructor: () ->
     totalGenerations = 1
 
-    @id            = "cluster.#{DataCluster.clusterCount}"
-    @name          = "Customers DB"
-    @state         = "active"
-    @serviceType   = "mysql-db"
-    @category      = "data"
-    @clusterable   = true
-    @adminPath     = "/some/path/to/admin"
-    @uri           = @id
-    @generations   = []
+    @id                = "cluster.#{DataCluster.clusterCount}"
+    @name              = "Customers DB"
+    @state             = "active"
+    @serviceType       = "mysql-db"
+    @category          = "data"
+    @clusterable       = true
+    @adminPath         = "/some/path/to/admin"
+    @uri               = @id
+    @generations       = []
+    @clusterShapeIs    = 'data-single'
+    @clusterShapeCanBe = clobbershim.getClusterPotential(false)
+    @topology          = 'cluster'
 
     for i in [1..totalGenerations]
       generation =
@@ -44,15 +47,17 @@ module.exports = class DataCluster
       # @instances.push {id:"web.#{AppComponent.appComponentCount}.#{i}", hostId:"ec2.#{++Host.hostCount}", hostName:"ec2.#{Host.hostCount}"}
 
   serialize : () ->
-    id            : @id
-    uid           : @id
-    state         : @state
-    name          : @name
-    category      : @category
-    clusterable   : @clusterable
-    generations   : @generations
-    serviceType   : @serviceType
-    adminPath     : @adminPath
-    uri           : @uri
-
+    id                : @id
+    uid               : @id
+    state             : @state
+    name              : @name
+    category          : @category
+    clusterable       : @clusterable
+    generations       : @generations
+    serviceType       : @serviceType
+    adminPath         : @adminPath
+    uri               : @uri
+    clusterShapeIs    : @clusterShapeIs
+    clusterShapeCanBe : @clusterShapeCanBe
+    topology          : @topology
     # instances     : @instances

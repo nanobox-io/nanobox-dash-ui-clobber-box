@@ -36,24 +36,26 @@ window.init = ()=>
   window.addCluster = (clusterData)->
     for generation in clusterData.generations
       data =
-        serviceId        : clusterData.id
-        serviceState     : clusterData.state
-        name             : clusterData.name
-        serviceType      : clusterData.serviceType
-        scalesHoriz      : clusterData.scalesHoriz
-        scalesRedund     : clusterData.scalesRedund
-        category         : clusterData.category
-        clusterable      : clusterData.clusterable
-        adminPath        : clusterData.adminPath
-        actionPath       : clusterData.adminPath
-        instances        : clusterData.instances # Delete
-        uid              : clusterData.uid
-        id               : generation.id
-        generationState  : generation.state
-        generationStatus : generation.status
-        members          : generation.instances
-        totalMembers     : generation.instances.length
-
+        serviceId         : clusterData.id
+        serviceState      : clusterData.state
+        name              : clusterData.name
+        serviceType       : clusterData.serviceType
+        scalesHoriz       : clusterData.scalesHoriz
+        scalesRedund      : clusterData.scalesRedund
+        category          : clusterData.category
+        clusterable       : clusterData.clusterable
+        adminPath         : clusterData.adminPath
+        actionPath        : clusterData.adminPath
+        instances         : clusterData.instances # Delete
+        uid               : clusterData.uid
+        clusterShapeIs    : clusterData.clusterShapeIs
+        clusterShapeCanBe : clusterData.clusterShapeCanBe
+        topology          : clusterData.topology
+        id                : generation.id
+        generationState   : generation.state
+        generationStatus  : generation.status
+        members           : generation.instances
+        totalMembers      : generation.instances.length
       clusterBox = new nanobox.ClobberBox()
       clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, data
 

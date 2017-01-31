@@ -1,6 +1,6 @@
 {
   "name": "clobberbox",
-  "version": "0.0.202",
+  "version": "0.0.203",
   "dependencies": {
     "jquery": "*",
     "velocity": "~1.1.0",
@@ -13,7 +13,8 @@
     "usage-breakdown": "nanobox-io/nanobox-dash-ui-usage-breakdown",
     "splitter": "nanobox-io/nanobox-dash-ui-splitter",
     "console": "nanobox-io/nanobox-dash-ui-console#^0.0.6",
-    "modals": "nanobox-io/nanobox-dash-ui-modals"
+    "modals": "nanobox-io/nanobox-dash-ui-modals",
+    "lexi": "nanobox-io/lexi"
   },
   "ignore": [
     "app",

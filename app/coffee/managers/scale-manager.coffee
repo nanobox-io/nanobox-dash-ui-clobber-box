@@ -6,10 +6,13 @@ module.exports = class ScaleManager extends Manager
   constructor: (@$el, currentServerSpecsIds, currentTotal, data, @hideCb) ->
     if data.serviceId?
       @hostId = data.serviceId
-      @isCluster = true
+      if data.topology == 'cluster' && data.clusterShapeIs != 'data-single'
+        @isCluster = true
+        console.log "ASDF"
     else
       @bunkhouseId = data.bunkhouseId
       @hostId = data.id
+
 
 
     @instances = currentTotal

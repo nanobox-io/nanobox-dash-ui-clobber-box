@@ -8,6 +8,9 @@ Generation        = require './generation'
 module.exports = class ClobberBoxDataShim
 
   constructor : () ->
+    window.clobbershim =
+      getClusterPotential : @getClusterPotential
+
 
   getHost              : (makeLotsOfComponents=false)                        -> new Host makeLotsOfComponents
   getHorizCluster      : (totalMembers)                                      -> new HorizCluster totalMembers
@@ -22,3 +25,9 @@ module.exports = class ClobberBoxDataShim
     AppComponent.appComponentCount = 0
     HorizCluster.clusterCount      = 0
     DataCluster.clusterCount       = 0
+
+  getClusterPotential : (scalesHorizontally) ->
+    if scalesHorizontally
+      return ['horizontal']
+    else
+      return ['data-single']

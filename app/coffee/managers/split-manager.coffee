@@ -3,19 +3,23 @@ split = require 'jade/split'
 
 module.exports = class SplitManager extends Manager
 
-  constructor: ($el, @category, @clusterable, @isCluster, @hideCb, @componentId) ->
+  constructor: ($el, @data, @isCluster, @hideCb, @componentId) ->
+    console.log @data
+    # @category, @clusterable
     PubSub.publish 'GET_BUNKHOUSES',
       id : @componentId
       cb : (bunkHouses)=>
         config =
-          isCluster    : @isCluster
-          componentId  : @componentId
-          category     : @category
-          clusterable  : @clusterable
-          bunkHouses   : bunkHouses
-          submitCb     : @onSubmit
-          cancelCb     : @onCancel
-
+          isCluster         : @isCluster
+          componentId       : @componentId
+          category          : @category
+          clusterable       : @clusterable
+          bunkHouses        : bunkHouses
+          submitCb          : @onSubmit
+          cancelCb          : @onCancel
+          clusterShapeIs    : @data.clusterShapeIs
+          clusterShapeCanBe : @data.clusterShapeCanBe
+          topology          : @data.topology
         app = new nanobox.Splitter $el, config
 
     super()
