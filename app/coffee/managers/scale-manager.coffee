@@ -16,7 +16,6 @@ module.exports = class ScaleManager extends Manager
       @hostId      = @data.id
 
     @instances   = currentTotal
-    console.log @isTrueCluster, @isVisualCluster
     scaleConfigs =
       activeServerId          : currentServerSpecsIds
       onSpecsChange           : @onSelectionChange
