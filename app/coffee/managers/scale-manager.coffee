@@ -67,7 +67,7 @@ module.exports = class ScaleManager extends Manager
     data =
       entityId   : @hostId
       newPlan    : newPlans
-      entityType : if @isCluster then 'cluster' else 'bunkhouse'
+      topology   : if @isCluster then 'cluster' else 'bunkhouse'
       submitCb   : @hideCb
       category   : @category
 
