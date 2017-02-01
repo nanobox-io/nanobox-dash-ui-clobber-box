@@ -6,22 +6,24 @@ module.exports = class ScaleManager extends Manager
   constructor: (@$el, currentServerSpecsIds, currentTotal, @data, @hideCb) ->
     if @data.serviceId?
       @hostId = @data.serviceId
-      if @data.topology == 'cluster' && @data.clusterShapeIs != 'data-single'
-        @isCluster = true
+      if @data.topology == 'cluster'
+        @isTrueCluster = true
+        if @data.clusterShapeIs == 'data-single'
+          @isVisualCluster = false
     else
       @isBunkhouse = true
       @bunkhouseId = @data.bunkhouseId
       @hostId      = @data.id
 
     @instances   = currentTotal
-
+    console.log @isTrueCluster, @isVisualCluster
     scaleConfigs =
       activeServerId          : currentServerSpecsIds
       onSpecsChange           : @onSelectionChange
       onInscanceTotalChangeCb : @onInstanceTotalChange
       totalInstances          : currentTotal
-      isHorizontallyScalable  : @data.category != 'data' && @isCluster
-      isCluster               : @isCluster
+      isHorizontallyScalable  : @data.category != 'data' && @isTrueCluster
+      isCluster               : @isVisualCluster
 
     @category     = @data.category
     @scaleMachine = new nanobox.ScaleMachine @$el, scaleConfigs
@@ -66,13 +68,15 @@ module.exports = class ScaleManager extends Manager
     newPlans = @scaleMachine.getUserSelectedPlan()
     data =
       entityId   : @hostId
+      topology   : 'cluster'
       newPlan    : newPlans
-      topology   : if @isCluster then 'cluster' else 'bunkhouse'
       submitCb   : @hideCb
       category   : @category
 
-    if !@isCluster
+    # If it's a bunkhouse, not a cluster
+    if !@isTrueCluster
       data.entityId = @bunkhouseId
+      data.topology = 'bunkhouse'
 
     PubSub.publish 'SCALE.SAVE', data
 
