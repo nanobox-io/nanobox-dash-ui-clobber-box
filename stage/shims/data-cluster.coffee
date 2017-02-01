@@ -37,7 +37,7 @@ module.exports = class DataCluster
           state         : "active"
           status        : "online"
           role          : role
-          serverSpecsId : "b2"
+          serverSpecsId : "d16"
       @generations.push generation
 
     #

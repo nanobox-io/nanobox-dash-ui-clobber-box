@@ -35,7 +35,7 @@ module.exports = class HorizCluster
           state         : "active"
           status        : "online"
           role          : "default" # default, primary, secondary, arbiter
-          serverSpecsId : "b2"
+          serverSpecsId : "d16"
       @generations.push generation
 
   serialize : () ->
