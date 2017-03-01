@@ -37,6 +37,9 @@ module.exports = class NameMachine
     java :
       name : 'Java'
       exp : /java/
+    golang :
+      name : 'Go'
+      exp : /golang/
 
     # Data Services
     mysql     :

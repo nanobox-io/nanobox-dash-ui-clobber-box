@@ -57,9 +57,10 @@ module.exports = class ComponentGenerationBox extends Box
       when 'php'         then 'PHP'
       when 'elixir'      then 'Elixir'
       when 'scala'       then 'Scala'
+      when 'golang'      then 'Go'
       when 'erlang'      then 'Erlang'
 
-      when 'rethink'      then 'Rethink DB'
+      when 'rethink'     then 'Rethink DB'
       when 'couch'       then 'Couch DB'
       when 'maria'       then 'Maria DB'
       when 'postgres'    then 'Postgres DB'
