@@ -19,6 +19,9 @@ module.exports = class DataCluster
     @clusterShapeIs    = 'data-single'
     @clusterShapeCanBe = clobbershim.getClusterPotential(false)
     @topology          = 'cluster'
+    @tunnelCredentials =
+      host: "127.0.0.1",
+      port: "provided in tunnel command output"
 
     for i in [1..totalGenerations]
       generation =
@@ -60,4 +63,5 @@ module.exports = class DataCluster
     clusterShapeIs    : @clusterShapeIs
     clusterShapeCanBe : @clusterShapeCanBe
     topology          : @topology
+    tunnelCredentials : @tunnelCredentials
     # instances     : @instances

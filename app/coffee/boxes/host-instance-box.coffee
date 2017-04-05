@@ -25,6 +25,14 @@ module.exports = class HostInstance extends Box
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
     ]
+
+    # If this is a data cluster...
+    if @data.componentData.category == 'data'
+      # and a tunnelable instance...
+      if @data.memberData.role != 'arbiter'
+        # add connect info
+        navItems.unshift {txt:"Connect", icon:'tunnel', event:'SHOW.TUNNEL' }
+
     @nav = new BoxNav $('.nav-holder', $node), navItems, @uri
 
   destroy : () ->

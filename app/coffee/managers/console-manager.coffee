@@ -17,17 +17,25 @@ module.exports = class ConsoleManager extends Manager
     if kind == 'component'
       blob.id = data.uid
 
-    else if kind == 'host-instance'
-      blob.id       = data.id
-      blob.dockerId = "#{data.componentData.uid}.#{data.memberData.uid}"
-
     else if kind == 'cluster'
       blob.id = data.uid
 
-    if isTunnel
-      blob.serviceIcon = NameMachine.findName(data.serviceType).id
+    else if kind == 'host-instance'
+      blob.id = data.id
+      if !isTunnel
+        blob.dockerId = "#{data.componentData.uid}.#{data.memberData.uid}"
 
-    if data.tunnelCredentials && isTunnel?
-      blob.tunnelCredentials = data.tunnelCredentials
+    if isTunnel
+      if kind != 'host-instance'
+        @addTunnelInfo blob, data.serviceType, data.tunnelCredentials
+      else
+        blob.kind = 'component'
+        @addTunnelInfo blob, data.componentData.serviceType, data.componentData.tunnelCredentials
 
     blob
+
+  addTunnelInfo : (blob, serviceType, creds) ->
+    blob.serviceIcon = NameMachine.findName(serviceType).id
+
+    if creds?
+      blob.tunnelCredentials = creds

@@ -50,6 +50,7 @@ window.init = ()=>
         clusterShapeIs    : clusterData.clusterShapeIs
         clusterShapeCanBe : clusterData.clusterShapeCanBe
         topology          : clusterData.topology
+        tunnelCredentials : clusterData.tunnelCredentials
         id                : generation.id
         generationState   : generation.state
         generationStatus  : generation.status
