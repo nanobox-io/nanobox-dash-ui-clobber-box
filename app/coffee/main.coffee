@@ -24,6 +24,29 @@ class ClobberBox
   dontAnimateTransition : ()-> @box.removeSubContentAnimations()
   destroy : () -> @box.destroy()
 
+  # This is used to create one unified data object out of clusters & instances
+  @joinClusterData : (cluster, generation)->
+    serviceId         : cluster.id
+    serviceState      : cluster.state
+    name              : cluster.name
+    serviceType       : cluster.serviceType
+    scalesHoriz       : cluster.scalesHoriz
+    scalesRedund      : cluster.scalesRedund
+    category          : cluster.category
+    clusterable       : cluster.clusterable
+    adminPath         : cluster.adminPath
+    actionPath        : cluster.adminPath
+    uid               : cluster.uid
+    clusterShapeIs    : cluster.clusterShapeIs
+    clusterShapeCanBe : cluster.clusterShapeCanBe
+    topology          : cluster.topology
+    tunnelCredentials : cluster.tunnelCredentials
+    id                : generation.id
+    generationState   : generation.state
+    generationStatus  : generation.status
+    members           : generation.instances
+    totalMembers      : generation.instances.length
+
   # ------------------------------------ Constants
 
   @CLUSTER                  : 'cluster'

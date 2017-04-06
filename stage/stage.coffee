@@ -35,27 +35,7 @@ window.init = ()=>
 
   window.addCluster = (clusterData)->
     for generation in clusterData.generations
-      data =
-        serviceId         : clusterData.id
-        serviceState      : clusterData.state
-        name              : clusterData.name
-        serviceType       : clusterData.serviceType
-        scalesHoriz       : clusterData.scalesHoriz
-        scalesRedund      : clusterData.scalesRedund
-        category          : clusterData.category
-        clusterable       : clusterData.clusterable
-        adminPath         : clusterData.adminPath
-        actionPath        : clusterData.adminPath
-        uid               : clusterData.uid
-        clusterShapeIs    : clusterData.clusterShapeIs
-        clusterShapeCanBe : clusterData.clusterShapeCanBe
-        topology          : clusterData.topology
-        tunnelCredentials : clusterData.tunnelCredentials
-        id                : generation.id
-        generationState   : generation.state
-        generationStatus  : generation.status
-        members           : generation.instances
-        totalMembers      : generation.instances.length
+      data = nanobox.ClobberBox.joinClusterData clusterData, generation
       clusterBox = new nanobox.ClobberBox()
       clusterBox.build $holder, nanobox.ClobberBox.CLUSTER, data
 
