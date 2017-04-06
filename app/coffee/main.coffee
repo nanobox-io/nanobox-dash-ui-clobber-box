@@ -24,7 +24,7 @@ class ClobberBox
   dontAnimateTransition : ()-> @box.removeSubContentAnimations()
   destroy : () -> @box.destroy()
 
-  # This is used to create one unified data object out of clusters & instances
+  # This is used to create one unified data object out of a cluster's data & each cluster instance data
   @joinClusterData : (cluster, generation)->
     serviceId         : cluster.id
     serviceState      : cluster.state

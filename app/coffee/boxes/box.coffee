@@ -275,6 +275,7 @@ module.exports = class Box
   updateHistoricStats : (data) -> @stats.updateHistoricStats data
 
   destroy : () ->
+    @stats.destroy()
     @$node.addClass 'faded'
 
     @$node.css height: @$node.height()

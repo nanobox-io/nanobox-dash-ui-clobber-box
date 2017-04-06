@@ -14,7 +14,7 @@ module.exports = class ClobberBoxDataShim
 
   getHost              : (makeLotsOfComponents=false)                        -> new Host makeLotsOfComponents
   getHorizCluster      : (totalMembers)                                      -> new HorizCluster totalMembers
-  getDataCluster       : ()                                                  -> x = new DataCluster(); console.log x; x
+  getDataCluster       : ()                                                  -> new DataCluster()
   getAppComponent      : (kind, type, scalesHorizontally, scalesRedund, uri) -> new AppComponent kind, type, scalesHorizontally, scalesRedund, uri
   getPlatformComponent : (id, kind)                                          -> new PlatformComponent id, kind
   getGeneration        : (parentId, state)                                   -> new Generation parentId, state
