@@ -39,12 +39,12 @@ class ClobberBox
     clusterShapeCanBe : cluster.clusterShapeCanBe
     topology          : cluster.topology
     tunnelCredentials : cluster.tunnelCredentials
-    id                : generationData.id
-    generationState   : generationData.state
-    generationStatus  : generationData.status
-    members           : generationData.instances
-    totalMembers      : generationData.instances.length
-    clusterShapeIs    : generationData.clusterShapeIs
+    id                : generation.id
+    generationState   : generation.state
+    generationStatus  : generation.status
+    members           : generation.instances
+    totalMembers      : generation.instances.length
+    clusterShapeIs    : generation.clusterShapeIs
 
 
   # ------------------------------------ Constants
