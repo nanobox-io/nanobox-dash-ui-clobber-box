@@ -26,26 +26,24 @@ class ClobberBox
 
   # This is used to create one unified data object out of clusters & instances
   @joinClusterData : (cluster, generation)->
-    serviceId         : cluster.id
-    serviceState      : cluster.state
-    name              : cluster.name
-    serviceType       : cluster.serviceType
-    scalesHoriz       : cluster.scalesHoriz
-    scalesRedund      : cluster.scalesRedund
-    category          : cluster.category
-    clusterable       : cluster.clusterable
-    adminPath         : cluster.adminPath
-    actionPath        : cluster.adminPath
-    uid               : cluster.uid
-    clusterShapeIs    : cluster.clusterShapeIs
-    clusterShapeCanBe : cluster.clusterShapeCanBe
-    topology          : cluster.topology
-    tunnelCredentials : cluster.tunnelCredentials
-    id                : generation.id
-    generationState   : generation.state
-    generationStatus  : generation.status
-    members           : generation.instances
-    totalMembers      : generation.instances.length
+    serviceId         : clusterData.id
+    serviceState      : clusterData.state
+    name              : clusterData.name
+    category          : clusterData.category
+    clusterable       : clusterData.clusterable
+    isSplitable       : clusterData.isSplitable
+    serviceType       : clusterData.serviceType
+    adminPath         : clusterData.adminPath
+    actionPath        : clusterData.actionPath
+    uid               : clusterData.uid
+    id                : generationData.id
+    generationState   : generationData.state
+    generationStatus  : generationData.status
+    members           : generationData.instances
+    totalMembers      : generationData.instances.length
+    clusterShapeIs    : generationData.clusterShapeIs
+    clusterShapeCanBe : clusterData.clusterShapeCanBe
+    topology          : clusterData.topology
 
   # ------------------------------------ Constants
 
