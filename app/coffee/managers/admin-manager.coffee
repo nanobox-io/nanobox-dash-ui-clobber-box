@@ -32,10 +32,11 @@ module.exports = class AdminManager extends Manager
     $el.append $node
     castShadows $node
 
-    $('.action', $node).on 'click', (e)=>
-      @runAction $(e.currentTarget).attr 'data-action'
+    $('.action', $node).on 'click', (e)=> @runAction $(e.currentTarget)
 
-  runAction : (action) ->
+  runAction : ($btn) ->
+    action = $btn.attr('data-action')
+    $btn.addClass 'running'
     if action == "update"
       action = "update_service"
 
@@ -55,5 +56,4 @@ module.exports = class AdminManager extends Manager
         url     : "#{@actionUrl}/#{action}"
         type    : method
         success : (results)->
-          console.log "#{action} results:"
-          console.log "#{results}"
+          $btn.removeClass 'running'

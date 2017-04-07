@@ -1,7 +1,14 @@
 .admin-manage    {background:white; padding:45px 12px 50px; display:flex; align-items: center; width:600px;
   .actions       {display: flex; justify-content: space-between; width:100%;
     .action      {display: flex; flex-direction: column; align-items: center; width:120px; cursor:pointer;
-      &.disabled  {pointer-events: none;
+      &.running  {pointer-events:none; position: relative; color:#36A624; opacity:0.8; 
+        .name    {color:#36A624;}
+        &:after  {content:'RUNNING..'; position: absolute; top:-23px; padding:5px; margin-left:2px; font-style: italic; }
+        svg      {
+          circle {fill:#36A624; }
+        }
+      }
+      &.disabled {pointer-events: none;
         .name,
         svg      {opacity:0.6;}
       }
