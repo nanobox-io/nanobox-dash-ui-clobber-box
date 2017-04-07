@@ -77,7 +77,7 @@ module.exports = class HostBox extends Box
 
 
   # When there are no deploys, this gets called
-  showAsReadyForDeploys : () ->
+  showNoDeploysMessage : () ->
     return if @readyForDeploysIsShown
     @readyForDeploysIsShown = true
     @$serviceIcons.empty()
