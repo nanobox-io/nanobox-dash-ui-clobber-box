@@ -2,7 +2,7 @@ Box                = require 'boxes/box'
 BoxNav             = require 'box-nav'
 DeployInstructions = require 'misc/deploy-instructions'
 hostBox            = require 'jade/host-box'
-hostBoxNoDeploys   = require 'jade/host-box-no-deploys'
+preDeploys   = require 'jade/pre-deploys'
 miniIcons          = require 'jade/host-mini-icons'
 NameMachine        = require 'misc/name-machine'
 
@@ -77,12 +77,15 @@ module.exports = class HostBox extends Box
 
 
   # When there are no deploys, this gets called
-  showNoDeploysMessage : () ->
-    return if @readyForDeploysIsShown
+  setReadinessState : (state) ->
+    if @readyForDeploysIsShown
+      @$readyForAppDeploy.attr({class:"pre-deploy"}).addClass state
+      return
+
     @readyForDeploysIsShown = true
     @$serviceIcons.empty()
-    $readyForAppDeploy = $ hostBoxNoDeploys( {} )
-    @$serviceIcons.append $readyForAppDeploy
+    @$readyForAppDeploy = $ preDeploys( {state:state} )
+    @$serviceIcons.append @$readyForAppDeploy
     castShadows @$serviceIcons
 
     @deployInstructions = new DeployInstructions @$el

@@ -96,8 +96,16 @@
         }
 
         // No deploys or services
-        .no-deploys           {display: flex; color: #1EB8FF; font-weight: $semibold; font-style: italic; font-size:12px; margin-left: 5px;
-          .txt                {width:70px; margin-left:10px;  }
+        .pre-deploy           {display: flex; color: #1EB8FF; font-weight: $semibold; font-style: italic; font-size:12px; margin-left: 5px;
+          &:after             {width:70px; margin-left:10px; }
+          &.no-deploys        {
+            .building         {display: none}
+            &:after           {content:"Ready for app Deploy"}
+          }
+          &.platform-building {color: #FF7100;
+            .ready            {display: none;}
+            &:after           {content:"Installing Platform"}
+          }
         }
       }
     }
