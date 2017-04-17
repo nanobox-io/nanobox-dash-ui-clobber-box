@@ -90,7 +90,7 @@ module.exports = class NameMachine
     # MISC
     storage   :
       name: 'Storage'
-      exp : /storage/
+      exp : /unfs/
     db        :
       name: 'Database'
       exp : /db/
