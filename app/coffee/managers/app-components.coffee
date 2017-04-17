@@ -10,7 +10,7 @@ module.exports = class AppComponents extends Manager
       if nanobox.noDeploys
         @addNoComponentsPlaceholder()
       else
-        @$el.addClass 'no-components'
+        @checkForGenerations()
       @resizeCb
     else
       for componentData in components
@@ -43,6 +43,7 @@ module.exports = class AppComponents extends Manager
 
   clearNoComponentsHelper : () ->
     if @$noComponents?
+      @checkForGenerations()
       @$noComponents.remove()
       @$noComponents = null
 

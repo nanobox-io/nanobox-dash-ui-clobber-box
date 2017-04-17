@@ -20,9 +20,9 @@ class ClobberBox
       when ClobberBox.HOST_INSTANCE            then @box = new HostInstanceBox $el, @data
     @stats = @box.stats
 
-  setState : (state) -> @box.setState state
-  dontAnimateTransition : ()-> @box.removeSubContentAnimations()
-  destroy : () -> @box.destroy()
+  setState              : (state) -> @box.setState state
+  dontAnimateTransition : ()      -> @box.removeSubContentAnimations()
+  destroy               : ()      -> @box.destroy()
 
   # This is used to create one unified data object out of a cluster's data & each cluster instance data
   @joinClusterData : (cluster, generation)->

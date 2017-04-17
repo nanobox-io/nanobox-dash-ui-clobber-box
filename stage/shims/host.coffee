@@ -20,7 +20,7 @@ module.exports = class Host
       new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
     ]
     @appComponents  = []
-    @createComponents makeLotsOfComponents
+    # @createComponents makeLotsOfComponents
 
   createComponents : (makeLotsOfComponents) ->
     if !makeLotsOfComponents

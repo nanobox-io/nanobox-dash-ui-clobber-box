@@ -9,6 +9,7 @@ NameMachine        = require 'misc/name-machine'
 module.exports = class HostBox extends Box
 
   constructor: (@$el, @data) ->
+    PubSub.subscribe 'HIDE_NO_DEPLOYS_MESSSAGE', @hideNoDeploysInstructions
     @kind = "host"
 
     @$node = $ hostBox( @data )
@@ -89,10 +90,13 @@ module.exports = class HostBox extends Box
     castShadows @$serviceIcons
 
     @deployInstructions = new DeployInstructions @$el
-    PubSub.subscribe 'HIDE_NO_DEPLOYS_MESSSAGE', @hideNoDeploysInstructions
 
   hideNoDeploysInstructions : () =>
-    if @deployInstructions? then @deployInstructions.hide()
+    delete nanobox.noDeploys
+    if @subState == 'app-components'
+      @subManager.clearNoComponentsHelper()
+    if @deployInstructions?
+      @deployInstructions.hide()
 
   # True if one of my components owns the generation with this id
   hasGenerationWithId : (id) ->

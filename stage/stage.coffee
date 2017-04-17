@@ -113,9 +113,10 @@ window.init = ()=>
   addEventListeners()
 
   # ------------------------------------ Start the app
+  nanobox.noDeploys = true
   addHost()
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
-  addCluster( clobberBoxDataShim.getDataCluster().serialize() )
+  addCluster( clobberBoxDataShim.getDataCluster().serialize()  )
 
   # Test no deploys
   window.setNoDeploys        = ()-> getBox("host.1").setReadinessState 'no-deploys'
