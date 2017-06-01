@@ -3,7 +3,8 @@ deployInstructions = require 'jade/deploy-instructions'
 module.exports = class DeployInstructions
 
   constructor: ($el) ->
-    @$node = $ deployInstructions( {appName:nanobox.appName} )
+    appName = if nanobox.fqAppName? then nanobox.fqAppName else nanobox.appName
+    @$node = $ deployInstructions( {appName:appName} )
     $el.append @$node
     castShadows @$node
 
