@@ -68,13 +68,14 @@ window.init = ()=>
 
   subscribeToRegistrations = ->
     # Shim, this should be handled by valkrie..
-    PubSub.subscribe 'SCALE.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
-    PubSub.subscribe 'GET_BUNKHOUSES'   , (m, data)-> data.cb [ {id:"a", name:"EC2 1", current:true, state:'active'}, {id:"c", name:"EC2 3", state:"active"} ]
-    PubSub.subscribe 'REGISTER'         , (m, box)=> boxes.push box;
-    PubSub.subscribe 'UNREGISTER'       , (m, box)=> removeBox box
-    PubSub.subscribe 'SCALE.SAVE'       , (m, data)-> console.log("New Scale:"); console.log data; data.submitCb()
-    PubSub.subscribe 'SPLIT.SAVE'       , (m, data)-> console.log("Split:"    ); console.log data; data.submitCb()
-
+    PubSub.subscribe 'SCALE.GET_OPTIONS'   , (m, cb)-> cb scaleMachineTestData.getHostOptions()
+    PubSub.subscribe 'GET_BUNKHOUSES'      , (m, data)-> data.cb [ {id:"a"                                           , name:"EC2 1", current:true, state:'active'}, {id:"c", name:"EC2 3", state:"active"} ]
+    PubSub.subscribe 'REGISTER'            , (m, box)=> boxes.push box;
+    PubSub.subscribe 'UNREGISTER'          , (m, box)=> removeBox box
+    PubSub.subscribe 'SCALE.SAVE'          , (m, data)-> console.log("New Scale:"); console.log data; data.submitCb()
+    PubSub.subscribe 'SPLIT.SAVE'          , (m, data)-> console.log("Split:"    ); console.log data; data.submitCb()
+    PubSub.subscribe 'HOST.RUN-ACTION'     , (m, data)-> console.log "running host action #{data.action}";      setTimeout data.onComplete, Math.random()*1000
+    PubSub.subscribe 'COMPONENT.RUN-ACTION', (m, data)-> console.log "running component action #{data.action}"; setTimeout data.onComplete, Math.random()*1000
 
   addEventListeners = () ->
     PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.uri).switchSubContent 'app-components', data.el
@@ -115,6 +116,21 @@ window.init = ()=>
 
   # ------------------------------------ Start the app
   nanobox.noDeploys = true
+  # These items need to be set in valkrie
+  nanobox.clobberConfig = {}
+  nanobox.clobberConfig.hostActions = [
+    {action:'delete', permission:true}
+    {action:'reboot',  permission:true}
+  ]
+  nanobox.clobberConfig.componentActions = [
+    {action:'refresh', permission:true}
+    {action:'reboot',  permission:false}
+    {action:'rebuild', permission:true}
+    {action:'update',  permission:true}
+    {action:'manage',  permission:true}
+    {action:'delete',  permission:true}
+  ]
+
   addHost()
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
   addCluster( clobberBoxDataShim.getDataCluster().serialize()  )

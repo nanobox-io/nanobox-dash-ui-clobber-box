@@ -10,23 +10,10 @@ module.exports = class AdminManager extends Manager
   build : ($el) ->
     if @isHost
       klass = "host"
-      actions = [
-        {name:"reboot",  short:"Hard Power-Off / Power-On of Server"}
-      ]
-      if @data.appComponents.length == 0 && @data.platformServices.length == 0
-        actions.push {name:"delete",  short:"Delete This Host"}
-      else
-        actions.push {name:"delete",  short:"To Delete, remove all components", klass:"disabled"}
-
+      actions = @getHostActions()
     else
       klass = ""
-      actions = [
-        {name:"refresh", short:"Stop & Restart<br/>Processes"}
-        {name:"reboot",  short:"Reboot<br/>all Containers"}
-        {name:"rebuild", short:"Kill & Replace<br/>all Containers"}
-        {name:"update",  short:"Update to Latest<br/>Stable Config"}
-        {name:"manage",  short:"Connection Details,<br/>Deletion, etc."}
-      ]
+      actions = @getComponentActions()
 
     $node = $ admin( {actions:actions, klass:klass} )
     $el.append $node
@@ -34,26 +21,50 @@ module.exports = class AdminManager extends Manager
 
     $('.action', $node).on 'click', (e)=> @runAction $(e.currentTarget)
 
+  # ------------------------------------ Events
+
   runAction : ($btn) ->
-    action = $btn.attr('data-action')
     $btn.addClass 'running'
-    if action == "update"
-      action = "update_service"
+    data =
+      action     : $btn.attr('data-action')
+      onComplete : ()-> $btn.removeClass 'running'
 
-    # When delete, actually use the DELETE method and no action
-    if action == 'delete'
-      method = 'DELETE'
-      action = ''
+    if @isHost
+      PubSub.publish 'HOST.RUN-ACTION', data
     else
-      method = 'PATCH'
+      PubSub.publish 'COMPONENT.RUN-ACTION', data
 
-    # If this is the manager action:
-    if action == "manage"
-      window.location = @adminUrl
-    # Else this is an action like reboot, refresh, etc:
+  # ------------------------------------ Helpers
+
+  getHostActions : () ->
+    actions = [
+      {name:"reboot",  short:"Hard Power-Off / Power-On of Server"}
+    ]
+    if @data.appComponents.length == 0 && @data.platformServices.length == 0
+      actions.push {name:"delete",  short:"Delete This Host"}
     else
-      $.ajax
-        url     : "#{@actionUrl}/#{action}"
-        type    : method
-        success : (results)->
-          $btn.removeClass 'running'
+      actions.push {name:"delete",  short:"To Delete, remove all components", klass:"disabled"}
+
+    @markDisallowedActions actions, nanobox.clobberConfig.hostActions
+
+  getComponentActions : () ->
+    actions = [
+      {name:"refresh", short:"Stop & Restart<br/>Processes"}
+      {name:"reboot",  short:"Reboot<br/>all Containers"}
+      {name:"rebuild", short:"Kill & Replace<br/>all Containers", }
+      {name:"update",  short:"Update to Latest<br/>Stable Config"}
+      {name:"manage",  short:"Connection Details,<br/>Deletion, etc."}
+    ]
+    return @markDisallowedActions actions, nanobox.clobberConfig.componentActions
+
+  # Loop through all the actions and see if the user has permission
+  # to do this action. If not, add the disabled class to that obj
+  markDisallowedActions : (actions, permissions) ->
+    for action in actions
+      # find the permission object with a name that matches this action. ex obj.action == 'reboot'
+      actionMatch = permissions.filter (obj) -> obj.action == action.name
+      # If permission is false, add disabled class
+      if !actionMatch[0].permission
+        action.klass = 'disabled'
+
+    return actions
