@@ -74,8 +74,8 @@ window.init = ()=>
     PubSub.subscribe 'UNREGISTER'          , (m, box)=> removeBox box
     PubSub.subscribe 'SCALE.SAVE'          , (m, data)-> console.log("New Scale:"); console.log data; data.submitCb()
     PubSub.subscribe 'SPLIT.SAVE'          , (m, data)-> console.log("Split:"    ); console.log data; data.submitCb()
-    PubSub.subscribe 'HOST.RUN-ACTION'     , (m, data)-> console.log "running host action #{data.action}";      setTimeout data.onComplete, Math.random()*1000
-    PubSub.subscribe 'COMPONENT.RUN-ACTION', (m, data)-> console.log "running component action #{data.action}"; setTimeout data.onComplete, Math.random()*1000
+    PubSub.subscribe 'HOST.RUN-ACTION'     , (m, data)-> console.log "running host action `#{data.action}` on host `#{data.hostId}`";                setTimeout data.onComplete, Math.random()*1000
+    PubSub.subscribe 'COMPONENT.RUN-ACTION', (m, data)-> console.log "running component action `#{data.action}` on component `#{data.componentId}`"; setTimeout data.onComplete, Math.random()*1000
 
   addEventListeners = () ->
     PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> getBox(data.uri).switchSubContent 'app-components', data.el

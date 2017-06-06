@@ -51,7 +51,7 @@ module.exports = class Box
         when 'host'      then id = @data.name
 
       switch @subState
-        when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data.actionPath, @data.adminPath, @data
+        when 'admin'               then @subManager = new AdminManager @$subContent, @kind=='host', @data, id
         when 'app-components'      then @subManager = new AppComponents @$subContent, @data.appComponents, @resizeSubContent, @_address
         when 'console'             then @subManager = new ConsoleManager @$subContent, @kind, data
         when 'tunnel'              then @subManager = new ConsoleManager @$subContent, @kind, data, true
