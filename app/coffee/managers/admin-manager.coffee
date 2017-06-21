@@ -4,6 +4,7 @@ admin   = require 'jade/admin'
 module.exports = class AdminManager extends Manager
 
   constructor : ($el, @isHost, @data, @id) ->
+    console.log @data
     @build $el
     super()
 
@@ -30,7 +31,7 @@ module.exports = class AdminManager extends Manager
       onComplete : ()-> $btn.removeClass 'running'
 
     if @isHost
-      data.hostId = @id
+      data.hostId = @data.id
       PubSub.publish 'HOST.RUN-ACTION', data
     else
       data.componentId = @id
