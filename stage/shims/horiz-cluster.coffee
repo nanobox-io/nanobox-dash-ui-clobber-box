@@ -7,7 +7,9 @@ module.exports = class HorizCluster
   constructor: (totalMembers=4, totalGenerations=1) ->
     @id                = "cluster.#{HorizCluster.clusterCount}"
     @name              = "Main App"
+    @running           = true
     @state             = "active"
+    @status            = "online"
     @serviceType       = "golang"
     @category          = "web"
     @clusterable       = true
@@ -42,6 +44,8 @@ module.exports = class HorizCluster
     id                : @id
     uid               : @id
     state             : @state
+    running           : @running
+    status            : @status
     name              : @name
     scalesHoriz       : @scalesHoriz
     category          : @category
@@ -51,7 +55,7 @@ module.exports = class HorizCluster
     serviceType       : @serviceType
     adminPath         : @adminPath
     uri               : @uri
-    state             : 'provisioning'
+    state             : @state
     clusterShapeIs    : @clusterShapeIs
     clusterShapeCanBe : @clusterShapeCanBe
     topology          : @topology

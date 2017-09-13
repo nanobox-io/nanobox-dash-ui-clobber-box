@@ -10,6 +10,8 @@ module.exports = class DataCluster
     @id                = "cluster.#{DataCluster.clusterCount}"
     @name              = "Customers DB"
     @state             = "active"
+    @status            = "online"
+    @running           = false
     @serviceType       = "mysql-db"
     @category          = "data"
     @clusterable       = true
@@ -41,6 +43,7 @@ module.exports = class DataCluster
           status        : "online"
           role          : role
           serverSpecsId : "d16"
+          running       : true
       @generations.push generation
 
     #
@@ -53,6 +56,8 @@ module.exports = class DataCluster
     id                : @id
     uid               : @id
     state             : @state
+    status            : @online
+    running           : @running
     name              : @name
     category          : @category
     clusterable       : @clusterable

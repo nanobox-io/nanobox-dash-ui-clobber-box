@@ -7,6 +7,7 @@ module.exports = class Host
 
   constructor: (makeLotsOfComponents=false) ->
     @state          = "active"
+    @running        = true
     @id             = "host.#{++Host.hostCount}"
     @name           = "ec2.#{Host.hostCount}"
     @serverSpecsId  = "d16"
@@ -55,6 +56,7 @@ module.exports = class Host
   serialize : () ->
     state              : @state
     id                 : @id
+    running            : @running
     name               : @name
     serverSpecsId      : @serverSpecsId
     bunkhouseId        : @bunkhouseId

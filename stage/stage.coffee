@@ -119,8 +119,10 @@ window.init = ()=>
   # These items need to be set in valkrie
   nanobox.clobberConfig = {}
   nanobox.clobberConfig.hostActions = [
-    {action:'delete', permission:true}
+    {action:'delete',  permission:true}
     {action:'reboot',  permission:true}
+    {action:'stop',    permission:true}
+    {action:'start',   permission:true}
   ]
   nanobox.clobberConfig.componentActions = [
     {action:'refresh', permission:true}
@@ -129,6 +131,8 @@ window.init = ()=>
     {action:'update',  permission:true}
     {action:'manage',  permission:true}
     {action:'delete',  permission:true}
+    {action:'stop',    permission:true}
+    {action:'start',   permission:true}
   ]
 
   addHost()

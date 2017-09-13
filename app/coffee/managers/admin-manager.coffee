@@ -4,7 +4,6 @@ admin   = require 'jade/admin'
 module.exports = class AdminManager extends Manager
 
   constructor : ($el, @isHost, @data, @id) ->
-    console.log @data
     @build $el
     super()
 
@@ -43,6 +42,12 @@ module.exports = class AdminManager extends Manager
     actions = [
       {name:"reboot",  short:"Hard Power-Off / Power-On of Server"}
     ]
+    if @data.state == 'active' && @data.running?
+      if @data.running
+        actions.push {name:"stop",  short:"Stop this<br/>server"}
+      else
+        actions.push {name:"start",  short:"Start this<br/>server"}
+
     if @data.appComponents.length == 0 && @data.platformServices.length == 0
       actions.push {name:"delete",  short:"Delete This Host"}
     else
@@ -54,10 +59,17 @@ module.exports = class AdminManager extends Manager
     actions = [
       {name:"refresh", short:"Stop & Restart<br/>Processes"}
       {name:"reboot",  short:"Reboot<br/>all Containers"}
-      {name:"rebuild", short:"Kill & Replace<br/>all Containers", }
-      {name:"update",  short:"Update to Latest<br/>Stable Config"}
+      {name:"update", short:"Rebuild Containers<br/>w/ Latest Stable Images", }
       {name:"manage",  short:"Connection Details,<br/>Deletion, etc."}
     ]
+
+    # Allow starting and stopping if state is active
+    if @data.state == "active" && @data.running?
+      if @data.running
+        actions.push {name:"stop",  short:"Stop this<br/>container"}
+      else
+        actions.push {name:"start",  short:"Start this<br/>container"}
+
     return @markDisallowedActions actions, nanobox.clobberConfig.componentActions
 
   # Loop through all the actions and see if the user has permission
@@ -67,7 +79,7 @@ module.exports = class AdminManager extends Manager
       # find the permission object with a name that matches this action. ex obj.action == 'reboot'
       actionMatch = permissions.filter (obj) -> obj.action == action.name
       # If permission is false, add disabled class
-      if !actionMatch[0].permission
+      if !actionMatch[0]?.permission
         action.klass = 'disabled'
 
     return actions

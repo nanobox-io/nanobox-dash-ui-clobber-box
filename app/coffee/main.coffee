@@ -39,6 +39,9 @@ class ClobberBox
     clusterShapeCanBe : cluster.clusterShapeCanBe
     topology          : cluster.topology
     tunnelCredentials : cluster.tunnelCredentials
+    running           : cluster.running
+    state             : cluster.state
+    status            : cluster.status
     id                : generation.id
     generationState   : generation.state
     generationStatus  : generation.status

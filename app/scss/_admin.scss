@@ -1,7 +1,7 @@
-.admin-manage    {background:white; padding:45px 12px 50px; display:flex; align-items: center; width:600px;
+.admin-manage    {background:white; padding:45px 5px 50px; display:flex; align-items: center; width:600px;
   .actions       {display: flex; justify-content: space-between; width:100%;
     .action      {display: flex; flex-direction: column; align-items: center; width:120px; cursor:pointer;
-      &.running  {pointer-events:none; position: relative; color:#36A624; opacity:0.8; 
+      &.running  {pointer-events:none; position: relative; color:#36A624; opacity:0.8;
         .name    {color:#36A624;}
         &:after  {content:'RUNNING..'; position: absolute; top:-23px; padding:5px; margin-left:2px; font-style: italic; }
         svg      {
@@ -14,16 +14,6 @@
       }
       .name      {color:#029ADB;  text-transform: uppercase; margin:8px 0 5px; font-size:14px; }
       .short     {text-align: center; font-style: italic; color:#547F91; font-size:12px;  }
-      &.manage,
-      &.update   {width: 160px; position:relative;
-        &:before {content:""; display:block; height:120px; position: absolute; border-left:solid 1px #EEE; top:-5px;}
-      }
-      &.manage   {
-        &:before {left:-4px;}
-      }
-      &.update   {
-        &:before {left:12px; }
-      }
       &:hover    {
         .name    {color:#005980; }
         svg      {
