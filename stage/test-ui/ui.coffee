@@ -34,6 +34,11 @@ module.exports = class UI
       state = $("select#gen-states").val()
       setGenerationState id, state
 
+    $("button#gen-status-go").on 'click', ()=>
+      id = $("select#generations-status-selector").val()
+      status = $("select#gen-status").val()
+      setGenerationStatus id, status
+
     $("button#add-generation").on 'click', ()=>
       addGeneration $("select#add-generation-select").val()
 

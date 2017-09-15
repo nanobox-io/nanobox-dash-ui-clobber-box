@@ -1,4 +1,5 @@
 .box                          {width:$component-width; margin-bottom:20px; opacity:1;  // @include transition(all, 400ms, cubic-bezier(0.960, 0.000, 0.075, 1.000));
+  &.offline                   {opacity:0.8}
   $easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   .white-box                  {padding:0 10px; height:60px; background:white; display:flex; align-items: center;}
   .stats-strip                {margin:0 0 0 auto;  }
@@ -233,4 +234,5 @@
       }
     }
   }
+  .zzz{ position: absolute; top:-18px; left:10px; width:36px; height:36px; border: solid 3px white; border-radius: 50%; background:#19BFFF; display: flex; align-items: center; justify-content: center; box-shadow:0px 2px 3px 2px rgba(black, 0.15);  }
 }

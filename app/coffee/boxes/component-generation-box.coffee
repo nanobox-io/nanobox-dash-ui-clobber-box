@@ -16,7 +16,7 @@ module.exports = class ComponentGenerationBox extends Box
 
     @generationData = data.generationData
     @data           = @componentData
-    compiledData    = { id: @generationData.id, state: @generationData.state, adminPath:@data.adminPath, actionPath:@data.actionPath }
+    compiledData    = { id: @generationData.id, state: @generationData.state, adminPath:@data.adminPath, actionPath:@data.actionPath, status:@generationData.status }
 
     $node = $ componentBox( @componentData )
     $el.append $node

@@ -16,6 +16,7 @@ module.exports = class PlatformComponent
     isSplitable   : @isSplitable
     mode          : @mode
     components    : @components
+    status        : 'online'
 
 
 {

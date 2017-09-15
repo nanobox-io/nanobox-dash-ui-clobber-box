@@ -8,6 +8,7 @@ module.exports = class Host
   constructor: (makeLotsOfComponents=false) ->
     @state          = "active"
     @running        = true
+    @status         = 'online'
     @id             = "host.#{++Host.hostCount}"
     @name           = "ec2.#{Host.hostCount}"
     @serverSpecsId  = "d16"
@@ -21,7 +22,7 @@ module.exports = class Host
       new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
     ]
     @appComponents  = []
-    # @createComponents makeLotsOfComponents
+    @createComponents makeLotsOfComponents
 
   createComponents : (makeLotsOfComponents) ->
     if !makeLotsOfComponents
@@ -55,6 +56,7 @@ module.exports = class Host
 
   serialize : () ->
     state              : @state
+    status             : @status
     id                 : @id
     running            : @running
     name               : @name

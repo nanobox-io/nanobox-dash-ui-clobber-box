@@ -63,6 +63,10 @@ window.init = ()=>
   window.setGenerationState = (id, state)->
     getParentOfGeneration(id).setGenerationState id, state
 
+  # Used to set the status of any generations
+  window.setGenerationStatus = (id, status)->
+    getParentOfGeneration(id).setGenerationStatus id, status
+
 
   # ------------------------------------ Subscriptions
 
@@ -135,7 +139,7 @@ window.init = ()=>
     {action:'start',   permission:true}
   ]
 
-  addHost()
+  addHost(false)
   addCluster( clobberBoxDataShim.getHorizCluster().serialize() )
   addCluster( clobberBoxDataShim.getDataCluster().serialize()  )
 

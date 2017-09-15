@@ -21,6 +21,7 @@ class ClobberBox
     @stats = @box.stats
 
   setState              : (state) -> @box.setState state
+  setStatus             : (status) -> @box.setStatus status
   dontAnimateTransition : ()      -> @box.removeSubContentAnimations()
   destroy               : ()      -> @box.destroy()
 

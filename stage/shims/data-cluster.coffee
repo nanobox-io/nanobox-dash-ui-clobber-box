@@ -56,7 +56,7 @@ module.exports = class DataCluster
     id                : @id
     uid               : @id
     state             : @state
-    status            : @online
+    status            : @status
     running           : @running
     name              : @name
     category          : @category

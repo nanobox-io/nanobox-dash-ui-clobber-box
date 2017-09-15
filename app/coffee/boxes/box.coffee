@@ -7,6 +7,7 @@ PlatformComponents  = require 'managers/platform-components'
 ScaleManager        = require 'managers/scale-manager'
 SplitManager        = require 'managers/split-manager'
 StatsManager        = require 'managers/stats-manager'
+zzz                 = require 'jade/zzz'
 
 module.exports = class Box
 
@@ -77,15 +78,23 @@ module.exports = class Box
 
   # Set a generation's state
   setGenerationState : (id, state) ->
-    for componentData in @data.appComponents
-      for generation in componentData.generations
-        # Save new state in data obj
-        if id == generation.id
-          generation.state = state
+    generation = @getGenerationById(id)
+    return if !generation?
+    generation.state = state
 
-          # If sub components are open, update visual state as well
-          if @subState == 'app-components'
-            @subManager.updateGenerationState id, state
+    # If sub components are open, update visual state as well
+    if @subState == 'app-components'
+      @subManager.updateGenerationState id, state
+
+  # Set a generation's status
+  setGenerationStatus : (id, status) ->
+    generation = @getGenerationById(id)
+    return if !generation?
+    generation.status = status
+
+    # If sub components are open, update visual state as well
+    if @subState == 'app-components'
+      @subManager.updateGenerationStatus id, status
 
   # ------------------------------------ Sub content
 
@@ -164,6 +173,27 @@ module.exports = class Box
       when 'active'         then @activeState()
       when 'decomissioning' then @animatingState 'destroy', @getStateMessage(@state)
       when 'archived'       then @destroy()
+    @setStatus()
+
+  setStatus : (status) ->
+    @$node.removeClass 'offline'
+    @status = @getStatus(status)
+    if @status == 'offline' && @getLatestState() == 'active'
+      @addZZZ()
+    else
+      @removeZZZ()
+
+  addZZZ : () ->
+    @$node.addClass 'offline'
+    @$zzz = $ zzz( {} )
+    castShadows(@$zzz)
+    @$node.append @$zzz
+
+  removeZZZ : () ->
+    @$node.removeClass 'offline'
+    if @$zzz?
+      @$zzz.remove()
+      @$zzz = null
 
   animatingState : (animationKind, message) ->
     if @animationKind == animationKind
@@ -213,6 +243,16 @@ module.exports = class Box
 
   # ------------------------------------ Helpers
 
+  getLatestState : () ->
+    return @state if @state?
+    return @data.state
+
+  getStatus : (status) ->
+    return status if status?
+    return @status if @status
+    return @data.status
+
+
   setHeightToContent : () -> @$sub.css height: @$subContent[0].offsetHeight
 
   getName : () ->
@@ -239,6 +279,14 @@ module.exports = class Box
       when 'provisioning'   then "#{@getName()} : Provisioning"
       when 'defunct'        then "#{@getName()} : Defunct"
       when 'decomissioning' then "#{@getName()} : Decomissioning"
+
+  getGenerationById : (id) ->
+    for componentData in @data.appComponents
+      for generation in componentData.generations
+        # Save new state in data obj
+        if id == generation.id
+          return generation
+    return null
 
   # ------------------------------------ Stats
 

@@ -5,6 +5,7 @@ module.exports = class AppComponent
   constructor : (kind='web', @type="ruby", scalesHorizontally=true, scalesRedund=false, hostId) ->
     @generationCount   = 1
     @state             = 'active'
+    @status            = 'online'
     @serverSpecsId     = "b3"
     @id                = "#{kind}.#{++AppComponent.appComponentCount}"
     @name              = "#{kind} #{AppComponent.appComponentCount}"
@@ -23,7 +24,8 @@ module.exports = class AppComponent
 
   addGeneration : (state='provisioning') ->
     obj =
-      state : state,
+      state : state
+      status: 'online'
       id    : "#{@id}.gen#{@generationCount++}"
     if Math.random() > 0.5 then obj.state = 'active'
     @generations.push obj
@@ -32,6 +34,7 @@ module.exports = class AppComponent
     data =
       generations       : @generations
       state             : @state
+      status            : @status
       serverSpecsId     : @serverSpecsId
       id                : @id
       name              : @name

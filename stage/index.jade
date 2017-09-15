@@ -40,6 +40,14 @@ html(lang="en")
         .txt state to
         select.states#gen-states
         button#generations go
+      .state
+        .txt Set
+        select.generations#generations-status-selector
+        .txt status to
+        select#gen-status
+          option(value="online") Online
+          option(value="offline") Offline
+        button#gen-status-go go
       .label Components
       .state
         .txt Add Component to

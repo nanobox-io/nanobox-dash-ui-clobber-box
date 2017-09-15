@@ -76,9 +76,10 @@ module.exports = class AppComponents extends Manager
         break
 
   updateGenerationState : (id, state) ->
-    for generation in @generations
-      if id == generation.box.id
-        generation.box.setState state
+    @getGenerationById(id).box.setState state
+
+  updateGenerationStatus : (id, status) ->
+    @getGenerationById(id).box.setStatus status
 
   checkForGenerations : () ->
     if @generations.length == 0
@@ -91,3 +92,10 @@ module.exports = class AppComponents extends Manager
       generation.box.off()
       generation.destroy()
     super()
+
+  # ------------------------------------ Helpers
+
+  getGenerationById : (id) ->
+    for generation in @generations
+      if id == generation.box.id
+        return generation
