@@ -78,7 +78,7 @@ module.exports = class HostBox extends Box
 
 
   # When there are no deploys, this gets called
-  setReadinessState : (state) ->
+  setReadinessState : (state, appType="nbx") ->
     if @readyForDeploysIsShown
       @$readyForAppDeploy.attr({class:"pre-deploy"}).addClass state
       return
@@ -89,7 +89,7 @@ module.exports = class HostBox extends Box
     @$serviceIcons.append @$readyForAppDeploy
     castShadows @$serviceIcons
 
-    @deployInstructions = new DeployInstructions @$el
+    @deployInstructions = new DeployInstructions @$el, appType
 
   hideNoDeploysInstructions : () =>
     delete nanobox.noDeploys

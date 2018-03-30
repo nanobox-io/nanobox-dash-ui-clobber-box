@@ -1,34 +1,54 @@
-.deploy-instructions
+.deploy-instructions(class="#{appType}")
   .main
     img.shadow-icon(data-src="deploy-inst")
     .title Deploy your app
     .sub-title Show Instructions
-  .details
-    .close-btn
-      img.shadow-icon(data-src="close-x")
-    .detail
-      .icon
-        img.shadow-icon(data-src="deploy-laptop")
-      .info
-        .title Install Nanobox 
-        .sub
-          a(href="//nanobox.io/download/" target="_blank") Download nanobox
-    .detail
-      .icon
-        img.shadow-icon(data-src="deploy-code")
-      .info
-        .title Develop your app
-        .sub
-          .txt <a href="//guides.nanobox.io" target="_blank">Choose Your Language</a>
-          //- .code
-          //-   .line <span>nanobox</span> run
-    .detail
-      .icon
-        img.shadow-icon(data-src="deploy-app-drip")
-      .info
-        .title Deploy
-        .sub
-          .txt cd into your app's directory and run
-          .code
-            .line <span>nanobox</span> remote add #{appName}
-            .line <span>nanobox</span> deploy
+    
+  if appType == 'nbx'
+    .details
+      .close-btn
+        img.shadow-icon(data-src="close-x")
+      .code.meta cd into your app directory to run the following commands
+      .title Install the nbx tool
+      .code
+        | cd /usr/local/bin
+        | wget URL
+        | chmod +x nbx
+        | cd -
+      .title Create Dockerfiles for each service
+      .code web.Dockerfile
+      .title Add any databases
+      .code nbx add db nanobox/mysql
+      .title Push Live
+      .code nbx push #{appName}
+      .code.meta.note Note : Full documentation is currently being written. In the mean time, contact us with any questions. 
+  else
+    .details
+      .close-btn
+        img.shadow-icon(data-src="close-x")
+      .detail
+        .icon
+          img.shadow-icon(data-src="deploy-laptop")
+        .info
+          .title Install Nanobox 
+          .sub
+            a(href="//nanobox.io/download/" target="_blank") Download nanobox
+      .detail
+        .icon
+          img.shadow-icon(data-src="deploy-code")
+        .info
+          .title Develop your app
+          .sub
+            .txt <a href="//guides.nanobox.io" target="_blank">Choose Your Language</a>
+            //- .code
+            //-   .line <span>nanobox</span> run
+      .detail
+        .icon
+          img.shadow-icon(data-src="deploy-app-drip")
+        .info
+          .title Deploy
+          .sub
+            .txt cd into your app's directory and run
+            .code
+              .line <span>nanobox</span> remote add #{appName}
+              .line <span>nanobox</span> deploy
