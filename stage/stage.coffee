@@ -147,7 +147,3 @@ window.init = ()=>
   window.setNoDeploys        = ()-> getBox("host.1").setReadinessState 'no-deploys', 'legacy'
   window.setPlatformBuilding = ()-> getBox("host.1").setReadinessState 'platform-building'
   window.getComponentData    = ()-> getBox("host.1").getDataForUsageBreakdown()
-
-setTimeout ()=>
-  setNoDeploys()
-, 2000
