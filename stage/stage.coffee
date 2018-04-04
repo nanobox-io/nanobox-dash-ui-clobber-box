@@ -7,7 +7,7 @@ $holder = $ ".holder"
 
 nanobox.noDeploys = false
 nanobox.appName   = 'fishfeather'
-nanobox.fqName = 'flock/fishfeather'
+nanobox.fqAppName = 'flock/fishfeather'
 
 window.init = ()=>
   statsDataSimultor.createFakeStatDataProvider()
@@ -144,6 +144,6 @@ window.init = ()=>
   addCluster( clobberBoxDataShim.getDataCluster().serialize()  )
 
   # Test no deploys
-  window.setNoDeploys        = ()-> getBox("host.1").setReadinessState 'no-deploys', 'legacy'
+  window.setNoDeploys        = ()-> getBox("host.1").setReadinessState 'no-deploys', 'nbx'
   window.setPlatformBuilding = ()-> getBox("host.1").setReadinessState 'platform-building'
   window.getComponentData    = ()-> getBox("host.1").getDataForUsageBreakdown()
