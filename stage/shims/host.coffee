@@ -20,6 +20,7 @@ module.exports = class Host
       new PlatformComponent( "hm", "monitor", "nanobox/pulse", @id)
       new PlatformComponent( "mr", "pusher", "nanobox/mist", @id)
       new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
+      new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
     ]
     @appComponents  = []
     @createComponents makeLotsOfComponents

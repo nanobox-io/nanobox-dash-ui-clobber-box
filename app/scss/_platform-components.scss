@@ -1,0 +1,9 @@
+.platform-components   {
+  &.six-components     {
+    .mini-component    {width:97px;
+      // .icon-box .label {font-size:10px;}
+      .face .holder    {transform: scale(0.9); margin-left: -4px}
+    }
+    .arrow-pointer     {display: none}
+  }
+}

@@ -9,6 +9,8 @@ module.exports = class PlatformComponents extends Manager
     @createComponents @$el, platformServices
 
   createComponents : (@$el, platformServices) ->
+    if platformServices.length == 6
+      @$el.addClass "six-components"
     @components = []
     for componentData in platformServices
       componentIds = []
