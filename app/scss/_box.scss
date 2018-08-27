@@ -59,7 +59,7 @@
   // HOST BOX
   &.host-box                  {
     .main-content             {
-      .name                   {font-size:30px; margin-right:10px;}
+      .name                   {font-size:30px; margin-right:10px; max-width: 92px; overflow: hidden; text-overflow: ellipsis;}
       .service-icons          {cursor:pointer;
         .small-icons          {display:flex; align-items:center;
           .service-icon       {width: 38px; margin:1px 1px 0 2px; position:relative;

@@ -1,6 +1,9 @@
 Manager        = require 'managers/manager'
 NameMachine    = require 'misc/name-machine'
 
+# TODO : Add the app name or id to the tunnel command ex:
+# `nanobox tunnel my-app-name-or-id data.db`
+
 module.exports = class ConsoleManager extends Manager
 
   constructor: ($el, kind, data, isTunnel) ->

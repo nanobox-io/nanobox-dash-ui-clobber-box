@@ -20,7 +20,7 @@ module.exports = class Host
       new PlatformComponent( "hm", "monitor", "nanobox/pulse", @id)
       new PlatformComponent( "mr", "pusher", "nanobox/mist", @id)
       new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
-      new PlatformComponent( "gs", "warehouse", "nanobox/hoarder", @id)
+      new PlatformComponent( "as", "resolver", "nanobox/resolver", @id)
     ]
     @appComponents  = []
     @createComponents makeLotsOfComponents
@@ -29,6 +29,8 @@ module.exports = class Host
     if !makeLotsOfComponents
       @addComponent('web', 'tolmark3', true, true)
       @addComponent('db', 'mongo12', false, true)
+      @addComponent('db', 'mongo13', false, true)
+      @addComponent('db', 'mongo15', false, true)
     else
       @addComponent()
       @addComponent('db',  'mongo-engine', false)

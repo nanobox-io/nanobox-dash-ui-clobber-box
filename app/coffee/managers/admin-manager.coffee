@@ -8,12 +8,18 @@ module.exports = class AdminManager extends Manager
     super()
 
   build : ($el) ->
-    if @isHost
-      klass = "host"
-      actions = @getHostActions()
-    else
-      klass = ""
-      actions = @getComponentActions()
+    @adminKind = @getKind()
+
+    switch @adminKind
+      when 'host'
+        klass = "host"
+        actions = @getHostActions()
+      when 'cluster-host'
+        klass = "cluster-host"
+        actions = @getClusterHostActions()
+      else
+        klass = ""
+        actions = @getComponentActions()
 
     $node = $ admin( {actions:actions, klass:klass} )
     $el.append $node
@@ -29,14 +35,30 @@ module.exports = class AdminManager extends Manager
       action     : $btn.attr('data-action')
       onComplete : ()-> $btn.removeClass 'running'
 
-    if @isHost
-      data.hostId = @data.id
-      PubSub.publish 'HOST.RUN-ACTION', data
-    else
-      data.componentId = @id
-      PubSub.publish 'COMPONENT.RUN-ACTION', data
+    switch @adminKind
+      when 'host'
+        data.hostId = @data.id
+        PubSub.publish 'HOST.RUN-ACTION', data
+      when 'cluster-host'
+        data.hostId = @id
+        PubSub.publish 'CLUSTER-HOST.RUN-ACTION', data
+      else
+        data.componentId = @id
+        PubSub.publish 'COMPONENT.RUN-ACTION', data
+
 
   # ------------------------------------ Helpers
+
+  getKind : () ->
+     # Is main host
+     if @isHost
+       return "host"
+     # Is a host that is part of a cluster
+     else if @data.memberData?
+       return "cluster-host"
+     # Is A component
+     else
+       return 'component'
 
   getHostActions : () ->
     actions = [
@@ -71,6 +93,13 @@ module.exports = class AdminManager extends Manager
         actions.push {name:"start",  short:"Start this<br/>container"}
 
     return @markDisallowedActions actions, nanobox.clobberConfig.componentActions
+
+  getClusterHostActions : () ->
+    actions = [
+     {name:"reboot",  short:"Reboot<br/>all Containers"}
+    ]
+    return @markDisallowedActions actions, nanobox.clobberConfig.hostActions
+
 
   # Loop through all the actions and see if the user has permission
   # to do this action. If not, add the disabled class to that obj

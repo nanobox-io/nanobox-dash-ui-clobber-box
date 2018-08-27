@@ -22,6 +22,7 @@ module.exports = class HostInstance extends Box
 
   buildNav : ($node) ->
     navItems = [
+      {txt:"Admin",   icon:'admin', event:'SHOW.ADMIN'}
       {txt:"Console", icon:'console', event:'SHOW.CONSOLE'}
       {txt:"Stats",   icon:'stats',   event:'SHOW.STATS'  }
     ]
